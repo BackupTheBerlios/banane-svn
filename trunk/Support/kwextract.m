@@ -6,7 +6,7 @@
 %  $Id$
 %
 % AIM:
-%  Bla21, Extracts keywords and their values from function calls.
+%  Bla22, Extracts keywords and their values from function calls.
 %
 % DESCRIPTION:
 %  kwextract enables argument passing to a function in the form
