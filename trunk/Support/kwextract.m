@@ -3,7 +3,7 @@
 %  kwextract()
 %
 % VERSION:
-%  $Id$
+%  "$Id$"
 %
 % AIM:
 %  Bla17, Extracts keywords and their values from function calls.
