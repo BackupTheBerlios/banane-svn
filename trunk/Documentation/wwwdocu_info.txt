@@ -60,9 +60,9 @@ Primary table "routines" initialized with command
 CREATE TABLE routines (name VARCHAR(128), aim VARCHAR(128),
 description VARCHAR(1024), category VARCHAR(512), PRIMARY KEY(name));
 
-Added another column for the filepath:
+Added other colums later:
 ALTER TABLE routines ADD fullpath VARCHAR(128) AFTER name;
-
+ALTER TABLE routines ADD version VARCHAR(128) AFTER fullpath;
 
 Secondary table "inputs" initialized with
 CREATE TABLE inputs (name VARCHAR(128), argument VARCHAR(128),

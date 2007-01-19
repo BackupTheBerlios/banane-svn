@@ -4,7 +4,7 @@ $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 #$bananepath="/home/athiel/MATLAB/Sources/Banane/";
 
 # path in lib must be known at compile time, therefore, no 
-# concatenation with $# bananepath ist possible and it is 
+# concatenation with $bananepath ist possible and it is 
 # given here explicitely
 use lib "/home/groups/banane/htdocs/wwwcopy/Banane/Documentation/Perl/";
 #use lib "/home/athiel/MATLAB/Sources/Banane/Documentation/Perl/";
@@ -43,7 +43,7 @@ if ($file->[0]) {
     or die "Couldn't connect to database: " . DBI->errstr;
 
   # prepare databse querys
-  my $routines_replacehandle = $dbh->prepare_cached("REPLACE INTO routines (name,fullpath,aim,description,category) VALUES (?,?,?,?,?)");
+  my $routines_replacehandle = $dbh->prepare_cached("REPLACE INTO routines (name,fullpath,version,aim,description,category) VALUES (?,?,?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
@@ -75,7 +75,7 @@ if ($file->[0]) {
     # insert header information into the database tables "routines", 
     # "inputs", "optinputs" and "outputs" 
     my $success = 1;
-    $success &&= $routines_replacehandle->execute($head{name},$filename,$head{aim},$head{description},$head{category});
+    $success &&= $routines_replacehandle->execute($head{name},$filename,$head{version},$head{aim},$head{description},$head{category});
 
     # There may be multiple inputs, thus use loop here
     foreach (@{$head{inputs}->[0]}) {
