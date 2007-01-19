@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Berlios
+dbserver="db.berlios.de"
+dbname="banane";
+dbuser="banane";
+dbpasswd="TIpKEPc26U";
+
+webpath="http://banane.berlios.de/wwwcopy/Banane/"
+
+# Local
+#dbserver="localhost"
+#dbname="banane";
+#dbuser="athiel";
+#dbpasswd="";
+
+#webpath="http://banane.berlios.de/wwwcopy/Banane/"
+
+
+case "$1" in
+  "db"   ) echo $dbserver 
+           echo $dbname
+           echo $dbuser 
+           echo $dbpasswd
+           ;;
+
+  "web"   ) echo $webpath
+           ;;
+esac
