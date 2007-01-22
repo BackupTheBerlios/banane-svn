@@ -191,9 +191,9 @@ print "$result->[3]\n";
 print "$result->[12]\n";
 
 my $al="";
-foreach (@{$result->[12]}) {$al=$al.$_->[1];}
-
-print "$al\n";
+foreach (@{$result->[12]}) {
+print "$_->[1]\n";
+$al=$al.$_->[1];}
 
 return ("name"=>$$result[0],
         "version"=>$$result[1],
