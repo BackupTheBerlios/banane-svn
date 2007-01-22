@@ -103,9 +103,9 @@ $return=$item{header}}
                 ...!headerstop
                 ...!name
                 ...!version
-                ...!aim
                 ...!author
                 ...!date
+                ...!aim
                 ...!description
                 ...!category
                 ...!syntax
@@ -147,6 +147,8 @@ $return=$item{header}}
               ...!headerstop
               ...!name
               ...!version
+                ...!author
+                ...!date
                 ...!aim
                 ...!description
                 ...!category
@@ -159,7 +161,7 @@ $return=$item{header}}
                 ...!example
                 ...!also
               "%" /\ */ /[A-Za-z_][A-Za-z0-9_]*/ /(\(\))?/ nl
-                { print"$item{__PATTERN2__}"; $return = $item{__PATTERN2__} }
+                { $return = $item{__PATTERN2__} }
 
     emptyline : "%" nl
 
