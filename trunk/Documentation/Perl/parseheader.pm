@@ -179,7 +179,7 @@ my $syn="";
 foreach (@{$result->[5]}) {$syn=$syn."<BR>".$_->[1];}
 
 my $restr="";
-foreach (@{$result->[9]}) {$restr=$restr." ".$_->[1];}
+foreach (@{$result->[9]->[0]}) {$restr=$restr." ".$_->[1];}
 
 my $proc="";
 foreach (@{$result->[10]}) {$proc=$proc." ".$_->[1];}
@@ -191,7 +191,7 @@ foreach (@{$result->[11]}) {$exa=$exa."<BR>".$_->[1];}
 print "$result->[9]->[0]->[0]->[1]\n";
 
 my $al="";
-foreach (@{$result->[12]}) {
+foreach (@{$result->[12]->[0]}) {
 print "$_->[1]\n";
 $al=$al.$_->[1];}
 
