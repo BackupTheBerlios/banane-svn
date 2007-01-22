@@ -73,6 +73,7 @@
 %
 % SEE ALSO:
 %  <A>RoutineName</A>
+%  <A>RoutineName2</A>
 %-
 
 
