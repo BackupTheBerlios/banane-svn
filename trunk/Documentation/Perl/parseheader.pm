@@ -175,7 +175,7 @@ my $cat="";
 foreach (@{$result->[4]}) {$cat=$cat.$_->[1];}
 
 my $syn="";
-foreach (@{$result->[5]}) {$syn=$syn."\n".$_->[1];}
+foreach (@{$result->[5]}) {$syn=$syn."<BR>".$_->[1];}
 
 my $restr="";
 foreach (@{$result->[9]}) {$restr=$restr.$_->[1];}
@@ -183,8 +183,11 @@ foreach (@{$result->[9]}) {$restr=$restr.$_->[1];}
 my $proc="";
 foreach (@{$result->[10]}) {$proc=$proc.$_->[1];}
 
-my $exp="";
-foreach (@{$result->[11]}) {$exp=$exp."\n".$_->[1];}
+my $exa="";
+foreach (@{$result->[11]}) {$exa=$exa."<BR>".$_->[1];}
+
+my $also="";
+foreach (@{$result->[12]}) {$also=$also.$_->[1];}
 
 return ("name"=>$$result[0],
         "version"=>$$result[1],
@@ -197,8 +200,8 @@ return ("name"=>$$result[0],
         "outputs"=>$$result[8],
         "restrictions"=>$restr,
         "proc"=>$proc,
-        "example"=>$exp,
-        "also"=>$$result[12]);
+        "example"=>$exa,
+        "also"=>$also);
 }
 
 1; # return value of perl module
