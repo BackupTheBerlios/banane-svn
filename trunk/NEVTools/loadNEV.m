@@ -56,6 +56,9 @@
 %  There are many more tags, which are describe in detail in
 %  cyberkinetics_docu.pdf.
 %
+% RESTRICTIONS:
+%  None known so far.
+%
 % PROCEDURE:
 %  Since this is an adopted routine, its working is not exactly known.
 %
