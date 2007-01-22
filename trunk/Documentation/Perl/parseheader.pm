@@ -42,6 +42,8 @@ $return=$item{header}}
              headerstop { my(@list) = 
                            ($item{name}, 
                             $item{version}, 
+                            $item{author},
+                            $item{date},
                             $item{aim},
                             $item{description},
                             $item{category},
@@ -63,6 +65,10 @@ $return=$item{header}}
     name : "%" /\ */ "NAME:" nl nameline {$return=$item{nameline}}
 
     version : "%" /\ */ "VERSION:" nl headerline {$return=$item{headerline}}
+
+    author : "%" /\ */ "AUTHOR:" nl headerline {$return=$item{headerline}}
+
+    date : "%" /\ */ "DATE CREATED:" nl headerline {$return=$item{headerline}}
 
     aim : "%" /\ */ "AIM:" nl headerline {$return=$item{headerline}}
 
@@ -94,6 +100,8 @@ $return=$item{header}}
                 ...!name
                 ...!version
                 ...!aim
+                ...!author
+                ...!date
                 ...!description
                 ...!category
                 ...!syntax
@@ -167,38 +175,40 @@ $result=$parse->code($_[0]);
 
 # concatenate single lines from multiline entries
 my $descr="";
-foreach (@{$result->[3]}) {$descr=$descr." ".$_->[1];}
+foreach (@{$result->[5]}) {$descr=$descr." ".$_->[1];}
 
 my $cat="";
-foreach (@{$result->[4]}) {$cat=$cat.$_->[1];}
+foreach (@{$result->[6]}) {$cat=$cat.$_->[1];}
 
 my $syn="";
-foreach (@{$result->[5]}) {$syn=$syn."<BR>".$_->[1];}
+foreach (@{$result->[7]}) {$syn=$syn."<BR>".$_->[1];}
 
 ## need an additional level of derefernce here, possibly due to the 
 ## fact that 'restrictions' is an optional section. The same is true 
 ## for 'see also'. 
 my $restr="";
-foreach (@{$result->[9]->[0]}) {$restr=$restr." ".$_->[1];}
+foreach (@{$result->[11]->[0]}) {$restr=$restr." ".$_->[1];}
 
 my $proc="";
-foreach (@{$result->[10]}) {$proc=$proc." ".$_->[1];}
+foreach (@{$result->[12]}) {$proc=$proc." ".$_->[1];}
 
 my $exa="";
-foreach (@{$result->[11]}) {$exa=$exa."<BR>".$_->[1];}
+foreach (@{$result->[13]}) {$exa=$exa."<BR>".$_->[1];}
 
 my $al="";
-foreach (@{$result->[12]->[0]}) {$al=$al.$_->[1];}
+foreach (@{$result->[14]->[0]}) {$al=$al.$_->[1];}
 
 return ("name"=>$$result[0],
         "version"=>$$result[1],
-	"aim"=>$$result[2],
+	"author"=>$$result[2],
+	"date"=>$$result[3],
+	"aim"=>$$result[4],
 	"description"=>$descr,
 	"category"=>$cat,
 	"syntax"=>$syn,
-        "inputs"=>$$result[6],
-        "optinputs"=>$$result[7],
-        "outputs"=>$$result[8],
+        "inputs"=>$$result[8],
+        "optinputs"=>$$result[9],
+        "outputs"=>$$result[10],
         "restrictions"=>$restr,
         "proc"=>$proc,
         "example"=>$exa,

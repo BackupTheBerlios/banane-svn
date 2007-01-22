@@ -108,6 +108,7 @@ for the wwwcopy as well
 - verbatim printing of %* header lines: At persent, only line breaks
 are inserted. Enable possibility of mixing verbatim and non-verbatim
 lines.
+- repair wrong linebreak at first line of verbatim sections 
 - put Documentation under version control
 - nicer concatenation of strings in parseheader
 - try out if mssing optional header sections like "restrictions" etc
