@@ -54,6 +54,7 @@ $return=$item{header}}
                             $item{example},
                             $item{also});
 #print "$item[14]->[0]->[0]->[1]\n";
+print "$item{also}\n";
                           $return = \@list }
 
     body : bodyline(s)
@@ -186,8 +187,11 @@ foreach (@{$result->[10]}) {$proc=$proc.$_->[1];}
 my $exa="";
 foreach (@{$result->[11]}) {$exa=$exa."<BR>".$_->[1];}
 
-my $also="";
-foreach (@{$result->[12]}) {$also=$also.$_->[1];}
+print "$result->[3]\n";
+print "$result->[12]\n";
+
+my $al="";
+foreach (@{$result->[12]}) {$al=$al.$_->[1];}
 
 return ("name"=>$$result[0],
         "version"=>$$result[1],
@@ -201,7 +205,7 @@ return ("name"=>$$result[0],
         "restrictions"=>$restr,
         "proc"=>$proc,
         "example"=>$exa,
-        "also"=>$also);
+        "also"=>$al);
 }
 
 1; # return value of perl module
