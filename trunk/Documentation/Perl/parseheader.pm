@@ -181,21 +181,14 @@ foreach (@{$result->[5]}) {$syn=$syn."<BR>".$_->[1];}
 my $restr="";
 foreach (@{$result->[9]->[0]}) {$restr=$restr." ".$_->[1];}
 
-print"$restr\n";
-
 my $proc="";
 foreach (@{$result->[10]}) {$proc=$proc." ".$_->[1];}
 
 my $exa="";
 foreach (@{$result->[11]}) {$exa=$exa."<BR>".$_->[1];}
 
-#print "$result->[3]\n";
-print "$result->[9]->[0]->[0]->[1]\n";
-
 my $al="";
-foreach (@{$result->[12]->[0]}) {
-print "$_->[1]\n";
-$al=$al.$_->[1];}
+foreach (@{$result->[12]->[0]}) {$al=$al.$_->[1];}
 
 return ("name"=>$$result[0],
         "version"=>$$result[1],
