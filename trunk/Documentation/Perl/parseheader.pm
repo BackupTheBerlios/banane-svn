@@ -49,7 +49,7 @@ $return=$item{header}}
                             $item[14], # inputs
                             $item[16], # optinputs
                             $item[18], # outputs
-                            $item[20], #$item{restrictions},
+                            $item[20], # $item{restrictions},
                             $item{procedure},
                             $item{example},
                             $item{also});
@@ -188,7 +188,7 @@ my $exa="";
 foreach (@{$result->[11]}) {$exa=$exa."<BR>".$_->[1];}
 
 #print "$result->[3]\n";
-#print "$result->[12]\n";
+print "$result->[9]->[1]\n";
 
 my $al="";
 foreach (@{$result->[12]}) {
