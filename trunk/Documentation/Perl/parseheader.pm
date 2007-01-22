@@ -53,8 +53,6 @@ $return=$item{header}}
                             $item{procedure},
                             $item{example},
                             $item{also});
-#print "$item[14]->[0]->[0]->[1]\n";
-print "$item{also}\n";
                           $return = \@list }
 
     body : bodyline(s)
@@ -74,9 +72,8 @@ print "$item{also}\n";
 
     syntax : "%" /\ */ "SYNTAX:" nl (headerline{\@item})(s)
 
-    inputs : "%" /\ */ "INPUTS:" nl argument(s) {
-#print "$item[5]->[0]->[1]\n"; 
-$return=$item[5] }
+    inputs : "%" /\ */ "INPUTS:" nl argument(s) 
+     { $return=$item[5] }
 
     optinputs : "%" /\ */ "OPTIONAL INPUTS:" nl argument(s) 
      { $return=$item[5] }
@@ -178,6 +175,9 @@ foreach (@{$result->[4]}) {$cat=$cat.$_->[1];}
 my $syn="";
 foreach (@{$result->[5]}) {$syn=$syn."<BR>".$_->[1];}
 
+## need an additional level of derefernce here, possibly due to the 
+## fact that 'restrictions' is an optional section. The same is true 
+## for 'see also'. 
 my $restr="";
 foreach (@{$result->[9]->[0]}) {$restr=$restr." ".$_->[1];}
 
