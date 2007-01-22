@@ -181,6 +181,8 @@ foreach (@{$result->[5]}) {$syn=$syn."<BR>".$_->[1];}
 my $restr="";
 foreach (@{$result->[9]->[0]}) {$restr=$restr." ".$_->[1];}
 
+print"$restr\n";
+
 my $proc="";
 foreach (@{$result->[10]}) {$proc=$proc." ".$_->[1];}
 
