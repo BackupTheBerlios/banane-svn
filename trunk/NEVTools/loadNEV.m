@@ -77,3 +77,11 @@
 
 
 function nevVariable = loadNEV(filename, varargin);
+  
+    originalDirectory = cd;
+
+nounclass = 1;
+wav = 0;
+exp = 0;
+channellist = [1:255];
+try, if isempty(varargin), channellist = [1:255]; end; catch, channellist = [1:255]; end;
