@@ -94,7 +94,6 @@ MAILTO=andreas.thiel@gmail.com
 
 TO DO
 - include possibility to delete a file. Action "D" in svn update
-- include sections "AUTHOR" and "DATE CREATED" in header
 - write script to completely update the database, i.e. parse every
 file
 - Separate root bananepath and path to routine relative to root and
@@ -103,13 +102,13 @@ ommit path to repository
 - make the $id$ tag work in svn: Command works only on single
 routines: svn propset svn:keywords "Id" kwextract.m but at least acts
 for the wwwcopy as well
-- evoke bananeblog
 - automatically mail commits to the blog
 - verbatim printing of %* header lines: At persent, only line breaks
 are inserted. Enable possibility of mixing verbatim and non-verbatim
 lines.
 - repair wrong linebreak at first line of verbatim sections 
-- put Documentation under version control
 - nicer concatenation of strings in parseheader
-- try out if mssing optional header sections like "restrictions" etc
+- try out if missing optional header sections like "restrictions" etc
 work properly. 
+- section side effects needed???
+- backup of repository?
