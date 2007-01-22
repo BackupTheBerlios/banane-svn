@@ -46,9 +46,9 @@ $return=$item{header}}
                             $item{description},
                             $item{category},
                             $item{syntax},
-                            $item[14], #$item{inputs},
-                            $item[16], #$item{optinputs},
-                            $item[18], #$item{outputs},
+                            $item[14], # inputs
+                            $item[16], # optinputs
+                            $item[18], # outputs
                             $item{restrictions},
                             $item{procedure},
                             $item{example},
@@ -174,13 +174,31 @@ foreach (@{$result->[3]}) {$descr=$descr." ".$_->[1];}
 my $cat="";
 foreach (@{$result->[4]}) {$cat=$cat.$_->[1];}
 
+my $syn="";
+foreach (@{$result->[5]}) {$syn=$syn."\n".$_->[1];}
+
+my $restr="";
+foreach (@{$result->[9]}) {$restr=$restr.$_->[1];}
+
+my $proc="";
+foreach (@{$result->[10]}) {$proc=$proc.$_->[1];}
+
+my $exp="";
+foreach (@{$result->[11]}) {$exp=$exp."\n".$_->[1];}
+
 return ("name"=>$$result[0],
         "version"=>$$result[1],
 	"aim"=>$$result[2],
 	"description"=>$descr,
 	"category"=>$cat,
+	"syntax"=>$syn,
         "inputs"=>$$result[6],
         "optinputs"=>$$result[7],
-        "outputs"=>$$result[8]);
+        "outputs"=>$$result[8],
+        "restrictions"=>$restr,
+        "proc"=>$proc,
+        "example"=>$exp,
+        "also"=>$$result[12]);
 }
-1;
+
+1; # return value of perl module

@@ -38,4 +38,4 @@ return $result;
 
 }
 
-1;
+1; # return value of perl module

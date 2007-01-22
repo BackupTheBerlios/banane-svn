@@ -36,6 +36,8 @@ echo "<TR><TD VALIGN=TOP><B>Description</B>";
 echo "<TD VALIGN=TOP>".$rrow["description"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Category</B>"; 
 echo "<TD VALIGN=TOP>".$rrow["category"]."</TR>";
+echo "<TR><TD VALIGN=TOP><B>Syntax</B>"; 
+echo "<TD VALIGN=TOP>".$rrow["syntax"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Inputs</B><TD VALIGN=TOP>"; 
 echo "<TABLE>";
 while($irow = mysql_fetch_array($inputs)) 
@@ -66,6 +68,14 @@ while($orow = mysql_fetch_array($outputs))
  }  
 echo "</TABLE>";
 echo "</TR>"; 
+echo "<TR><TD VALIGN=TOP><B>Restrictions</B>"; 
+echo "<TD VALIGN=TOP>".$rrow["restrictions"]."</TR>";
+echo "<TR><TD VALIGN=TOP><B>Procedure</B>"; 
+echo "<TD VALIGN=TOP>".$rrow["proc"]."</TR>";
+echo "<TR><TD VALIGN=TOP><B>Example</B>"; 
+echo "<TD VALIGN=TOP>".$rrow["example"]."</TR>";
+echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
+echo "<TD VALIGN=TOP>".$rrow["also"]."</TR>";
 echo "</TABLE>"; 
 ?> 
 </HTML>
