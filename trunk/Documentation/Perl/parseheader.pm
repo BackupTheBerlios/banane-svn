@@ -63,8 +63,8 @@ $return=$item{header}}
 
     body : bodyline(s)
 
-    headerstart : "%+" nl { print "Found headerstart\n"; }
-    headerstop : "%-" nl { print "Found headerstop\n"; }
+    headerstart : "%+" nl { print "Found headerstart... "; }
+    headerstop : "%-" nl { print "and headerstop.\n"; }
 
     name : "%" /\ */ "NAME:" nl nameline {$return=$item{nameline}}
 
