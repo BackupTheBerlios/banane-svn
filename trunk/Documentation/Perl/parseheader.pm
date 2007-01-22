@@ -159,7 +159,7 @@ $return=$item{header}}
                 ...!example
                 ...!also
               "%" /\ */ /[A-Za-z_][A-Za-z0-9_]*/ /(\(\))?/ nl
-                { $return = $item{__PATTERN2__} }
+                { print"$item{__PATTERN2__}"; $return = $item{__PATTERN2__} }
 
     emptyline : "%" nl
 
