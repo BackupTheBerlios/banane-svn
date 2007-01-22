@@ -193,6 +193,8 @@ print "$result->[12]\n";
 my $al="";
 foreach (@{$result->[12]}) {$al=$al.$_->[1];}
 
+print "$al\n";
+
 return ("name"=>$$result[0],
         "version"=>$$result[1],
 	"aim"=>$$result[2],
