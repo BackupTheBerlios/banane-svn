@@ -49,7 +49,7 @@ $return=$item{header}}
                             $item[14], # inputs
                             $item[16], # optinputs
                             $item[18], # outputs
-                            $item{restrictions},
+                            $item[20], #$item{restrictions},
                             $item{procedure},
                             $item{example},
                             $item{also});
