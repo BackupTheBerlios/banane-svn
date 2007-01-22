@@ -12,7 +12,7 @@
 %  9/2002
 %
 % AIM:
-%  bla2, Read all important information from a NEV file.
+%  bla3, Read all important information from a NEV file.
 %
 % DESCRIPTION:
 %  loadNEV opens a Neural Event (NEV) file and extracts all information

@@ -12,7 +12,7 @@
 %  12/2006
 %
 % AIM:
-%  bla2, Extracts keywords and their values from function calls.
+%  bla3, Extracts keywords and their values from function calls.
 %
 % DESCRIPTION:
 %  kwextract enables argument passing to a function in the form
