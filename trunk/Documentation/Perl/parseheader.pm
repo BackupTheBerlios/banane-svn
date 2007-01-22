@@ -46,9 +46,9 @@ $return=$item{header}}
                             $item{description},
                             $item{category},
                             $item{syntax},
-                            $item[14], # inputs
-                            $item[16], # optinputs
-                            $item[18], # outputs
+                            $item{inputs},
+                            $item{optinputs},
+                            $item{outputs},
                             $item{restrictions},
                             $item{procedure},
                             $item{example},
