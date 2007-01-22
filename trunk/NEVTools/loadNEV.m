@@ -1,9 +1,9 @@
 %+
 % NAME:
-%  kwextract()
+%  loadNEV()
 %
 % VERSION:
-%  $Id: kwextract.m 70 2007-01-22 14:40:30Z ahjthiel $
+%  $Id:$
 %
 % AUTHOR:
 %  A. Thiel
