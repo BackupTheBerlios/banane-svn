@@ -188,7 +188,7 @@ my $exa="";
 foreach (@{$result->[11]}) {$exa=$exa."<BR>".$_->[1];}
 
 #print "$result->[3]\n";
-print "$result->[9]->[1]\n";
+print "$result->[9]->[0]\n";
 
 my $al="";
 foreach (@{$result->[12]}) {
