@@ -1,6 +1,6 @@
 %+
 % NAME:
-%  funcname()
+%  example_function()
 %
 % VERSION:
 %  $Id:$
@@ -19,14 +19,14 @@
 %  for example <BR> linebreaks. 
 %
 % CATEGORY:
-%  At present, there are three possibilities:
-%   Documentation
-%   NEV Tools
-%   Support routines
+%  At present, there are three possibilities:<BR>
+%   - Documentation<BR>
+%   - NEV Tools<BR>
+%   - Support routines<BR>
 %  Others may be invented.
 %
 % SYNTAX:
-%* result = funcname(arg1, arg2,[, optarg1][, optarg2]); 
+%* result = example_function(arg1, arg2,[, optarg1][, optarg2]); 
 %
 % INPUTS:
 %  arg1:: First argument of the function call. Indicate variable type and
@@ -48,7 +48,7 @@
 %
 % EXAMPLE:
 %  Indicate example lines with * 
-%* data=funcname(23,5)
+%* data=example_function(23,5)
 %  
 %  Indicate matlab output with *>
 %*> ans =
