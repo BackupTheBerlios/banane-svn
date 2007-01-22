@@ -5,6 +5,12 @@
 % VERSION:
 %  $Id$
 %
+% AUTHOR:
+%  A. Thiel
+%
+% DATE CREATED:
+%  12/2006
+%
 % AIM:
 %  Extracts keywords and their values from function calls.
 %
