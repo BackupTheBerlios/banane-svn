@@ -17,6 +17,10 @@ $return=$item{header}}
              emptyline(s?) 
              version 
              emptyline(s?) 
+             author 
+             emptyline(s?) 
+             date 
+             emptyline(s?) 
              aim 
              emptyline(s?) 
              description 
