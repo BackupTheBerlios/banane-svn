@@ -80,8 +80,38 @@ function nevVariable = loadNEV(filename, varargin);
   
     originalDirectory = cd;
 
-nounclass = 1;
-wav = 0;
-exp = 0;
-channellist = [1:255];
-try, if isempty(varargin), channellist = [1:255]; end; catch, channellist = [1:255]; end;
+    nounclass = 1;
+    wav = 0;
+    exp = 0;
+    channellist = [1:255];
+    try, if isempty(varargin), channellist = [1:255];
+      end;
+    catch, channellist = [1:255]; 
+    end;
+    
+    for i = 1 : length(varargin),
+      switch class(varargin{i}),
+       case 'char',
+        if (length(varargin{i}) == 2) & (varargin{i} == 'no')
+          nounclass = 2;
+        elseif (length(varargin{i}) == 3) & (varargin{i} == 'all')
+          wav = 1;
+          exp = 1; 
+        elseif (length(varargin{i}) == 3) & (varargin{i} == 'wav')
+          wav = 1; 
+        elseif (length(varargin{i}) == 3) & (varargin{i} == 'exp')
+          exp = 1; 
+        end
+       case 'double',
+        channellist = varargin{i};
+       otherwise, 
+        errordlg('Incorrect input to function.');
+        return;
+      end
+    end
+    clear varargin;
+
+    disp(' ');
+    disp('Please wait....');
+
+    
