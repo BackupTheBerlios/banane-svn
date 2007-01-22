@@ -6,80 +6,74 @@
 %  $Id:$
 %
 % AUTHOR:
-%  A. Thiel
+%  A. Branner
 %
 % DATE CREATED:
-%  12/2006
+%  9/2002
 %
 % AIM:
-%  Testchange1. Extracts keywords and their values from function calls.
+%  Testchange1. Read all important information from a NEV file.
 %
 % DESCRIPTION:
-%  kwextract enables argument passing to a function in the form
-%  'keyword1',value1,'keyword2',value2 etc. The list of keywords and
-%  values has to occur after the regular arguments of a function, with
-%  arbitrary order of the keywords. To evaluate the keywords, kwextract
-%  returns a structure with fields corresponding to the keywords and the
-%  values of the fields set accordingly. If the keyword is not present in
-%  the call to the original function, kwextract sets a default
-%  value. Abbrevation of keywords in the call is possible.
+%  loadNEV opens a Neural Event (NEV) file and extracts all information
+%  from this file into a MATLAB structure array. Particular channels can
+%  be selected. In addition, waveforms and non-neural experiment
+%  information can be loaded in. A detailed documentation can be found in
+%  the file cyberkinetics_docu.pdf, which is located in the same
+%  directory.<BR>
+%  The routine was originally written by A. Branner, Copyright (c) 9/2002
+%  by Bionic Technologies, LLC. All Rights Reserved. The version included
+%  in the Banane repository is slightly modified from the original: we
+%  corrected a typo in a structure tag that otherwise caused the routine
+%  to stop. 
 %
 % CATEGORY:
-%  Support routines 
+%  NEV Tools
 %
 % SYNTAX:
-%* kwstruct = kwextract(kwpresent [,keyword1,defval1] [,keyword2,defval2]); 
+%* nevObject = loadNEV(filename[, channellist][, units][, detail]); 
 %
 % INPUTS:
-%  kwpresent:: The varargin cell array provided by MATLAB originating
-%  from the call to the original function.
+%  filename:: String containing the name and possibly the path for the
+%             file to be read.
 %
 % OPTIONAL INPUTS:
-%  keyword1,defval1:: A pair of a string giving the name of the keyword,
-%  followed by its default value. The value can be of any type. If no
-%  keyword/value pairs are given, no
-%  keywords are allowed in the function call. If the original function is
-%  called without the keyword that is present in the list, the keyword
-%  will get its default value.
-%  keyword2,defval2:: Another pair. There may be as many pairs as needed.
+%  channellist:: Array of channels to be imported.
+%  units:: Pass string 'no' to only load classified units.
+%  detail:: Pass string 'all' to load all waveforms and stimulus
+%  info. Pass string 'wav' to load all waveforms. Pass string 'exp' to
+%  load all stimulus info. 
 %
 % OUTPUTS:
-%  kwstruct:: A structure with fields according to the keyword list,
-%  their values set either to the default values or to those given in the
-%  function cell.
+%  nevObject:: A structure array with various tags that contain the
+%  information within the NEV file. Most notably: <BR>
+%   nevObject.<BR>
+%       |-.HeaderBasic<BR>
+%             |-.timeResolution - time resolution of time stamps<BR>
+%             |-.sampleResolution - time resolution of waveform samples<BR>
+%       |-.SpikeData - matrix with all channels/units selected<BR>
+%             |-.timestamps - timestamps on the particular channel and unit<BR>
+%  There are many more tags, which are describe in detail in
+%  cyberkinetics_docu.pdf.
 %
 % RESTRICTIONS:
-%  Duplicate keywords are not allowed. Of course, assignment of values to
-%  field name does only work if the order of keywordstring followed by
-%  its value is strictly respected. 
+%  None known so far.
 %
 % PROCEDURE:
-%  Generate a structure with fields named according to keyword strings
-%  and set their default values. Afterwards, search for occurrences of
-%  keywords in the actual function call and overwrite the defaults.
+%  Since this is an adopted routine, its working is not exactly known.
 %
 % EXAMPLE:
-%* function output=foobar(normalarg,varargin);
-%*    kw=kwextract(varargin,'number',23,'string','fnord','anothernumber',1);
-%*    display(kw.number);
-%*    display(kw.string);
-%*    display(kw.anothernumber);
-%*    output=normalarg+kw.number+kw.anothernumber;
-%* 
-% Call function foobar like this for example:
-%* out=foobar(23,'anothernumber',5,'number',8)
-%
-%*>ans =
-%*>     8
-%*>fnord
-%*>ans =
-%*>     5
-%*>out =
-%*>    36
+%  Read data of channels 14,15 ,and 19 in the file
+%  '051123-02.nev'. Include wavform information.
+%* data=loadNEV('/pfad/zum/datenverzeichnis/051123-02.nev',[14,15,19],'all');
+%  
+%  Display waveform of 105th event on channel 15:
+%* plot(data.SpikeData(15).waveforms(:,105))
 %
 % SEE ALSO:
-%  <A>RoutineName</A>
+%  cyberkinetics_docu.pdf
 %-
+
 
 
 function kwstruct=kwextract(kwpresent,varargin);
