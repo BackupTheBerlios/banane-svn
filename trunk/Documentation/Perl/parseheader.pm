@@ -108,7 +108,7 @@ $grammar =
      { $return=join(" ",@{$item[-1]}) }
 
     example : "%" /\ */ "EXAMPLE:" nl headerline(s)
-     { $return=join(" ",@{$item[-1]}) }
+     { my($jojo)=join(" ",@{$item[-1]}); $return=$jojo }
 
     also : "%" /\ */ "SEE ALSO:" nl headerline(s)
      { $return=join(" ",@{$item[-1]}) }
