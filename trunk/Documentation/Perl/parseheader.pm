@@ -187,8 +187,10 @@ $result=$parse->code($_[0]);
 #print "$result->[6]\n";
 
 # concatenate single lines from multiline entries
-my $descr="";
-foreach (@{$result->[5]}) {$descr=$descr." ".$_->[1];}
+
+print $result->[5]."\n";
+#my $descr="";
+#foreach (@{$result->[5]}) {$descr=$descr." ".$_->[1];}
 
 my $cat="";
 foreach (@{$result->[6]}) {$cat=$cat.$_->[1];}
