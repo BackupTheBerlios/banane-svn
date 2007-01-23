@@ -191,7 +191,7 @@ $result=$parse->code($_[0]);
 my($restr)=${@{$result->[11]}}[0];
 my($al)=${@{$result->[14]}}[0];
 
-if !(defined $restr) {
+if (!(defined $restr)) {
   print "Undefined!\n";
   $restr="NULL";
 }
