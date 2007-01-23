@@ -131,8 +131,15 @@ $grammar =
                 ...!example
                 ...!also
                 ...!argumentline
-                "%" /\ */ /.*/ /\ */ nl
+                normalline | codeline
+
+    normalline: ...!codeline
+                 "%" /\ */ /.*/ /\ */ nl
                    { $return = $item{__PATTERN2__} }
+
+    codeline: ...!normalline
+                 "%*" /\ */ /.*/ /\ */ nl
+                   { $return = "<CODE>".$item{__PATTERN2__}."</CODE>" }
 
     argument : argumentline headerline(s?)
      { if (defined ($item[-1])) {
