@@ -45,7 +45,7 @@
 %  Optional section: Is there anything known that could cause problems?
 %
 % PROCEDURE:
-%  Short description of the alogorithm.
+%  Short description of the algorithm.
 %
 % EXAMPLE:
 %  Indicate example lines with * 
