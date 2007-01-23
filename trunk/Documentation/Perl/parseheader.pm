@@ -191,8 +191,8 @@ $result=$parse->code($_[0]);
 my $restr="";
 foreach (@{$result->[11]->[0]}) {$restr=$restr." ".$_->[1];}
 
-print ref($$result[11])."\n";
-print $result[11]->[0]->[0]."\n";
+print ref($result[11]->[0])."\n";
+print $result[11]->[0]->[1]."\n";
 
 my $al="";
 foreach (@{$result->[14]->[0]}) {$al=$al.$_->[1];}
