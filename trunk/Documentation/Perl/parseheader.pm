@@ -102,8 +102,7 @@ $grammar =
      { $return=$item[5] }
 
     restrictions : "%" /\ */ "RESTRICTIONS:" nl headerline(s) 
-#     { print join("-+-",@{$item[-1]})."\n";
- { $return=join(" ",@{$item[-1]}) }
+     { $return=join(" ",@{$item[-1]}) }
 
 
     procedure : "%" /\ */ "PROCEDURE:" nl headerline(s)
@@ -210,7 +209,7 @@ return ("name"=>$$result[0],
         "inputs"=>$$result[8],
         "optinputs"=>$$result[9],
         "outputs"=>$$result[10],
-        "restrictions"=>$$result[11], #$restr,
+        "restrictions"=>$restr,
         "proc"=>$$result[12],
         "example"=>$$result[13], #$exa,
         "also"=>$al);
