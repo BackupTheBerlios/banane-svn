@@ -95,7 +95,7 @@ MAILTO=andreas.thiel@gmail.com
 TO DO
 - include possibility to delete a file. Action "D" in svn update
 - write script to completely update the database, i.e. parse every
-file
+file, possibly erase the database first, too
 - Separate root bananepath and path to routine relative to root and
 maybe filename as well. In general, optimze directory handling, try to
 ommit path to repository
@@ -103,12 +103,11 @@ ommit path to repository
 routines: svn propset svn:keywords "Id" kwextract.m but at least acts
 for the wwwcopy as well
 - automatically mail commits to the blog
-- verbatim printing of %* header lines: At persent, only line breaks
-are inserted. Enable possibility of mixing verbatim and non-verbatim
-lines.
-- repair wrong linebreak at first line of verbatim sections 
-- nicer concatenation of strings in parseheader
-- try out if missing optional header sections like "restrictions" etc
-work properly. 
-- section side effects needed???
+- verbatim printing of %* header lines: Include possibility in all
+sections. Outsource substitution of double BRs and CODEs?
+- section "side effects" needed???
 - backup of repository?
+- say something if parsing goes wrong
+- what happens to entries in input etc tables when arguments are
+changed or removed?
+- make category section to choose from a set of possibilities
