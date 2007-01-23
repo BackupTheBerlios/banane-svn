@@ -48,7 +48,8 @@
 %  Short description of the algorithm.
 %
 % EXAMPLE:
-%  Indicate example lines with * 
+%  Indicate example lines with * as the first character. These lines
+%  will be typeset in a fixed width font. 
 %* data=example_function(23,5)
 %  
 %  Indicate matlab output with *>

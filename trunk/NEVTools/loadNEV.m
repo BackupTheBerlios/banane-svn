@@ -47,13 +47,12 @@
 % OUTPUTS:
 %  nevobject:: A structure array with various tags that contain the
 %  information within the NEV file. Most notably:<BR>
-%   nevobject.<BR>
-%   |---HeaderBasic<BR>
-%   ....|---timeResolution - time resolution of time stamps<BR>
-%   ....|---sampleResolution - time resolution of waveform samples<BR>
-%   |---SpikeData - matrix with all channels/units selected<BR>
-%   ....|---timestamps - timestamps on the particular channel and
-%   unit<BR>
+%*  nevobject
+%*      |---HeaderBasic<BR>
+%*              |---timeResolution : time resolution of time stamps
+%*              |---sampleResolution : time resolution of waveform samples
+%*      |---SpikeData : matrix with all channels/units selected
+%*              |---timestamps - timestamps on the particular channel/unit
 %  There are many more structure tags all described in detailed in
 %  cyberkinetics_docu.pdf
 %
@@ -71,23 +70,6 @@
 % SEE ALSO:
 %  cyberkinetics_docu.pdf
 %-
-
-
-%  channellist:: Array of channels to be imported.
-%  units:: Pass string 'no' to only load classified units.
-%  detail:: Pass string 'all' to load all waveforms and stimulus
-%  info. Pass string 'wav' to load all waveforms. Pass string 'exp' to
-%  load all stimulus info. 
-%
-%  nevObject:: A structure array with various tags that contain the
-%  information within the NEV file. Most notably.
-%
-%   nevObject.<BR>
-%       HeaderBasic<BR>
-%             timeResolution - time resolution of time stamps<BR>
-%             sampleResolution - time resolution of waveform samples<BR>
-%       SpikeData - matrix with all channels/units selected<BR>
-%             timestamps - timestamps on the particular channel and unit<BR>
 
 
 
