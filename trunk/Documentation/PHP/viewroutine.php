@@ -46,7 +46,7 @@ echo "<TR><TD VALIGN=TOP><B>Inputs</B><TD VALIGN=TOP>";
 echo "<TABLE>";
 while($irow = mysql_fetch_array($inputs)) 
 { 
-  echo "<TR><TD VALIGN=TOP><I>".$irow["argument"].": </I>";
+  echo "<TR><TD VALIGN=TOP><VAR>".$irow["argument"].": </VAR>";
   echo "<TD VALIGN=TOP>".$irow["description"];
   echo "</TR>";
  }  
@@ -56,7 +56,7 @@ echo "<TR><TD VALIGN=TOP><B>Optional inputs</B><TD VALIGN=TOP>";
 echo "<TABLE>";
 while($oirow = mysql_fetch_array($optinputs)) 
 { 
-  echo "<TR><TD VALIGN=TOP><I>".$oirow["argument"].": </I>";
+  echo "<TR><TD VALIGN=TOP><VAR>".$oirow["argument"].": </VAR>";
   echo "<TD VALIGN=TOP>".$oirow["description"];
   echo "</TR>";
  }  
@@ -66,7 +66,7 @@ echo "<TR><TD VALIGN=TOP><B>Outputs</B><TD VALIGN=TOP>";
 echo "<TABLE>";
 while($orow = mysql_fetch_array($outputs)) 
 { 
-  echo "<TR><TD VALIGN=TOP><I>".$orow["argument"].": </I>";
+  echo "<TR><TD VALIGN=TOP><VAR>".$orow["argument"].": </VAR>";
   echo "<TD VALIGN=TOP>".$orow["description"];
   echo "</TR>";
  }  
