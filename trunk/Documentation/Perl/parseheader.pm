@@ -90,7 +90,7 @@ $grammar =
      { $return=join(" ",@{$item[-1]}) }
 
     syntax : "%" /\ */ "SYNTAX:" nl headerline(s)
-     { $return=join(" ",@{$item[-1]}) }
+     { $return=join("<BR>",@{$item[-1]}) }
 
     inputs : "%" /\ */ "INPUTS:" nl argument(s) 
      { $return=$item[5] }
@@ -107,7 +107,7 @@ $grammar =
      { $return=join(" ",@{$item[-1]}) }
 
     example : "%" /\ */ "EXAMPLE:" nl headerline(s)
-     { $return=join(" ",@{$item[-1]}) }
+     { $return=join("<BR>",@{$item[-1]}) }
 
     also : "%" /\ */ "SEE ALSO:" nl (headerline{\@item})(s)
 
