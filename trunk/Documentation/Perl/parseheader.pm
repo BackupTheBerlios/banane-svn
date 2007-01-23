@@ -79,9 +79,8 @@ $return=$item{header}}
     description : "%" /\ */ "DESCRIPTION:" nl headerline(s)
      {print ref($item[-1])."\n";
       my($jo)=join("---",@{$item[-1]});
-      print $jo."\n"; $return=$jo}
-#    description : "%" /\ */ "DESCRIPTION:" nl (headerline{\@item})(s)
-#     {print join("---",${@{$item[-1]}})."\n";}
+#      print $jo."\n"; 
+      $return=$jo}
 
     category : "%" /\ */ "CATEGORY:" nl (headerline{\@item})(s)
 
@@ -185,6 +184,9 @@ $result=$parse->code($_[0]);
 #print "$result->[6]\n";
 
 # concatenate single lines from multiline entries
+
+print $result->[5]".\n";
+
 my $descr="";
 foreach (@{$result->[5]}) {$descr=$descr." ".$_->[1];}
 
