@@ -192,7 +192,7 @@ my $restr="";
 foreach (@{$result->[11]->[0]}) {$restr=$restr." ".$_->[1];}
 
 print ref($$result[11])."\n";
-print ${$$result[11]}."\n";
+print {$$result[11]}->[0]."\n";
 
 my $al="";
 foreach (@{$result->[14]->[0]}) {$al=$al.$_->[1];}
