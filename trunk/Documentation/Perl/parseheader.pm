@@ -77,10 +77,9 @@ $return=$item{header}}
     aim : "%" /\ */ "AIM:" nl headerline {$return=$item{headerline}}
 
     description : "%" /\ */ "DESCRIPTION:" nl headerline(s)
-     {print ref($item[-1])."\n";
-      my($jo)=join("---",@{$item[-1]});
-#      print $jo."\n"; 
-      $return=$jo}
+     { # join multiple headerlines in single string
+#       my($jo)=join(" ",@{$item[-1]}); 
+       $return=join(" ",@{$item[-1]}) }
 
     category : "%" /\ */ "CATEGORY:" nl (headerline{\@item})(s)
 
