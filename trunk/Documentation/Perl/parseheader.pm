@@ -110,7 +110,7 @@ $grammar =
     example : "%" /\ */ "EXAMPLE:" nl headerline(s)
      { $jo=join(" ",@{$item[-1]});
 print "$jo\n";
-$jo =~ s/CODE/code123/g;
+#$jo =~ s/CODE/code123/g;
 print "$jo\n";
 $return=$jo }
 
