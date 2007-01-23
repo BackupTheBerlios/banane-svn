@@ -137,8 +137,7 @@ $grammar =
                  "%" /\ */ /.*/ /\ */ nl
                    { $return = $item{__PATTERN2__} }
 
-    codeline: ...!normalline
-                 "%*" /\ */ /.*/ /\ */ nl
+    codeline: "%*" /\ */ /.*/ /\ */ nl
                    { $return = "<CODE>".$item{__PATTERN2__}."</CODE>" }
 
     argument : argumentline headerline(s?)
