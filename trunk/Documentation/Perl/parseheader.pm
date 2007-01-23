@@ -90,7 +90,10 @@ $grammar =
      { $return=join(" ",@{$item[-1]}) }
 
     syntax : "%" /\ */ "SYNTAX:" nl headerline(s)
-     { $return=join(" ",@{$item[-1]}) }
+     { my($jojo)=join(" ",@{$item[-1]}); 
+       $jojo =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
+       $jojo =~ s/^<BR>//;
+       $return=$jojo}
 
     inputs : "%" /\ */ "INPUTS:" nl argument(s) 
      { $return=$item[5] }
@@ -108,11 +111,7 @@ $grammar =
      { $return=join(" ",@{$item[-1]}) }
 
     example : "%" /\ */ "EXAMPLE:" nl headerline(s)
-     { my($jojo)=join(" ",@{$item[-1]}); 
-print "$jojo\n";
-$jojo =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
-print "$jojo\n";
-$return=$jojo }
+     {}
 
     also : "%" /\ */ "SEE ALSO:" nl headerline(s)
      { $return=join(" ",@{$item[-1]}) }
