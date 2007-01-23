@@ -42,7 +42,8 @@
 %  optarg2:: Another optional input argument.
 %
 % OUTPUTS:
-%  result:: The result of the routine.
+%  nevObject:: A structure array with various tags that contain the
+%  information within the NEV file. Most notably.
 %
 % RESTRICTIONS:
 %  None known so far.
