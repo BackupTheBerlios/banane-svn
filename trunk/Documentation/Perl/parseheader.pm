@@ -79,7 +79,7 @@ $return=$item{header}}
     description : "%" /\ */ "DESCRIPTION:" nl headerline(s)
      {print ref($item[-1])."\n";
       my($jo)=join("---",@{$item[-1]});
-      print join("---",@{$item[-1]})."\n";}
+      print $jo."\n"; $return=$jo}
 #    description : "%" /\ */ "DESCRIPTION:" nl (headerline{\@item})(s)
 #     {print join("---",${@{$item[-1]}})."\n";}
 
