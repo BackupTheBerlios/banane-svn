@@ -191,9 +191,11 @@ $result=$parse->code($_[0]);
 my($restr)=${@{$result->[11]}}[0];
 my($al)=${@{$result->[14]}}[0];
 
-if (!(defined $restr)) {
-  $restr="NULL";
-}
+
+## care for cases when optional sections are missing
+if (!(defined $restr)) {$restr="NULL";}
+if (!(defined $al)) {$al="NULL";}
+
 
 ## generate hash as return structrue, since its easier 
 ## to access single tags by name

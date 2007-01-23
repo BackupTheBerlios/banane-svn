@@ -72,6 +72,8 @@ while($orow = mysql_fetch_array($outputs))
  }  
 echo "</TABLE>";
 echo "</TR>";
+
+# skip optional section 'restrictions' if table entry is NULL
 if($rrow["restrictions"]!="NULL") 
 { 
   echo "<TR><TD VALIGN=TOP><B>Restrictions</B>"; 
@@ -81,8 +83,13 @@ echo "<TR><TD VALIGN=TOP><B>Procedure</B>";
 echo "<TD VALIGN=TOP>".$rrow["proc"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Example</B>"; 
 echo "<TD VALIGN=TOP>".$rrow["example"]."</TR>";
-echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
-echo "<TD VALIGN=TOP>".$rrow["also"]."</TR>";
+
+# skip optional section 'see also' if table entry is NULL
+if($rrow["also"]!="NULL") 
+{ 
+  echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
+  echo "<TD VALIGN=TOP>".$rrow["also"]."</TR>";
+ }
 echo "</TABLE>"; 
 ?> 
 </HTML>
