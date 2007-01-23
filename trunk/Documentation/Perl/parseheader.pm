@@ -122,14 +122,14 @@ $return=$item{header}}
 
     argument : argumentline headerline(s?)
                 {if (defined ($item[-1])) {
-                 my($total)=unshift(@{$item[-1]}, $item{argumentline}[1]);
-#                 print join("---",@{$item[-1]})."\n";
+#                 my($total)=unshift(@{$item[-1]}, $item{argumentline}[1]);
+                 print join("---",@{$item[-1]})."\n";
                  my(@list) = ($item{argumentline}[0],join(" ",@{$item[-1]}));
 # print $list[0]."\n".$list[1]."\n";
                 $return=\@list}
                 else
                 {
-                print"undefined!!!\n";
+                print"argument with no additional headerline.\n";
                  my(@list) = (@{$item{argumentline}});
                 $return=\@list
                 }
