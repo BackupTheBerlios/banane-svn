@@ -45,14 +45,17 @@
 %  load all stimulus info. 
 %
 % OUTPUTS:
-%  nevObject:: A structure array with various tags that contain the
+%  nevobject:: A structure array with various tags that contain the
 %  information within the NEV file. Most notably:<BR>
-%   nevObject.<BR>
-%   ...HeaderBasic<BR>
-%   ......timeResolution - time resolution of time stamps<BR>
-%   ......sampleResolution - time resolution of waveform samples<BR>
-%   ...SpikeData - matrix with all channels/units selected<BR>
-%   ......timestamps - timestamps on the particular channel and unit<BR>
+%   nevobject.<BR>
+%   |---HeaderBasic<BR>
+%   ....|---timeResolution - time resolution of time stamps<BR>
+%   ....|---sampleResolution - time resolution of waveform samples<BR>
+%   |---SpikeData - matrix with all channels/units selected<BR>
+%   ....|---timestamps - timestamps on the particular channel and
+%   unit<BR>
+%  There are many more structure tags all described in detailed in
+%  cyberkinetics_docu.pdf
 %
 % RESTRICTIONS:
 %  None known so far.
