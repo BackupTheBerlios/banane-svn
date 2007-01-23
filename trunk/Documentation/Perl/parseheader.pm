@@ -103,7 +103,7 @@ $grammar =
 
     restrictions : "%" /\ */ "RESTRICTIONS:" nl headerline(s) # (headerline{\@item})(s)
 #     { print join("-+-",@{$item[-1]})."\n";
- $return=join(" ",@{$item[-1]}) }
+ { $return=join(" ",@{$item[-1]}) }
 
 
     procedure : "%" /\ */ "PROCEDURE:" nl headerline(s)
