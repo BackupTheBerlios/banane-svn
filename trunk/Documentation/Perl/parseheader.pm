@@ -204,11 +204,11 @@ $result=$parse->code($_[0]);
 my $restr="";
 foreach (@{$result->[11]->[0]}) {$restr=$restr." ".$_->[1];}
 
-my $proc="";
-foreach (@{$result->[12]}) {$proc=$proc." ".$_->[1];}
+#my $proc="";
+#foreach (@{$result->[12]}) {$proc=$proc." ".$_->[1];}
 
-my $exa="";
-foreach (@{$result->[13]}) {$exa=$exa."<BR>".$_->[1];}
+#my $exa="";
+#foreach (@{$result->[13]}) {$exa=$exa."<BR>".$_->[1];}
 
 my $al="";
 foreach (@{$result->[14]->[0]}) {$al=$al.$_->[1];}
@@ -226,8 +226,8 @@ return ("name"=>$$result[0],
         "optinputs"=>$$result[9],
         "outputs"=>$$result[10],
         "restrictions"=>$restr,
-        "proc"=>$proc,
-        "example"=>$exa,
+        "proc"=>$$result[12],
+        "example"=>$$result[13], #$exa,
         "also"=>$al);
 }
 
