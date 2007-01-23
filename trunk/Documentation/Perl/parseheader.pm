@@ -104,14 +104,14 @@ $grammar =
     restrictions : "%" /\ */ "RESTRICTIONS:" nl headerline(s) 
      { $return=join(" ",@{$item[-1]}) }
 
-
     procedure : "%" /\ */ "PROCEDURE:" nl headerline(s)
      { $return=join(" ",@{$item[-1]}) }
 
     example : "%" /\ */ "EXAMPLE:" nl headerline(s)
      { $return=join("<BR>",@{$item[-1]}) }
 
-    also : "%" /\ */ "SEE ALSO:" nl (headerline{\@item})(s)
+    also : "%" /\ */ "SEE ALSO:" nl headerline(s)
+     { $return=join(" ",@{$item[-1]}) }
 
     headerline: ...!headerstart
                 ...!headerstop
@@ -179,24 +179,18 @@ $grammar =
     nl : /\ *\n/ # allow arbitrary spaces before newline
   };
 
+
 $parse = new Parse::RecDescent ($grammar);
 
 $result=$parse->code($_[0]);
 
-# concatenate single lines from multiline entries
 
 ## need an additional level of dereference here, possibly due to the 
 ## fact that 'restrictions' is an optional section. The same is true 
 ## for 'see also'. 
 my($restr)=${@{$result->[11]}}[0];
-#foreach (@{$result->[11]->[0]}) {$restr=$restr." ".$_->[1];}
+my($al)=${@{$result->[14]}}[0];
 
-#print ref($result[11]->[0])."\n";
-#print @{$result->[11]}->[0]."\n";
-print $restr."\n";
-
-my $al="";
-foreach (@{$result->[14]->[0]}) {$al=$al.$_->[1];}
 
 ## generate hash as return structrue, since its easier 
 ## to access single tags by name
