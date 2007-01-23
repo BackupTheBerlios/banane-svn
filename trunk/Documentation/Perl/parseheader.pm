@@ -42,23 +42,23 @@ $grammar =
              emptyline(s?) 
              also(?)
              emptyline(s?) 
-             headerstop { my(@list) = 
-                           ($item{name}, 
-                            $item{version}, 
-                            $item{author},
-                            $item{date},
-                            $item{aim},
-                            $item{description},
-                            $item{category},
-                            $item{syntax},
-                            $item{inputs},
-                            $item{optinputs},
-                            $item{outputs},
-                            $item{restrictions},
-                            $item{procedure},
-                            $item{example},
-                            $item{also});
-                          $return = \@list }
+             headerstop 
+     { my(@list) = ($item{name}, 
+                    $item{version}, 
+                    $item{author},
+                    $item{date},
+                    $item{aim},
+                    $item{description},
+                    $item{category},
+                    $item{syntax},
+                    $item{inputs},
+                    $item{optinputs},
+                    $item{outputs},
+                    $item{restrictions},
+                    $item{procedure},
+                    $item{example},
+                    $item{also});
+       $return = \@list }
 
     body : bodyline(s)
 
@@ -101,8 +101,11 @@ $grammar =
     outputs : "%" /\ */ "OUTPUTS:" nl argument(s) 
      { $return=$item[5] }
 
-    restrictions : "%" /\ */ "RESTRICTIONS:" nl (headerline{\@item})(s)
- 
+    restrictions : "%" /\ */ "RESTRICTIONS:" nl headerline(s) # (headerline{\@item})(s)
+     { print join("-+-",@{$item[-1]})."\n";
+ $return=join(" ",@{$item[-1]}) }
+
+
     procedure : "%" /\ */ "PROCEDURE:" nl headerline(s)
      { $return=join(" ",@{$item[-1]}) }
 
@@ -181,22 +184,7 @@ $parse = new Parse::RecDescent ($grammar);
 
 $result=$parse->code($_[0]);
 
-#print "$result->[6]->[0]->[0]->[1]\n";
-#print "$$result[6]->[0]->[0]->[1]\n";
-#print "$result->[6]\n";
-
 # concatenate single lines from multiline entries
-
-#print $$result[5]."\n";
-
-#my $descr="";
-#foreach (@{$result->[5]}) {$descr=$descr." ".$_->[1];}
-
-#my $cat="";
-#foreach (@{$result->[6]}) {$cat=$cat.$_->[1];}
-
-#my $syn="";
-#foreach (@{$result->[7]}) {$syn=$syn."<BR>".$_->[1];}
 
 ## need an additional level of dereference here, possibly due to the 
 ## fact that 'restrictions' is an optional section. The same is true 
@@ -204,24 +192,19 @@ $result=$parse->code($_[0]);
 my $restr="";
 foreach (@{$result->[11]->[0]}) {$restr=$restr." ".$_->[1];}
 
-#my $proc="";
-#foreach (@{$result->[12]}) {$proc=$proc." ".$_->[1];}
-
-#my $exa="";
-#foreach (@{$result->[13]}) {$exa=$exa."<BR>".$_->[1];}
-
 my $al="";
 foreach (@{$result->[14]->[0]}) {$al=$al.$_->[1];}
 
-## generate hash for return, since its easier to process single tags
+## generate hash as return structrue, since its easier 
+## to access single tags by name
 return ("name"=>$$result[0],
         "version"=>$$result[1],
 	"author"=>$$result[2],
 	"date"=>$$result[3],
 	"aim"=>$$result[4],
-	"description"=>$$result[5], #$descr,
-	"category"=>$$result[6], #$cat,
-	"syntax"=>$$result[7], #$syn,
+	"description"=>$$result[5],
+	"category"=>$$result[6],
+	"syntax"=>$$result[7],
         "inputs"=>$$result[8],
         "optinputs"=>$$result[9],
         "outputs"=>$$result[10],
