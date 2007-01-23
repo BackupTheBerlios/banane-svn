@@ -145,7 +145,7 @@ $grammar =
           $return=\@list} }
 
 
-    argumentline : "%" /\ */ /[a-z0-9,\ ]*/ "::" /.*/ nl
+    argumentline : "%" /\ */ /[a-zA-Z0-9,\ ]*/ "::" /.*/ nl
      { my(@list) = ($item{__PATTERN2__}, 
                     $item{__PATTERN3__});
        $return = \@list }
