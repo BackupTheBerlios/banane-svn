@@ -41,7 +41,7 @@ echo "<TD VALIGN=TOP>".$rrow["description"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Category</B>"; 
 echo "<TD VALIGN=TOP>".$rrow["category"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Syntax</B>"; 
-echo "<TD VALIGN=TOP>".$rrow["syntax"]."</TR>";
+echo "<TD VALIGN=TOP><CODE>".$rrow["syntax"]."</CODE></TR>";
 echo "<TR><TD VALIGN=TOP><B>Inputs</B><TD VALIGN=TOP>"; 
 echo "<TABLE>";
 while($irow = mysql_fetch_array($inputs)) 
