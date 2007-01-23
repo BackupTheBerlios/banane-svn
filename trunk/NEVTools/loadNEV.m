@@ -46,9 +46,7 @@
 %
 % OUTPUTS:
 %  nevObject:: A structure array with various tags that contain the
-%  information within the NEV file. Most notably:
-%  There are many more tags, which are describe in detail in
-%  cyberkinetics_docu.pdf.
+%  information within the NEV file. Most notably.
 %
 % RESTRICTIONS:
 %  None known so far.
