@@ -31,7 +31,7 @@
 %  NEV Tools
 %
 % SYNTAX:
-%* nevObject = loadNEV(filename[, channellist][, units][, detail]); 
+%* nevobject = loadNEV(filename[, channellist][, units][, detail]); 
 %
 % INPUTS:
 %  filename:: String containing the name and possibly the path for the
@@ -39,10 +39,20 @@
 %
 % OPTIONAL INPUTS:
 %  channellist:: Array of channels to be imported.
-%  optarg2:: Another optional input argument.
+%  units:: Pass string 'no' to only load classified units.
+%  detail:: Pass string 'all' to load all waveforms and stimulus
+%  info. Pass string 'wav' to load all waveforms. Pass string 'exp' to
+%  load all stimulus info. 
 %
 % OUTPUTS:
-%  result:: A structure array
+%  nevObject:: A structure array with various tags that contain the
+%  information within the NEV file. Most notably:<BR>
+%   nevObject.<BR>
+%   ...HeaderBasic<BR>
+%   ......timeResolution - time resolution of time stamps<BR>
+%   ......sampleResolution - time resolution of waveform samples<BR>
+%   ...SpikeData - matrix with all channels/units selected<BR>
+%   ......timestamps - timestamps on the particular channel and unit<BR>
 %
 % RESTRICTIONS:
 %  None known so far.
