@@ -77,7 +77,8 @@ $return=$item{header}}
     aim : "%" /\ */ "AIM:" nl headerline {$return=$item{headerline}}
 
     description : "%" /\ */ "DESCRIPTION:" nl headerline(s)
-     {print join("---",${@{$item[-1]}})."\n";}
+     {print ref($item[-1])."\n";
+      print join("---",@{$item[-1]})."\n";}
 #    description : "%" /\ */ "DESCRIPTION:" nl (headerline{\@item})(s)
 #     {print join("---",${@{$item[-1]}})."\n";}
 
