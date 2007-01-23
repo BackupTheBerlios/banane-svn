@@ -191,6 +191,7 @@ $result=$parse->code($_[0]);
 my($restr)=${@{$result->[11]}}[0];
 my($al)=${@{$result->[14]}}[0];
 
+print $restr."\n";
 
 ## generate hash as return structrue, since its easier 
 ## to access single tags by name
