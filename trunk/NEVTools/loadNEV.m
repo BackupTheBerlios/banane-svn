@@ -37,6 +37,13 @@
 %  filename:: String containing the name and possibly the path for the
 %             file to be read.
 %
+% OPTIONAL INPUTS:
+%  optarg1:: An optional input argument.
+%  optarg2:: Another optional input argument.
+%
+% OUTPUTS:
+%  result:: The result of the routine.
+%
 % RESTRICTIONS:
 %  None known so far.
 %
