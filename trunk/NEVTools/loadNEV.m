@@ -38,7 +38,7 @@
 %             file to be read.
 %
 % OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
+%  channellist:: Array of channels to be imported.
 %  optarg2:: Another optional input argument.
 %
 % OUTPUTS:
