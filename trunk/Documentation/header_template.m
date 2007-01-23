@@ -23,7 +23,8 @@
 %   - Documentation<BR>
 %   - NEV Tools<BR>
 %   - Support routines<BR>
-%  Others may be invented.
+%  Others may be invented, with corresponding subdirectories in the
+%  BANANE directory tree.
 %
 % SYNTAX:
 %* result = example_function(arg1, arg2,[, optarg1][, optarg2]); 
@@ -41,7 +42,7 @@
 %  result:: The result of the routine.
 %
 % RESTRICTIONS:
-%  Is there anything known that could cause problems?
+%  Optional section: Is there anything known that could cause problems?
 %
 % PROCEDURE:
 %  Short description of the alogorithm.
@@ -55,7 +56,7 @@
 %*>   28
 %
 % SEE ALSO:
-%  Related files. Banane routines may be refenced as anchors <A>foobar</A>. 
+%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>foobar</A>. 
 %-
 
 
