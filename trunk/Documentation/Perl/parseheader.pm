@@ -113,7 +113,10 @@ print"$jojo\n";
      { $return=join(" ",@{$item[-1]}) }
 
     example : "%" /\ */ "EXAMPLE:" nl headerline(s)
-     {}
+     { my($jojo)=join(" ",@{$item[-1]}); 
+       $jojo =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
+       $jojo =~ s/^<BR>//;
+       $return=$jojo}
 
     also : "%" /\ */ "SEE ALSO:" nl headerline(s)
      { $return=join(" ",@{$item[-1]}) }
