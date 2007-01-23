@@ -71,9 +71,12 @@ while($orow = mysql_fetch_array($outputs))
   echo "</TR>";
  }  
 echo "</TABLE>";
-echo "</TR>"; 
-echo "<TR><TD VALIGN=TOP><B>Restrictions</B>"; 
-echo "<TD VALIGN=TOP>".$rrow["restrictions"]."</TR>";
+echo "</TR>";
+if($rrow["restrictions"]!="NULL") 
+{ 
+  echo "<TR><TD VALIGN=TOP><B>Restrictions</B>"; 
+  echo "<TD VALIGN=TOP>".$rrow["restrictions"]."</TR>";
+ }
 echo "<TR><TD VALIGN=TOP><B>Procedure</B>"; 
 echo "<TD VALIGN=TOP>".$rrow["proc"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Example</B>"; 
