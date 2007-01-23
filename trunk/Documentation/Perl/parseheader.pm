@@ -108,7 +108,11 @@ $grammar =
      { $return=join(" ",@{$item[-1]}) }
 
     example : "%" /\ */ "EXAMPLE:" nl headerline(s)
-     { $return=join(" ",@{$item[-1]}) }
+     { $jo=join(" ",@{$item[-1]});
+print "$jo\n";
+$jo =~ s/"</CODE><BR><BR><CODE>"/"<BR>"/g;
+print "$jo\n";
+$return=$jo }
 
     also : "%" /\ */ "SEE ALSO:" nl headerline(s)
      { $return=join(" ",@{$item[-1]}) }
@@ -133,12 +137,12 @@ $grammar =
                 ...!argumentline
                 normalline | codeline
 
+    codeline: "%*" /\ */ /.*/ /\ */ nl
+                   { $return = "<BR><CODE>".$item{__PATTERN2__}."</CODE><BR>" }
+
     normalline: ...!codeline
                  "%" /\ */ /.*/ /\ */ nl
                    { $return = $item{__PATTERN2__} }
-
-    codeline: "%*" /\ */ /.*/ /\ */ nl
-                   { $return = "<BR><CODE>".$item{__PATTERN2__}."</CODE><BR>" }
 
     argument : argumentline headerline(s?)
      { if (defined ($item[-1])) {
