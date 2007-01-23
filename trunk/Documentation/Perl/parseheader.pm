@@ -101,7 +101,7 @@ $grammar =
     outputs : "%" /\ */ "OUTPUTS:" nl argument(s) 
      { $return=$item[5] }
 
-    restrictions : "%" /\ */ "RESTRICTIONS:" nl headerline(s) # (headerline{\@item})(s)
+    restrictions : "%" /\ */ "RESTRICTIONS:" nl headerline(s) 
 #     { print join("-+-",@{$item[-1]})."\n";
  { $return=join(" ",@{$item[-1]}) }
 
@@ -192,7 +192,7 @@ $result=$parse->code($_[0]);
 my $restr="";
 foreach (@{$result->[11]->[0]}) {$restr=$restr." ".$_->[1];}
 
-print "$result[11]->[0]\n";
+print $result[11]->[0]."\n";
 
 my $al="";
 foreach (@{$result->[14]->[0]}) {$al=$al.$_->[1];}
