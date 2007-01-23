@@ -192,8 +192,7 @@ my($restr)=${@{$result->[11]}}[0];
 my($al)=${@{$result->[14]}}[0];
 
 if (!(defined $restr)) {
-  print "Undefined!\n";
-  $restr="\N";
+  $restr="NULL";
 }
 
 ## generate hash as return structrue, since its easier 
