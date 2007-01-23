@@ -77,7 +77,8 @@ $return=$item{header}}
     aim : "%" /\ */ "AIM:" nl headerline {$return=$item{headerline}}
 
     description : "%" /\ */ "DESCRIPTION:" nl (headerline{\@item})(s)
-    
+     {print join("---",@{$item[-1]})."\n";}
+
     category : "%" /\ */ "CATEGORY:" nl (headerline{\@item})(s)
 
     syntax : "%" /\ */ "SYNTAX:" nl (headerline{\@item})(s)
@@ -123,7 +124,7 @@ $return=$item{header}}
     argument : argumentline headerline(s?)
                 {if (defined ($item[-1])) {
                  my($total)=unshift(@{$item[-1]}, $item{argumentline}[1]);
-                 print join("---",@{$item[-1]})."\n";
+#                 print join("---",@{$item[-1]})."\n";
                  my(@list) = ($item{argumentline}[0],join(" ",@{$item[-1]}));
 # print $list[0]."\n".$list[1]."\n";
                 $return=\@list}
