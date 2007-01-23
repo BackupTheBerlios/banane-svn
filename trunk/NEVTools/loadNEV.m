@@ -37,17 +37,6 @@
 %  filename:: String containing the name and possibly the path for the
 %             file to be read.
 %
-% OPTIONAL INPUTS:
-%  channellist:: Array of channels to be imported.
-%  units:: Pass string 'no' to only load classified units.
-%  detail:: Pass string 'all' to load all waveforms and stimulus
-%  info. Pass string 'wav' to load all waveforms. Pass string 'exp' to
-%  load all stimulus info. 
-%
-% OUTPUTS:
-%  nevObject:: A structure array with various tags that contain the
-%  information within the NEV file. Most notably.
-%
 % RESTRICTIONS:
 %  None known so far.
 %
@@ -67,6 +56,17 @@
 %-
 
 
+% OPTIONAL INPUTS:
+%  channellist:: Array of channels to be imported.
+%  units:: Pass string 'no' to only load classified units.
+%  detail:: Pass string 'all' to load all waveforms and stimulus
+%  info. Pass string 'wav' to load all waveforms. Pass string 'exp' to
+%  load all stimulus info. 
+%
+% OUTPUTS:
+%  nevObject:: A structure array with various tags that contain the
+%  information within the NEV file. Most notably.
+%
 %   nevObject.<BR>
 %       HeaderBasic<BR>
 %             timeResolution - time resolution of time stamps<BR>
