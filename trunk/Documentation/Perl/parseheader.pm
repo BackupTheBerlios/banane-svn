@@ -92,7 +92,9 @@ $grammar =
     syntax : "%" /\ */ "SYNTAX:" nl headerline(s)
      { my($jojo)=join(" ",@{$item[-1]}); 
        $jojo =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
+print"$jojo\n";
        $jojo =~ s/^<BR>//;
+print"$jojo\n";
        $return=$jojo}
 
     inputs : "%" /\ */ "INPUTS:" nl argument(s) 
