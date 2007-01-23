@@ -87,12 +87,10 @@ $grammar =
        $return=join(" ",@{$item[-1]}) }
 
     category : "%" /\ */ "CATEGORY:" nl headerline(s)
-     { # join multiple headerlines in single string
-       $return=join(" ",@{$item[-1]}) }
+     { $return=join(" ",@{$item[-1]}) }
 
     syntax : "%" /\ */ "SYNTAX:" nl headerline(s)
-     { # join multiple headerlines in single string
-       $return=join(" ",@{$item[-1]}) }
+     { $return=join(" ",@{$item[-1]}) }
 
     inputs : "%" /\ */ "INPUTS:" nl argument(s) 
      { $return=$item[5] }
@@ -105,9 +103,11 @@ $grammar =
 
     restrictions : "%" /\ */ "RESTRICTIONS:" nl (headerline{\@item})(s)
  
-    procedure : "%" /\ */ "PROCEDURE:" nl (headerline{\@item})(s)
+    procedure : "%" /\ */ "PROCEDURE:" nl headerline(s)
+     { $return=join(" ",@{$item[-1]}) }
 
-    example : "%" /\ */ "EXAMPLE:" nl (headerline{\@item})(s)
+    example : "%" /\ */ "EXAMPLE:" nl headerline(s)
+     { $return=join(" ",@{$item[-1]}) }
 
     also : "%" /\ */ "SEE ALSO:" nl (headerline{\@item})(s)
 
@@ -133,26 +133,20 @@ $grammar =
                    { $return = $item{__PATTERN2__} }
 
     argument : argumentline headerline(s?)
-                {if (defined ($item[-1])) {
-                 my($total)=unshift(@{$item[-1]}, $item{argumentline}[1]);
-#                 print join("---",@{$item[-1]})."\n";
-                 my(@list) = ($item{argumentline}[0],join(" ",@{$item[-1]}));
-# print $list[0]."\n".$list[1]."\n";
-                $return=\@list}
-                else
-                {
-                print"argument with no additional headerline.\n";
-                 my(@list) = (@{$item{argumentline}});
-                $return=\@list
-                }
-                }
+     { if (defined ($item[-1])) {
+          my($total)=unshift(@{$item[-1]}, $item{argumentline}[1]);
+          my(@list) = ($item{argumentline}[0],join(" ",@{$item[-1]}));
+          $return=\@list}
+       else {
+          print"argument with no additional headerline.\n";
+          my(@list) = (@{$item{argumentline}});
+          $return=\@list} }
 
 
     argumentline : "%" /\ */ /[a-z0-9,\ ]*/ "::" /.*/ nl
-                 { my(@list) = 
-                           ($item{__PATTERN2__}, 
-                            $item{__PATTERN3__});
-                   $return = \@list }
+     { my(@list) = ($item{__PATTERN2__}, 
+                    $item{__PATTERN3__});
+       $return = \@list }
 
     ### special rule for name of routine
     nameline: ...!headerstart
