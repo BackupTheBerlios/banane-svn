@@ -188,11 +188,12 @@ $result=$parse->code($_[0]);
 ## need an additional level of dereference here, possibly due to the 
 ## fact that 'restrictions' is an optional section. The same is true 
 ## for 'see also'. 
-my $restr="";
-foreach (@{$result->[11]->[0]}) {$restr=$restr." ".$_->[1];}
+my($restr)=@{$result->[11]}->[0];
+#foreach (@{$result->[11]->[0]}) {$restr=$restr." ".$_->[1];}
 
-print ref($result[11]->[0])."\n";
-print @{$result->[11]}->[0]."\n";
+#print ref($result[11]->[0])."\n";
+#print @{$result->[11]}->[0]."\n";
+print $restr."\n";
 
 my $al="";
 foreach (@{$result->[14]->[0]}) {$al=$al.$_->[1];}
