@@ -27,12 +27,13 @@ $dirname=($argv[0]);
 
 ## select all routines in respective directory and in its subdirs.
 ## % in database query is the wildcard character.
-$querystring= "SELECT name,aim FROM routines WHERE fullpath LIKE '".$dirname."%'";
+#$querystring= "SELECT name,aim FROM routines WHERE fullpath LIKE '".$dirname."%'";
+$querystring= "SELECT name,aim FROM routines WHERE relativepath LIKE '".$dirname."%'";
 $routines = mysql_query($querystring,$db); 
 
 ## display table with name and aim column. make the name a link to the
 ## viewroutine script with the routine name as the argument
-echo "<B>Contents of directory <I>".$dirname."</I></B>";
+echo "<B>Contents of directory <I>\$BANANEPATH/".$dirname."</I></B>";
 echo "<TABLE>";
 while($rrow = mysql_fetch_array($routines))
   { $rname=$rrow["name"];
