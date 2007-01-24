@@ -30,10 +30,11 @@ $dirname=($argv[0]);
 if (isset($dirname)) {
   echo "Set +".$dirname."+<BR>";
 #$querystring= "SELECT name,aim FROM routines WHERE fullpath LIKE '".$dirname."%'";
-  $querystring= "SELECT name,aim FROM routines WHERE relativepath LIKE '".$dirname."%'";}
- else {
+  $querystring= "SELECT name,aim FROM routines WHERE relativepath LIKE '".$dirname."%'";
+} else {
   echo "Not set +".$dirname."+<BR>";
-  $querystring= "SELECT name,aim FROM routines;}
+  $querystring= "SELECT name,aim FROM routines";
+}
 
 $routines = mysql_query($querystring,$db); 
 
