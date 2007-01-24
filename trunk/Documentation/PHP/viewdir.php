@@ -1,4 +1,3 @@
-#<HTML> 
 <?php
 
 ## needed to call configuration script that knows everything else:
@@ -45,4 +44,3 @@ while($rrow = mysql_fetch_array($routines))
   }
 echo "</TABLE>";
 ?> 
-#</HTML>
