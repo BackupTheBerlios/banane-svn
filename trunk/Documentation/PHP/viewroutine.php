@@ -91,7 +91,8 @@ if($rrow["also"]!="NULL")
 #  echo $also."\n";
 #  $pattern="<A>[A-Za-z0-9_]<\/A>";
 #  $pattern="<A>+eNa+</A>";
-  $pattern="/(<([\w]+)[^>]*>)(.*)(<\/\\2>)/";
+#  $pattern="/(<([\w]+)[^>]*>)(.*)(<\/\\2>)/";
+  $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
   preg_match_all($pattern, $also, $matches, PREG_SET_ORDER);
 foreach ($matches as $val) {
    echo "matched: " . $val[0] . "\n";
