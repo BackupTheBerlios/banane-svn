@@ -94,17 +94,17 @@ if($rrow["also"]!="NULL")
 #  $pattern="/(<([\w]+)[^>]*>)(.*)(<\/\\2>)/";
   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
   preg_match_all($pattern, $also, $matches, PREG_SET_ORDER);
-#foreach ($matches as $val) {
+foreach ($matches as $val) {
 #  $search="/(<(A|a)[^>]*>)".$val[3];
-#  $replace"<A href='http://banane.berlios.de/wwwcopy/Banane/Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
-#echo $replace."\n";
+  $replace="<A href='http://banane.berlios.de/wwwcopy/Banane/Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
+echo $replace."\n";
 #$newalso = str_replace($search, $replace, $also);
 #echo $newalso."\n";
 #   echo "matched: " . $val[0] . "\n";
 #   echo "part 1: " . $val[1] . "\n";
 #   echo "part 2: " . $val[3] . "\n";
 #   echo "<A href='http://banane.berlios.de/wwwcopy/Banane/Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3]."</A>";
-#}
+}
 #echo $refnames[0][0] . ", " . $refnames[0][1] . "\n";
 #echo $refnames[1][0] . ", " . $refnames[1][1] . "\n";
 #  $newalso=str_replace("%body%", "black", "<body text='%body%'>");
