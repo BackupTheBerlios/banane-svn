@@ -2,8 +2,11 @@
 <?php
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
-$conscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr db";
-$allout=`$conscr`;
+## get info from config script.
+$confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
+
+$dbscr=$confscr." db";
+$allout=`$dbscr`;
 $out=explode("\n",$allout);
 $dbserver=$out[0];
 $dbname=$out[1];
@@ -11,6 +14,12 @@ $dbuser=$out[2];
 $dbpasswd=$out[3];
 $db = mysql_connect($dbserver, $dbuser, $dbpasswd); 
 mysql_select_db($dbname,$db);
+
+$webscr=$confscr." web";
+$allout=`$webscr`;
+$out=explode("\n",$allout);
+$webpath=$out[0];
+
 
 $rname=($argv[0]);
 
@@ -92,7 +101,7 @@ if($rrow["also"]!="NULL")
   preg_match_all($pattern, $also, $matches, PREG_SET_ORDER);
   foreach ($matches as $val) {
     $search="/(<(A|a)[^>]*>)".$val[3]."/";
-    $replace="<A href='http://banane.berlios.de/wwwcopy/Banane/Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
+    $replace="<A href='".$webpath."Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
     $also = preg_replace($search, $replace, $also);
   }
   echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
