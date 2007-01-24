@@ -1,5 +1,8 @@
 <HTML> 
 <?php
+
+## function to search simplified anchors <A>routine</A> and replace 
+## them with with proper hyperrefs
 function anchorreplace($original,$path){
   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
   preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
@@ -58,7 +61,7 @@ echo "<TD VALIGN=TOP>".$rrow["date"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Aim</B>";
 echo "<TD VALIGN=TOP>".$rrow["aim"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Description</B>"; 
-echo "<TD VALIGN=TOP>".$rrow["description"]."</TR>";
+echo "<TD VALIGN=TOP>".anchorreplace($rrow["description"],$webpath)."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Category</B>"; 
 echo "<TD VALIGN=TOP>".$rrow["category"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Syntax</B>"; 
@@ -68,7 +71,7 @@ echo "<TABLE>";
 while($irow = mysql_fetch_array($inputs)) 
 { 
   echo "<TR><TD VALIGN=TOP><VAR>".$irow["argument"].": </VAR>";
-  echo "<TD VALIGN=TOP>".$irow["description"];
+  echo "<TD VALIGN=TOP>".anchorreplace($irow["description"],$webpath);
   echo "</TR>";
  }  
 echo "</TABLE>";
@@ -78,7 +81,7 @@ echo "<TABLE>";
 while($oirow = mysql_fetch_array($optinputs)) 
 { 
   echo "<TR><TD VALIGN=TOP><VAR>".$oirow["argument"].": </VAR>";
-  echo "<TD VALIGN=TOP>".$oirow["description"];
+  echo "<TD VALIGN=TOP>".anchorreplace($oirow["description"],$webpath);
   echo "</TR>";
  }  
 echo "</TABLE>";
@@ -88,7 +91,7 @@ echo "<TABLE>";
 while($orow = mysql_fetch_array($outputs)) 
 { 
   echo "<TR><TD VALIGN=TOP><VAR>".$orow["argument"].": </VAR>";
-  echo "<TD VALIGN=TOP>".$orow["description"];
+  echo "<TD VALIGN=TOP>".anchorreplace($orow["description"],$webpath);
   echo "</TR>";
  }  
 echo "</TABLE>";
@@ -98,12 +101,12 @@ echo "</TR>";
 if($rrow["restrictions"]!="NULL") 
 { 
   echo "<TR><TD VALIGN=TOP><B>Restrictions</B>"; 
-  echo "<TD VALIGN=TOP>".$rrow["restrictions"]."</TR>";
+  echo "<TD VALIGN=TOP>".anchorreplace($rrow["restrictions"],$webpath)."</TR>";
  }
 echo "<TR><TD VALIGN=TOP><B>Procedure</B>"; 
-echo "<TD VALIGN=TOP>".$rrow["proc"]."</TR>";
+echo "<TD VALIGN=TOP>".anchorreplace($rrow["proc"],$webpath)."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Example</B>"; 
-echo "<TD VALIGN=TOP>".$rrow["example"]."</TR>";
+echo "<TD VALIGN=TOP>".anchorreplace($rrow["example"],$webpath)."</TR>";
 
 # skip optional section 'see also' if table entry is NULL
 if($rrow["also"]!="NULL") 
