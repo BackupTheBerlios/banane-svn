@@ -95,7 +95,7 @@ if($rrow["also"]!="NULL")
   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
   preg_match_all($pattern, $also, $matches, PREG_SET_ORDER);
 foreach ($matches as $val) {
-  $search="/(<(A|a)[^>]*>)".$val[3];
+  $search="/(<(A|a)[^>]*>)".$val[3]."/";
   $replace="<A href='http://banane.berlios.de/wwwcopy/Banane/Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
 echo $replace."\n";
 $also = str_replace($search, $replace, $also);
