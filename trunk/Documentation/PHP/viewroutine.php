@@ -93,9 +93,14 @@ if($rrow["also"]!="NULL")
 #  $pattern="<A>+eNa+</A>";
   $pattern="/(<([\w]+)[^>]*>)(.*)(<\/\\2>)/";
   preg_match_all($pattern, $also, $refnames, PREG_SET_ORDER);
-#  print_r($refnames);
-echo $refnames[0][0] . ", " . $refnames[0][1] . "\n";
-echo $refnames[1][0] . ", " . $refnames[1][1] . "\n";
+foreach ($matches as $val) {
+   echo "matched: " . $val[0] . "\n";
+   echo "part 1: " . $val[1] . "\n";
+   echo "part 2: " . $val[3] . "\n";
+   echo "part 3: " . $val[4] . "\n\n";
+}
+#echo $refnames[0][0] . ", " . $refnames[0][1] . "\n";
+#echo $refnames[1][0] . ", " . $refnames[1][1] . "\n";
 #  $newalso=str_replace("%body%", "black", "<body text='%body%'>");
 
   echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
