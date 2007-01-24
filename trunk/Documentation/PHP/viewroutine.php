@@ -97,7 +97,7 @@ if($rrow["also"]!="NULL")
 foreach ($matches as $val) {
   $search="/(<(A|a)[^>]*>)/";
   $replace"<A href='http://banane.berlios.de/wwwcopy/Banane/Documentation/PHP/viewroutine.php?".$val[3]."'>";
-$also = str_replace($search, $replace, $also);
+$newalso = str_replace($search, $replace, $also);
 #   echo "matched: " . $val[0] . "\n";
 #   echo "part 1: " . $val[1] . "\n";
 #   echo "part 2: " . $val[3] . "\n";
@@ -108,7 +108,7 @@ $also = str_replace($search, $replace, $also);
 #  $newalso=str_replace("%body%", "black", "<body text='%body%'>");
 
   echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
-  echo "<TD VALIGN=TOP>".$rrow["also"]."</TR>";
+  echo "<TD VALIGN=TOP>".$also."</TR>";
  }
 echo "</TABLE>"; 
 ?> 
