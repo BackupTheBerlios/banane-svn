@@ -1,15 +1,14 @@
 <HTML> 
 <?php
 function anchorreplace($original,$path){
-  $also=$original;
   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
-  preg_match_all($pattern, $also, $matches, PREG_SET_ORDER);
+  preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
   foreach ($matches as $val) {
     $search="/(<(A|a)[^>]*>)".$val[3]."/";
     $replace="<A href='".$path."Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
-    $also = preg_replace($search, $replace, $also);    
+    $original = preg_replace($search, $replace, $original);    
   }
-  return $also;
+  return $original;
 }
 
 
@@ -109,14 +108,6 @@ echo "<TD VALIGN=TOP>".$rrow["example"]."</TR>";
 # skip optional section 'see also' if table entry is NULL
 if($rrow["also"]!="NULL") 
 { 
-//   $also=$rrow["also"];
-//   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
-//   preg_match_all($pattern, $also, $matches, PREG_SET_ORDER);
-//   foreach ($matches as $val) {
-//     $search="/(<(A|a)[^>]*>)".$val[3]."/";
-//     $replace="<A href='".$webpath."Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
-//     $also = preg_replace($search, $replace, $also);
-//   }
   echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
   echo "<TD VALIGN=TOP>".anchorreplace($rrow["also"],$webpath)."</TR>";
  }
