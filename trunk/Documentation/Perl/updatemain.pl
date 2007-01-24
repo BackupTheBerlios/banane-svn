@@ -43,7 +43,7 @@ if ($file->[0]) {
     or die "Couldn't connect to database: " . DBI->errstr;
 
   # prepare databse querys
-  my $routines_replacehandle = $dbh->prepare_cached("REPLACE INTO routines (name,fullpath,relativepath,version,author,date,aim,description,category,syntax,restrictions,proc,example,also) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+  my $routines_replacehandle = $dbh->prepare_cached("REPLACE INTO routines (name,fullpath,relativepath,version,author,date,aim,description,category,syntax,restrictions,proc,example,also) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
