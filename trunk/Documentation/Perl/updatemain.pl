@@ -65,6 +65,10 @@ if ($file->[0]) {
     # read complete file
     $filename=$_->[1];
     print "Processing: $filename\n";
+
+    $relpath=$filename;
+    $relpath=~s/$bananepath//;
+print "$relpath\n";
     open(DAT, $filename) || die("Could not open file!");
     $rawdata=join'',<DAT>;
     close(DAT);
