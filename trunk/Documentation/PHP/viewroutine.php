@@ -97,7 +97,9 @@ if($rrow["also"]!="NULL")
 foreach ($matches as $val) {
   $search="/(<(A|a)[^>]*>)".$val[3];
   $replace"<A href='http://banane.berlios.de/wwwcopy/Banane/Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
-$also = str_replace($search, $replace, $also);
+echo $replace."\n";
+$newalso = str_replace($search, $replace, $also);
+echo $newalso."\n";
 #   echo "matched: " . $val[0] . "\n";
 #   echo "part 1: " . $val[1] . "\n";
 #   echo "part 2: " . $val[3] . "\n";
