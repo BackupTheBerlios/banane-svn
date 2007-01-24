@@ -3,6 +3,15 @@ package parseheader;
 #use lib '/etc/perl/CPAN/';
 use Parse::RecDescent;
 
+
+sub coderemove {
+  $in=$_[0];
+  $in =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
+  $in =~ s/^<BR>//;
+  return $in;
+}
+
+
 sub parse {
 
 $Parse::RecDescent::skip='';
@@ -112,9 +121,10 @@ $grammar =
 
     example : "%" /\ */ "EXAMPLE:" nl headerline(s)
      { my($jojo)=join(" ",@{$item[-1]}); 
-       $jojo =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
-       $jojo =~ s/^<BR>//;
-       $return=$jojo}
+#       $jojo =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
+#       $jojo =~ s/^<BR>//;
+#       $return=$jojo}
+       $return=coderemove($jojo)}
 
     also : "%" /\ */ "SEE ALSO:" nl headerline(s)
      { $return=join(" ",@{$item[-1]}) }
