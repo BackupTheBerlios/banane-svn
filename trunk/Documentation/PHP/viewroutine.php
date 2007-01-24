@@ -1,5 +1,18 @@
 <HTML> 
 <?php
+function anchorreplace($original){
+  $also=$original;
+  $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
+  preg_match_all($pattern, $also, $matches, PREG_SET_ORDER);
+  foreach ($matches as $val) {
+    $search="/(<(A|a)[^>]*>)".$val[3]."/";
+    $replace="<A href='".$webpath."Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
+    $also = preg_replace($search, $replace, $also);    
+  }
+  $return=$also;
+}
+
+
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
 ## get info from config script.
@@ -96,16 +109,16 @@ echo "<TD VALIGN=TOP>".$rrow["example"]."</TR>";
 # skip optional section 'see also' if table entry is NULL
 if($rrow["also"]!="NULL") 
 { 
-  $also=$rrow["also"];
-  $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
-  preg_match_all($pattern, $also, $matches, PREG_SET_ORDER);
-  foreach ($matches as $val) {
-    $search="/(<(A|a)[^>]*>)".$val[3]."/";
-    $replace="<A href='".$webpath."Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
-    $also = preg_replace($search, $replace, $also);
-  }
+//   $also=$rrow["also"];
+//   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
+//   preg_match_all($pattern, $also, $matches, PREG_SET_ORDER);
+//   foreach ($matches as $val) {
+//     $search="/(<(A|a)[^>]*>)".$val[3]."/";
+//     $replace="<A href='".$webpath."Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
+//     $also = preg_replace($search, $replace, $also);
+//   }
   echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
-  echo "<TD VALIGN=TOP>".$also."</TR>";
+  echo "<TD VALIGN=TOP>".anchorreplace($rrow["also"])."</TR>";
  }
 echo "</TABLE>"; 
 ?> 
