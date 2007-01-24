@@ -35,7 +35,7 @@
 %  from the call to the original function.
 %
 % OPTIONAL INPUTS:
-%  keyword1,defval1:: A pair of a <A>loadNEV</A> string giving the name of the keyword,
+%  keyword1,defval1:: A pair of a string giving the name of the keyword,
 %  followed by its default value. The value can be of any type. If no
 %  keyword/value pairs are given, no
 %  keywords are allowed in the function call. If the original function is
