@@ -88,8 +88,8 @@ echo "<TD VALIGN=TOP>".$rrow["example"]."</TR>";
 if($rrow["also"]!="NULL") 
 { 
   $also=$rrow["also"];
-echo $also"
-  $pattern="<A>[A-Za-z0-9_]</A>";
+  echo $also. "\n";
+  $pattern="<A>[A-Za-z0-9_]<\/A>";
   preg_match_all($pattern, $also, $refnames);
 #  print_r($refnames);
 echo $refnames[0][0] . ", " . $refnames[0][1] . "\n";
