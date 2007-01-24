@@ -15,8 +15,10 @@
 %  Short description of the routine in a single line.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. May contain small HTML tags like
-%  for example <BR> linebreaks. 
+%  Detailed description of the routine. The text may contain small HTML
+%  tags like for example <BR> linebreaks or <VAR>variable name
+%  typesetting</VAR>. Simple anchors to other banane routines are
+%  also allowed, eg <A>kwextract</A>.
 %
 % CATEGORY:
 %  At present, there are three possibilities:<BR>
@@ -57,7 +59,7 @@
 %*>   28
 %
 % SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>foobar</A>. 
+%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
 %-
 
 
