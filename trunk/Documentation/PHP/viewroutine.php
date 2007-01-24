@@ -1,12 +1,12 @@
 <HTML> 
 <?php
-function anchorreplace($original){
+function anchorreplace($original,$path){
   $also=$original;
   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
   preg_match_all($pattern, $also, $matches, PREG_SET_ORDER);
   foreach ($matches as $val) {
     $search="/(<(A|a)[^>]*>)".$val[3]."/";
-    $replace="<A href='".$webpath."Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
+    $replace="<A href='".$path."Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
     $also = preg_replace($search, $replace, $also);    
   }
   return $also;
@@ -118,7 +118,7 @@ if($rrow["also"]!="NULL")
 //     $also = preg_replace($search, $replace, $also);
 //   }
   echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
-  echo "<TD VALIGN=TOP>".anchorreplace($rrow["also"])."</TR>";
+  echo "<TD VALIGN=TOP>".anchorreplace($rrow["also"],$webpath)."</TR>";
  }
 echo "</TABLE>"; 
 ?> 
