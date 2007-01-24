@@ -43,7 +43,7 @@ if ($file->[0]) {
     or die "Couldn't connect to database: " . DBI->errstr;
 
   # prepare databse querys
-  my $routines_replacehandle = $dbh->prepare_cached("REPLACE INTO routines (name,fullpath,version,author,date,aim,description,category,syntax,restrictions,proc,example,also) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+  my $routines_replacehandle = $dbh->prepare_cached("REPLACE INTO routines (name,fullpath,relativepath,version,author,date,aim,description,category,syntax,restrictions,proc,example,also) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
@@ -68,7 +68,7 @@ if ($file->[0]) {
 
     $relpath=$filename;
     $relpath=~s/$bananepath//;
-print "$relpath\n";
+
     open(DAT, $filename) || die("Could not open file!");
     $rawdata=join'',<DAT>;
     close(DAT);
@@ -79,7 +79,7 @@ print "$relpath\n";
     # insert header information into the database tables "routines", 
     # "inputs", "optinputs" and "outputs" 
     my $success = 1;
-    $success &&= $routines_replacehandle->execute($head{name},$filename,$head{version},$head{author},$head{date},$head{aim},$head{description},$head{category},$head{syntax},$head{restrictions},$head{proc},$head{example},$head{also});
+    $success &&= $routines_replacehandle->execute($head{name},$filename,$relpath,$head{version},$head{author},$head{date},$head{aim},$head{description},$head{category},$head{syntax},$head{restrictions},$head{proc},$head{example},$head{also});
 
     # There may be multiple inputs, thus use loop here
     foreach (@{$head{inputs}->[0]}) {
