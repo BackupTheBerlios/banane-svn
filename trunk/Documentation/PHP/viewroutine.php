@@ -87,6 +87,13 @@ echo "<TD VALIGN=TOP>".$rrow["example"]."</TR>";
 # skip optional section 'see also' if table entry is NULL
 if($rrow["also"]!="NULL") 
 { 
+  $also=$rrow["also"];
+  $pattern="<A>[A-Za-z0-9_]</A>";
+  preg_match($pattern, $also, $refnames);
+  print_r($refnames);
+
+#  $newalso=str_replace("%body%", "black", "<body text='%body%'>");
+
   echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
   echo "<TD VALIGN=TOP>".$rrow["also"]."</TR>";
  }
