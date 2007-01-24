@@ -108,7 +108,7 @@ $also = str_replace($search, $replace, $also);
 #  $newalso=str_replace("%body%", "black", "<body text='%body%'>");
 
   echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
-  echo "<TD VALIGN=TOP>".$newalso."</TR>";
+  echo "<TD VALIGN=TOP>".$also."</TR>";
  }
 echo "</TABLE>"; 
 ?> 
