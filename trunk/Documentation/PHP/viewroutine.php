@@ -91,7 +91,7 @@ if($rrow["also"]!="NULL")
 #  echo $also."\n";
 #  $pattern="<A>[A-Za-z0-9_]<\/A>";
 #  $pattern="<A>+eNa+</A>";
-  $pattern="<A>*eNa*</A>";
+  $pattern="<A>*eNa*";
   preg_match_all($pattern, $also, $refnames, PREG_SET_ORDER);
 #  print_r($refnames);
 echo $refnames[0][0] . ", " . $refnames[0][1] . "\n";
