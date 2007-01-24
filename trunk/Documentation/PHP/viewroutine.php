@@ -89,7 +89,7 @@ if($rrow["also"]!="NULL")
 { 
   $also=$rrow["also"];
   $pattern="<A>[A-Za-z0-9_]</A>";
-  preg_match($pattern, $also, $refnames);
+  preg_match_all($pattern, $also, $refnames);
   print_r($refnames);
 
 #  $newalso=str_replace("%body%", "black", "<body text='%body%'>");
