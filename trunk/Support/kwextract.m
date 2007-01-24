@@ -78,7 +78,7 @@
 %*>    36
 %
 % SEE ALSO:
-%  <A>RoutineName</A>
+%  <A>loadNEV</A>, <a>example_function</a>. 
 %-
 
 
