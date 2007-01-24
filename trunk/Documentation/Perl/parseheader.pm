@@ -4,15 +4,15 @@ package parseheader;
 use Parse::RecDescent;
 
 
+sub coderemove {
+  $in=$_[0];
+  $in =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
+  $in =~ s/^<BR>//;
+  return $in;
+}
+
+
 sub parse {
-
-
-  sub coderemove {
-    $in=$_[0];
-    $in =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
-    $in =~ s/^<BR>//;
-    return $in;
-  }
 
 
 $Parse::RecDescent::skip='';
@@ -122,7 +122,7 @@ $grammar =
 
     example : "%" /\ */ "EXAMPLE:" nl headerline(s)
      { my($jojo)=join(" ",@{$item[-1]});
-       my($crem)=&coderemove($jojo);
+       my($crem)=&parsehader::coderemove($jojo);
 print "$crem\n";
        $return=$crem }
 
