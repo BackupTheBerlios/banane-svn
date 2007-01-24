@@ -101,9 +101,7 @@ $grammar =
 
     syntax : "%" /\ */ "SYNTAX:" nl headerline(s)
      { my($jojo)=join(" ",@{$item[-1]}); 
-       $jojo =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
-       $jojo =~ s/^<BR>//;
-       $return=$jojo}
+       $return=parseheader::coderemove($jojo)}
 
     inputs : "%" /\ */ "INPUTS:" nl argument(s) 
      { $return=$item[5] }
@@ -122,8 +120,6 @@ $grammar =
 
     example : "%" /\ */ "EXAMPLE:" nl headerline(s)
      { my($jojo)=join(" ",@{$item[-1]});
-#       my($crem)=parseheader::coderemove($jojo);
-#print "$crem\n";
        $return=parseheader::coderemove($jojo)}
 
     also : "%" /\ */ "SEE ALSO:" nl headerline(s)
