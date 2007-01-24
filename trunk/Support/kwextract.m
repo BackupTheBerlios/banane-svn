@@ -19,7 +19,7 @@
 %  'keyword1',value1,'keyword2',value2 etc. The list of keywords and
 %  values has to occur after the regular arguments of a function, with
 %  arbitrary order of the keywords. To evaluate the keywords, kwextract
-%  returns a structure with fields <A>loadNEV</A> corresponding to the keywords and the
+%  returns a structure with fields corresponding to the keywords and the
 %  values of the fields set accordingly. If the keyword is not present in
 %  the call to the original function, kwextract sets a default
 %  value. Abbrevation of keywords in the call is possible.
@@ -35,7 +35,7 @@
 %  from the call to the original function.
 %
 % OPTIONAL INPUTS:
-%  keyword1,defval1:: A pair of a string giving the name of the keyword,
+%  keyword1,defval1:: A pair of a <A>loadNEV</A> string giving the name of the keyword,
 %  followed by its default value. The value can be of any type. If no
 %  keyword/value pairs are given, no
 %  keywords are allowed in the function call. If the original function is
