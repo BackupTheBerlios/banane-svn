@@ -98,7 +98,7 @@ foreach ($matches as $val) {
    echo "matched: " . $val[0] . "\n";
    echo "part 1: " . $val[1] . "\n";
    echo "part 2: " . $val[3] . "\n";
-   echo "part 3: " . $val[4] . "\n\n";
+   echo "<A href='http://banane.berlios.de/wwwcopy/Banane/Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3]."</A>";
 }
 #echo $refnames[0][0] . ", " . $refnames[0][1] . "\n";
 #echo $refnames[1][0] . ", " . $refnames[1][1] . "\n";
