@@ -4,15 +4,16 @@ package parseheader;
 use Parse::RecDescent;
 
 
-sub coderemove {
-  $in=$_[0];
-  $in =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
-  $in =~ s/^<BR>//;
-  return $in;
-}
-
-
 sub parse {
+
+
+  sub coderemove {
+    $in=$_[0];
+    $in =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
+    $in =~ s/^<BR>//;
+    return $in;
+  }
+
 
 $Parse::RecDescent::skip='';
 
