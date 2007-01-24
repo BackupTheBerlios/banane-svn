@@ -9,7 +9,7 @@ function anchorreplace($original){
     $replace="<A href='".$webpath."Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
     $also = preg_replace($search, $replace, $also);    
   }
-  $return=$also;
+  return $also;
 }
 
 
