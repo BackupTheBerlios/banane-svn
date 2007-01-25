@@ -55,7 +55,6 @@
 %*              |---timestamps - timestamps on the particular channel/unit
 %  There are many more structure tags all described in detailed in
 %  cyberkinetics_docu.pdf
-%  out2:: another test argument.
 %
 % PROCEDURE:
 %  Since this is an adopted routine, its working is not exactly known.
