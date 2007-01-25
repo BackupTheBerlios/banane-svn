@@ -34,20 +34,17 @@
 %* nevobject = loadNEV(filename[, channellist][, units][, detail]); 
 %
 % INPUTS:
-%  test:: final test
 %  filename:: String containing the name and possibly the path for the
 %             file to be read.
 %
 % OPTIONAL INPUTS:
 %  channellist:: Array of channels to be imported.
-%  test:: final test
 %  units:: Pass string 'no' to only load classified units.
 %  detail:: Pass string 'all' to load all waveforms and stimulus
 %  info. Pass string 'wav' to load all waveforms. Pass string 'exp' to
 %  load all stimulus info. 
 %
 % OUTPUTS:
-%  test:: final test
 %  nevobject:: A structure array with various tags that contain the
 %  information within the NEV file. Most notably:
 %*  nevobject
