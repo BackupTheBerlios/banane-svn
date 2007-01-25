@@ -89,13 +89,15 @@ if ($file->[0]) {
     ## tables for the given routine, since otherwise arguments are 
     ## kept in the table even if they are removed from the header 
     my $delsuccess = 1;
-#    $delsuccess &&= $all_deletehandle->execute($head{name});
+    $delsuccess &&= $all_deletehandle->execute($head{name});
+
+print"deletion?\n";
 
     # There may be multiple inputs, thus use loop here
     foreach (@{$head{inputs}->[0]}) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
-      # print "$arg :: $desc\n";
+      print "$arg :: $desc\n";
       my $success = 1;
       $success &&= $inputs_replacehandle->execute($head{name},$arg,$desc);
     }
@@ -103,7 +105,7 @@ if ($file->[0]) {
     foreach (@{$head{optinputs}->[0]}) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
-      #      print "$arg :: $desc\n";
+            print "$arg :: $desc\n";
       my $success = 1;
       $success &&= $optinputs_replacehandle->execute($head{name},$arg,$desc);
     }
@@ -111,7 +113,7 @@ if ($file->[0]) {
     foreach (@{$head{outputs}->[0]}) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
-#      print "$arg :: $desc\n";
+      print "$arg :: $desc\n";
       my $success = 1;
       $success &&= $outputs_replacehandle->execute($head{name},$arg,$desc);
     }
