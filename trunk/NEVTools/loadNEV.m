@@ -36,7 +36,6 @@
 % INPUTS:
 %  filename:: String containing the name and possibly the path for the
 %             file to be read.
-%  xyz:: some test input to be removed later
 %
 % OPTIONAL INPUTS:
 %  channellist:: Array of channels to be imported.
