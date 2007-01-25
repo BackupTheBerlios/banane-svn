@@ -47,7 +47,11 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
-  my $inputs_replacehandle = $dbh->prepare_cached("REPLACE INTO inputs (name,argument,description) VALUES (?,?,?)");
+  my $inputs_removehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE name=?)");
+  die "Couldn't prepare query; aborting"
+    unless defined $inputs_removehandle;
+
+  my $inputs_replacehandle = $dbh->prepare_cached("INSERT INTO inputs (name,argument,description) VALUES (?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_replacehandle;
 
@@ -86,6 +90,8 @@ if ($file->[0]) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
       # print "$arg :: $desc\n";
+      my $success = 1;
+      $success &&= $inputs_removehandle->execute($head{name});
       my $success = 1;
       $success &&= $inputs_replacehandle->execute($head{name},$arg,$desc);
     }
