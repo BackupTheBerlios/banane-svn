@@ -59,15 +59,15 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $outputs_deletehandle;
 
-  my $inputs_replacehandle = $dbh->prepare_cached("REPLACE INTO inputs (name,argument,description) VALUES (?,?,?)");
+  my $inputs_replacehandle = $dbh->prepare_cached("REPLACE INTO inputs (name,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_replacehandle;
 
-  my $optinputs_replacehandle = $dbh->prepare_cached("REPLACE INTO optinputs (name,argument,description) VALUES (?,?,?)");
+  my $optinputs_replacehandle = $dbh->prepare_cached("REPLACE INTO optinputs (name,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $optinputs_replacehandle;
 
-  my $outputs_replacehandle = $dbh->prepare_cached("REPLACE INTO outputs (name,argument,description) VALUES (?,?,?)");
+  my $outputs_replacehandle = $dbh->prepare_cached("REPLACE INTO outputs (name,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $outputs_replacehandle;
 
@@ -96,34 +96,42 @@ if ($file->[0]) {
     ## before insertion, remove all argument entries in supporting 
     ## tables for the given routine, since otherwise arguments are 
     ## kept in the table even if they are removed from the header 
-    my $delsuccess = 1;
-    $delsuccess &&= $inputs_deletehandle->execute($head{name});
-    $delsuccess &&= $optinputs_deletehandle->execute($head{name});
-    $delsuccess &&= $outputs_deletehandle->execute($head{name});
+    my $delsuccess1 = 1;
+    $delsuccess1 &&= $inputs_deletehandle->execute($head{name});
+    my $delsuccess2 = 1;
+    $delsuccess2 &&= $optinputs_deletehandle->execute($head{name});
+    my $del3success3 = 1;
+    $delsuccess3 &&= $outputs_deletehandle->execute($head{name});
 
     # There may be multiple inputs, thus use loop here
+    $count = 1;
     foreach (@{$head{inputs}->[0]}) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
       #print "$arg :: $desc\n";
       my $success = 1;
-      $success &&= $inputs_replacehandle->execute($head{name},$arg,$desc);
+      $success &&= $inputs_replacehandle->execute($head{name},$count,$arg,$desc);
+      $count++;
     }
 
+    $count = 1;
     foreach (@{$head{optinputs}->[0]}) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
       #      print "$arg :: $desc\n";
       my $success = 1;
-      $success &&= $optinputs_replacehandle->execute($head{name},$arg,$desc);
+      $success &&= $optinputs_replacehandle->execute($head{name},$count,$arg,$desc);
+      $count++;
     }
 
+    $count = 1;
     foreach (@{$head{outputs}->[0]}) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
       #print "$arg :: $desc\n";
       my $success = 1;
-      $success &&= $outputs_replacehandle->execute($head{name},$arg,$desc);
+      $success &&= $outputs_replacehandle->execute($head{name},$count,$arg,$desc);
+      $count++;
     }
 
   }
