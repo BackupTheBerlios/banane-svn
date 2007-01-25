@@ -48,7 +48,7 @@
 %  nevobject:: A structure array with various tags that contain the
 %  information within the NEV file. Most notably:
 %*  nevobject
-%*      |---HeaderBasic<BR>
+%*      |---HeaderBasic
 %*              |---timeResolution : time resolution of time stamps
 %*              |---sampleResolution : time resolution of waveform samples
 %*      |---SpikeData : matrix with all channels/units selected
