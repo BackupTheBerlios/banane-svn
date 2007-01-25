@@ -47,7 +47,15 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
-  my $all_deletehandle = $dbh->prepare_cached("DELETE FROM ? WHERE name = ?");
+  my $inputs_deletehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE name = ?");
+  die "Couldn't prepare query; aborting"
+    unless defined $all_deletehandle;
+
+  my $optinputs_deletehandle = $dbh->prepare_cached("DELETE FROM optinputs WHERE name = ?");
+  die "Couldn't prepare query; aborting"
+    unless defined $all_deletehandle;
+
+  my $outputs_deletehandle = $dbh->prepare_cached("DELETE FROM outputs WHERE name = ?");
   die "Couldn't prepare query; aborting"
     unless defined $all_deletehandle;
 
@@ -89,9 +97,9 @@ if ($file->[0]) {
     ## tables for the given routine, since otherwise arguments are 
     ## kept in the table even if they are removed from the header 
     my $delsuccess = 1;
-    $delsuccess &&= $all_deletehandle->execute(inputs,$head{name});
-    $delsuccess &&= $all_deletehandle->execute(optinputs,$head{name});
-    $delsuccess &&= $all_deletehandle->execute(outputs,$head{name});
+    $delsuccess &&= $inputs_deletehandle->execute($head{name});
+    $delsuccess &&= $optinputs_deletehandle->execute($head{name});
+    $delsuccess &&= $outputs_deletehandle->execute($head{name});
 
     # There may be multiple inputs, thus use loop here
     foreach (@{$head{inputs}->[0]}) {
