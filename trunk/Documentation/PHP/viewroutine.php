@@ -47,11 +47,11 @@ $rname=($argv[0]);
 
 $querystring= "SELECT * FROM routines WHERE name='".$rname."'";
 $routine = mysql_query($querystring,$db); 
-$querystring= "SELECT * FROM inputs WHERE name='".$rname."'";
+$querystring= "SELECT * FROM inputs WHERE name='".$rname."' ORDER BY count";
 $inputs = mysql_query($querystring,$db); 
-$querystring= "SELECT * FROM optinputs WHERE name='".$rname."'";
+$querystring= "SELECT * FROM optinputs WHERE name='".$rname."' ORDER BY count";
 $optinputs = mysql_query($querystring,$db); 
-$querystring= "SELECT * FROM outputs WHERE name='".$rname."'";
+$querystring= "SELECT * FROM outputs WHERE name='".$rname."' ORDER BY count";
 $outputs = mysql_query($querystring,$db); 
 $rrow = mysql_fetch_array($routine);  
 echo "<TABLE>"; 
