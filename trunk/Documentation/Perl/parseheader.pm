@@ -149,7 +149,7 @@ $grammar =
                 normalline | codeline
 
     codeline: "%*" /.*/ nl
-                   { print"$item{__PATTERN2__}"; $return = "<BR><CODE>".$item{__PATTERN2__}."</CODE><BR>" }
+                   { print"$item{__PATTERN1__}"; $return = "<BR><CODE>".$item{__PATTERN2__}."</CODE><BR>" }
 
     normalline: ...!codeline
                  "%" /\ */ /.*/ /\ */ nl
