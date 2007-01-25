@@ -89,7 +89,7 @@ if ($file->[0]) {
     ## tables for the given routine, since otherwise arguments are 
     ## kept in the table even if they are removed from the header 
     my $delsuccess = 1;
-    $delsuccess &&= $all_deletehandle->execute("inputs",$head{name});
+    $delsuccess &&= $all_deletehandle->execute(inputs,$head{name});
     $delsuccess &&= $all_deletehandle->execute("optinputs",$head{name});
     $delsuccess &&= $all_deletehandle->execute("outputs",$head{name});
 
