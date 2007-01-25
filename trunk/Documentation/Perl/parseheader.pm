@@ -6,7 +6,7 @@ use Parse::RecDescent;
 
 sub coderemove {
   $in=$_[0];
-  $in =~ s/<\/CODE><BR> <BR><CODE>/<BR>/g;
+  $in =~ s/<\/TT><BR> <BR><TT>/<BR>/g;
   $in =~ s/^<BR>//;
   return $in;
 }
@@ -149,7 +149,7 @@ $grammar =
                 normalline | codeline
 
     codeline: "%*" /.*/ nl
-                   { print"$item{__PATTERN1__}\n"; $return = "<BR><CODE>".$item{__PATTERN1__}."</CODE><BR>" }
+                   { $return = "<BR><TT>".$item{__PATTERN1__}."</TT><BR>" }
 
     normalline: ...!codeline
                  "%" /\ */ /.*/ /\ */ nl
