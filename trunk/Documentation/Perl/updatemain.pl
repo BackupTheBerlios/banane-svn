@@ -47,7 +47,7 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
-  my $inputs_removehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE name='?')");
+  my $inputs_removehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE name=\"?\")");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_removehandle;
 
