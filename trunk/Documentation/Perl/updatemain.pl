@@ -100,7 +100,7 @@ if ($file->[0]) {
     $delsuccess1 &&= $inputs_deletehandle->execute($head{name});
     my $delsuccess2 = 1;
     $delsuccess2 &&= $optinputs_deletehandle->execute($head{name});
-    my $del3success3 = 1;
+    my $delsuccess3 = 1;
     $delsuccess3 &&= $outputs_deletehandle->execute($head{name});
 
     # There may be multiple inputs, thus use loop here
