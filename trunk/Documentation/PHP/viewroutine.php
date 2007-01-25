@@ -1,4 +1,11 @@
 <HTML> 
+<head>
+  <title>View banane routine</title>
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+
+<body>
+
 <?php
 
 ## function to search simplified anchors <A>routine</A> and replace 
@@ -116,4 +123,8 @@ if($rrow["also"]!="NULL")
  }
 echo "</TABLE>"; 
 ?> 
+
+<body>
+
+
 </HTML>
