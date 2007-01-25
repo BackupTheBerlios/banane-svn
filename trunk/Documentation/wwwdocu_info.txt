@@ -66,9 +66,30 @@ ALTER TABLE routines ADD version VARCHAR(128) AFTER fullpath;
 ALTER TABLE routines ADD proc VARCHAR(512) AFTER restrictions;
 etc...
 
+mysql> describe routines;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| name         | varchar(128) |      | PRI |         |       |
+| fullpath     | varchar(128) | YES  |     | NULL    |       |
+| relativepath | varchar(128) | YES  |     | NULL    |       |
+| version      | varchar(128) | YES  |     | NULL    |       |
+| author       | varchar(128) | YES  |     | NULL    |       |
+| date         | varchar(128) | YES  |     | NULL    |       |
+| aim          | varchar(128) | YES  |     | NULL    |       |
+| description  | text         | YES  |     | NULL    |       |
+| category     | text         | YES  |     | NULL    |       |
+| syntax       | text         | YES  |     | NULL    |       |
+| restrictions | text         | YES  |     | NULL    |       |
+| proc         | text         | YES  |     | NULL    |       |
+| also         | text         | YES  |     | NULL    |       |
+| example      | text         | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+
+
+
 Secondary table "inputs" initialized with
-CREATE TABLE inputs (name VARCHAR(128), argument VARCHAR(128),
-description VARCHAR(1024), PRIMARY KEY(argument));
+CREATE TABLE inputs (name VARCHAR(128), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024));
 Create tables optinputs and outputs analoguously.
 
 Tables are connected via "name" that uniquely
@@ -96,18 +117,15 @@ TO DO
 - include possibility to delete a file. Action "D" in svn update
 - write script to completely update the database, i.e. parse every
 file, possibly erase the database first, too
-- Separate root bananepath and path to routine relative to root and
-maybe filename as well. In general, optimze directory handling, try to
-ommit path to repository
 - make the $id$ tag work in svn: Command works only on single
 routines: svn propset svn:keywords "Id" kwextract.m but at least acts
 for the wwwcopy as well
 - automatically mail commits to the blog
-- verbatim printing of %* header lines: Include possibility in all
-sections. Outsource substitution of double BRs and CODEs?
 - section "side effects" needed???
 - backup of repository?
 - say something if parsing goes wrong
 - what happens to entries in input etc tables when arguments are
 changed or removed?
 - make category section to choose from a set of possibilities
+- add source to db and create script to show it.
+- better error processing in updatemain. Are success variables suitable?
