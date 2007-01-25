@@ -34,14 +34,12 @@
 %* nevobject = loadNEV(filename[, channellist][, units][, detail]); 
 %
 % INPUTS:
-%  test:: testinput
 %  filename:: String containing the name and possibly the path for the
 %             file to be read.
 %
 % OPTIONAL INPUTS:
 %  channellist:: Array of channels to be imported.
 %  units:: Pass string 'no' to only load classified units.
-%  test:: testinput
 %  detail:: Pass string 'all' to load all waveforms and stimulus
 %  info. Pass string 'wav' to load all waveforms. Pass string 'exp' to
 %  load all stimulus info. 
@@ -57,7 +55,6 @@
 %*              |---timestamps - timestamps on the particular channel/unit
 %  There are many more structure tags all described in detailed in
 %  cyberkinetics_docu.pdf
-%  test:: testinput
 %
 % PROCEDURE:
 %  Since this is an adopted routine, its working is not exactly known.
