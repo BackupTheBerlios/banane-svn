@@ -47,7 +47,7 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
-  my $inputs_removehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE name=?)");
+  my $inputs_removehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE name='?')");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_removehandle;
 
@@ -85,13 +85,14 @@ if ($file->[0]) {
     my $success = 1;
     $success &&= $routines_replacehandle->execute($head{name},$filename,$relpath,$head{version},$head{author},$head{date},$head{aim},$head{description},$head{category},$head{syntax},$head{restrictions},$head{proc},$head{example},$head{also});
 
+    my $success = 1;
+    $success &&= $inputs_removehandle->execute($head{name});
+
     # There may be multiple inputs, thus use loop here
     foreach (@{$head{inputs}->[0]}) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
       # print "$arg :: $desc\n";
-      my $success = 1;
-      $success &&= $inputs_removehandle->execute($head{name});
       my $success = 1;
       $success &&= $inputs_replacehandle->execute($head{name},$arg,$desc);
     }
