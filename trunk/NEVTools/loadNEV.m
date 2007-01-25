@@ -46,7 +46,7 @@
 %
 % OUTPUTS:
 %  nevobject:: A structure array with various tags that contain the
-%  information within the NEV file. Most notably:<BR>
+%  information within the NEV file. Most notably:
 %*  nevobject
 %*      |---HeaderBasic<BR>
 %*              |---timeResolution : time resolution of time stamps

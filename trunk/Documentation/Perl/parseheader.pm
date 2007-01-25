@@ -94,7 +94,10 @@ $grammar =
 
     description : "%" /\ */ "DESCRIPTION:" nl headerline(s)
      { # join multiple headerlines in single string
-       $return=join(" ",@{$item[-1]}) }
+       my($jojo)=join(" ",@{$item[-1]});
+       # before returning, remove possible double tags originating 
+       # from multiple code lines 
+       $return=parseheader::coderemove($jojo) }
 
     category : "%" /\ */ "CATEGORY:" nl headerline(s)
      { $return=join(" ",@{$item[-1]}) }
@@ -155,7 +158,8 @@ $grammar =
     argument : argumentline headerline(s?)
      { if (defined ($item[-1])) {
           my($total)=unshift(@{$item[-1]}, $item{argumentline}[1]);
-          my(@list) = ($item{argumentline}[0],join(" ",@{$item[-1]}));
+          my($jojo)=join(" ",@{$item[-1]});
+          my(@list) = ($item{argumentline}[0],parseheader::coderemove($jojo));
           $return=\@list}
        else {
           print"argument with no additional headerline.\n";
