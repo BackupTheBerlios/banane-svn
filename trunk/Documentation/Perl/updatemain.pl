@@ -49,15 +49,15 @@ if ($file->[0]) {
 
   my $inputs_deletehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE name = ?");
   die "Couldn't prepare query; aborting"
-    unless defined $all_deletehandle;
+    unless defined $inputs_deletehandle;
 
   my $optinputs_deletehandle = $dbh->prepare_cached("DELETE FROM optinputs WHERE name = ?");
   die "Couldn't prepare query; aborting"
-    unless defined $all_deletehandle;
+    unless defined $optinputs_deletehandle;
 
   my $outputs_deletehandle = $dbh->prepare_cached("DELETE FROM outputs WHERE name = ?");
   die "Couldn't prepare query; aborting"
-    unless defined $all_deletehandle;
+    unless defined $outputs_deletehandle;
 
   my $inputs_replacehandle = $dbh->prepare_cached("REPLACE INTO inputs (name,argument,description) VALUES (?,?,?)");
   die "Couldn't prepare query; aborting"
