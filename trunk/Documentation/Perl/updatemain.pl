@@ -47,19 +47,19 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
-  my $inputs_removehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE name = ?");
+  my $all_deletehandle = $dbh->prepare_cached("DELETE inputs,optinputs,outputs FROM routines,inputs,optinputs,outputs WHERE routines.name = ?");
   die "Couldn't prepare query; aborting"
-    unless defined $inputs_removehandle;
+    unless defined $all_deletehandle;
 
   my $inputs_replacehandle = $dbh->prepare_cached("INSERT INTO inputs (name,argument,description) VALUES (?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_replacehandle;
 
-  my $optinputs_replacehandle = $dbh->prepare_cached("REPLACE INTO optinputs (name,argument,description) VALUES (?,?,?)");
+  my $optinputs_replacehandle = $dbh->prepare_cached("INSERT INTO optinputs (name,argument,description) VALUES (?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $optinputs_replacehandle;
 
-  my $outputs_replacehandle = $dbh->prepare_cached("REPLACE INTO outputs (name,argument,description) VALUES (?,?,?)");
+  my $outputs_replacehandle = $dbh->prepare_cached("INSERT INTO outputs (name,argument,description) VALUES (?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $outputs_replacehandle;
 
@@ -85,8 +85,11 @@ if ($file->[0]) {
     my $success = 1;
     $success &&= $routines_replacehandle->execute($head{name},$filename,$relpath,$head{version},$head{author},$head{date},$head{aim},$head{description},$head{category},$head{syntax},$head{restrictions},$head{proc},$head{example},$head{also});
 
-    my $success = 1;
-    $success &&= $inputs_removehandle->execute($head{name});
+    ## before insertion, remove all argument entries in supporting 
+    ## tables for the given routine, since otherwise arguments are 
+    ## kept in the table even if they are removed from the header 
+    my $delsuccess = 1;
+    $delsuccess &&= $all_deletehandle->execute($head{name});
 
     # There may be multiple inputs, thus use loop here
     foreach (@{$head{inputs}->[0]}) {
