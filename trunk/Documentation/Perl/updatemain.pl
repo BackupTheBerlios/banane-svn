@@ -59,15 +59,15 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $outputs_deletehandle;
 
-  my $inputs_replacehandle = $dbh->prepare_cached("REPLACE INTO inputs (name,count,argument,description) VALUES (?,?,?,?)");
+  my $inputs_replacehandle = $dbh->prepare_cached("INSERT INTO inputs (name,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_replacehandle;
 
-  my $optinputs_replacehandle = $dbh->prepare_cached("REPLACE INTO optinputs (name,count,argument,description) VALUES (?,?,?,?)");
+  my $optinputs_replacehandle = $dbh->prepare_cached("INSERT INTO optinputs (name,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $optinputs_replacehandle;
 
-  my $outputs_replacehandle = $dbh->prepare_cached("REPLACE INTO outputs (name,count,argument,description) VALUES (?,?,?,?)");
+  my $outputs_replacehandle = $dbh->prepare_cached("INSERT INTO outputs (name,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $outputs_replacehandle;
 
@@ -103,7 +103,9 @@ if ($file->[0]) {
     my $delsuccess3 = 1;
     $delsuccess3 &&= $outputs_deletehandle->execute($head{name});
 
-    # There may be multiple inputs, thus use loop here
+    ## There may be multiple inputs, thus use loop here
+    ## count is needed to ensure correct order when arguments are 
+    ## displayed later
     $count = 1;
     foreach (@{$head{inputs}->[0]}) {
       my($arg)=$_->[0];
