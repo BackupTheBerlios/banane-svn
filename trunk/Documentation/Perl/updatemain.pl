@@ -105,7 +105,7 @@ if ($file->[0]) {
     foreach (@{$head{inputs}->[0]}) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
-      print "$arg :: $desc\n";
+      #print "$arg :: $desc\n";
       my $success = 1;
       $success &&= $inputs_replacehandle->execute($head{name},$arg,$desc);
     }
@@ -113,7 +113,7 @@ if ($file->[0]) {
     foreach (@{$head{optinputs}->[0]}) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
-            print "$arg :: $desc\n";
+      #      print "$arg :: $desc\n";
       my $success = 1;
       $success &&= $optinputs_replacehandle->execute($head{name},$arg,$desc);
     }
@@ -121,7 +121,7 @@ if ($file->[0]) {
     foreach (@{$head{outputs}->[0]}) {
       my($arg)=$_->[0];
       my($desc)=$_->[1];
-      print "$arg :: $desc\n";
+      #print "$arg :: $desc\n";
       my $success = 1;
       $success &&= $outputs_replacehandle->execute($head{name},$arg,$desc);
     }
