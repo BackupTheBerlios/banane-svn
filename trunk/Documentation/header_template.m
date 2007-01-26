@@ -12,7 +12,7 @@
 %  9/2002
 %
 % AIM:
-%  xxx Short description of the routine in a single line.
+%  Short description of the routine in a single line.
 %
 % DESCRIPTION:
 %  Detailed description of the routine. The text may contain small HTML
