@@ -39,7 +39,7 @@ echo "<TABLE>";
 while($rrow = mysql_fetch_array($routines))
   { $rname=$rrow["name"];
     $anchor=$webpath."Documentation/PHP/viewroutine.php?".$rname;
-    echo "<TD VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
+    echo "<TD VALIGN=TOP><A TARGET="dynamic" HREF='".$anchor."'>".$rname."</A>";
     echo "<TD VALIGN=TOP>".$rrow["aim"]."</TR>";
   }
 echo "</TABLE>";
