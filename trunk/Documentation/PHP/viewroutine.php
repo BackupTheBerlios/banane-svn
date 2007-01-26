@@ -45,6 +45,8 @@ $webpath=$out[0];
 
 $rname=($argv[0]);
 
+echo $rname."<BR>"
+
 $querystring= "SELECT * FROM routines WHERE name='".$rname."'";
 $routine = mysql_query($querystring,$db); 
 $querystring= "SELECT * FROM inputs WHERE name='".$rname."' ORDER BY count";
