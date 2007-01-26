@@ -128,4 +128,6 @@ for the wwwcopy as well
 changed or removed?
 - make category section to choose from a set of possibilities
 - add source to db and create script to show it.
-- better error processing in updatemain. Are success variables suitable?
+- better error processing in updatemain. Are success variables
+suitable?
+- improve argument parsing in viewroutine.php
