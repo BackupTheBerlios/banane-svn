@@ -48,11 +48,11 @@
 %  nevobject:: A structure array with various tags that contain the
 %  information within the NEV file. Most notably:
 %*  nevobject
-%*      |---HeaderBasic
-%*              |---timeResolution : time resolution of time stamps
-%*              |---sampleResolution : time resolution of waveform samples
-%*      |---SpikeData : matrix with all channels/units selected
-%*              |---timestamps - timestamps on the particular channel/unit
+%*     |---HeaderBasic
+%*            |---timeResolution : time resolution of time stamps
+%*            |---sampleResolution : time resolution of waveform samples
+%*     |---SpikeData : matrix with all channels/units selected
+%*            |---timestamps - timestamps on the particular channel/unit
 %  There are many more structure tags all described in detailed in
 %  cyberkinetics_docu.pdf
 %

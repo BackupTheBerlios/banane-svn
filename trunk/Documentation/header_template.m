@@ -26,7 +26,18 @@
 %   - NEV Tools<BR>
 %   - Support routines<BR>
 %  Others may be invented, with corresponding subdirectories in the
-%  BANANE directory tree.
+%  BANANE directory tree. For example:<BR>
+%   - Array<BR>
+%   - DataStorage<BR>
+%   - DataStructures<BR>
+%   - Demonstration<BR>
+%   - Graphic<BR>
+%   - Help<BR>
+%   - Statistics<BR>
+%   - Signals<BR>
+%   - Simulation<BR>
+%   - Strings<BR>
+%   - Structures<BR>
 %
 % SYNTAX:
 %* result = example_function(arg1, arg2,[, optarg1][, optarg2]); 
