@@ -42,8 +42,8 @@ $allout=`$webscr`;
 $out=explode("\n",$allout);
 $webpath=$out[0];
 
-
-$rname=($argv[0]);
+$argplusval = explode("=", $argv[0]);
+$rname=($argplusval[1]);
 
 echo $rname."<BR>";
 
