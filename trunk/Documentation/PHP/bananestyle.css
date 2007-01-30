@@ -33,4 +33,4 @@ address {
   margin-top: 1em;
   padding-top: 1em;
   border-top: thin dotted }
-DIV.logo { text-align: center }
+DIV.logo { font-size: 120%; text-align: center }
