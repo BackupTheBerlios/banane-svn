@@ -2,11 +2,12 @@
    "http://www.w3.org/TR/html4/frameset.dtd">
 <HTML>
 <HEAD>
-<TITLE>A simple frameset document</TITLE>
+<TITLE>Main Webpage of the Banane project</TITLE>
+  <link rel="stylesheet" href="bananestyle.css">
 </HEAD>
 <FRAMESET cols="250, *">
-  <FRAMESET rows="100, 200, 100">
-      <FRAME name="logo" src="logo.html">
+  <FRAMESET rows="200, 200, 100">
+      <FRAME name="logo" src="logo.html" style=logo>
       <FRAME name="tree" src="viewtree.php">
       <FRAME name="search" src="searchform.html">
   </FRAMESET>
