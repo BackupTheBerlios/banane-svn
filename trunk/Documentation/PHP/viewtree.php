@@ -73,7 +73,7 @@ function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
 //echo directory_to_list('.');
 
 // if you want to list directories only, use
-<h1>Banane directories</h1>
+echo "<h1>Banane directories</h1>";
 
 echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
 
