@@ -131,3 +131,7 @@ updatemain. Are success variables suitable?
 - possibly enable searching aims
 - check if scripts in webpage are called relatively or absolutely
 - describe webscripts in this file and in their first lines
+- design opening of webpage
+- include berlios
+- link mainpage to index of banane berlios page
+- have banane logo link back to mainpage
