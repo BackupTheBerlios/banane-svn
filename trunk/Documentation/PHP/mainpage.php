@@ -6,7 +6,7 @@
 </HEAD>
 <FRAMESET cols="250, *">
   <FRAMESET rows="100, 200, 100">
-      <FRAME name="logo">Logo?
+      <FRAME name="logo" src="logo.html">
       <FRAME name="tree" src="viewtree.php">
       <FRAME name="search" src="searchform.html">
   </FRAMESET>
