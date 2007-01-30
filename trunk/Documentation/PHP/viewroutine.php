@@ -42,8 +42,9 @@ $allout=`$webscr`;
 $out=explode("\n",$allout);
 $webpath=$out[0];
 
-$argplusval = explode("=", $argv[0]);
-$rname=($argplusval[1]);
+#$argplusval = explode("=", $argv[0]);
+$rname=$_GET["routine"];#($argplusval[1]);
+echo $_GET["routine"]
 
 $querystring= "SELECT * FROM routines WHERE name='".$rname."'";
 $routine = mysql_query($querystring,$db); 
