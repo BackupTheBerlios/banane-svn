@@ -42,7 +42,7 @@ $routines = mysql_query($querystring,$db);
 
 ## display table with name and aim column. make the name a link to the
 ## viewroutine script with the routine name as the argument
-echo "<B>Contents of directory <I>\$BANANEPATH/".$dirname."</I></B>";
+echo "<H1>Contents of directory <I>\$BANANEPATH/".$dirname."</I></H1>";
 echo "<TABLE>";
 while($rrow = mysql_fetch_array($routines))
   { $rname=$rrow["name"];
