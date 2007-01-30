@@ -51,7 +51,7 @@ switch ($num_rows) {
      { $rname=$row["name"];
        $anchor=$webpath."Documentation/PHP/viewroutine.php?routine=".$rname;
        echo "<TD VALIGN=TOP><A TARGET='dynamic' HREF='".$anchor."'>".$rname."</A>";
-       echo "<TD VALIGN=TOP>".$rrow["aim"]."</TR>";
+       echo "<TD VALIGN=TOP>".$row["aim"]."</TR>";
      }
    echo "</TABLE>";
 }
