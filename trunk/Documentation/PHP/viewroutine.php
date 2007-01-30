@@ -42,6 +42,8 @@ $allout=`$webscr`;
 $out=explode("\n",$allout);
 $webpath=$out[0];
 
+echo $argv[0]."<BR>";
+
 #$argplusval = explode("=", $argv[0]);
 $rname=$_GET["routine"];#($argplusval[1]);
 echo $_GET["routine"];
