@@ -5,7 +5,7 @@
 <TITLE>Main Webpage of the Banane project</TITLE>
 </HEAD>
 <FRAMESET cols="250, *">
-  <FRAMESET rows="200, 200, 100">
+  <FRAMESET rows="150, 200, 100">
       <FRAME name="logo" src="logo.html">
       <FRAME name="tree" src="viewtree.php">
       <FRAME name="search" src="searchform.html">
