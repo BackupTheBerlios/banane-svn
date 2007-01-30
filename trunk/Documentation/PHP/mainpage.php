@@ -4,7 +4,7 @@
 <HEAD>
 <TITLE>A simple frameset document</TITLE>
 </HEAD>
-<FRAMESET cols="150, *">
+<FRAMESET cols="250, *">
   <FRAMESET rows="100, 200, 100">
       <FRAME name="logo">Logo?
       <FRAME name="tree" src="viewtree.php">
