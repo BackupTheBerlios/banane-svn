@@ -1,11 +1,10 @@
 <HTML> 
 <head>
   <title>View banane routine</title>
-  <link rel="stylesheet" href="mystyle.css">
+  <link rel="stylesheet" href="bananestyle.css">
 </head>
 
 <body>
-
 <?php
 
 ## function to search simplified anchors <A>routine</A> and replace 
