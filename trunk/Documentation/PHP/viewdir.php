@@ -1,4 +1,10 @@
 <HTML> 
+<head>
+  <title>View contents of banane dierctory</title>
+  <link rel="stylesheet" href="bananestyle.css">
+</head>
+
+<body>
 <?php
 
 ## needed to call configuration script that knows everything else:
