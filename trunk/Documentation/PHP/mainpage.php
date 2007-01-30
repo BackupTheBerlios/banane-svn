@@ -5,12 +5,12 @@
 <TITLE>Main Webpage of the Banane project</TITLE>
 </HEAD>
 <FRAMESET cols="250, *">
-  <FRAMESET rows="150, 200, 100">
-      <FRAME name="logo" src="logo.html">
-      <FRAME name="tree" src="viewtree.php">
-      <FRAME name="search" src="searchform.html">
+  <FRAMESET rows="125, 200, 100">
+      <FRAME name="logo" frameborder="0" src="logo.html">
+      <FRAME name="tree" frameborder="0" src="viewtree.php">
+      <FRAME name="search" frameborder="0" src="searchform.html">
   </FRAMESET>
-  <FRAME name="dynamic" src="viewdir.php">
+  <FRAME name="dynamic" frameborder="0" src="viewdir.php">
   <NOFRAMES>
       <P>This frameset document contains:
       <UL>
