@@ -14,8 +14,8 @@ ul.navbar {
   width: 9em }
 h1 {
   font-family: Helvetica, Geneva, Arial,
-  SunSans-Regular, sans-serif 
-  font-size: 100%}
+  SunSans-Regular, sans-serif; 
+  font-size: 120%}
 code {
   white-space: pre }
 ul.navbar li {
