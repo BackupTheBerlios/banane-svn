@@ -15,7 +15,7 @@ function anchorreplace($original,$path){
   preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
   foreach ($matches as $val) {
     $search="/(<(A|a)[^>]*>)".$val[3]."/";
-    $replace="<A href='".$path."Documentation/PHP/viewroutine.php?".$val[3]."'>".$val[3];
+    $replace="<A href='".$path."Documentation/PHP/viewroutine.php?routine=".$val[3]."'>".$val[3];
     $original = preg_replace($search, $replace, $original);    
   }
   return $original;
