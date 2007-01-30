@@ -34,8 +34,8 @@ $dirname=($argv[0]);
 ## select all routines in respective directory and in its subdirs.
 ## % in database query is the wildcard character.
 if (isset($dirname)) {
-#  $querystring= "SELECT name,aim FROM routines WHERE relativepath LIKE '".$dirname."%'";
-  $querystring= "SELECT name,aim FROM routines WHERE fullpath LIKE '".$dirname."%'";
+  $querystring= "SELECT name,aim FROM routines WHERE relativepath LIKE '".$dirname."%'";
+#  $querystring= "SELECT name,aim FROM routines WHERE fullpath LIKE '".$dirname."%'";
  } else {$querystring= "SELECT name,aim FROM routines";}
 
 $routines = mysql_query($querystring,$db); 
