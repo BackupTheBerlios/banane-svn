@@ -3,11 +3,10 @@
 <HTML>
 <HEAD>
 <TITLE>Main Webpage of the Banane project</TITLE>
-  <link rel="stylesheet" href="bananestyle.css">
 </HEAD>
 <FRAMESET cols="250, *">
   <FRAMESET rows="200, 200, 100">
-      <FRAME name="logo" src="logo.html" style=logo>
+      <FRAME name="logo" src="logo.html" style="text-align:center">
       <FRAME name="tree" src="viewtree.php">
       <FRAME name="search" src="searchform.html">
   </FRAMESET>
