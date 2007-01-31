@@ -29,8 +29,8 @@ echo "<FRAME name='berlios' frameborder='0' src='".$phppath."berlioslogo.html'>"
 echo "</FRAMESET>";
 echo "<FRAME name='dynamic' frameborder='0' src='".$phppath."viewdir.php'>";
 echo "<NOFRAMES>";
-echo "<P>This frameset document contains noting";
-echo "</NOFRAMES>"
-echo "</FRAMESET>"
+echo "<P>This frameset document contains nothing";
+echo "</NOFRAMES>";
+echo "</FRAMESET>";
 ?>
 </HTML>
