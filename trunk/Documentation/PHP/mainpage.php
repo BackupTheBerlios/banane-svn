@@ -27,7 +27,7 @@ echo "<FRAME name='tree' frameborder='0' src='".$phppath."viewtree.php'>";
 echo "<FRAME name='search' frameborder='0' src='".$phppath."searchform.html'>";
 echo "<FRAME name='berlios' frameborder='0' src='".$phppath."berlioslogo.html'>";
 echo "</FRAMESET>";
-echo "<FRAME name='dynamic' frameborder='0' src='".$phppath."viewdir.php'>";
+echo "<FRAME name='dynamic' frameborder='0' src='".$phppath."intro.html'>";
 echo "<NOFRAMES>";
 echo "<P>This frameset document contains nothing";
 echo "</NOFRAMES>";
