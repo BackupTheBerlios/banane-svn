@@ -1,10 +1,14 @@
+/* bananestyle.css is the file containing the style sheet info
+for the banane online documentation. it is used by all other web 
+display files */
+
 body {
   /*padding-left: 11em;*/
   font-family: Georgia, "Times New Roman",
   Times, serif;
   color: black;
   background-color: white } /*#d8da3d }*/
-ul.navbar {
+ul.navbar { /* navbar is not used yet, stems from example code but kept here just in case it will be revived */ 
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -17,7 +21,7 @@ h1 {
   SunSans-Regular, sans-serif; 
   font-size: 120%}
 code {
-  white-space: pre }
+  white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
 ul.navbar li {
   background: white;
   margin: 0.5em 0;
@@ -33,4 +37,7 @@ address {
   margin-top: 1em;
   padding-top: 1em;
   border-top: thin dotted }
+
 DIV.logo { text-align: center }
+
+DIV.header section { font-weight: bold }

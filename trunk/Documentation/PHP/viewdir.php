@@ -1,3 +1,12 @@
+<!-- viewdir.php displays the routines in a particular 
+banane directory and its subdirectories. it is called from 
+viewtree.php. its argument is the relative path to the directory
+to be displayed. if it is called without argument, it displays all 
+routines in the banane tree. only files contained in the routine
+database are show, i.e. only matlab source files. viewdir.php generates
+a table with routine name and its short description. the name is made to 
+link to viewroutine.php, which displays the complete header. -->
+
 <HTML> 
 <head>
   <title>View contents of banane dierctory</title>
@@ -35,7 +44,6 @@ $dirname=($argv[0]);
 ## % in database query is the wildcard character.
 if (isset($dirname)) {
   $querystring= "SELECT name,aim FROM routines WHERE relativepath LIKE '".$dirname."%'";
-#  $querystring= "SELECT name,aim FROM routines WHERE fullpath LIKE '".$dirname."%'";
  } else {$querystring= "SELECT name,aim FROM routines";}
 
 $routines = mysql_query($querystring,$db); 

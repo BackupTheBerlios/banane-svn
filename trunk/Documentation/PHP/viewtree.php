@@ -1,34 +1,19 @@
+<!-- viewtree.php displays the banane directory structure.
+it is called from mainpage.php. the code has been modified from
+the routine "directory structure to list" obtained from PHParadise
+code URL was 
+http://phparadise.de/php-code/directories/directory-structure-to-list/ 
+modification include the exclusion of hidden directories and the call of
+the script viewdir.php -->
+
 <HTML> 
 <head>
-  <title>View banane directories</title>
+  <title>View banane directory tree</title>
   <link rel="stylesheet" href="bananestyle.css">
 </head>
 
 <body>
 <?php
-
-/*------------------------------------------------------------------------------
-|
-|                             PHParadise source code
-|
-|-------------------------------------------------------------------------------
-|
-| file:             directory structure to list
-| category:         directories
-|
-| last modified:    Mon, 14 Nov 2005 19:33:15 GMT
-| downloaded:       Mon, 29 Jan 2007 15:58:51 GMT as text file
-|
-| code URL:
-| http://phparadise.de/php-code/directories/directory-structure-to-list/
-|
-| description:
-| this PHP function displays any given directory structure as recursive list. it
-| even outputs nice HTML markup code with indenting.
-|
-------------------------------------------------------------------------------*/
-
-
 
 function entab($num)
 {
@@ -73,7 +58,7 @@ function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
 //echo directory_to_list('.');
 
 // if you want to list directories only, use
-echo "<h1>Banane directories</h1>";
+echo "<h1>banane directories</h1>";
 
 echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
 

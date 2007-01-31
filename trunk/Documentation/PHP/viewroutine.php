@@ -1,3 +1,10 @@
+<!-- viewroutine.php displays the information 
+contained in a routine's header in a table. it obtains its 
+information from the routines database. argument passing is
+possible in the form viewroutine.php?routine=foobar. viewroutine
+will then search the database for a routine named 'foobar' and will 
+display its header information in a formatted manner. -->
+
 <HTML> 
 <head>
   <title>View banane routine</title>
@@ -7,8 +14,8 @@
 <body>
 <?php
 
-## function to search simplified anchors <A>routine</A> and replace 
-## them with with proper hyperrefs
+## support function to search simplified anchors <A>routine</A> 
+## and replace them with with proper hyperrefs
 function anchorreplace($original,$path){
   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
   preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
@@ -57,7 +64,7 @@ $querystring= "SELECT * FROM outputs WHERE name='".$rname."' ORDER BY count";
 $outputs = mysql_query($querystring,$db); 
 $rrow = mysql_fetch_array($routine);  
 echo "<TABLE>"; 
-echo "<TR><TD VALIGN=TOP><B>Name</B>";
+echo "<TR><TD VALIGN=TOP><DIV class="header" <SECTION>Name</DIV>";
 echo "<TD VALIGN=TOP>".$rrow["name"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Path</B>";
 echo "<TD VALIGN=TOP>\$BANANEPATH/".$rrow["relativepath"]."</TR>";
