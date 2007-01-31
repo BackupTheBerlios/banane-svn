@@ -1,10 +1,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
    "http://www.w3.org/TR/html4/frameset.dtd">
 <HTML>
-<?php 
 
 <HEAD>
 <TITLE>Main Webpage of the Banane project</TITLE>
+</HEAD>
+
+<?php 
 
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
@@ -17,24 +19,18 @@ $out=explode("\n",$allout);
 $webpath=$out[0];
 
 $phppath=$webpath."Documentation/PHP/";
-</HEAD>
 
-<FRAMESET cols="250, *">
-  <FRAMESET rows="125, 150, 80, 75">
-      <FRAME name="logo" frameborder="0" src=$phppath."logo.html">
-      <FRAME name="tree" frameborder="0" src=$phppath."viewtree.php">
-      <FRAME name="search" frameborder="0" src=$phppath."searchform.html">
-      <FRAME name="berlios" frameborder="0" src=$phppath."berlioslogo.html">
-  </FRAMESET>
-  <FRAME name="dynamic" frameborder="0" src=$phppath."viewdir.php">
-  <NOFRAMES>
-      <P>This frameset document contains:
-      <UL>
-         <LI><A href="contents_of_frame1.html">Some neat contents</A>
-         <LI><IMG src="contents_of_frame2.gif" alt="A neat image">
-         <LI><A href="contents_of_frame3.html">Some other neat contents</A>
-      </UL>
-  </NOFRAMES>
-</FRAMESET>
+echo "<FRAMESET cols='250, *'>";
+echo "<FRAMESET rows='125, 150, 80, 75'>";
+echo "<FRAME name='logo' frameborder='0' src='".$phppath."logo.html'>";
+echo "<FRAME name='tree' frameborder='0' src='".$phppath."viewtree.php'>";
+echo "<FRAME name='search' frameborder='0' src='".$phppath."searchform.html'>";
+echo "<FRAME name='berlios' frameborder='0' src='".$phppath."berlioslogo.html'>";
+echo "</FRAMESET>";
+echo "<FRAME name='dynamic' frameborder='0' src='".$phppath."viewdir.php'>";
+echo "<NOFRAMES>";
+echo "<P>This frameset document contains noting";
+echo "</NOFRAMES>"
+echo "</FRAMESET>"
 ?>
 </HTML>
