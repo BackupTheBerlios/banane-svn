@@ -3,10 +3,7 @@
 <HTML>
 <HEAD>
 <TITLE>Main Webpage of the Banane project</TITLE>
-</HEAD>
 <?php 
-
-<FRAMESET cols="250, *">
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
 ## get info from config script.
@@ -18,7 +15,10 @@ $out=explode("\n",$allout);
 $webpath=$out[0];
 
 $phppath=$webpath."Documentation/PHP/";
+?>
+</HEAD>
 
+<FRAMESET cols="250, *">
   <FRAMESET rows="125, 150, 80, 75">
       <FRAME name="logo" frameborder="0" src=$phppath."logo.html">
       <FRAME name="tree" frameborder="0" src=$phppath."viewtree.php">
@@ -35,5 +35,4 @@ $phppath=$webpath."Documentation/PHP/";
       </UL>
   </NOFRAMES>
 </FRAMESET>
-?>
 </HTML>
