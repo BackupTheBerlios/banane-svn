@@ -1,3 +1,10 @@
+<!-- viewroutine.php displays the information 
+contained in a routines header in a table. it obtains its 
+information from the routines database. argument passing is
+possible in the form viewroutine.php?routine=foobar. viewroutine
+will then search the database for a routine named foobar and will 
+display its header information in a formatted manner. -->
+
 <HTML> 
 <head>
   <title>View banane routine</title>
@@ -57,7 +64,8 @@ $querystring= "SELECT * FROM outputs WHERE name='".$rname."' ORDER BY count";
 $outputs = mysql_query($querystring,$db); 
 $rrow = mysql_fetch_array($routine);  
 echo "<TABLE>"; 
-echo "<TR><TD VALIGN=TOP><SPAN class="header">Name</SPAN>";
+#echo "<TR><TD VALIGN=TOP><SPAN class="header">Name</SPAN>";
+echo "<TR><TD VALIGN=TOP>Name";
 echo "<TD VALIGN=TOP>".$rrow["name"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Path</B>";
 echo "<TD VALIGN=TOP>\$BANANEPATH/".$rrow["relativepath"]."</TR>";
