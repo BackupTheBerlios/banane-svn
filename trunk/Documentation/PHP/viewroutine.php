@@ -64,7 +64,7 @@ $querystring= "SELECT * FROM outputs WHERE name='".$rname."' ORDER BY count";
 $outputs = mysql_query($querystring,$db); 
 $rrow = mysql_fetch_array($routine);  
 echo "<TABLE>"; 
-echo "<TR><TD VALIGN=TOP><DIV class="header"><SECTION>Name</DIV>";
+echo "<TR><TD VALIGN=TOP><DIV class="header"><section>Name</DIV>";
 echo "<TD VALIGN=TOP>".$rrow["name"]."</TR>";
 echo "<TR><TD VALIGN=TOP><B>Path</B>";
 echo "<TD VALIGN=TOP>\$BANANEPATH/".$rrow["relativepath"]."</TR>";
