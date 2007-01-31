@@ -1,9 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
    "http://www.w3.org/TR/html4/frameset.dtd">
 <HTML>
+<?php 
+
 <HEAD>
 <TITLE>Main Webpage of the Banane project</TITLE>
-<?php 
+
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
 ## get info from config script.
@@ -15,7 +17,6 @@ $out=explode("\n",$allout);
 $webpath=$out[0];
 
 $phppath=$webpath."Documentation/PHP/";
-?>
 </HEAD>
 
 <FRAMESET cols="250, *">
@@ -35,4 +36,5 @@ $phppath=$webpath."Documentation/PHP/";
       </UL>
   </NOFRAMES>
 </FRAMESET>
+?>
 </HTML>
