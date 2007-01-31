@@ -4,14 +4,26 @@
 <HEAD>
 <TITLE>Main Webpage of the Banane project</TITLE>
 </HEAD>
+<?php $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
+
+## get info from config script.
+$confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
+
+$webscr=$confscr." web";
+$allout=`$webscr`;
+$out=explode("\n",$allout);
+$webpath=$out[0];
+
+$phppath=$webpath."Documentation/PHP/";
+
 <FRAMESET cols="250, *">
-  <FRAMESET rows="125, 150, 75, 75">
-      <FRAME name="logo" frameborder="0" src="logo.html">
-      <FRAME name="tree" frameborder="0" src="viewtree.php">
-      <FRAME name="search" frameborder="0" src="searchform.html">
-      <FRAME name="berlios" frameborder="0" src="berlioslogo.html">
+  <FRAMESET rows="125, 150, 80, 75">
+      <FRAME name="logo" frameborder="0" src=$phppath."logo.html">
+      <FRAME name="tree" frameborder="0" src=$phppath."viewtree.php">
+      <FRAME name="search" frameborder="0" src=$phppath."searchform.html">
+      <FRAME name="berlios" frameborder="0" src=$phppath."berlioslogo.html">
   </FRAMESET>
-  <FRAME name="dynamic" frameborder="0" src="viewdir.php">
+  <FRAME name="dynamic" frameborder="0" src=$phppath."viewdir.php">
   <NOFRAMES>
       <P>This frameset document contains:
       <UL>
@@ -21,4 +33,5 @@
       </UL>
   </NOFRAMES>
 </FRAMESET>
+?>
 </HTML>
