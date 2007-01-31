@@ -1,10 +1,3 @@
-<!-- viewroutine.php displays the information 
-contained in a routine's header in a table. it obtains its 
-information from the routines database. argument passing is
-possible in the form viewroutine.php?routine=foobar. viewroutine
-will then search the database for a routine named 'foobar' and will 
-display its header information in a formatted manner. -->
-
 <HTML> 
 <head>
   <title>View banane routine</title>
