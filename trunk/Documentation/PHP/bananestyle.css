@@ -40,4 +40,4 @@ address {
 
 .logo { text-align: center }
 
-.head sec { font-weight: bold; color: blue} /* style for header sections like NAME, AIM, SYNTAX and so on */
+.head sec { font-weight: bold } /* style for header sections like NAME, AIM, SYNTAX and so on */
