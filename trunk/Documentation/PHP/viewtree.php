@@ -24,6 +24,12 @@ function entab($num)
 function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
 {
   $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
+  ## get info from config script.
+  $confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
+  $webscr=$confscr." web";
+  $allout=`$webscr`;
+  $out=explode("\n",$allout);
+  $webpath=$out[0];
 
   $levels = explode('/',$dir);
   $subtab = (count($levels) > 2 ? count($levels)-2 : 0);
@@ -38,16 +44,16 @@ function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
 	  $relpath=str_replace($bananepath, "", $newpath);
 	  $level = explode('/',$newpath);
 	  $tabs = count($level)+($sub !== false ? 1+$subtab : 0);
-	  $output .= (($onlydirs == TRUE && is_dir($newpath)) || $onlydirs == FALSE ? 
-#				entab($tabs).'<li><a href="'.$newpath.'">'.$file.'</a>'.(is_dir($newpath) ? 
-		      entab($tabs).'<li><a target="dynamic" href="viewdir.php?'.$relpath.'">'.$file.'</a>'.(is_dir($newpath) ? 
+	  $output .= (($onlydirs == TRUE && is_dir($newpath)) 
+		      || $onlydirs == FALSE ? 
+		      entab($tabs)."<li><a target='dynamic' href='".$webpath."Documentation/PHP/viewdir.php?".$relpath."'>".$file."</a>".(is_dir($newpath) ? 
 													    directory_to_list($newpath,$onlydirs,TRUE).entab($tabs) : 
-													    '').'</li>' : 
-		      '');
+													    "")."</li>" : 
+		      "");
 	}
     }
   closedir($dirlist); 
-  $output .= entab($t).'</ul>';
+  $output .= entab($t)."</ul>";
   if($onlydirs == TRUE)
     $output = preg_replace('/\n([\t]+)<ul>\n([\t]+)<\/ul>\n([\t]+)/','',$output);
   return $output;

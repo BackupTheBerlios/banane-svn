@@ -1,3 +1,8 @@
+<!-- mainpage.php defines the overall frame structure of the banane
+online docu and includes all parts as separate source files: the banane 
+logo, the directory tree, the search form, the berlios logo and the intro
+text --> 
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
    "http://www.w3.org/TR/html4/frameset.dtd">
 <HTML>
