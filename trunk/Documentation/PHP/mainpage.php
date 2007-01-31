@@ -3,7 +3,7 @@
 <HTML>
 
 <HEAD>
-<TITLE>Main Webpage of the Banane project</TITLE>
+<TITLE>main webpage of the banane project</TITLE>
 </HEAD>
 
 <?php 
@@ -32,5 +32,7 @@ echo "<NOFRAMES>";
 echo "<P>This frameset document contains nothing";
 echo "</NOFRAMES>";
 echo "</FRAMESET>";
+
 ?>
+
 </HTML>
