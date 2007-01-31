@@ -21,7 +21,7 @@ $webpath=$out[0];
 $phppath=$webpath."Documentation/PHP/";
 
 echo "<FRAMESET cols='250, *'>";
-echo "<FRAMESET rows='125, 150, 80, 75'>";
+echo "<FRAMESET rows='130, 150, 80, 75'>";
 echo "<FRAME name='logo' frameborder='0' src='".$phppath."logo.html'>";
 echo "<FRAME name='tree' frameborder='0' src='".$phppath."viewtree.php'>";
 echo "<FRAME name='search' frameborder='0' src='".$phppath."searchform.html'>";
