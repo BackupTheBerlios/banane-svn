@@ -38,6 +38,6 @@ address {
   padding-top: 1em;
   border-top: thin dotted }
 
-DIV.logo { text-align: center }
+.logo { text-align: center }
 
-.head sec { font-weight: bold; color: blue}
+.head sec { font-weight: bold; color: blue} /* style for header sections like NAME, AIM, SYNTAX and so on */

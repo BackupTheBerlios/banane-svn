@@ -64,26 +64,25 @@ $querystring= "SELECT * FROM outputs WHERE name='".$rname."' ORDER BY count";
 $outputs = mysql_query($querystring,$db); 
 $rrow = mysql_fetch_array($routine);  
 echo "<TABLE>"; 
-#echo "<TR><TD VALIGN=TOP><SPAN class="header">Name</SPAN>";
 echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Name</SPAN>";
 echo "<TD VALIGN=TOP>".$rrow["name"]."</TR>";
-echo "<TR><TD VALIGN=TOP><B>Path</B>";
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Path</SPAN>";
 echo "<TD VALIGN=TOP>\$BANANEPATH/".$rrow["relativepath"]."</TR>";
-echo "<TR><TD VALIGN=TOP><B>Version</B>";
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Version</SPAN>";
 echo "<TD VALIGN=TOP>".$rrow["version"]."</TR>";
-echo "<TR><TD VALIGN=TOP><B>Author</B>";
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Author</SPAN>";
 echo "<TD VALIGN=TOP>".$rrow["author"]."</TR>";
-echo "<TR><TD VALIGN=TOP><B>Date created</B>";
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Date created</SPAN>";
 echo "<TD VALIGN=TOP>".$rrow["date"]."</TR>";
-echo "<TR><TD VALIGN=TOP><B>Aim</B>";
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Aim</SPAN>";
 echo "<TD VALIGN=TOP>".$rrow["aim"]."</TR>";
-echo "<TR><TD VALIGN=TOP><B>Description</B>"; 
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Description</SPAN>"; 
 echo "<TD VALIGN=TOP>".anchorreplace($rrow["description"],$webpath)."</TR>";
-echo "<TR><TD VALIGN=TOP><B>Category</B>"; 
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Category</SPAN>"; 
 echo "<TD VALIGN=TOP>".$rrow["category"]."</TR>";
-echo "<TR><TD VALIGN=TOP><B>Syntax</B>"; 
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Syntax</SPAN>"; 
 echo "<TD VALIGN=TOP>".$rrow["syntax"]."</TR>";
-echo "<TR><TD VALIGN=TOP><B>Inputs</B><TD VALIGN=TOP>"; 
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Inputs</SPAN><TD VALIGN=TOP>"; 
 echo "<TABLE>";
 while($irow = mysql_fetch_array($inputs)) 
 { 
@@ -93,7 +92,7 @@ while($irow = mysql_fetch_array($inputs))
  }  
 echo "</TABLE>";
 echo "</TR>"; 
-echo "<TR><TD VALIGN=TOP><B>Optional inputs</B><TD VALIGN=TOP>"; 
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Optional inputs</SPAN><TD VALIGN=TOP>"; 
 echo "<TABLE>";
 while($oirow = mysql_fetch_array($optinputs)) 
 { 
@@ -103,7 +102,7 @@ while($oirow = mysql_fetch_array($optinputs))
  }  
 echo "</TABLE>";
 echo "</TR>"; 
-echo "<TR><TD VALIGN=TOP><B>Outputs</B><TD VALIGN=TOP>"; 
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Outputs</SPAN><TD VALIGN=TOP>"; 
 echo "<TABLE>";
 while($orow = mysql_fetch_array($outputs)) 
 { 
@@ -117,18 +116,18 @@ echo "</TR>";
 # skip optional section 'restrictions' if table entry is NULL
 if($rrow["restrictions"]!="NULL") 
 { 
-  echo "<TR><TD VALIGN=TOP><B>Restrictions</B>"; 
+  echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Restrictions</SPAN>"; 
   echo "<TD VALIGN=TOP>".anchorreplace($rrow["restrictions"],$webpath)."</TR>";
  }
-echo "<TR><TD VALIGN=TOP><B>Procedure</B>"; 
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Procedure</SPAN>"; 
 echo "<TD VALIGN=TOP>".anchorreplace($rrow["proc"],$webpath)."</TR>";
-echo "<TR><TD VALIGN=TOP><B>Example</B>"; 
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Example</SPAN>"; 
 echo "<TD VALIGN=TOP>".anchorreplace($rrow["example"],$webpath)."</TR>";
 
 # skip optional section 'see also' if table entry is NULL
 if($rrow["also"]!="NULL") 
 { 
-  echo "<TR><TD VALIGN=TOP><B>See also</B>"; 
+  echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>See also</SPAN>"; 
   echo "<TD VALIGN=TOP>".anchorreplace($rrow["also"],$webpath)."</TR>";
  }
 echo "</TABLE>"; 
