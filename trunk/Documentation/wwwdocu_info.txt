@@ -22,6 +22,9 @@ routines that have been comitted since the last update.
 header. Returns the sections of the header as a hash that can be used
 as input to the mySQL database.
 
+./resetdb: Skript to drop the database tables, define them anew and
+populate them with the header information of every .m-file in the
+bananepath.
 
 
 $BANANEPATH/Documentation/Scripts/.
@@ -31,24 +34,34 @@ berlios web server and calls
 $BANANEPATH/Documentation/Perl/parse_update.pl to update the database.
 
 ./wwwdocu_conf.scr: Script that return the appropriate values of
-local values, e.g. mySQL server and user. This is done via the echo
-command to ensure that both PERL- and PHP-Scripts can use this info. May be extended for other
-"global" settings.
+local values, e.g. mySQL server and user. Also, this script returns
+the path to the webserver. This is done via the echo
+command to ensure that both PERL- and PHP-Scripts can use this
+info. May be extended for other "global" settings.
 
 
 
 $BANANEPATH/Documentation/PHP/.
-./viewroutine.php: Generates Webpage for a single routine from mySQL
-database. Parameter is the name of the routine, this can be passed as
-the first argument like viewroutine.php?kwextract
+All routines for the display of the web docu are located in this
+directory.
 
-./viewdir.php: Generates Webpage that displays a table with columns
-routine name and aim, for a quick overview. Selects all routines in
-the directory and subdirectories given as the first argument of the
-script call. Example:
-http://banane.berlios.de/wwwcopy/Banane/Documentation/PHP/viewdir.php?/home/groups/banane/htdocs/wwwcopy/Banane/
-This feature may be used to restrict the number of routines shown.
-
+banane.gif : logo picture
+bananestyle.css : style sheet file
+berlioslogo.html : frame source that shows the berlios logo
+index.php : script that calls mainpage.html, copy this to the website
+            start dierctory
+intro.html : frame source with welcome text and basic information
+logo.html : frame source showing the banane logo and links
+mainpage.php : defines frame structure of the main webpage and fills
+               frames with the respective sources
+searchform.html : frame source with form for routine search
+viewdir.php : displays table with routines in given directory
+viewroutine.php : displays header info for given routine as a table
+viewsearch.php : displays search results, either a list of matches
+                 with the same style as viewdir.php or a single
+                 routine by diretcly calling viewroutine.php
+viewtree.php : frame source displaying banane directoy tree
+ 
 
 
 DATABASE:
@@ -59,6 +72,8 @@ Enter password: TIpKEPc26U
 Primary table "routines" initialized with command
 CREATE TABLE routines (name VARCHAR(128), aim VARCHAR(128),
 description VARCHAR(1024), category VARCHAR(512), PRIMARY KEY(name));
+
+Tables may also be initialized by the resetdb.pl script.
 
 Added other colums later:
 ALTER TABLE routines ADD fullpath VARCHAR(128) AFTER name;
@@ -115,9 +130,6 @@ MAILTO=andreas.thiel@gmail.com
 
 TO DO
 - include possibility to delete a file. Action "D" in svn update
-- write script to completely update the database, i.e. parse every
-file, possibly erase the database first, too
-- is there a possibility to script database commands? maybe use perl?
 - make the $id$ tag work in svn: Command works only on single
 routines: svn propset svn:keywords "Id" kwextract.m but at least acts
 for the wwwcopy as well
@@ -127,7 +139,9 @@ for the wwwcopy as well
 - make category section to choose from a set of possibilities
 - add source to db and create script to show it.
 - say something if parsing goes wrong, better error processing in
-updatemain. Are success variables suitable?
+updatemain. 
+- Are success variables suitable? what exactly do they do? avoid
+warnings in resetdb
 - possibly enable searching aims, or even the whole db?
-- describe webscripts in this file
+
 
