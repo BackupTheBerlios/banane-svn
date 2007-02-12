@@ -22,6 +22,7 @@
 %
 % CATEGORY:
 %  At present, there are three possibilities:<BR>
+%   - DataStructures<BR>
 %   - Documentation<BR>
 %   - NEV Tools<BR>
 %   - Support routines<BR>
@@ -29,7 +30,6 @@
 %  BANANE directory tree. For example:<BR>
 %   - Array<BR>
 %   - DataStorage<BR>
-%   - DataStructures<BR>
 %   - Demonstration<BR>
 %   - Graphic<BR>
 %   - Help<BR>
@@ -37,7 +37,6 @@
 %   - Signals<BR>
 %   - Simulation<BR>
 %   - Strings<BR>
-%   - Structures<BR>
 %
 % SYNTAX:
 %* result = example_function(arg1, arg2,[, optarg1][, optarg2]); 
