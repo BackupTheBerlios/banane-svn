@@ -21,7 +21,7 @@
 %  also allowed, eg <A>kwextract</A>.
 %
 % CATEGORY:
-%  At present, there are three possibilities:<BR>
+%  At present, there are the following possibilities:<BR>
 %   - DataStructures<BR>
 %   - Documentation<BR>
 %   - NEV Tools<BR>
