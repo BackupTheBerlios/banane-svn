@@ -67,7 +67,7 @@
 %  generalized. 
 %
 % PROCEDURE:
-%  Evaluate the structure returned by the loadNEV routine and build up a
+%  Evaluate the structure returned by the <A>loadNEV</A> routine and build up a
 %  new structure based on the number of sweeps. See the source code for
 %  comments as well. 
 %
