@@ -3,7 +3,7 @@
 %  nev2sweeps()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -18,7 +18,7 @@
 %  During an experiment, a stimulus is often repeated several time while
 %  spiketrains are recorded continuously. nev2sweeps transforms the
 %  complete spiketrains of multiple neurons into chunks corresponding to
-%  the stimulus repetetions, called 'sweeps' here. The
+%  the stimulus repetitions, called 'sweeps' here. The
 %  routine uses the ASCII-file describing the stimulus coordinates to
 %  determine the duration of a sweep. Spiketrain data is returned within
 %  a structure array, with timestamps given in seconds. Timing of spikes
