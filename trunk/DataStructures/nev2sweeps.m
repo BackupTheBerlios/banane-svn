@@ -58,6 +58,13 @@
 % OUTPUTS:
 %  sweepstruct:: Structure containing the spiketrain info after sorting
 %  the signals into the different sweeps.
+%*  sweepstruct(n)
+%*       |---nproto     : number of prototypes
+%*       |---pr(p)      : prototype substructure
+%*            |---eln   : electrode number
+%*            |---prn   : prototype number at this electrode 
+%*            |---ts(s) : timestamps in seconds relative to sweep start
+%  n: sweep index, p: prototype index, s: timestamp index
 %
 % RESTRICTIONS:
 %  Not sure whether the triggercheck option works corretly. Need to check
