@@ -50,10 +50,10 @@
 % OPTIONAL INPUTS:
 %  minspikenumber:: Neurons that generated less that
 %  <VAR>minspikenumber</VAR> spikes during the complete experiment
-%  are ignored and their spiketrains are not added to the structure
+%  are ignored and their spiketrains are not included in the structure
 %  returned. Default value is 1000.
 %  triggercheck:: Set this switch to obtain information about how many
-%  spikes have been lost during conversion due to trigger irregularities.
+%  spikes have been lost after conversion due to trigger irregularities.
 %
 % OUTPUTS:
 %  sweepstruct:: Structure containing the spiketrain info after sorting
@@ -64,12 +64,13 @@
 %*            |---eln   : electrode number
 %*            |---prn   : prototype number at this electrode 
 %*            |---ts(s) : timestamps in seconds relative to sweep start
-%  n: sweep index, p: prototype index, s: timestamp index
+%  <VAR>n</VAR>: sweep index, <VAR>p</VAR>: prototype index, <VAR>s</VAR>: timestamp index
 %
 % RESTRICTIONS:
-%  Not sure whether the triggercheck option works corretly. Need to check
+%  Not sure whether the triggercheck option works correctly. Need to check
 %  this!<BR>
-%  Note that te routine has been tested only marginally. It may therefore
+%  Note that the routine has been tested only with a single set of
+%  data. It may therefore
 %  fail in some cases due to specialized settings that need to be
 %  generalized. 
 %
