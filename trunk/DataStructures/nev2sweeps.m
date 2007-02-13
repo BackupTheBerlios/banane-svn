@@ -155,7 +155,9 @@ function sweepstruct=nev2sweeps(nevvariable,posfile,varargin);
   totaldiff=0;
   totalspikes=0;
   
-  first=nevvariable.SpikeData(channels,1);
+  %% if the channel has been sorted, the second timestamp array is not
+  %% empty. thus, this can be evaluated to find the sorted channels 
+  second=nevvariable.SpikeData(channels,2);
 
   for i = 1:nchannels
     nowchannel=channels(i);
@@ -165,9 +167,10 @@ function sweepstruct=nev2sweeps(nevvariable,posfile,varargin);
     % separated, maximum is 5
     protos=zeros(1,7);
 
-    % if the channel has been sorted, the first timestamps-array is
-    % empty, otherwise it contains the unsorted timestamps
-    if isempty(first(i).timestamps)
+    % if the channel has been sorted, the second timestamp array is not
+    % empty. thus, this can be evaluated to find the sorted channels 
+    if not(isempty(second(i).timestamps))
+      %    old version:if isempty(first(i).timestamps)
       
       % size of nevvariable.SpikeData depends on the maximum number of
       % prototypes that have been sorted on a single channel within the
