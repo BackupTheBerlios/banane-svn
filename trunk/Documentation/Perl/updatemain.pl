@@ -82,7 +82,7 @@ if ($file->[0]) {
     (my $action)=$parts[0];
     (my $filename)=$parts[1];
 
-    if ($action != "I") {
+    if ($action ne "I") {
 
       print "Processing: $filename\n";
 
