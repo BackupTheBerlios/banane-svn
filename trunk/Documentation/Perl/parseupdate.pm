@@ -58,7 +58,7 @@ $parse = new Parse::RecDescent ($grammar);
 
 $result=$parse->update($_[0]);
 
-print "$result->[0]\n";
+print "$result->[0]->[0]\n";
 
 return $result;
 
