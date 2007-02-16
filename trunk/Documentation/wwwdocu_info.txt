@@ -129,7 +129,9 @@ MAILTO=andreas.thiel@gmail.com
 
 
 TO DO
-- include possibility to delete a file. Action "D" in svn update
+- include possibility to delete a file. Action "D" in svn
+update. Evaluate actions in updatemain via first entry of
+filenames. how are cases done in perl? 
 - make the $id$ tag work in svn: Command works only on single
 routines: svn propset svn:keywords "Id" kwextract.m but at least acts
 for the wwwcopy as well
