@@ -11,11 +11,12 @@ $grammar =
 
   q{update : files revision {$return=$item{files}}
 
-    files : (fileline{\@item})(s?)
+    files : (fileline{\@item}|dirline)(s?)
 
     fileline : action /\ +/ file "." extension nl 
      {my($comb)=$item{file}.".".$item{extension};
       $return = $comb}
+    dirline : action /\ +/ file nl 
     revision : ...!fileline
               /.+/
 
