@@ -43,7 +43,7 @@ $grammar =
                 $return = $comb}
     revision : ...!file
                ...!dir
-              /.+/
+              /.+/ {print "revision: $item[1]\n";}
 
     action : ("U"|"A")
 
