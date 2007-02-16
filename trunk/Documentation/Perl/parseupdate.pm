@@ -32,11 +32,11 @@ $grammar =
 #    nl : /\ *\n/ # allow arbitrary spaces before newline
 #  };
 
-  q{update : line(s)
+  q{update : (line{\@item})(s) {print "$item{line}\n";}
 
     line : (file|dir|rev)
 
-    dir : action /\ +/ name nl {print "dir: $item{name}\n";}
+    dir : action /\ +/ name nl {print "dir: $item{name}\n"; $return="I"}
     file : ...!dir
                action /\ +/ name "." ext nl
                { my($comb)=$item{action}."_".$item{name}.".".$item{ext};
@@ -44,7 +44,7 @@ $grammar =
                  $return = $comb}
     rev : ...!file
           ...!dir
-              /.+/ {print "revision: $item{__PATTERN1__}\n";}
+              /.+/ {print "revision: $item{__PATTERN1__}\n"; $return="I"}
 
     action : ("U"|"A")
 
