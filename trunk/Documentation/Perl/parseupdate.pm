@@ -9,29 +9,6 @@ $Parse::RecDescent::skip='';
 
 $grammar =
 
-#  q{update : files revision {$return=$item{files}}
-
-#    files : (fileline{\@item})(s?)
-#    dirs : dirline(s?)
- 
-#    dirline : action /\ +/ file nl {print "dir: $item{file}\n";}
-#    fileline : ...!dirline
-#               action /\ +/ file "." extension nl
-#               {print "file: $item{file}\n"; my($comb)=$item{file}.".".$item{extension};
-#                $return = $comb}
-#    revision : ...!fileline
-#               ...!dirline
-#              /.+/
-
-#    action : ("U"|"A")
-
-#    file : /[^\.\n]+/
-
-#    extension : "m"
-
-#    nl : /\ *\n/ # allow arbitrary spaces before newline
-#  };
-
   q{update : (line{\@item})(s)
 
     line : (file|dir|rev)
@@ -58,7 +35,7 @@ $parse = new Parse::RecDescent ($grammar);
 
 $result=$parse->update($_[0]);
 
-#print "$result->[2]->[1]\n\n\n";
+#print "$result->[2]->[1]\n";
 
 return $result;
 

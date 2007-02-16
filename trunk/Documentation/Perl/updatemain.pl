@@ -75,7 +75,7 @@ if ($file->[0]) {
   foreach (@{$file}) {
 
     $now=$_->[1];
-    print "Now: $now\n";
+    # print "Now: $now\n";
     
     @parts = split(/_/, $now);
 
