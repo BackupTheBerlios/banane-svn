@@ -75,7 +75,7 @@ if ($file->[0]) {
   foreach (@{$file}) {
 
     # read complete file
-    $filename=$_->[0]->[1];
+    $filename=$_->[1];
     print "Processing: $filename\n";
 
     $relpath=$filename;
