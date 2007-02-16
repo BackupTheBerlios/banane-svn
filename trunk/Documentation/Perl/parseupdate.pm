@@ -38,9 +38,10 @@ $grammar =
 
     dir : action /\ +/ name nl {print "dir: $item{name}\n";}
     file : ...!dir
-               action /\ +/ name "." extension nl
-               {print "file: $item{name}\n"; print "file: $item{extension}\n"; my($comb)=$item{name}.".".$item{extension};
-                $return = $comb}
+               action /\ +/ name "." ext nl
+               { my($comb)=$item{action}."_".$item{name}.".".$item{ext};
+                 print "file: $comb\n";
+                 $return = $comb}
     rev : ...!file
           ...!dir
               /.+/ {print "revision: $item{__PATTERN1__}\n";}
@@ -49,7 +50,7 @@ $grammar =
 
     name : /[^\.\n]+/
 
-    extension : "m"
+    ext : "m"
 
     nl : /\ *\n/ # allow arbitrary spaces before newline
   };
