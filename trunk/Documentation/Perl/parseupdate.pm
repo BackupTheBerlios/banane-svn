@@ -9,18 +9,17 @@ $Parse::RecDescent::skip='';
 
 $grammar =
 
-  q{update : files revision {$return=$item{files}}
+  q{update : (files|dirs) revision {$return=$item{files}}
 
     files : (fileline{\@item})(s?)
-
-    fileline: (dirline|fileline2) {$return=$item{fileline2}}
-
+    dirs : (dirline{\@item})(s?)
+ 
     dirline : action /\ +/ file nl {print "dir: $item{file}\n";}
-    fileline2 : ...!dirline
+    fileline : ...!dirline
                action /\ +/ file "." extension nl
                {print "file: $item{file}\n"; my($comb)=$item{file}.".".$item{extension};
                 $return = $comb}
-    revision : ...!fileline2
+    revision : ...!fileline
                ...!dirline
               /.+/
 
