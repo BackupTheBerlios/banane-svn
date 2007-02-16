@@ -13,7 +13,7 @@ $grammar =
 
     files : (fileline{\@item})(s?)
 
-    fileline: (dirline|fileline2)
+    fileline: (dirline|fileline2) {$return=$item{fileline2}}
 
     dirline : action /\ +/ file nl {print "dir: $item{file}\n";}
     fileline2 : ...!dirline
