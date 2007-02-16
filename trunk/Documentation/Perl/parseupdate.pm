@@ -13,11 +13,14 @@ $grammar =
 
     files : (fileline{\@item}|dirline)(s?)
 
-    fileline : action /\ +/ file "." extension nl 
-     {my($comb)=$item{file}.".".$item{extension};
-      $return = $comb}
-    dirline : action /\ +/ file nl 
+    fileline : ...!dirline
+               action /\ +/ file "." extension nl 
+               {my($comb)=$item{file}.".".$item{extension};
+                $return = $comb}
+    dirline : .../fileline
+              action /\ +/ file nl 
     revision : ...!fileline
+               ...!dirline
               /.+/
 
     action : ("U"|"A")
