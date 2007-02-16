@@ -36,15 +36,15 @@ $grammar =
 
     line : (file|dir|rev)
 
-    dir : action /\ +/ name nl {print "dir: $item{name}\n"; $return="I_"}
+    dir : action /\ +/ name nl {$return="I_$item{name}"}
     file : ...!dir
                action /\ +/ name "." ext nl
                { my($comb)=$item{action}."_".$item{name}.".".$item{ext};
-                 print "file: $comb\n";
+                 # print "file: $comb\n";
                  $return = $comb}
     rev : ...!file
           ...!dir
-              /.+/ {print "revision: $item{__PATTERN1__}\n"; $return="I_"}
+              /.+/ {$return="I_$item{__PATTERN1__}"}
 
     action : ("U"|"A")
 
