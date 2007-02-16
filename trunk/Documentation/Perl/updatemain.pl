@@ -77,7 +77,7 @@ if ($file->[0]) {
     $filename=$_->[1];
     print "Now: $filename\n";
 
-    if ($filename =! m/^I_/) {
+    if ($filename !~ m/^I_/) {
 
       print "Processing: $filename\n";
 
