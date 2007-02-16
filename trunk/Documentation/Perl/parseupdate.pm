@@ -32,7 +32,7 @@ $grammar =
 #    nl : /\ *\n/ # allow arbitrary spaces before newline
 #  };
 
-  q{update : (line{\@item})(s) {print "$item[1]->[0]\n";}
+  q{update : (line{\@item})(s)
 
     line : (file|dir|rev)
 
