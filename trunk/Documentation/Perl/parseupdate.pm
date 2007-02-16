@@ -43,7 +43,7 @@ $grammar =
                 $return = $comb}
     rev : ...!file
           ...!dir
-              /.+/ {print "revision: $item[1]\n";}
+              /.+/ {print "revision: $item{__PATTERN1__}\n";}
 
     action : ("U"|"A")
 
