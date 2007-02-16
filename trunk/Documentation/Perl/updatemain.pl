@@ -74,68 +74,73 @@ if ($file->[0]) {
 
   foreach (@{$file}) {
 
-    # read complete file
     $filename=$_->[1];
-    print "Processing: $filename\n";
+    print "Now: $filename\n";
 
-    $relpath=$filename;
-    $relpath=~s/$bananepath//;
+    if ($filename =! m/^I_/) {
 
-    open(DAT, $filename) || die("Could not open file!");
-    $rawdata=join'',<DAT>;
-    close(DAT);
+      print "Processing: $filename\n";
 
-    # parse file text
-    %head=parseheader::parse($rawdata);
+      $relpath=$filename;
+      $relpath=~s/$bananepath//;
 
-    # insert header information into the database tables "routines", 
-    # "inputs", "optinputs" and "outputs" 
-    my $success = 1;
-    $success &&= $routines_replacehandle->execute($head{name},$filename,$relpath,$head{version},$head{author},$head{date},$head{aim},$head{description},$head{category},$head{syntax},$head{restrictions},$head{proc},$head{example},$head{also});
+      # read complete file
+      open(DAT, $filename) || die("Could not open file!");
+      $rawdata=join'',<DAT>;
+      close(DAT);
 
-    ## before insertion, remove all argument entries in supporting 
-    ## tables for the given routine, since otherwise arguments are 
-    ## kept in the table even if they are removed from the header 
-    my $delsuccess1 = 1;
-    $delsuccess1 &&= $inputs_deletehandle->execute($head{name});
-    my $delsuccess2 = 1;
-    $delsuccess2 &&= $optinputs_deletehandle->execute($head{name});
-    my $delsuccess3 = 1;
-    $delsuccess3 &&= $outputs_deletehandle->execute($head{name});
+      # parse file text
+      %head=parseheader::parse($rawdata);
 
-    ## There may be multiple inputs, thus use loop here
-    ## count is needed to ensure correct order when arguments are 
-    ## displayed later
-    $count = 1;
-    foreach (@{$head{inputs}->[0]}) {
-      my($arg)=$_->[0];
-      my($desc)=$_->[1];
-      #print "$arg :: $desc\n";
+      # insert header information into the database tables "routines", 
+      # "inputs", "optinputs" and "outputs" 
       my $success = 1;
-      $success &&= $inputs_replacehandle->execute($head{name},$count,$arg,$desc);
-      $count++;
-    }
+      $success &&= $routines_replacehandle->execute($head{name},$filename,$relpath,$head{version},$head{author},$head{date},$head{aim},$head{description},$head{category},$head{syntax},$head{restrictions},$head{proc},$head{example},$head{also});
+      
+      ## before insertion, remove all argument entries in supporting 
+      ## tables for the given routine, since otherwise arguments are 
+      ## kept in the table even if they are removed from the header 
+      my $delsuccess1 = 1;
+      $delsuccess1 &&= $inputs_deletehandle->execute($head{name});
+      my $delsuccess2 = 1;
+      $delsuccess2 &&= $optinputs_deletehandle->execute($head{name});
+      my $delsuccess3 = 1;
+      $delsuccess3 &&= $outputs_deletehandle->execute($head{name});
 
-    $count = 1;
-    foreach (@{$head{optinputs}->[0]}) {
-      my($arg)=$_->[0];
-      my($desc)=$_->[1];
-      #      print "$arg :: $desc\n";
-      my $success = 1;
-      $success &&= $optinputs_replacehandle->execute($head{name},$count,$arg,$desc);
-      $count++;
-    }
+      ## There may be multiple inputs, thus use loop here
+      ## count is needed to ensure correct order when arguments are 
+      ## displayed later
+      $count = 1;
+      foreach (@{$head{inputs}->[0]}) {
+	my($arg)=$_->[0];
+	my($desc)=$_->[1];
+	#print "$arg :: $desc\n";
+	my $success = 1;
+	$success &&= $inputs_replacehandle->execute($head{name},$count,$arg,$desc);
+	$count++;
+      }
+      
+      $count = 1;
+      foreach (@{$head{optinputs}->[0]}) {
+	my($arg)=$_->[0];
+	my($desc)=$_->[1];
+	#      print "$arg :: $desc\n";
+	my $success = 1;
+	$success &&= $optinputs_replacehandle->execute($head{name},$count,$arg,$desc);
+	$count++;
+      }
+      
+      $count = 1;
+      foreach (@{$head{outputs}->[0]}) {
+	my($arg)=$_->[0];
+	my($desc)=$_->[1];
+	#print "$arg :: $desc\n";
+	my $success = 1;
+	$success &&= $outputs_replacehandle->execute($head{name},$count,$arg,$desc);
+	$count++;
+      }
 
-    $count = 1;
-    foreach (@{$head{outputs}->[0]}) {
-      my($arg)=$_->[0];
-      my($desc)=$_->[1];
-      #print "$arg :: $desc\n";
-      my $success = 1;
-      $success &&= $outputs_replacehandle->execute($head{name},$count,$arg,$desc);
-      $count++;
     }
-
   }
 
   #### Now, disconnect from the database
