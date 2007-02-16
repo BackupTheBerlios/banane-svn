@@ -32,7 +32,7 @@ $grammar =
 #    nl : /\ *\n/ # allow arbitrary spaces before newline
 #  };
 
-  q{update : (line{\@item})(s) {print "$item[0]\n";}
+  q{update : (line{\@item})(s) {print "$item[1]\n";}
 
     line : (file|dir|rev)
 
@@ -58,7 +58,7 @@ $parse = new Parse::RecDescent ($grammar);
 
 $result=$parse->update($_[0]);
 
-print "$result->[0]->[0]\n";
+#print "$result->[0]->[0]\n";
 
 return $result;
 
