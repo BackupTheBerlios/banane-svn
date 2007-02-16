@@ -74,10 +74,15 @@ if ($file->[0]) {
 
   foreach (@{$file}) {
 
-    $filename=$_->[1];
-    print "Now: $filename\n";
+    $now=$_->[1];
+    print "Now: $now\n";
+    
+    @parts = split(/_/, $now);
 
-    if ($filename !~ m/^I_/) {
+    (my $action)=$parts[0];
+    (my $filename)=$parts[1];
+
+    if ($action != "I") {
 
       print "Processing: $filename\n";
 
