@@ -11,7 +11,7 @@ $grammar =
 
   q{update : files revision {$return=$item{files}}
 
-    files : (fileline{\@item} | dirline)(s?)
+    files : ((fileline | dirline){\@item})(s?)
 
     dirline : action /\ +/ file nl {print "dir: $item{file}\n";}
     fileline : ...!dirline
