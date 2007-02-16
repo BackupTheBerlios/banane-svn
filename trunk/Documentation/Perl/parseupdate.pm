@@ -17,7 +17,7 @@ $grammar =
                action /\ +/ file "." extension nl 
                {my($comb)=$item{file}.".".$item{extension};
                 $return = $comb}
-    dirline : .../fileline
+    dirline : ...!fileline
               action /\ +/ file nl 
     revision : ...!fileline
                ...!dirline
