@@ -41,13 +41,13 @@ $grammar =
                action /\ +/ name "." extension nl
                {print "file: $item{name}\n"; my($comb)=$item{name}.".".$item{extension};
                 $return = $comb}
-    revision : ...!file
-               ...!dir
+    rev : ...!file
+          ...!dir
               /.+/ {print "revision: $item[1]\n";}
 
     action : ("U"|"A")
 
-    file : /[^\.\n]+/
+    name : /[^\.\n]+/
 
     extension : "m"
 
