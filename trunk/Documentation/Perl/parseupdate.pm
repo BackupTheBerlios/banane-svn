@@ -39,7 +39,7 @@ $grammar =
     dir : action /\ +/ name nl {print "dir: $item{name}\n";}
     file : ...!dir
                action /\ +/ name "." extension nl
-               {print "file: $item{name}\n"; my($comb)=$item{name}.".".$item{extension};
+               {print "file: $item{name}\n"; print "file: $item{extension}\n"; my($comb)=$item{name}.".".$item{extension};
                 $return = $comb}
     rev : ...!file
           ...!dir
