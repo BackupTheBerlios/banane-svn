@@ -5,7 +5,7 @@ use Parse::RecDescent;
 
 sub parse {
 
-$Parse::RecDescent::skip='';
+#$Parse::RecDescent::skip='';
 
 $grammar =
 
@@ -14,10 +14,10 @@ $grammar =
     files : (fileline{\@item}|dirline)(s?)
 
     fileline : ...!dirline
-               action /\ +/ file "." extension nl 
+               action /\ +/ file "." extension
                {my($comb)=$item{file}.".".$item{extension};
                 $return = $comb}
-    dirline : action /\ +[^\.]/ nl
+    dirline : action /\ +[^\.]/
     revision : ...!fileline
                ...!dirline
               /.+/
@@ -28,7 +28,7 @@ $grammar =
 
     extension : "m"
 
-    nl : /\ *\n/ # allow arbitrary spaces before newline
+#    nl : /\ *\n/ # allow arbitrary spaces before newline
   };
 
 $parse = new Parse::RecDescent ($grammar);
