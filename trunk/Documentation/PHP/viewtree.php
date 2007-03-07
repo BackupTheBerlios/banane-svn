@@ -67,7 +67,9 @@ function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
 
 // if you want to list directories only, use
 echo "<h1>banane directories</h1>";
-
+echo "<body background='Pics/l02.gif' leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
+echo "<div align='right'> </div>";
 echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
+echo "</body>";
 
 ?>
