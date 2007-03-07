@@ -25,17 +25,14 @@ $webpath=$out[0];
 
 $phppath=$webpath."Documentation/PHP/";
 
-echo "<FRAMESET cols='250, *'>";
-echo "<FRAMESET rows='140, 140, 80, 75'>";
-echo "<FRAME name='logo' frameborder='0' src='".$phppath."logo.html'>";
-echo "<FRAME name='tree' frameborder='0' src='".$phppath."viewtree.php'>";
-echo "<FRAME name='search' frameborder='0' src='".$phppath."searchform.html'>";
-echo "<FRAME name='berlios' frameborder='0' src='".$phppath."berlioslogo.html'>";
+echo "<frameset rows='*,16,604,*' cols='*' framespacing='0' frameborder='no' border='0'>";
+echo "<frame src='leer.htm'>";
+echo "<frame src='oben.htm' scrolling='no' noresize>";
+echo "<frame src='mitte.htm'>";
+echo "<frame src='unten.htm' scrolling='no' noresize>";
 echo "</FRAMESET>";
-echo "<FRAME name='dynamic' frameborder='0' src='".$phppath."intro.html'>";
-echo "<NOFRAMES>";
-echo "<P>This frameset document contains nothing";
-echo "</NOFRAMES>";
+echo "<NOFRAMES><body>";
+echo "</body></NOFRAMES>";
 echo "</FRAMESET>";
 
 ?>
