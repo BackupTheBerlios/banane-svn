@@ -26,10 +26,10 @@ $webpath=$out[0];
 $phppath=$webpath."Documentation/PHP/";
 
 echo "<frameset rows='*,16,604,*' cols='*' framespacing='0' frameborder='no' border='0'>";
-echo "<frame src='leer.htm'>";
-echo "<frame src='oben.htm' scrolling='no' noresize>";
-echo "<frame src='mitte.htm'>";
-echo "<frame src='unten.htm' scrolling='no' noresize>";
+echo "<frame src='".$phppath."leer.htm'>";
+echo "<frame src='".$phppath."oben.htm' scrolling='no' noresize>";
+echo "<frame src='".$phppath."mitte.htm'>";
+echo "<frame src='".$phppath."unten.htm' scrolling='no' noresize>";
 echo "</FRAMESET>";
 echo "<NOFRAMES><body>";
 echo "</body></NOFRAMES>";
