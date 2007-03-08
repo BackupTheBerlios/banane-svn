@@ -4,7 +4,7 @@ display files */
 
 body {
   /*padding-left: 11em;*/
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 10pt;
   color: black;
   background-color: white 
@@ -24,7 +24,7 @@ ul.navbar {
 
 h1 {
 /*  font-family: Arial, SunSans-Regular, sans-serif; */
-/*  font-size: 120% */
+  font-size: 100% */
   font-weight: bold
 }
 
@@ -43,11 +43,9 @@ h1 {
 code {
   white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
 
-ul.navbar li {
-  background: white;
-  margin: 0.5em 0;
-  padding: 0.3em;
-  border-right: 1em solid black }
+.navbar li {
+  list-style-type: none
+}
 ul.navbar a {
   text-decoration: none }
 a:link {
