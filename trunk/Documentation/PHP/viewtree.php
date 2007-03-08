@@ -70,9 +70,8 @@ echo "<body background='Pics/l02.gif' leftmargin='0' topmargin='0' marginwidth='
 echo "<DIV class='navbar'>";
 echo "<h1>project</h1>";
 echo "<ul>";
-echo "<li><a>about</a></li>";
-echo "<li><a>summary</a></li>";
-echo "<li><a>weblog</a></li>";
+echo "<li><a target='dynamic' href='intro.html'>about</a></li>";
+echo "<li><a target='_blank' href='http://project-banane.blogspot.com>weblog</a></li>";
 echo "<li><a>members</a></li>";
 echo "<h1>directories</h1>";
 echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);

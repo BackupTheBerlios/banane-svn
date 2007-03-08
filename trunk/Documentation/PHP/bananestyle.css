@@ -17,7 +17,6 @@ body {
 }
 
 h1 {
-/*  font-family: Arial, SunSans-Regular, sans-serif; */
   font-size: 100%;
   font-weight: bold
 }
@@ -27,12 +26,13 @@ h1 {
   top: 180px; 
   left: 17px; 
   height: 250px; 
-  width: 120px;
-  color: green;
-  background-color: yellow
+  width: 115px;
+  background-color: red
  }
 
-/*.navbar h1 { color: red }*/
+.navbar h1 {
+  padding: 0px;
+}
 
 code {
   white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
@@ -42,9 +42,6 @@ code {
   padding: 0;
   margin: 0;
 }*/
-
-ul.navbar a {
-  text-decoration: none }
 
 a:link {text-decoration: none}
 a:visited {text-decoration: none}
