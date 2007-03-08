@@ -4,8 +4,8 @@ display files */
 
 body {
   /*padding-left: 11em;*/
-  font-family: Georgia, "Times New Roman",
-  Times, serif;
+  font-family: Arial, sans-serif;
+  font-size: 10pt;
   color: black;
   background-color: white 
 } /*#d8da3d }*/
@@ -23,17 +23,17 @@ ul.navbar {
 */
 
 h1 {
-  font-family: Helvetica, Geneva, Arial,
-  SunSans-Regular, sans-serif; 
-  font-size: 120%
+/*  font-family: Arial, SunSans-Regular, sans-serif; */
+/*  font-size: 120% */
+  font-weight: bold
 }
 
 .navbar { 
   position: absolute;
   top: 100px; 
-  left: 0px; 
+  left: 10px; 
   height: 250px; 
-  width: 100%;
+  width: 200px;
   color: green;
   background-color: yellow
  }
