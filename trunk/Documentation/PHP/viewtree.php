@@ -66,22 +66,23 @@ function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
 //echo directory_to_list('.');
 
 // if you want to list directories only, use
-echo "<body background='Pics/l02.gif' leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
-echo "<DIV class='navbar'>";
-echo "<h1>project</h1>";
-echo "<ul>";
-echo "<li><a target='dynamic' href='intro.html'>about</a></li>";
-echo "<li><a target='_blank' href='http://project-banane.blogspot.com'>weblog</a></li>";
-echo "<li><a>members</a></li>";
-echo "</ul>";
-echo "<h1>directories</h1>";
-echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
-echo "<h1>search</h1>";
-echo "<form name='input' target='dynamic' action='viewsearch.php' method='get'>";
-echo "<input size=7 type='text' name='routine'>";
-echo "<input type='submit' value='Go!'>";
-echo "</form>";
-echo "</DIV>";
-echo "</body>";
+echo "superseded by links.php";
+// echo "<body background='Pics/l02.gif' leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
+// echo "<DIV class='navbar'>";
+// echo "<h1>project</h1>";
+// echo "<ul>";
+// echo "<li><a target='dynamic' href='intro.html'>about</a></li>";
+// echo "<li><a target='_blank' href='http://project-banane.blogspot.com'>weblog</a></li>";
+// echo "<li><a>members</a></li>";
+// echo "</ul>";
+// echo "<h1>directories</h1>";
+// echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
+// echo "<h1>search</h1>";
+// echo "<form name='input' target='dynamic' action='viewsearch.php' method='get'>";
+// echo "<input size=7 type='text' name='routine'>";
+// echo "<input type='submit' value='Go!'>";
+// echo "</form>";
+// echo "</DIV>";
+// echo "</body>";
 
 ?>
