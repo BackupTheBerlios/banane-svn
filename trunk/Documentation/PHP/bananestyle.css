@@ -10,17 +10,11 @@ body {
   background-color: white 
 } /*#d8da3d }*/
 
-/* navbar is not used yet, stems from example code but kept here just in case it will be revived
-ul.navbar { 
+.navbar ul { 
   list-style-type: none;
   padding: 0;
   margin: 0;
-  position: absolute;
-  top: 2em;
-  left: 1em;
-  width: 9em 
 }
-*/
 
 h1 {
 /*  font-family: Arial, SunSans-Regular, sans-serif; */
@@ -43,11 +37,11 @@ h1 {
 code {
   white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
 
-.navbar li {
+/*.navbar li {
   list-style-type: none;
   padding: 0;
   margin: 0;
-}
+}*/
 
 ul.navbar a {
   text-decoration: none }
