@@ -31,8 +31,8 @@ h1 {
 .navbar tree { 
   position: absolute;
   top: 0px; 
-  left: 0px; 
-  height: 500px; 
+  left: 50px; 
+  height: 250px; 
 /*  width: 500px; */
   color: green;
   background-color: yellow
