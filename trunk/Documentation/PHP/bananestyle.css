@@ -7,7 +7,9 @@ body {
   font-family: Georgia, "Times New Roman",
   Times, serif;
   color: black;
-  background-color: white } /*#d8da3d }*/
+  background-color: white 
+} /*#d8da3d }*/
+
 ul.navbar { /* navbar is not used yet, stems from example code but kept here just in case it will be revived */ 
   list-style-type: none;
   padding: 0;
@@ -15,13 +17,27 @@ ul.navbar { /* navbar is not used yet, stems from example code but kept here jus
   position: absolute;
   top: 2em;
   left: 1em;
-  width: 9em }
+  width: 9em 
+}
+
 h1 {
   font-family: Helvetica, Geneva, Arial,
   SunSans-Regular, sans-serif; 
-  font-size: 120%}
+  font-size: 120%
+}
+
+.navbar tree { 
+  position: absolute;
+  top: 200px; 
+  left: -100px; 
+  height: 130px; 
+  width: 130px; 
+  color: green;
+ }
+
 code {
   white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
+
 ul.navbar li {
   background: white;
   margin: 0.5em 0;
