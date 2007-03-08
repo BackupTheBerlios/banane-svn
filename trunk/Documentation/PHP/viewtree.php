@@ -70,7 +70,7 @@ echo "<body background='Pics/l02.gif' leftmargin='0' topmargin='0' marginwidth='
 echo "<SPAN class='navbar'><tree>bla</SPAN>";
 echo "<h1>directories with pos?</h1>";
 echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
-echo "</SPAN>";
+//echo "</SPAN>";
 echo "<h1>search</h1>";
 echo "<form name='input' target='dynamic' action='viewsearch.php' method='get'>";
 echo "<input type='text' name='routine'>";
