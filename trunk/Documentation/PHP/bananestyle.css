@@ -24,16 +24,16 @@ ul.navbar {
 
 h1 {
 /*  font-family: Arial, SunSans-Regular, sans-serif; */
-  font-size: 100% */
+  font-size: 100%;
   font-weight: bold
 }
 
 .navbar { 
   position: absolute;
-  top: 100px; 
+  top: 200px; 
   left: 10px; 
   height: 250px; 
-  width: 200px;
+  width: 180px;
   color: green;
   background-color: yellow
  }
@@ -45,7 +45,9 @@ code {
 
 .navbar li {
   list-style-type: none
+  padding: 0;
 }
+
 ul.navbar a {
   text-decoration: none }
 a:link {
