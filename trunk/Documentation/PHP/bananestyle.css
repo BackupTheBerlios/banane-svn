@@ -13,7 +13,7 @@ body {
 .navbar ul { 
   list-style-type: none;
   padding: 0;
-  margin-top: 0;
+  margin: 0;
 }
 
 h1 {
@@ -26,14 +26,14 @@ h1 {
   top: 180px; 
   left: 17px; 
   height: 300px; 
-  width: 115px;
+  width: 116px;
   background-color: red
  }
 
-.navbar h1 {
+/*.navbar h1 {
   padding: 0px;
   margin: 0px;
-}
+}*/
 
 code {
   white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
