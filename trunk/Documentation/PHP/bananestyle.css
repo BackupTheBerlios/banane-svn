@@ -45,10 +45,12 @@ code {
 
 ul.navbar a {
   text-decoration: none }
-a:link {
-  color: blue }
-a:visited {
-  color: purple }
+
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:active {text-decoration: none}
+a:hover {text-decoration: underline; color: red;}
+
 address {
   margin-top: 1em;
   padding-top: 1em;
