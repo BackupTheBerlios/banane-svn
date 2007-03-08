@@ -13,7 +13,7 @@ body {
 .navbar ul { 
   list-style-type: none;
   padding: 0;
-  margin: 0;
+/*  margin: 0;*/
 }
 
 h1 {
@@ -25,13 +25,14 @@ h1 {
   position: absolute;
   top: 180px; 
   left: 17px; 
-  height: 250px; 
+  height: 450px; 
   width: 115px;
   background-color: red
  }
 
 .navbar h1 {
   padding: 0px;
+  margin: 0px;
 }
 
 code {

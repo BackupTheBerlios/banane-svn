@@ -73,6 +73,7 @@ echo "<ul>";
 echo "<li><a target='dynamic' href='intro.html'>about</a></li>";
 echo "<li><a target='_blank' href='http://project-banane.blogspot.com>weblog</a></li>";
 echo "<li><a>members</a></li>";
+echo "</ul>";
 echo "<h1>directories</h1>";
 echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
 echo "<h1>search</h1>";
