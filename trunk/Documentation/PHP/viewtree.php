@@ -67,15 +67,16 @@ function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
 
 // if you want to list directories only, use
 echo "<body background='Pics/l02.gif' leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
-echo "<DIV class='navbar'>blablabla";
+echo "<DIV class='navbar'>";
 echo "<h1>directories with pos?</h1>";
 echo "directories with pos?";
 echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
-echo "</DIV>";
 echo "<h1>search</h1>";
 echo "<form name='input' target='dynamic' action='viewsearch.php' method='get'>";
 echo "<input type='text' name='routine'>";
 echo "<input type='submit' value='Go!'>";
-echo "</form>";echo "</body>";
+echo "</form>";
+echo "</DIV>";
+echo "</body>";
 
 ?>
