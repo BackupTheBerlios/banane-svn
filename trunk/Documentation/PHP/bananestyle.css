@@ -41,7 +41,7 @@ code {
 /*.navbar li {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 1ex;
 }*/
 
 a:link {text-decoration: none}
