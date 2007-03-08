@@ -10,7 +10,8 @@ body {
   background-color: white 
 } /*#d8da3d }*/
 
-ul.navbar { /* navbar is not used yet, stems from example code but kept here just in case it will be revived */ 
+/* navbar is not used yet, stems from example code but kept here just in case it will be revived
+ul.navbar { 
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -19,6 +20,7 @@ ul.navbar { /* navbar is not used yet, stems from example code but kept here jus
   left: 1em;
   width: 9em 
 }
+*/
 
 h1 {
   font-family: Helvetica, Geneva, Arial,
@@ -33,6 +35,7 @@ h1 {
   height: 130px; 
   width: 130px; 
   color: green;
+  background-color: yellow
  }
 
 code {
