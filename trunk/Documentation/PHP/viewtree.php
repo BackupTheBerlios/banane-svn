@@ -69,7 +69,7 @@ function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
 echo "<body background='Pics/l02.gif' leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
 echo "<DIV class='navbar'>";
 echo "<h1>directories with pos?</h1>";
-echo "directories with pos?";
+echo "directories";
 echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
 echo "<h1>search</h1>";
 echo "<form name='input' target='dynamic' action='viewsearch.php' method='get'>";
