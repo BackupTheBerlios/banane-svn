@@ -31,20 +31,20 @@ h1 {
 .navbar { 
   position: absolute;
   top: 200px; 
-  left: 10px; 
+  left: 20px; 
   height: 250px; 
-  width: 180px;
+  width: 150px;
   color: green;
   background-color: yellow
  }
 
-.navbar h1 { color: red }
+/*.navbar h1 { color: red }*/
 
 code {
   white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
 
 .navbar li {
-  list-style-type: none
+  list-style-type: none;
   padding: 0;
 }
 
