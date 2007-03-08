@@ -38,6 +38,8 @@ h1 {
   background-color: yellow
  }
 
+.navbar h1 { color: red }
+
 code {
   white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
 
