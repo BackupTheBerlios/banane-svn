@@ -64,11 +64,11 @@ a:hover {
 .navbar input
 {
 color: #781351;
-background: #D0D0D0;
+background: #E0E0E0;
 border: 1px solid #565656;
 }
 
-.submit input
+.navbar go input
 {
 color: #000;
 background: #ffa20f;
