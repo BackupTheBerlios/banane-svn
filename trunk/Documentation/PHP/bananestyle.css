@@ -48,6 +48,7 @@ h1 {
 
 code {
   font-family: courier,serif;
+  font-size: 100%;
   white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
 
 
