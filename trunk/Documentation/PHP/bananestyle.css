@@ -52,6 +52,15 @@ code {
   color: black;
 }
 
+a:link, a:visited, a:active {
+  text-weight: bold ;
+  color: #565656;
+}
+a:hover {
+  text-weight: bold ;
+  text-decoration: underline; 
+}
+
 address {
   margin-top: 1em;
   padding-top: 1em;
