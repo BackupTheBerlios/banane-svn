@@ -63,14 +63,14 @@ a:hover {
 
 .navbar input
 {
-color: #781351;
-background: #E0E0E0;
+color: black;
+background: #F0F0F0;
 border: 1px solid #565656;
 }
 
 .go input
 {
-color: #000;
+color: #565656;
 background: #ffa20f;
 border: 2px outset #d7b9c9
 }
