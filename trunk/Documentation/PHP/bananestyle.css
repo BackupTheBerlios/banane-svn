@@ -43,10 +43,14 @@ code {
   margin: 0 0 0 1ex;
 }*/
 
-a:link {text-decoration: none}
-a:visited {text-decoration: none}
-a:active {text-decoration: none}
-a:hover {text-decoration: underline; color: red;}
+.navbar a:link a:visited a:active {
+  text-decoration: none ;
+  color: #565656;
+}
+.navbar a:hover {
+  text-decoration: underline; 
+  color: black;
+}
 
 address {
   margin-top: 1em;
