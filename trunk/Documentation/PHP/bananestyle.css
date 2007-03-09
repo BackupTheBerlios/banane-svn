@@ -43,21 +43,22 @@ code {
   margin: 0 0 0 1ex;
 }*/
 
-.navbar a:link, a:visited, a:active {
-  text-decoration: none ;
-  color: #565656;
-}
-.navbar a:hover {
-  text-decoration: underline; 
-  color: black;
-}
-
 a:link, a:visited, a:active {
   font-weight: bold ;
+  text-decoration: none ;
   color: #565656;
 }
 a:hover {
   font-weight: bold ;
+  text-decoration: underline; 
+  color: #565656;
+}
+
+.navbar a:link, a:visited, a:active {
+  font-weight: normal ;
+}
+.navbar a:hover {
+  font-weight: normal ;
   text-decoration: underline; 
 }
 
