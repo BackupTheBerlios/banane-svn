@@ -15,6 +15,8 @@ the script viewdir.php -->
 <body>
 <?php
 
+
+// *** functions for generating the directory list
 function entab($num)
 {
   return "\n".str_repeat("\t",$num);
@@ -61,19 +63,16 @@ function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
   return $output;
 }
 
-// demo of directory to list
+// *** main html code generation starts here
 
-//echo directory_to_list('.');
-
-// if you want to list directories only, use
 //echo "<body background='Pics/l02.gif' leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
 echo "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
+echo "<DIV class='navbar'>";
 echo "<img src='Pics/l02.gif' border=0 margin=0 padding=0 usemap='#mymap'>";
 echo "<map name='mymap'>";
 echo " <area target='_top' href='mainpage.php' title='banane mainpage' alt='banane' shape=rect coords='12,16,136,150'>";
 echo " <area target='_blank' href='http://developer.berlios.de' title='berliOS developer' alt='berliOS' shape=rect coords='24,572,90,620'>";
 echo "</map>";
-echo "<DIV class='navbar'>";
 echo "<h1>project</h1>";
 echo "<ul>";
 echo "<li><a target='dynamic' href='intro.html'>about</a></li>";
