@@ -45,6 +45,7 @@ a:hover {
   margin: 0px;
   margin-bottom: 2ex;
   list-style-type: none;
+  text-transform: lowercase;
 }
 
 .navbar a:link, .navbar a:visited, .navbar a:active {
