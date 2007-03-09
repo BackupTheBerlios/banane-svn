@@ -70,8 +70,8 @@ border: 1px solid #565656;
 
 input.btn
 {
-position: relative;
-left: 50px;
+/*position: relative;
+left: 50px;*/
 color: #565656;
 background: #ffa20f;
 border: 2px outset #d7b9c9
