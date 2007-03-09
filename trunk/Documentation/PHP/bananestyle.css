@@ -61,6 +61,7 @@ a:hover {
   color: #565656;
 }
 
+/* style of the search input field in the navbar */
 .navbar input
 {
 color: black;
@@ -68,12 +69,10 @@ background: #F0F0F0;
 border: 1px solid #565656;
 }
 
-input.btn
+/* style of the go! search bottom in the navbar */
+.navbar input.btn
 {
-/*position: relative;
-left: 50px;*/
 color: #565656;
-/*background: #ffa20f;*/
 font-size: 80%;
 border: 2px outset #d7b9c9
 }
