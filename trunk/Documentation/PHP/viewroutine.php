@@ -12,7 +12,7 @@ display its header information in a formatted manner. -->
 </head>
 
 <body>
-<DIV class="dynamic">  
+<DIV class='dynamic'>  
 
 <?php
 
