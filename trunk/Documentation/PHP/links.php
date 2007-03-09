@@ -71,7 +71,7 @@ echo "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
 echo "<img src='Pics/l02.gif' border=0 margin=0 padding=0 usemap='#mymap'>";
 echo "<map name='mymap'>";
 echo " <area target='_top' href='mainpage.php' title='banane mainpage' alt='banane' shape=rect coords='12,16,136,150'>";
-echo " <area target='_blank' href='http://developer.berlios.de' title='berliOS developer' alt='berliOS' shape=rect coords='22,580,90,620'>";
+echo " <area target='_blank' href='http://developer.berlios.de' title='berliOS developer' alt='berliOS' shape=rect coords='24,570,90,620'>";
 echo "</map>";
 echo "<DIV class='navbar'>";
 echo "<h1>project</h1>";
