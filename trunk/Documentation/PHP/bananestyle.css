@@ -43,12 +43,12 @@ code {
   margin: 0 0 0 1ex;
 }*/
 
-a:link, a:visited, a:active {
+.dynamic a:link, a:visited, a:active {
   font-weight: bold ;
   text-decoration: none ;
   color: #565656;
 }
-a:hover {
+.dynamic a:hover {
   font-weight: bold ;
   text-decoration: underline; 
   color: #565656;
