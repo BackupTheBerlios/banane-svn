@@ -43,7 +43,7 @@ code {
   margin: 0 0 0 1ex;
 }*/
 
-.navbar a:link a:visited a:active {
+.navbar a:link, a:visited, a:active {
   text-decoration: none ;
   color: #565656;
 }
