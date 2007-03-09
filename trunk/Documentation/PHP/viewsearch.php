@@ -1,3 +1,12 @@
+<HTML> 
+<head>
+  <title>View banane routine</title>
+  <link rel="stylesheet" href="bananestyle.css">
+</head>
+
+<body>
+<DIV class='dynamic'>  
+
 <?php
 
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
@@ -32,7 +41,6 @@ $num_rows = mysql_num_rows($routines);
 
 # echo "$num_rows Rows\n";
 
-echo "<DIV class='dynamic'>";
 switch ($num_rows) {
  case 0:
    echo "No matches found.";
@@ -56,5 +64,6 @@ switch ($num_rows) {
      }
    echo "</TABLE>";
 }
-echo "</DIV>";
 ?>
+</DIV>
+</BODY>
