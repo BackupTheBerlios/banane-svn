@@ -44,18 +44,19 @@ code {
 }*/
 
 .dynamic a:link, a:visited, a:active {
-  font-weight: bold ;
-  text-decoration: none ;
+  font-weight: normal ;
+  text-decoration: underline ;
   color: #565656;
 }
 .dynamic a:hover {
-  font-weight: bold ;
+  font-weight: normal ;
   text-decoration: underline; 
-  color: #565656;
+  color: black;
 }
 
 .navbar a:link, a:visited, a:active {
   font-weight: normal ;
+  text-decoration: none ;
 }
 .navbar a:hover {
   font-weight: normal ;
