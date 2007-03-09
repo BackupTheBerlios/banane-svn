@@ -43,7 +43,7 @@ a:hover {
 .navbar ul {
   padding: 0px;
   margin: 0px;
-  margin-bottom: 2ex;
+  margin-bottom: 3ex;
   list-style-type: none;
   text-transform: lowercase;
 }
