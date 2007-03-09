@@ -2,11 +2,12 @@
 for the banane online documentation. it is used by all other web 
 display files */
 
+
+/* general settings */
 body {
-  /*padding-left: 11em;*/
   font-family: helvetica, arial,sans-serif;
   font-size: 10pt;
-  color: #565656; /*black;*/
+  color: #565656; /*special banane grey*/
   background-color: white 
 }
 
@@ -26,6 +27,7 @@ a:hover {
   color: #565656;
 }
 
+/* settings concerning the navigation bar introduced in the links.php script */
 .navbar { 
   position: absolute;
   top: 180px; 
@@ -59,11 +61,14 @@ a:hover {
   color: #565656;
 }
 
+/* the code environment is used to typeset the header lines marked with a star */
 code {
   font-family: courier,serif;
   white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
 
 
+/* settings for the dynamic environment that is used in the large
+main frame on the right of the banane page */ 
 .dynamic { 
   padding: 0px;
   margin: 37px 20px 20px 20px;
@@ -88,4 +93,5 @@ code {
   color: black;
 }
 
-.head sec { font-weight: bold } /* style for header sections like NAME, AIM, SYNTAX and so on */
+/* style for header sections like NAME, AIM, SYNTAX and so on */
+.head sec { font-weight: bold }
