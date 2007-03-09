@@ -14,6 +14,7 @@ link to viewroutine.php, which displays the complete header. -->
 </head>
 
 <body>
+<DIV class='dynamic'>
 <?php
 
 ## needed to call configuration script that knows everything else:
@@ -60,4 +61,6 @@ while($rrow = mysql_fetch_array($routines))
   }
 echo "</TABLE>";
 ?> 
+</DIV>
+</BODY>
 </HTML> 
