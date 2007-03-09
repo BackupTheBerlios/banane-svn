@@ -78,7 +78,7 @@
 %*>    36
 %
 % SEE ALSO:
-%  <A>loadNEV</A>, <a>example_function</a>. 
+%  <A>loadNEV</A>. 
 %-
 
 
