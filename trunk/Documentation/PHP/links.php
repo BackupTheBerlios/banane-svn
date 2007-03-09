@@ -84,7 +84,7 @@ echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
 echo "<h1>search</h1>";
 echo "<form name='input' target='dynamic' action='viewsearch.php' method='get'>";
 echo "<input size=12 type='text' name='routine'>";
-echo "<p margin-top=2px padding=0><input type='submit' value='go!' class='btn'></p>";
+echo "<p style='text-align:right;'><input type='submit' value='go!' class='btn'></p>";
 echo "</form>";
 echo "</DIV>";
 echo "</body>";
