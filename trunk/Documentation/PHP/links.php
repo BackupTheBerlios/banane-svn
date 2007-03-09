@@ -72,7 +72,7 @@ echo "<img src='Pics/l02.gif' margin=0 border=0 usemap='#mymap'>";
 echo "<map name='mymap'>";
 echo " <area href='mainpage.php' alt='banane' shape=rect coords='0,0,118,28'>";
 echo " <area target='_blank' href='http://developer.berlios.de'
-	title='berliOS developer' alt='berliOS' shape=rect coords='184,0,276,28'>";
+	title='berliOS developer' alt='berliOS' shape=rect coords='0,0,10,10'>";
 echo "</map>
 echo "<DIV class='navbar'>";
 echo "<h1>project</h1>";
