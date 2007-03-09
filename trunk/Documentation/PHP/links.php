@@ -48,7 +48,7 @@ function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
 	  $tabs = count($level)+($sub !== false ? 1+$subtab : 0);
 	  $output .= (($onlydirs == TRUE && is_dir($newpath)) 
 		      || $onlydirs == FALSE ? 
-		      entab($tabs)."<li><a class='navbar' target='dynamic' href='".$webpath."Documentation/PHP/viewdir.php?".$relpath."'>".$file."</a>".(is_dir($newpath) ? 
+		      entab($tabs)."<li><a target='dynamic' href='".$webpath."Documentation/PHP/viewdir.php?".$relpath."'>".$file."</a>".(is_dir($newpath) ? 
 													    directory_to_list($newpath,$onlydirs,TRUE).entab($tabs) : 
 													    "")."</li>" : 
 		      "");
@@ -70,9 +70,9 @@ echo "<body background='Pics/l02.gif' leftmargin='0' topmargin='0' marginwidth='
 echo "<DIV class='navbar'>";
 echo "<h1>project</h1>";
 echo "<ul>";
-echo "<li><a class='navbar' target='dynamic' href='intro.html'>about</a></li>";
-echo "<li><a class='navbar'target='_blank' href='http://project-banane.blogspot.com'>weblog</a></li>";
-echo "<li><a class='navbar'>members</a></li>";
+echo "<li><a target='dynamic' href='intro.html'>about</a></li>";
+echo "<li><a target='_blank' href='http://project-banane.blogspot.com'>weblog</a></li>";
+echo "<li><a>members</a></li>";
 echo "</ul>";
 echo "<h1>directories</h1>";
 echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
