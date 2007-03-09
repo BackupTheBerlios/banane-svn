@@ -40,6 +40,13 @@ a:hover {
   margin: 0px;
 }
 
+.navbar ul {
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 2ex;
+  list-style-type: none;
+}
+
 .navbar a:link, .navbar a:visited, .navbar a:active {
   font-weight: normal ;
   text-decoration: none ;
@@ -79,12 +86,5 @@ code {
   text-decoration: underline; 
   color: black;
 }
-
-address {
-  margin-top: 1em;
-  padding-top: 1em;
-  border-top: thin dotted }
-
-.logo { text-align: center }
 
 .head sec { font-weight: bold } /* style for header sections like NAME, AIM, SYNTAX and so on */
