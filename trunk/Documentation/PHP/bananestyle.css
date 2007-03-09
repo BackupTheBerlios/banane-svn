@@ -61,6 +61,21 @@ a:hover {
   color: #565656;
 }
 
+.navbar input
+{
+color: #781351;
+background: #fee3ad;
+border: 1px solid #781351
+}
+
+navbar submit input
+{
+color: #000;
+background: #ffa20f;
+border: 2px outset #d7b9c9
+}
+
+
 /* the code environment is used to typeset the header lines marked with a star */
 code {
   font-family: courier,serif;
