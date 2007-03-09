@@ -57,10 +57,12 @@ code {
 .navbar a:link, .navbar a:visited, .navbar a:active {
   font-weight: normal ;
   text-decoration: none ;
+  color: #565656;
 }
 .navbar a:hover {
   font-weight: normal ;
   text-decoration: underline; 
+  color: #565656;
 }
 
 address {
