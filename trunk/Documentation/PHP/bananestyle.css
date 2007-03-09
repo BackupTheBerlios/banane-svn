@@ -57,11 +57,11 @@ code {
  }
 
 .dynamic p { 
-  font-size: 10pt ;
+  font-size: 100%;
  }
 
 .dynamic table { 
-  font-size: 5pt ;
+  font-size: 90%;
  }
 
 .dynamic a:link, .dynamic a:visited, .dynamic a:active {
