@@ -12,6 +12,8 @@ display its header information in a formatted manner. -->
 </head>
 
 <body>
+<DIV class="dynamic">  
+
 <?php
 
 ## support function to search simplified anchors <A>routine</A> 
@@ -62,7 +64,7 @@ $querystring= "SELECT * FROM optinputs WHERE name='".$rname."' ORDER BY count";
 $optinputs = mysql_query($querystring,$db); 
 $querystring= "SELECT * FROM outputs WHERE name='".$rname."' ORDER BY count";
 $outputs = mysql_query($querystring,$db); 
-$rrow = mysql_fetch_array($routine);  
+$rrow = mysql_fetch_array($routine);
 echo "<TABLE>"; 
 echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Name</SPAN>";
 echo "<TD VALIGN=TOP>".$rrow["name"]."</TR>";
@@ -130,9 +132,10 @@ if($rrow["also"]!="NULL")
   echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>See also</SPAN>"; 
   echo "<TD VALIGN=TOP>".anchorreplace($rrow["also"],$webpath)."</TR>";
  }
-echo "</TABLE>"; 
+echo "</TABLE>";
 ?> 
 
+</DIV>
 <body>
 
 
