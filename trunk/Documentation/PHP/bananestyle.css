@@ -54,7 +54,7 @@ code {
   color: black;
 }
 
-.navbar a:link, a:visited, a:active {
+.navbar a:link, .navbar a:visited, .navbar a:active {
   font-weight: normal ;
   text-decoration: none ;
 }
