@@ -27,6 +27,7 @@ h1 {
   left: 17px; 
   height: 375px; 
   width: 116px;
+  font-size: 10pt;
  }
 
 .navbar h1 {
@@ -52,6 +53,7 @@ code {
 .dynamic { 
   padding: 0px;
   margin: 37px 20px 20px 20px;
+  font-size: 10pt;
  }
 
 .dynamic a:link, .dynamic a:visited, .dynamic a:active {
