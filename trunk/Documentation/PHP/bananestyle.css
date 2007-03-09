@@ -43,7 +43,7 @@ code {
   margin: 0 0 0 1ex;
 }*/
 
-.dynamic a:link, a:visited, a:active {
+.dynamic a:link, .dynamic a:visited, .dynamic a:active {
   font-weight: normal ;
   text-decoration: underline ;
   color: #565656;
