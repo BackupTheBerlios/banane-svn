@@ -50,11 +50,7 @@ code {
 
 
 .dynamic { 
-  position: absolute;
-  top: 20px; 
-  left: 0px; 
-/*  height: 100%; */
-  width: 100%;
+  margin: 20px;
   background: yellow;
  }
 
