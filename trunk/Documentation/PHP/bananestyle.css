@@ -51,7 +51,7 @@ code {
 
 .dynamic { 
   position: absolute;
-  top: 0px; 
+  top: 10px; 
   left: 0px; 
   height: 100%; 
   width: 100%;
