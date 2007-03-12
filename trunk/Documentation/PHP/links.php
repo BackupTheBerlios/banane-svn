@@ -75,7 +75,7 @@ function entab($num)
 
 // *** main html code generation starts here
 
-$bananepath="/home/groups/banane/htdocs/wwwcopy/Banane";
+$bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
 ## get info from config script.
 $confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
