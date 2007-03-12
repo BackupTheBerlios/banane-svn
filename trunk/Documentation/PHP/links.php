@@ -26,7 +26,7 @@ function entab($num)
 
    function directory_to_list($dir,$remove,$phppath,$onlydirs=FALSE,$sub=FALSE)
 {
-   $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
+  //   $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 //   ## get info from config script.
 //   $confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
 //   $webscr=$confscr." web";
@@ -36,7 +36,7 @@ function entab($num)
 
   $levels = explode('/',$dir);
   echo "$dir\n";
-  print_r($levels);
+  //  print_r($levels);
   $subtab = (count($levels) > 2 ? count($levels)-2 : 0);
   $t = count($levels)+($sub !== false ? 1+$subtab : 0);
   $output = entab($t).'<ul>';
