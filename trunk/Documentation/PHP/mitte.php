@@ -25,7 +25,7 @@ echo "<frame src='".$phppath."links.php' scrolling='no' noresize>";
 echo "<frame name='dynamic' src='".$phppath."intro.html' noresize>";
 echo "<frame src='".$phppath."rechts.htm' scrolling='no' noresize>";
 echo "<frame src='".$phppath."leer.htm' scrolling='no' noresize>";
-echo "</frameset>;"
+echo "</frameset>";
 echo "<noframes><body>";
 echo "</body></noframes>";
 
