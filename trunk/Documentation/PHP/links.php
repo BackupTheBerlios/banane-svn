@@ -35,6 +35,7 @@ function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
 //   $webpath=$out[0];
 
   $levels = explode('/',$dir);
+  echo "$dir\n";
   echo "$levels\n";
   $subtab = (count($levels) > 2 ? count($levels)-2 : 0);
   $t = count($levels)+($sub !== false ? 1+$subtab : 0);
