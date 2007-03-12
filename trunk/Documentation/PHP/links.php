@@ -1,5 +1,6 @@
-<!-- viewtree.php displays the banane directory structure.
-it is called from mainpage.php. the code has been modified from
+<!-- links.php displays the navigation bar on the left of the banane 
+webpage, including the logo, some links, the directory structure and the 
+berlios logo. it is called from mitte.php. the code has been modified from
 the routine "directory structure to list" obtained from PHParadise
 code URL was 
 http://phparadise.de/php-code/directories/directory-structure-to-list/ 
@@ -23,7 +24,7 @@ function entab($num)
 }
 
 
-function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
+   function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
 {
   $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
   ## get info from config script.
@@ -50,7 +51,7 @@ function directory_to_list($dir,$onlydirs=FALSE,$sub=FALSE)
 	  $tabs = count($level)+($sub !== false ? 1+$subtab : 0);
 	  $output .= (($onlydirs == TRUE && is_dir($newpath)) 
 		      || $onlydirs == FALSE ? 
-		      entab($tabs)."<li><a target='dynamic' href='".$webpath."Documentation/PHP/viewdir.php?".$relpath."'>".$file."</a>".(is_dir($newpath) ? 
+		      entab($tabs)."<li><a target='dynamic' href='".$phppath."viewdir.php?".$relpath."'>".$file."</a>".(is_dir($newpath) ? 
 													    directory_to_list($newpath,$onlydirs,TRUE).entab($tabs) : 
 													    "")."</li>" : 
 		      "");
@@ -92,7 +93,7 @@ echo "<li><a target='_blank' href='http://project-banane.blogspot.com'>weblog</a
 echo "<li><a>members</a></li>";
 echo "</ul>";
 echo "<h1>directories</h1>";
-echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',TRUE);
+echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',$phppath,TRUE);
 echo "<h1>search</h1>";
 echo "<form name='input' target='dynamic' action='".$phppath."viewsearch.php' method='get'>";
 echo "<p style='margin-top:2px'><input style='width:100%;' type='text' name='routine'></p>";
