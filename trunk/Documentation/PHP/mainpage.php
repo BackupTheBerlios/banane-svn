@@ -27,7 +27,7 @@ $phppath=$webpath."Documentation/PHP/";
 
 echo "<frameset rows='*,16,604,*' cols='*' framespacing='0' frameborder='no' border='0'>";
 echo "<frame src='".$phppath."leer.htm'>";
-echo "<frame src='".$phppath."oben.htm' scrolling='no' noresize>";
+echo "<frame src='".$phppath."oben.php' scrolling='no' noresize>";
 echo "<frame src='".$phppath."mitte.htm'>";
 echo "<frame src='".$phppath."unten.htm' scrolling='no' noresize>";
 echo "</FRAMESET>";
