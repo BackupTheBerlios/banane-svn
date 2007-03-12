@@ -64,7 +64,6 @@ a:hover {
 /* style of the search input field in the navbar */
 .navbar input
 {
-width: 116px;
 color: black;
 background: #F0F0F0;
 border: 1px solid #565656;
