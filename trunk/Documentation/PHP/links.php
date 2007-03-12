@@ -47,7 +47,7 @@ function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
       # skip hidden files and web docu directories
       if ((preg_match('/^\./', $file) == 0) && ($file != "PHP") && ($file != "Perl") && ($file != "Scripts") )
 	{
-	  if (preg_math('/\/$/',$dir) {$newpath = $dir.$file;} else {$newpath = $dir.'/'.$file;}
+	  if (preg_math('\/$',$dir) {$newpath = $dir.$file;} else {$newpath = $dir.'/'.$file;}
 	  $relpath=str_replace($bananepath, "", $newpath);
 	  $level = explode('/',$newpath);
 	  $tabs = count($level)+($sub !== false ? 1+$subtab : 0);
