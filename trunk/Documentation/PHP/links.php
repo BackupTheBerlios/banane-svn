@@ -52,7 +52,7 @@ function entab($num)
 	  $output .= (($onlydirs == TRUE && is_dir($newpath)) 
 		      || $onlydirs == FALSE ? 
 		      entab($tabs)."<li><a target='dynamic' href='".$phppath."viewdir.php?".$relpath."'>".$file."</a>".(is_dir($newpath) ? 
-													    directory_to_list($newpath,$onlydirs,TRUE).entab($tabs) : 
+															directory_to_list($newpath,$phppath,$onlydirs,TRUE).entab($tabs) : 
 													    "")."</li>" : 
 		      "");
 	}
