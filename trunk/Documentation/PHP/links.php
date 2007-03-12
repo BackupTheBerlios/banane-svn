@@ -24,8 +24,16 @@ function entab($num)
 }
 
 
-function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
+   function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
 {
+//   $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
+//   ## get info from config script.
+//   $confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
+//   $webscr=$confscr." web";
+//   $allout=`$webscr`;
+//   $out=explode("\n",$allout);
+//   $webpath=$out[0];
+
   $levels = explode('/',$dir);
   $subtab = (count($levels) > 2 ? count($levels)-2 : 0);
   $t = count($levels)+($sub !== false ? 1+$subtab : 0);
@@ -38,7 +46,7 @@ function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
       if ((preg_match('/^\./', $file) == 0) && ($file != "PHP") && ($file != "Perl") && ($file != "Scripts") )
 	{
 	  $newpath = $dir.'/'.$file;    
-	  $relpath=str_replace($bananepath, "", $newpath);
+	  $relpath=str_replace($dir, "", $newpath);
 	  $level = explode('/',$newpath);
 	  $tabs = count($level)+($sub !== false ? 1+$subtab : 0);
 	  $output .= (($onlydirs == TRUE && is_dir($newpath)) 
@@ -85,7 +93,7 @@ echo "<li><a target='_blank' href='http://project-banane.blogspot.com'>weblog</a
 echo "<li><a>members</a></li>";
 echo "</ul>";
 echo "<h1>directories</h1>";
-echo directory_to_list('/home/groups/banane/htdocs/wwwcopy/Banane',$phppath,TRUE);
+echo directory_to_list($bananepath,$phppath,TRUE);
 echo "<h1>search</h1>";
 echo "<form name='input' target='dynamic' action='".$phppath."viewsearch.php' method='get'>";
 echo "<p style='margin-top:2px'><input style='width:100%;' type='text' name='routine'></p>";
