@@ -24,19 +24,16 @@ function entab($num)
 }
 
 
-   function directory_to_list($dir,$remove,$phppath,$onlydirs=FALSE,$sub=FALSE)
+// arguments:
+// $dir gives directory to process, either with our without slash at the end
+// $remove gives root directory which is removed from output in case relative 
+//         linking is desired, may be set to FALSE for absolute output
+// $phppath gives the path to the viewdir.php script that is the destimation 
+//          of the link list created  
+function directory_to_list($dir,$remove,$phppath,$onlydirs=FALSE,$sub=FALSE)
 {
-  //   $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
-//   ## get info from config script.
-//   $confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
-//   $webscr=$confscr." web";
-//   $allout=`$webscr`;
-//   $out=explode("\n",$allout);
-//   $webpath=$out[0];
 
   $levels = explode('/',$dir);
-  echo "$dir\n";
-  //  print_r($levels);
   $subtab = (count($levels) > 2 ? count($levels)-2 : 0);
   $t = count($levels)+($sub !== false ? 1+$subtab : 0);
   $output = entab($t).'<ul>';
@@ -47,11 +44,14 @@ function entab($num)
       # skip hidden files and web docu directories
       if ((preg_match('/^\./', $file) == 0) && ($file != "PHP") && ($file != "Perl") && ($file != "Scripts") )
 	{
+	  // does the directory string end with a slash?
 	  $endslash=$dir[strlen($dir)-1];
 	  if ($endslash == '/') {
 	    $newpath = $dir.$file;} 
 	  else {
 	    $newpath = $dir.'/'.$file;}
+	  // is the relative path needed in the output? 
+	  // if yes, remove the beginning. 
 	  if ($remove) {
 	    $relpath=str_replace($remove, "", $newpath);} 
 	  else {
@@ -102,7 +102,7 @@ echo "<li><a target='_blank' href='http://project-banane.blogspot.com'>weblog</a
 echo "<li><a>members</a></li>";
 echo "</ul>";
 echo "<h1>directories</h1>";
-echo directory_to_list($bananepath,FALSE,$phppath,TRUE);
+echo directory_to_list($bananepath,$bananepath,$phppath,TRUE);
 echo "<h1>search</h1>";
 echo "<form name='input' target='dynamic' action='".$phppath."viewsearch.php' method='get'>";
 echo "<p style='margin-top:2px'><input style='width:100%;' type='text' name='routine'></p>";
