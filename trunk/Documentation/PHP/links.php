@@ -68,7 +68,7 @@ function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
 
 // *** main html code generation starts here
 
-$bananepath="/home/groups/banane/htdocs/wwwcopy/Banane";
+$bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
 ## get info from config script.
 $confscr=$bananepath."/Documentation/Scripts/wwwdocu_conf.scr";
