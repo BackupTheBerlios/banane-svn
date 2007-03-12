@@ -48,7 +48,7 @@ function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
       if ((preg_match('/^\./', $file) == 0) && ($file != "PHP") && ($file != "Perl") && ($file != "Scripts") )
 	{
 	  $endslash=$dir[strlen($dir)-1];
-	  if ($endslash == '/') {$newpath = $dir.$file;} else {$newpath = $dir.'/'.$file;}
+	  if ($endslash == '/') {echo "slash present\n"; $newpath = $dir.$file;} else {$newpath = $dir.'/'.$file;}
 	  $relpath=str_replace($bananepath, "", $newpath);
 	  $level = explode('/',$newpath);
 	  $tabs = count($level)+($sub !== false ? 1+$subtab : 0);
