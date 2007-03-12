@@ -24,16 +24,8 @@ function entab($num)
 }
 
 
-   function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
+function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
 {
-  $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
-  ## get info from config script.
-  $confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
-  $webscr=$confscr." web";
-  $allout=`$webscr`;
-  $out=explode("\n",$allout);
-  $webpath=$out[0];
-
   $levels = explode('/',$dir);
   $subtab = (count($levels) > 2 ? count($levels)-2 : 0);
   $t = count($levels)+($sub !== false ? 1+$subtab : 0);
