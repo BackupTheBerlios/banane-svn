@@ -24,9 +24,9 @@ function entab($num)
 }
 
 
-   function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
+function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
 {
-//   $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
+   $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 //   ## get info from config script.
 //   $confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
 //   $webscr=$confscr." web";
@@ -46,7 +46,7 @@ function entab($num)
       if ((preg_match('/^\./', $file) == 0) && ($file != "PHP") && ($file != "Perl") && ($file != "Scripts") )
 	{
 	  $newpath = $dir.'/'.$file;    
-	  $relpath=str_replace($dir, "", $newpath);
+	  $relpath=str_replace($bananepath, "", $newpath);
 	  $level = explode('/',$newpath);
 	  $tabs = count($level)+($sub !== false ? 1+$subtab : 0);
 	  $output .= (($onlydirs == TRUE && is_dir($newpath)) 
