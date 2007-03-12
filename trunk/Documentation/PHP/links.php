@@ -102,7 +102,7 @@ echo "<li><a target='_blank' href='http://project-banane.blogspot.com'>weblog</a
 echo "<li><a>members</a></li>";
 echo "</ul>";
 echo "<h1>directories</h1>";
-echo directory_to_list($bananepath,$bananepath,$phppath,TRUE);
+echo directory_to_list($bananepath,FALSE,$phppath,TRUE);
 echo "<h1>search</h1>";
 echo "<form name='input' target='dynamic' action='".$phppath."viewsearch.php' method='get'>";
 echo "<p style='margin-top:2px'><input style='width:100%;' type='text' name='routine'></p>";
