@@ -71,7 +71,7 @@ function directory_to_list($dir,$phppath,$onlydirs=FALSE,$sub=FALSE)
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
 ## get info from config script.
-$confscr=$bananepath."/Documentation/Scripts/wwwdocu_conf.scr";
+$confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
 
 $webscr=$confscr." web";
 $allout=`$webscr`;
