@@ -5,14 +5,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 </head>
 
-<frameset rows="*" cols="*,166,728,16,*" framespacing="0" frameborder="no" border="0">
-  <frame src="leer.htm" scrolling="no" noresize>
-  <frame src="links.php" scrolling="no" noresize>
-  <frame name='dynamic' src="intro.html" noresize>
-  <frame src="rechts.htm" scrolling="no" noresize>
-  <frame src="leer.htm" scrolling="no" noresize>
-</frameset>
-<noframes><body>
+<?php 
 
-</body></noframes>
+$bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
+
+## get info from config script.
+$confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
+
+$webscr=$confscr." web";
+$allout=`$webscr`;
+$out=explode("\n",$allout);
+$webpath=$out[0];
+
+$phppath=$webpath."Documentation/PHP/";
+
+echo "<frameset rows='*' cols='*,166,728,16,*' framespacing='0' frameborder='no' border='0'>";
+echo "<frame src='".$phppath."leer.htm' scrolling='no' noresize>";
+echo "<frame src='".$phppath."links.php' scrolling='no' noresize>";
+echo "<frame name='dynamic' src='".$phppath."intro.html' noresize>";
+echo "<frame src='".$phppath."rechts.htm' scrolling='no' noresize>";
+echo "<frame src='".$phppath."leer.htm' scrolling='no' noresize>";
+echo "</frameset>;"
+echo "<noframes><body>";
+echo "</body></noframes>";
+
+?>
+
 </html>

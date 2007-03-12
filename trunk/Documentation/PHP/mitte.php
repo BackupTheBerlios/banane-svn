@@ -1,8 +1,15 @@
+<!-- mitte.php defines the horizontal frame structure 
+of the webpage, which consists of frames that are filled by the separate 
+files links.php, intro.html and rechts.php. links.php displays the contents 
+   of the navigation bar, intro.html prints the welcome text into the large
+   main frame (called 'dynamic' on the right of the page, and rechts.php 
+displays the righthandside border of the page -->
+
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 <html>
 <head>
-<title>Unbenanntes Dokument</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>middle part of the banane webpage</title>
 </head>
 
 <?php 
@@ -23,7 +30,7 @@ echo "<frameset rows='*' cols='*,166,728,16,*' framespacing='0' frameborder='no'
 echo "<frame src='".$phppath."leer.htm' scrolling='no' noresize>";
 echo "<frame src='".$phppath."links.php' scrolling='no' noresize>";
 echo "<frame name='dynamic' src='".$phppath."intro.html' noresize>";
-echo "<frame src='".$phppath."rechts.htm' scrolling='no' noresize>";
+echo "<frame src='".$phppath."rechts.php' scrolling='no' noresize>";
 echo "<frame src='".$phppath."leer.htm' scrolling='no' noresize>";
 echo "</frameset>";
 echo "<noframes><body>";

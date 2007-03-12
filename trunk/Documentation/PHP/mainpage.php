@@ -1,7 +1,7 @@
 <!-- mainpage.php is the starting point for webpage displaying the 
 banane online documentation. It defines the vertical frame structure 
 of the webpage, which consists of frames that are filled by the separate 
-files oben.php, mitte.php and unten.php. oben.php and unten. php merely 
+files oben.php, mitte.php and unten.php. oben.php and unten.php merely 
 display the pictures showing the top and bottom parts of the outer border. 
 mitte.php defines the horizontal frame structure --> 
 
