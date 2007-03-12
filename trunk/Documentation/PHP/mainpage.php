@@ -29,7 +29,7 @@ echo "<frameset rows='*,16,604,*' cols='*' framespacing='0' frameborder='no' bor
 echo "<frame src='".$phppath."leer.htm'>";
 echo "<frame src='".$phppath."oben.php' scrolling='no' noresize>";
 echo "<frame src='".$phppath."mitte.htm'>";
-echo "<frame src='".$phppath."unten.htm' scrolling='no' noresize>";
+echo "<frame src='".$phppath."unten.php' scrolling='no' noresize>";
 echo "</FRAMESET>";
 echo "<NOFRAMES><body>";
 echo "</body></NOFRAMES>";
