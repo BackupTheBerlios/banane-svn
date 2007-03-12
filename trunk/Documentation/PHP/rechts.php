@@ -20,7 +20,7 @@ $webpath=$out[0];
 
 $picpath=$webpath."Documentation/PHP/Pics/";
 
-echo "<img src='".$picpath."r02.gif' width='16' height='604'>
+echo "<img src='".$picpath."r02.gif' width='16' height='604'>";
 
 ?>
  
