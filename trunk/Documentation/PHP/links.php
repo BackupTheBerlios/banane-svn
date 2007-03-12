@@ -28,8 +28,8 @@ function entab($num)
 // $dir gives directory to process, either with our without slash at the end
 // $remove gives root directory which is removed from output in case relative 
 //         linking is desired, may be set to FALSE for absolute output
-// $phppath gives the path to the viewdir.php script that is the destimation 
-//          of the link list created  
+// $phppath gives the path to the viewdir.php script that is the destination 
+//          of the links created in the list  
 function directory_to_list($dir,$remove,$phppath,$onlydirs=FALSE,$sub=FALSE)
 {
 
@@ -72,6 +72,8 @@ function directory_to_list($dir,$remove,$phppath,$onlydirs=FALSE,$sub=FALSE)
     $output = preg_replace('/\n([\t]+)<ul>\n([\t]+)<\/ul>\n([\t]+)/','',$output);
   return $output;
 }
+
+
 
 // *** main html code generation starts here
 
