@@ -101,6 +101,7 @@ echo "<h1>project</h1>";
 echo "<ul>";
 echo "<li><a target='dynamic' href='".$phppath."intro.html'>about</a></li>";
 echo "<li><a target='_blank' href='http://project-banane.blogspot.com'>weblog</a></li>";
+echo "<li><a target='_blank' href='http://developer.berlios.de/projects/banane/'>summary</a></li>";
 echo "<li><a>members</a></li>";
 echo "</ul>";
 echo "<h1>directories</h1>";
