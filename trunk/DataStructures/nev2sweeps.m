@@ -15,7 +15,7 @@
 %  Separate spiketrains of a complete experiment into stimulus repetitions.
 %
 % DESCRIPTION:
-%  During an experiment, a stimulus is often repeated several time while
+%  During an experiment, a stimulus is often repeated several times while
 %  spiketrains are recorded continuously. nev2sweeps transforms the
 %  complete spiketrains of multiple neurons into chunks corresponding to
 %  the stimulus repetitions, called 'sweeps' here. The
@@ -107,12 +107,12 @@ function sweepstruct=nev2sweeps(nevvariable,posfile,varargin);
   
   posdata=load('-ascii', posfile); 
   
-  npos=size(posdata,1)-1
+  npos=size(posdata,1)-1;
 
   % trigger signal is set after presentation of 500 coordinates
-  pospertrig=500
+  pospertrig=500;
 
-  trigspersweep=npos/pospertrig
+  trigspersweep=npos/pospertrig;
   
   difftrigsamp=0.5*tres; % desired difference between triggers in samples 
   
@@ -126,8 +126,8 @@ function sweepstruct=nev2sweeps(nevvariable,posfile,varargin);
   trig1=bothtrig(2:2:end);
   trig2=bothtrig(3:2:end);
 
-  nsweeps1=length(trig1)/trigspersweep
-  nsweeps2=length(trig2)/trigspersweep
+  nsweeps1=length(trig1)/trigspersweep;
+  nsweeps2=length(trig2)/trigspersweep;
   if nsweeps1 ~= nsweeps2 
     error('Unequal number of trigger signals in both channels.')
   end
@@ -140,7 +140,7 @@ function sweepstruct=nev2sweeps(nevvariable,posfile,varargin);
 
   trigstamps=bothtrig(1+righttrig:2:end);
 
-  nsweeps=length(trigstamps)/trigspersweep
+  nsweeps=length(trigstamps)/trigspersweep;
   sweependidx=trigspersweep*(1:nsweeps);
     
   % for martins setup, active channels returns all 100 electrodes except
@@ -159,10 +159,14 @@ function sweepstruct=nev2sweeps(nevvariable,posfile,varargin);
   %% empty. thus, this can be evaluated to find the sorted channels 
   second=nevvariable.SpikeData(channels,2);
 
+  disp('Processing channels.');
   for i = 1:nchannels
     nowchannel=channels(i);
-    display(num2str(nowchannel));
-
+    fprintf('.');
+    if (mod(i,20)==0)
+      fprintf(char(13));
+    end
+    
     % for a sorted channel, find out how many prototypes have been
     % separated, maximum is 5
     protos=zeros(1,7);
@@ -313,11 +317,14 @@ function sweepstruct=nev2sweeps(nevvariable,posfile,varargin);
       nproto=nproto+nowproto;
     
     end %% if sortnow
-   
+
   end %% for i = 1:nchannels
 
+  fprintf('\nFinished.\n');
+  
   for si=1:nsweeps
     sweepstruct(si).nproto = nproto;
+    sweepstruct(si).npos = npos;
   end %% for
   
   if kw.triggercheck
