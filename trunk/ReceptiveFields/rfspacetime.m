@@ -27,7 +27,9 @@
 %   Receptive Fields
 %
 % SYNTAX:
-%* rfstruct=rfspacetime(positions,spikes [,avtime][,dx][,dy])
+%* rfstruct=rfspacetime(positions,spikes
+%*                      [,'avtime',value]
+%*                      [,'dx',value][,'dy',value])
 %
 % INPUTS:
 %  positions:: Mirror coordinates of the RF scanning stimulus. This has
@@ -82,8 +84,6 @@
 %    positions. 
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. 
 %* posfile='/home/athiel/Experiments/ver051123/Stimuli/Movement/3-1.dat';
 %* pos=load('-ascii', posfile);
 %* sdata = loadNEV(['/home/athiel/Experiments/ver051123/Sorted/051123-13.nev']);
@@ -146,9 +146,9 @@ function rfstruct=rfspacetime(positions,spikes,varargin)
   rfstruct.ymmperpos=kw.dy*mean(ydiff(2:end));
 
 
-  av=zeros(kw.avtime,rfstruct.xyextent(1),rfstruct.xyextent(2));
+  av=zeros(kw.avtime,rfstruct.xyextent(2),rfstruct.xyextent(1));
 
-  spic=[rfstruct.xyextent(1) rfstruct.xyextent(2)];
+  spic=[rfstruct.xyextent(2) rfstruct.xyextent(1)];
   
   indarr=(1:spic(1)*spic(2))-1;
 
@@ -192,7 +192,8 @@ function rfstruct=rfspacetime(positions,spikes,varargin)
       yposall=pixpos(timesnow,1);      
     
       %% convert 2dim positions to 1dim
-      flat=sub2ind(spic,xposall,yposall);
+      flat=sub2ind(spic,yposall,xposall);
+%      flat=sub2ind(spic,xposall,yposall);
       
       %% histogram of all positions
       addvect=histc(flat,indarr);
