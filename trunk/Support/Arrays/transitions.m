@@ -28,7 +28,7 @@
 %  transition sequences may be concatenated.
 %
 % CATEGORY:
-%  Support
+%  Support Routines
 %  Arrays
 %
 % CALLING SEQUENCE:

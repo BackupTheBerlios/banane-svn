@@ -25,10 +25,13 @@
 %   - DataStructures<BR>
 %   - Documentation<BR>
 %   - NEV Tools<BR>
-%   - Support routines<BR>
+%   - Support Routines<BR>
+%   - Arrays<BR>
+%   - Classes<BR>
+%   - Misc<BR>
+%   - Receptive Fields<BR>
 %  Others may be invented, with corresponding subdirectories in the
 %  BANANE directory tree. For example:<BR>
-%   - Array<BR>
 %   - DataStorage<BR>
 %   - Demonstration<BR>
 %   - Graphic<BR>
@@ -39,7 +42,7 @@
 %   - Strings<BR>
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2,[, optarg1][, optarg2]); 
+%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
 %
 % INPUTS:
 %  arg1:: First argument of the function call. Indicate variable type and
