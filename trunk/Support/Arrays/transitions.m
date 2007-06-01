@@ -130,7 +130,7 @@ function r=transitions(i, varargin)
          disp('Index input, all transitions allowed.');
          cnz = si(2)^2;
          ri=repmat(i,1,si(2));
-         diff=[ri(:) imresize(i,[1 si(2)^2])'];
+         diff=[ri(:) repel(i,si(2)).'];
      case 2
          disp('Transition matrix input.');
          cnz=nnz(i);
@@ -205,6 +205,6 @@ function r=transitions(i, varargin)
    if (stopsearch) 
      r=NaN;
    else
-     r=[diff(:, 1); diff(cnz, 2)]';
+     r=[diff(:, 1); diff(cnz, 2)].';
    end % if (stopsearch)
 
