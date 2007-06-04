@@ -29,6 +29,7 @@
 %   - Arrays<BR>
 %   - Classes<BR>
 %   - Misc<BR>
+%   - Strings<BR>
 %   - Receptive Fields<BR>
 %  Others may be invented, with corresponding subdirectories in the
 %  BANANE directory tree. For example:<BR>
@@ -39,7 +40,6 @@
 %   - Statistics<BR>
 %   - Signals<BR>
 %   - Simulation<BR>
-%   - Strings<BR>
 %
 % SYNTAX:
 %* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
