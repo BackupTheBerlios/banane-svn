@@ -95,7 +95,11 @@ while($irow = mysql_fetch_array($inputs))
 echo "</TABLE>";
 echo "</TR>"; 
 
-# skip optional section 'optinputs' if table entry is NULL
+# fetch first entry of optional section 'optinputs'.
+# skip whole table entry if result is NULL.
+# otherwise, enter subtable and display all optinputs in 
+# a separate subtable. do-while is needed since the first 
+# entry is already read by initial while loop.
 while($oirow = mysql_fetch_array($optinputs)) 
   { 
     echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Optional inputs</SPAN><TD VALIGN=TOP>"; 
