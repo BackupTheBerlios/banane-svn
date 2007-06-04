@@ -35,34 +35,80 @@
 %* result = transitions(array [,'maxiter',value])
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
+%  array:: This may take two different forms.<BR>
+%           Either, a onedimensional
+%          array of integer or longword type that is interpreted as
+%          all the array 
+%          indices that should be visited by the sequence. The result
+%          will contain all possible transitions between those
+%          indices, including those that switch from one index to
+%          itself.<BR>
+%          The second possibility is to pass a twodimensional array of
+%          numerical type, its nonzero entries meaning that a transition
+%          between the row index of the entry and its column index is
+%          desired. In this way, certain transitions can be excluded
+%          conveniently. The actual value of nonzero elements is
+%          currently not taken into account, but may later be used to
+%          enable certain transitions to occur mor eoften than others.
 %
 % OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument.
+%  maxiter:: The maximum number of iterations allowed to find a
+%            solution. Since finding a sequence of transitions may
+%            sometimes take quite some time for long index arrays,
+%            setting this keyword prevents the routine from searching
+%            too long. If no solution was found, the result returned
+%            in <VAR>NaN</VAR>. It may yield faster results if the
+%            routine is started anew if it hasn't terminated after
+%            a certain number of steps. Setting <VAR>'maxiter',0</VAR>
+%            disables the 
+%            stopping function and transitions() will continue to
+%            explore the transition space until it finds a
+%            solution. Default: <VAR>'maxiter',10000</VAR>.
 %
 % OUTPUTS:
-%  result:: The result of the routine.
-%
-% RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  result:: Onedimensional array containing a sequence of
+%           indices. <VAR>result(1)=result(end)</VAR>, ie the
+%           sequence always starts and ends with the same index. The
+%           number of elements in <VAR>result</VAR> is 
+%           <VAR>n^2+1</VAR> with <VAR>n</VAR> being the number of entries
+%           in <VAR>array</VAR>, if <VAR>array</VAR> was onedimensional, and
+%           <VAR>m+1</VAR>, 
+%           with <VAR>m</VAR> being the number of nonzero elements of
+%           <VAR>array</VAR>, if it was twodimensional.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  A kind of sorting a twodimensional array that contains the possible
+%  states in the form of
+%* [...[state i],[state n]...]
+%* [...[state j],[state m]...]
+% that tries to arrange them such that 
+%* [...[state i],[state j],[state k]...]
+%* [...[state j],[state k],[state l]...]
+% The routine keeps former possibilities in a stack and returns to
+% them if it gets stuck.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. 
-%* data=example_function(23,5)
-%  
-%  Indicate matlab output with *>
-%*> ans =
-%*>   28
+%* array=['a' 'b' 'c'];
+%* array(transitions(1:3))
+%*>  Index input, all transitions allowed.
+%*>  ans =
+%*>  caabacbbcc
+%* array(transitions(1:3))
+%*>  Index input, all transitions allowed.
+%*>  ans =
+%*>  baabcaccbb
+%* allow=ones(3)-eye(3);
+%* array(transitions(allow))
+%*>  Transition matrix input.
+%*>  ans =
+%*>  cbabcac
+%* allow=ones(10)-eye(10);
+%* tr=transitions(allow);
+%*>  Transition matrix input.
+%* trs=circshift(tr,[0,1]);
+%* trc=[tr;trs]';
+%* hist3(trc)
 %
-% SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
 %-
 
 
