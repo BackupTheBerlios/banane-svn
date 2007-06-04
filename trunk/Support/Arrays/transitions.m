@@ -32,7 +32,7 @@
 %   Arrays
 %
 % SYNTAX:
-%* result = transitions(array [,'maxiter',value][,'vebose',value])
+%* result = transitions(array [,'maxiter',value][,'verbose',value])
 %
 % INPUTS:
 %  array:: This may take two different forms.<BR>
@@ -91,21 +91,21 @@
 %
 % EXAMPLE:
 %* array=['a' 'b' 'c'];
-%* array(transitions(1:3))
+%* array(transitions(1:3),'verbose',true)
 %*>  Index input, all transitions allowed.
 %*>  ans =
 %*>  caabacbbcc
-%* array(transitions(1:3))
+%* array(transitions(1:3),'verbose',true)
 %*>  Index input, all transitions allowed.
 %*>  ans =
 %*>  baabcaccbb
 %* allow=ones(3)-eye(3);
-%* array(transitions(allow))
+%* array(transitions(allow),'verbose',true)
 %*>  Transition matrix input.
 %*>  ans =
 %*>  cbabcac
 %* allow=ones(10)-eye(10);
-%* tr=transitions(allow);
+%* tr=transitions(allow,'verbose',true);
 %*>  Transition matrix input.
 %* trs=circshift(tr,[0,1]);
 %* trc=[tr;trs]';
