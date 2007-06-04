@@ -15,34 +15,24 @@
 %  Generate random sequence of switches between array indices.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  transitions() returns a sequence of array indices
+%  that can be used to generate a random series of state switches.
+%  The series contains all the desired transitions between those
+%  states. This may be needed to create stimulus sequences that switch 
+%  between a number of possible stimuli and one wants to be sure that
+%  all these stimuli are applied and that at the same time all
+%  transitions from one of these stimuli to another one are also
+%  contained. Since there may be more than one solution to this
+%  problem, transitions() generates one possible random
+%  solution. If one needs longer sequences, different of those random
+%  transition sequences may be concatenated.
 %
 % CATEGORY:
-%  At present, there are the following possibilities:<BR>
-%   - DataStructures<BR>
-%   - Documentation<BR>
-%   - NEV Tools<BR>
-%   - Support Routines<BR>
-%   - Arrays<BR>
-%   - Classes<BR>
-%   - Misc<BR>
-%   - Receptive Fields<BR>
-%  Others may be invented, with corresponding subdirectories in the
-%  BANANE directory tree. For example:<BR>
-%   - DataStorage<BR>
-%   - Demonstration<BR>
-%   - Graphic<BR>
-%   - Help<BR>
-%   - Statistics<BR>
-%   - Signals<BR>
-%   - Simulation<BR>
-%   - Strings<BR>
+%   Support Routines<BR>
+%   Arrays
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* result = transitions(array [,'maxiter',value])
 %
 % INPUTS:
 %  arg1:: First argument of the function call. Indicate variable type and
