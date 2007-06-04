@@ -32,7 +32,7 @@
 %   Arrays
 %
 % SYNTAX:
-%* result = transitions(array [,'maxiter',value])
+%* result = transitions(array [,'maxiter',value][,'vebose',value])
 %
 % INPUTS:
 %  array:: This may take two different forms.<BR>
@@ -64,6 +64,8 @@
 %            stopping function and transitions() will continue to
 %            explore the transition space until it finds a
 %            solution. Default: <VAR>'maxiter',10000</VAR>.
+%  verbose:: Set <VAR>verbose</VAR> to false to suppress the routine's
+%            output. Default: <VAR>'verbose',false</VAR>.
 %
 % OUTPUTS:
 %  result:: Onedimensional array containing a sequence of
@@ -115,7 +117,7 @@
 
 function r=transitions(i, varargin)
   
-   kw=kwextract(varargin, 'maxiter', 10000);
+   kw=kwextract(varargin, 'maxiter', 10000, 'verbose', false);
 
    si=size(i);
    
@@ -126,16 +128,20 @@ function r=transitions(i, varargin)
    % the form [...[state i],[state n]...]
    %          [...[state j],[state m]...]
    switch ndi
-     case 1
-         disp('Index input, all transitions allowed.');
-         cnz = si(2)^2;
-         ri=repmat(i,1,si(2));
-         diff=[ri(:) repel(i,si(2)).'];
-     case 2
-         disp('Transition matrix input.');
-         cnz=nnz(i);
-         [nzi,nzj]=find(i);
-         diff=[nzi nzj];
+    case 1
+     if (kw.verbose) 
+       disp('Index input, all transitions allowed.');
+     end
+     cnz = si(2)^2;
+     ri=repmat(i,1,si(2));
+     diff=[ri(:) repel(i,si(2)).'];
+    case 2
+     if (kw.verbose)
+       disp('Transition matrix input.');
+     end
+     cnz=nnz(i);
+     [nzi,nzj]=find(i);
+     diff=[nzi nzj];
     otherwise
      error('Pass either 1- or 2dim arrays.');
    
@@ -192,7 +198,9 @@ function r=transitions(i, varargin)
 
      if (kw.maxiter>0)
        if (niter >= kw.maxiter) 
-         disp('Failed to find transition sequence.');
+         if (kw.verbose)
+           disp('Failed to find transition sequence.');
+         end 
          stopsearch = true;
        end % if (niter >= kw.maxiter)
      end % if (kw.maxiter>0)
