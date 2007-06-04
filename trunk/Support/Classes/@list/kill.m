@@ -6,13 +6,13 @@
 %  $Id:$
 %
 % AUTHOR:
-%  J. R. Hacker
+%  A. Thiel
 %
 % DATE CREATED:
-%  9/2002
+%  6/2007
 %
 % AIM:
-%  Short description of the routine in a single line.
+%  Remove data item from a classic list data structure.
 %
 % DESCRIPTION:
 %  Detailed description of the routine. The text may contain small HTML
@@ -69,7 +69,8 @@
 %*>   28
 %
 % SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
+%  <A>list</A>, <A>insert</A>, <A>retrieve</A>.
+%
 %-
 
 function l=kill(l,position)

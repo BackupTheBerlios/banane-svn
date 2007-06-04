@@ -6,13 +6,13 @@
 %  $Id:$
 %
 % AUTHOR:
-%  J. R. Hacker
+%  A. Thiel
 %
 % DATE CREATED:
-%  9/2002
+%  6/2007
 %
 % AIM:
-%  Short description of the routine in a single line.
+%  Constructor method for classic list data structure.
 %
 % DESCRIPTION:
 %  Detailed description of the routine. The text may contain small HTML
@@ -21,25 +21,8 @@
 %  also allowed, eg <A>kwextract</A>.
 %
 % CATEGORY:
-%  At present, there are the following possibilities:<BR>
-%   - DataStructures<BR>
-%   - Documentation<BR>
-%   - NEV Tools<BR>
-%   - Support Routines<BR>
-%   - Arrays<BR>
-%   - Classes<BR>
-%   - Misc<BR>
-%   - Receptive Fields<BR>
-%  Others may be invented, with corresponding subdirectories in the
-%  BANANE directory tree. For example:<BR>
-%   - DataStorage<BR>
-%   - Demonstration<BR>
-%   - Graphic<BR>
-%   - Help<BR>
-%   - Statistics<BR>
-%   - Signals<BR>
-%   - Simulation<BR>
-%   - Strings<BR>
+%   Support Routines<BR>
+%   Classes
 %
 % SYNTAX:
 %* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
@@ -73,7 +56,8 @@
 %*>   28
 %
 % SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
+%  <A>insert</A>, <A>retrieve</A>, <A>kill</A>, <A>stack</A>. 
+%
 %-
 
 
