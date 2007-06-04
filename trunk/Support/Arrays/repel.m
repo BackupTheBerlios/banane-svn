@@ -32,9 +32,6 @@
 %  n:: Specifies how often each element in <VAR>vec</VAR> is to be
 %  repeated.
 %
-% OPTIONAL INPUTS:
-%  bla:: bla
-%
 % OUTPUTS:
 %  result:: In the vector returned by the routine, each element of the
 %  original vector will be repeated <VAR>n</VAR> times. The output vector
