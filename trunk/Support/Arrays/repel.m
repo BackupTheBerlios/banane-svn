@@ -29,7 +29,11 @@
 %
 % INPUTS:
 %  vec:: The vector to be expanded.
-%  n:: Specifies how often each element in <VAR>vec</VAR> is to be repeated.
+%  n:: Specifies how often each element in <VAR>vec</VAR> is to be
+%  repeated.
+%
+% OPTIONAL INPUTS:
+%  bla
 %
 % OUTPUTS:
 %  result:: In the vector returned by the routine, each element of the
