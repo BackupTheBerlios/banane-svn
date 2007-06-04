@@ -100,12 +100,11 @@ while($oirow = mysql_fetch_array($optinputs))
   { 
     echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Optional inputs</SPAN><TD VALIGN=TOP>"; 
     echo "<TABLE>";
-    while($oirow = mysql_fetch_array($optinputs)) 
-      { 
-	echo "<TR><TD VALIGN=TOP><VAR>".$oirow["argument"].": </VAR>";
-	echo "<TD VALIGN=TOP>".anchorreplace($oirow["description"],$webpath);
-	echo "</TR>";
-      }  
+    do { 
+      echo "<TR><TD VALIGN=TOP><VAR>".$oirow["argument"].": </VAR>";
+      echo "<TD VALIGN=TOP>".anchorreplace($oirow["description"],$webpath);
+      echo "</TR>";
+    } while($oirow = mysql_fetch_array($optinputs))   
     echo "</TABLE>";
     echo "</TR>";
   }
