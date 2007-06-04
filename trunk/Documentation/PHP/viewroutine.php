@@ -96,7 +96,7 @@ echo "</TABLE>";
 echo "</TR>"; 
 
 # skip optional section 'optinputs' if table entry is NULL
-if($rrow["optinputs"]!="NULL") 
+while($oirow = mysql_fetch_array($optinputs)) 
   { 
     echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Optional inputs</SPAN><TD VALIGN=TOP>"; 
     echo "<TABLE>";
