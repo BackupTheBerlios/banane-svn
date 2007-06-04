@@ -29,7 +29,7 @@ echo "created march 2007";
 echo " - programming: <a target='_blank'
 	  href='http://www.staff.uni-oldenburg.de/andreas.thiel/'>athiel</a>";
 echo " - design: <a target='_blank'
-	  href='http://www.mtahlers.de/'>mtahlers</a>"; 
+	  href='http://www.staff.uni-oldenburg.de/m.ahlers/'>mtahlers</a>"; 
 echo "</font>";
 echo "</div>";
 
