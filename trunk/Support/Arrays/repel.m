@@ -3,7 +3,7 @@
 %  repel()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -22,7 +22,7 @@
 %
 % CATEGORY:
 %  Support Routines<BR>
-%  Arrays<BR>
+%  Arrays
 %
 % SYNTAX:
 %* result = repel(vec, n); 
@@ -35,9 +35,6 @@
 %  result:: In the vector returned by the routine, each element of the
 %  original vector will be repeated <VAR>n</VAR> times. The output vector
 %  is organized like the input vector, either as a row or a column. 
-%
-% RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
 %
 % PROCEDURE:
 %  Intelligent indexing and transposing.
