@@ -84,8 +84,8 @@ echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Category</SPAN>";
 echo "<TD VALIGN=TOP>".$rrow["category"]."</TR>";
 echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Syntax</SPAN>"; 
 echo "<TD VALIGN=TOP>".$rrow["syntax"]."</TR>";
-echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Inputs</SPAN><TD VALIGN=TOP>"; 
-echo "<TABLE>";
+
+echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Inputs</SPAN><TD VALIGN=TOP>";echo "<TABLE>";
 while($irow = mysql_fetch_array($inputs)) 
 { 
   echo "<TR><TD VALIGN=TOP><VAR>".$irow["argument"].": </VAR>";
@@ -94,16 +94,22 @@ while($irow = mysql_fetch_array($inputs))
  }  
 echo "</TABLE>";
 echo "</TR>"; 
-echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Optional inputs</SPAN><TD VALIGN=TOP>"; 
-echo "<TABLE>";
-while($oirow = mysql_fetch_array($optinputs)) 
-{ 
-  echo "<TR><TD VALIGN=TOP><VAR>".$oirow["argument"].": </VAR>";
-  echo "<TD VALIGN=TOP>".anchorreplace($oirow["description"],$webpath);
-  echo "</TR>";
- }  
-echo "</TABLE>";
-echo "</TR>"; 
+
+# skip optional section 'optinputs' if table entry is NULL
+if($rrow["optinputs"]!="NULL") 
+  { 
+    echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Optional inputs</SPAN><TD VALIGN=TOP>"; 
+    echo "<TABLE>";
+    while($oirow = mysql_fetch_array($optinputs)) 
+      { 
+	echo "<TR><TD VALIGN=TOP><VAR>".$oirow["argument"].": </VAR>";
+	echo "<TD VALIGN=TOP>".anchorreplace($oirow["description"],$webpath);
+	echo "</TR>";
+      }  
+    echo "</TABLE>";
+    echo "</TR>";
+  }
+ 
 echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Outputs</SPAN><TD VALIGN=TOP>"; 
 echo "<TABLE>";
 while($orow = mysql_fetch_array($outputs)) 
@@ -121,6 +127,7 @@ if($rrow["restrictions"]!="NULL")
   echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Restrictions</SPAN>"; 
   echo "<TD VALIGN=TOP>".anchorreplace($rrow["restrictions"],$webpath)."</TR>";
  }
+
 echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Procedure</SPAN>"; 
 echo "<TD VALIGN=TOP>".anchorreplace($rrow["proc"],$webpath)."</TR>";
 echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Example</SPAN>"; 
