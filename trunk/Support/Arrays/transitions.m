@@ -1,18 +1,18 @@
 %+
 % NAME:
-%  example_function()
+%  transitions()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
-%  J. R. Hacker
+%  A. Thiel
 %
 % DATE CREATED:
-%  9/2002
+%  5/2007
 %
 % AIM:
-%  Short description of the routine in a single line.
+%  Generate random sequence of switches between array indices.
 %
 % DESCRIPTION:
 %  Detailed description of the routine. The text may contain small HTML
@@ -81,7 +81,7 @@
 %  transitions()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
