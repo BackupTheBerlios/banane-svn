@@ -51,7 +51,8 @@
 %
 % OPTIONAL INPUTS:
 %  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument.
+%  optarg2:: Another optional input argument. Of course, the whole
+%  section is optional, too.
 %
 % OUTPUTS:
 %  result:: The result of the routine.
