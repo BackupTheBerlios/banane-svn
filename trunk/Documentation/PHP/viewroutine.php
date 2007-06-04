@@ -104,7 +104,7 @@ while($oirow = mysql_fetch_array($optinputs))
       echo "<TR><TD VALIGN=TOP><VAR>".$oirow["argument"].": </VAR>";
       echo "<TD VALIGN=TOP>".anchorreplace($oirow["description"],$webpath);
       echo "</TR>";
-    } while($oirow = mysql_fetch_array($optinputs))   
+    } while($oirow = mysql_fetch_array($optinputs));   
     echo "</TABLE>";
     echo "</TR>";
   }
