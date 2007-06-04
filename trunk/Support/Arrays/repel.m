@@ -33,7 +33,7 @@
 %  repeated.
 %
 % OPTIONAL INPUTS:
-%  bla
+%  bla:: bla
 %
 % OUTPUTS:
 %  result:: In the vector returned by the routine, each element of the
