@@ -65,12 +65,10 @@
 %
 % EXAMPLE:
 %  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. 
-%* data=example_function(23,5)
-%  
-%  Indicate matlab output with *>
-%*> ans =
-%*>   28
+%  will be typeset in a fixed width font. Indicate user input with >>. 
+%* >> data=example_function(23,5)
+%* ans =
+%*   28
 %
 % SEE ALSO:
 %  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
