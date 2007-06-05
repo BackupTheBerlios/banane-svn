@@ -55,7 +55,8 @@
 %*>   28
 %
 % SEE ALSO:
-%  bla <A>push</A>, <A>pop</A>, <A>list</A>.
+%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
+%   <A>header_template</A> bla <A>push</A>, <A>pop</A>, <A>list</A>.
 %-
 
 function s = stack(varargin)
