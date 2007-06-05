@@ -15,7 +15,7 @@
 %  Constructor method for a simple stack data type.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
+%  Detailed <A>push</A> description of the routine. The text may contain small HTML
 %  tags like for example <BR> linebreaks or <VAR>variable name
 %  typesetting</VAR>. Simple anchors to other banane routines are
 %  also allowed, eg <A>kwextract</A>.
@@ -55,8 +55,7 @@
 %*>   28
 %
 % SEE ALSO:
-%  <A>loadNEV</A> Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
-%   <A>example_function</A> 
+%  <A>kwextract</A> Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. <A>example_function</A> 
 % bla <A>push</A>, <A>pop</A>, <A>list</A>.
 %-
 
