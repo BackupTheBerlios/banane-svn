@@ -15,10 +15,7 @@
 %  Constructor method for a simple stack data type.
 %
 % DESCRIPTION:
-%  Detailed <A>transitions</A> description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  Detailed.
 %
 % CATEGORY:
 %   Support routines<BR>
@@ -55,8 +52,7 @@
 %*>   28
 %
 % SEE ALSO:
-%  <A>kwextract</A> Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. <A>seconds2string</A> 
-% bla <A>push</A>, <A>pop</A>, <A>list</A>.
+%  <A>kwextract</A>.
 %-
 
 function s = stack(varargin)
