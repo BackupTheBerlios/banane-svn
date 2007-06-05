@@ -15,7 +15,7 @@
 %  Constructor method for a simple stack data type.
 %
 % DESCRIPTION:
-%  Detailed.
+%  Detailed <A>kwextract</A>
 %
 % CATEGORY:
 %   Support routines<BR>
@@ -52,7 +52,7 @@
 %*>   28
 %
 % SEE ALSO:
-%  <A>kwextract</A>.
+%  <A>push</A>.
 %-
 
 function s = stack(varargin)
