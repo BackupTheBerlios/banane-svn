@@ -3,7 +3,7 @@
 %  stack()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -55,7 +55,7 @@
 %*>   28
 %
 % SEE ALSO:
-%  <A>push</A>, <A>pop</A>, <A>list</A>.
+%  bla <A>push</A>, <A>pop</A>, <A>list</A>.
 %-
 
 function s = stack(varargin)
