@@ -19,8 +19,9 @@ display its header information in a formatted manner. -->
 ## support function to search simplified anchors <A>routine</A> 
 ## and replace them with with proper hyperrefs
 function anchorreplace($original,$path){
-  $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
+#  $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
 #  $pattern="/(<(A|a)[^>])/";
+  $pattern"/(<([\w]+)[^>]*>)(.*)(<\/\\2>)/";
   preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
 #  echo "matches: ";
   print_r($matches);
