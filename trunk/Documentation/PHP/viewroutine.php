@@ -27,7 +27,7 @@ function anchorreplace($original,$path){
     echo "search: ".$search."\n";
     $replace="<A href='".$path."Documentation/PHP/viewroutine.php?routine=".$val[3]."'>".$val[3];
     $original = preg_replace($search, $replace, $original); 
-    $echo "original: ".$original."\n";
+##    $echo "original: ".$original."\n";
   }
   return $original;
 }
