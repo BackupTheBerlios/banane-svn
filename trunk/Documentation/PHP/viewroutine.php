@@ -21,7 +21,8 @@ display its header information in a formatted manner. -->
 function anchorreplace($original,$path){
   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
   preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
-  echo "matches: ".$matches."\n";
+  echo "matches: ";
+  print_r($matches);
   foreach ($matches as $val) {
     $search="/(<(A|a)[^>]*>)".$val[3]."/";
     echo "search: ".$search."\n";
