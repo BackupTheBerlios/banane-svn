@@ -18,7 +18,9 @@
 %  Use this command to create a MATLAB object representing a list data
 %  structure. The list is able to hold an ordered series of data items of
 %  miscellaneous type. Easy access to the items is provided by the
-%  <A>insert</A> and <A>retrieve</A> commands.
+%  <A>insert</A> and <A>retrieve</A> commands. The list functionality is
+%  not fully implemented yet but rather provides the basis for the
+%  <A>stack</A> object. 
 %
 % CATEGORY:
 %   Support Routines<BR>
