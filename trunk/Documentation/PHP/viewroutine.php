@@ -22,11 +22,15 @@ function anchorreplace($original,$path){
   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/";
 #  $pattern="/(<(A|a)[^>])/";
   preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
-  echo "matches: ";
+#  echo "matches: ";
   print_r($matches);
   foreach ($matches as $val) {
+    echo "matched: " . $val[0] . "\n";
+    echo "part 1: " . $val[1] . "\n";
+    echo "part 2: " . $val[3] . "\n";
+    echo "part 3: " . $val[4] . "\n\n";
     $search="/(<(A|a)[^>]*>)".$val[3]."/";
-    echo "search: ".$search."\n";
+#    echo "search: ".$search."\n";
     $replace="<A href='".$path."Documentation/PHP/viewroutine.php?routine=".$val[3]."'>".$val[3];
     $original = preg_replace($search, $replace, $original); 
 ##    $echo "original: ".$original."\n";
