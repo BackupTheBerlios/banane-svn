@@ -52,7 +52,7 @@
 %*>   28
 %
 % SEE ALSO:
-%  <B>push</B> <A>push</A> bla <A>push</A>.
+%  <A>push</A>, <A>pop</A>, <A>list</A>.
 %-
 
 function s = stack(varargin)
