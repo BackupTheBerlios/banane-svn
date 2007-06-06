@@ -18,21 +18,18 @@ display its header information in a formatted manner. -->
 
 ## support function to search simplified anchors <A>routine</A> 
 ## and replace them with with proper hyperrefs
-function anchorreplace($original,$path){
-   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/U";
-   preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
-   foreach ($matches as $val) {
-#    echo "matched: " . $val[0] . "\n";
-#    echo "part 1: " . $val[1] . "\n";
-#    echo "part 2: " . $val[3] . "\n";
-#    echo "part 3: " . $val[4] . "\n\n";
-     $search="/(<(A|a)[^>]*>)".$val[3]."/";
-     $replace="<A href='".$path."Documentation/PHP/viewroutine.php?routine=".$val[3]."'>".$val[3];
-     $original = preg_replace($search, $replace, $original); 
-   }
-   return $original;
- }
-
+function anchorreplace($original,$path)
+{
+  $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/U";
+  preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
+  foreach ($matches as $val) {
+    $search="/(<(A|a)[^>]*>)".$val[3]."/";
+    $replace="<A href='".$path."Documentation/PHP/viewroutine.php?routine=".$val[3]."'>".$val[3];
+    $original = preg_replace($search, $replace, $original); 
+  }
+  return $original;
+}
+   
 
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
