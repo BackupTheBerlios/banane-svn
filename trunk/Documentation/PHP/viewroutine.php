@@ -99,7 +99,7 @@ while($irow = mysql_fetch_array($inputs))
       echo "<TR><TD VALIGN=TOP><VAR>".$irow["argument"].": </VAR>";
       echo "<TD VALIGN=TOP>".anchorreplace($irow["description"],$webpath);
       echo "</TR>";
-    } while($irow = mysql_fetch_array($inputs))  
+    } while($irow = mysql_fetch_array($inputs)); 
       echo "</TABLE>";
     echo "</TR>"; 
   }
