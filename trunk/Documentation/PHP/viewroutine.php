@@ -86,15 +86,23 @@ echo "<TD VALIGN=TOP>".$rrow["category"]."</TR>";
 echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Syntax</SPAN>"; 
 echo "<TD VALIGN=TOP>".$rrow["syntax"]."</TR>";
 
-echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Inputs</SPAN><TD VALIGN=TOP>";echo "<TABLE>";
+# fetch first entry of optional section 'inputs'.
+# skip whole table entry if result is NULL.
+# otherwise, enter subtable and display all optinputs in 
+# a separate subtable. do-while is needed since the first 
+# entry is already read by initial while loop.
 while($irow = mysql_fetch_array($inputs)) 
-{ 
-  echo "<TR><TD VALIGN=TOP><VAR>".$irow["argument"].": </VAR>";
-  echo "<TD VALIGN=TOP>".anchorreplace($irow["description"],$webpath);
-  echo "</TR>";
- }  
-echo "</TABLE>";
-echo "</TR>"; 
+  { 
+    echo "<TR><TD VALIGN=TOP><SPAN class='head'><SEC>Inputs</SPAN><TD VALIGN=TOP>";
+    echo "<TABLE>";
+    do { 
+      echo "<TR><TD VALIGN=TOP><VAR>".$irow["argument"].": </VAR>";
+      echo "<TD VALIGN=TOP>".anchorreplace($irow["description"],$webpath);
+      echo "</TR>";
+    } while($irow = mysql_fetch_array($inputs))  
+      echo "</TABLE>";
+    echo "</TR>"; 
+  }
 
 # fetch first entry of optional section 'optinputs'.
 # skip whole table entry if result is NULL.
