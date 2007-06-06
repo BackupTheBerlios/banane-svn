@@ -3,7 +3,7 @@
 %  list()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -15,69 +15,112 @@
 %  Constructor method for classic list data structure.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  Use this command to create a MATLAB object representing a list data
+%  structure. The list is able to hold an ordered series of data items of
+%  miscellaneous type. Easy access to the items is provided by the
+%  <A>insert</A> and <A>retrieve</A> commands.
 %
 % CATEGORY:
 %   Support Routines<BR>
 %   Classes
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
-%
-% INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
+%* l = list([arg]); 
 %
 % OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
+%  arg:: Data that is inserted into the list. The result depends on the
+%  type of <VAR>arg</VAR>, see Outputs section for details.  
 %
 % OUTPUTS:
-%  result:: The result of the routine.
-%
-% RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  l:: The resulting list object. If <VAR>arg</VAR> is missing, the list is
+%      generated but holds no contents. If <VAR>arg</VAR> is a list
+%      object already, the identical object is returned in
+%      <VAR>l</VAR>. If <VAR>arg</VAR> is a numerical array, the array
+%      entries are inserted into the list in the same order as they
+%      appear in the array, with the array regarded as a single
+%      column.. If <VAR>arg</VAR> is a vertical string array, 
+%      the resulting list contains the strings as items. If
+%      <VAR>arg</VAR> is a cell array, this cell array is converted to a
+%      list with the list items corresponding to the cells in single
+%      column order.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  The list object is based on a cell array. After checking of the
+%  argument number, the input is converted into a cell array and
+%  integrated into the newly formed list object.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. 
-%* data=example_function(23,5)
-%  
-%  Indicate matlab output with *>
-%*> ans =
-%*>   28
+%* >> i=rand(4,1)
+%* i =
+%*     0.5440
+%*     0.2502
+%*     0.2234
+%*     0.5220
+%* 
+%* >> l=list(i)
+%*     [0.5440]
+%*     [0.2502]
+%*     [0.2234]
+%*     [0.5220]
+%* 
+%* >> s = strvcat('Hello','Yes','No','Goodbye')
+%* s =
+%* Hello  
+%* Yes    
+%* No     
+%* Goodbye
+%* 
+%* >> l=list(s)
+%*     'Hello'
+%*     'Yes'
+%*     'No'
+%*     'Goodbye'
 %
 % SEE ALSO:
 %  <A>insert</A>, <A>retrieve</A>, <A>kill</A>, <A>stack</A>. 
-%
 %-
-
 
 
 function l = list(varargin)
   
   switch nargin
+    
    case 0
     ca=cell(1);
     l.hook = ca;
     l = class(l,'list');
+   
    case 1
-    if (isa(varargin{1},'list'))
-        l = varargin{1};
+   
+    arg=varargin{1};
+    
+    if isnumeric(arg)
+      argtype='numeric';
     else
-      ca=num2cell(varargin{1});
-      l.hook = ca;
-      l = class(l,'list');
+      argtype=class(arg);
     end
+    
+    switch argtype
+     case 'list'
+      l = arg;
+     case 'numeric'
+      l.hook = num2cell(arg(:));
+      l = class(l,'list');
+     case 'char'
+      l.hook = cellstr(arg);
+      l = class(l,'list');
+     case 'cell'
+      l.hook = arg(:);
+      l = class(l,'list');
+     otherwise
+      error(['Unable to convert argument of class ' ...
+             argtype ' to list.']);
+    end % switch
+   
    otherwise
+   
     error('Wrong number of input arguments')
-  end
+  
+  end % switch
+  
 
