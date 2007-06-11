@@ -101,6 +101,7 @@ $Myqsl["Table"]="dirtreetable";
 
 
 //include $phppath."dyntree.php";
+echo $phppath."dyntree.php<BR>";
 include $phppath."dyntree.php";
 
 
