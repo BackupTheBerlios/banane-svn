@@ -16,10 +16,6 @@ the script viewdir.php -->
 <body>
 <?php
 
-include "dyntree.php";
-
-
-
 // *** functions for generating the directory list
 function entab($num)
 {
@@ -102,6 +98,10 @@ $Myqsl["User"]=$out[2];
 $Myqsl["Pass"]=$out[3];
 $Myqsl["DB"]=$out[1];
 $Myqsl["Table"]="dirtreetable";
+
+
+include $phppath."dyntree.php";
+
 
 echo "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
 echo "<img src='".$picpath."l02.gif' border=0 margin=0 padding=0 usemap='#mymap'>";
