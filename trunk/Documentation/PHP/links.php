@@ -100,9 +100,7 @@ $Myqsl["DB"]=$out[1];
 $Myqsl["Table"]="dirtreetable";
 
 
-//include $phppath."dyntree.php";
-echo $phppath."dyntree.php<BR>";
-include $phppath."dyntree.php";
+include $bananepath."Documentation/PHP/dyntree.php";
 
 
 echo "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
