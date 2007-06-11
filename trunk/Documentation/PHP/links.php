@@ -114,6 +114,7 @@ echo "<li><a>members</a></li>";
 echo "</ul>";
 echo "<h1>directories</h1>";
 //echo directory_to_list($bananepath,$bananepath,$phppath,TRUE);
+echo "bla<BR>";
 MakeTree($Page,$Name,$Myqsl);
 echo "<h1>search</h1>";
 echo "<form name='input' target='dynamic' action='".$phppath."viewsearch.php' method='get'>";
