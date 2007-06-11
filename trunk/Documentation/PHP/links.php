@@ -90,6 +90,14 @@ $webpath=$out[0];
 $phppath=$webpath."Documentation/PHP/";
 $picpath=$phppath."Pics/";
 
+$Myqsl["Server"]="db.berlios.de";
+$Myqsl["User"]="banane";
+$Myqsl["Pass"]="TIpKEPc26U";
+$Myqsl["DB"]="banane";
+$Myqsl["Table"]="dirtreetable";
+
+include "dyntree.php";
+
 echo "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>";
 echo "<img src='".$picpath."l02.gif' border=0 margin=0 padding=0 usemap='#mymap'>";
 echo "<map name='mymap'>";
@@ -105,7 +113,8 @@ echo "<li><a target='_blank' href='http://developer.berlios.de/projects/banane/'
 echo "<li><a>members</a></li>";
 echo "</ul>";
 echo "<h1>directories</h1>";
-echo directory_to_list($bananepath,$bananepath,$phppath,TRUE);
+//echo directory_to_list($bananepath,$bananepath,$phppath,TRUE);
+MakeTree($Page,$Name,$Myqsl);
 echo "<h1>search</h1>";
 echo "<form name='input' target='dynamic' action='".$phppath."viewsearch.php' method='get'>";
 echo "<p style='margin-top:2px'><input style='width:100%;' type='text' name='routine'></p>";
