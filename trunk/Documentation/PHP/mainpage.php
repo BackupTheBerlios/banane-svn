@@ -1,20 +1,101 @@
-<!-- mainpage.php is the starting point for webpage displaying the 
-banane online documentation. It defines the vertical frame structure 
-of the webpage, which consists of frames that are filled by the separate 
-files oben.php, mitte.php and unten.php. oben.php and unten.php merely 
-display the pictures showing the top and bottom parts of the outer border. 
-mitte.php defines the horizontal frame structure --> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD html 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+<title>webpage of the banane project</title>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
-   "http://www.w3.org/TR/html4/frameset.dtd">
-<HTML>
+<style type="text/css" media="screen">
 
-<HEAD>
-<TITLE>main webpage of the banane project</TITLE>
-</HEAD>
+body {
+   text-align:center;
+ }
+	
+div.content {
+ position: relative;
+ width:800px;
+ height:600px;
+ margin:0 auto;
+  text-align:left;
+}
 
-<?php 
+div.content h1 {
+  font-size:100%;
+}
 
+div.headline {
+ position: absolute;
+ top: 0;
+ left: 200px;
+ bottom: 550px;
+ right: 0;
+ padding: 10px;
+ background:lightgray;
+ border:thin solid white;
+  text-align:right;
+}
+
+div.logo {
+ position: absolute;
+ top: 0;
+ left: 0;
+ bottom: 550px;
+ right: 600px;
+ padding: 10px;
+ background:lightgray;
+ border:thin solid white;
+  text-align:left;
+  font-size:150%
+}
+
+div.navigation {
+ position: absolute;
+ top: 50px;
+ left: 0;
+ bottom: 75px;
+ right: 600px;
+ padding: 10px;
+ background:lightgray;
+ border:thin solid white;
+  text-transform: lowercase;
+ overflow: auto;
+}
+
+div.berlios {
+ position: absolute;
+ top: 525px;
+ left: 0;
+ bottom: 0px;
+ right: 600px;
+ padding: 10px;
+ background:lightgray;
+ border:thin solid white;
+}
+
+div.main {
+ position: absolute;
+ top: 50px;
+ left: 200px;
+ bottom: 0;
+ right: 0;
+ padding: 10px;
+ border:thin solid black;
+ overflow: auto;
+}
+
+<!--div.main h1 {
+  font-size:100%;
+}-->
+
+
+</style>
+
+</head>
+
+
+<body>
+
+<?php
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
 ## get info from config script.
@@ -26,17 +107,73 @@ $out=explode("\n",$allout);
 $webpath=$out[0];
 
 $phppath=$webpath."Documentation/PHP/";
+$picpath=$phppath."Pics/";
 
-echo "<frameset rows='*,16,604,*' cols='*' framespacing='0' frameborder='no' border='0'>";
-echo "<frame src='".$phppath."leer.htm'>";
-echo "<frame src='".$phppath."oben.php' scrolling='no' noresize>";
-echo "<frame src='".$phppath."mitte.php'>";
-echo "<frame src='".$phppath."unten.php' scrolling='no' noresize>";
-echo "</FRAMESET>";
-echo "<NOFRAMES><body>";
-echo "</body></NOFRAMES>";
-echo "</FRAMESET>";
+$dbscr=$confscr." db";
+$allout=`$dbscr`;
+$out=explode("\n",$allout);
 
+$Myqsl["Server"]=$out[0];
+$Myqsl["User"]=$out[2];
+$Myqsl["Pass"]=$out[3];
+$Myqsl["DB"]=$out[1];
+$Myqsl["Table"]="dirtreetable";
+
+
+include $bananepath."Documentation/PHP/dyntree.php";
+include $bananepath."Documentation/PHP/viewfunctions.php";
+include $bananepath."Documentation/PHP/fu_intro.php";
+
+$treeout=MakeTree($Page,$Name,$Myqsl);
+
+if (isset($dir))
+  {$mainout=viewdir($Myqsl,$Page,$dir);}
+else
+  {
+    if (isset($routine))
+      {$mainout=viewroutine($Myqsl,$routine);}
+    else
+      {
+	if (isset($search))
+	  {$mainout=viewsearch($Myqsl,$search);}
+	else
+	  {$mainout=introtext();}
+      }
+  }
 ?>
 
-</HTML>
+<div class="content">
+<div class="headline">
+<span style="word-spacing:1.2em;">
+<? echo "<a href='".$phppath."new.php'>about</a> "; ?>
+<a target='_blank' href='http://project-banane.blogspot.com'>weblog</a>
+<a target='_blank' href='http://developer.berlios.de/projects/banane/'>summary</a>
+<a>members</a>
+search</span>
+<?php
+echo "<form name='input' style='display:inline;' action='".$phppath."new.php' method='get'>";
+echo "<input style='width:12%;' name='search'>";
+echo "</form>";
+?>
+</div>
+<div class="logo">
+project <span style="color:gold">banane</span>
+</div>
+<div class="navigation">
+<h1>directories</h1>
+<?php
+echo $treeout;
+?>
+</div>
+<div class="main">
+<?php
+echo $mainout;
+?>
+</div>
+<div class="berlios">
+hosted by
+<a target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=7706" width="124px" height="32px" border="0" alt="BerliOS Developer Logo"></a>
+</div>
+</div>
+</body>
+</html>
