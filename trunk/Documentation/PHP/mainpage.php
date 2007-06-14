@@ -45,7 +45,7 @@ div.logo {
  background:lightgray;
  border:thin solid white;
   text-align:left;
-  font-size:125%
+  font-size:150%
 }
 
 div.navigation {
