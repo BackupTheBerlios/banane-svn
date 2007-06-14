@@ -45,7 +45,7 @@ div.logo {
  background:lightgray;
  border:thin solid white;
   text-align:left;
-  font-size:150%
+  font-size:125%
 }
 
 div.navigation {
@@ -98,6 +98,10 @@ div.main {
 <?php
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
+include $bananepath."Documentation/PHP/dyntree.php";
+include $bananepath."Documentation/PHP/viewfunctions.php";
+include $bananepath."Documentation/PHP/fu_intro.php";
+
 ## get info from config script.
 $confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
 
@@ -118,11 +122,6 @@ $Myqsl["User"]=$out[2];
 $Myqsl["Pass"]=$out[3];
 $Myqsl["DB"]=$out[1];
 $Myqsl["Table"]="dirtreetable";
-
-
-include $bananepath."Documentation/PHP/dyntree.php";
-include $bananepath."Documentation/PHP/viewfunctions.php";
-include $bananepath."Documentation/PHP/fu_intro.php";
 
 $treeout=MakeTree($Page,$Name,$Myqsl);
 
