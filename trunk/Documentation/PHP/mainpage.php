@@ -145,13 +145,13 @@ else
 <div class="content">
 <div class="headline">
 <span style="word-spacing:1.2em;">
-<? echo "<a href='".$phppath."new.php'>about</a> "; ?>
+<? echo "<a href='".$phppath."mainpage.php'>about</a> "; ?>
 <a target='_blank' href='http://project-banane.blogspot.com'>weblog</a>
 <a target='_blank' href='http://developer.berlios.de/projects/banane/'>summary</a>
 <a>members</a>
 search</span>
 <?php
-echo "<form name='input' style='display:inline;' action='".$phppath."new.php' method='get'>";
+echo "<form name='input' style='display:inline;' action='".$phppath."mainpage.php' method='get'>";
 echo "<input style='width:12%;' name='search'>";
 echo "</form>";
 ?>
