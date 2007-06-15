@@ -15,6 +15,11 @@ $out=explode("\n",$allout);
 $webpath=$out[0];
 
 $anchor=$webpath."Documentation/PHP/mainpage.php";
-include $anchor;
+# include $anchor;
+
+header( "HTTP/1.1 301 Moved Permanently" );
+header( "Status: 301 Moved Permanently" );
+header( "Location: $anchor" );
+exit(0); // This is Optional but suggested, to avoid any accidental output
 
 ?>
