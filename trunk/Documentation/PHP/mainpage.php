@@ -9,6 +9,7 @@
 
 body {
    text-align:center;
+   background:#e6e7e9;
  }
 	
 div.content {
@@ -17,6 +18,7 @@ div.content {
  height:600px;
  margin:0 auto;
   text-align:left;
+  background-image:url('Pics/frame.gif')
 }
 
 div.content h1 {
