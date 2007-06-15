@@ -14,8 +14,8 @@ body {
 	
 div.content {
  position: relative;
- width:800px;
- height:600px;
+ width:889px;
+ height:817px;
  margin:0 auto;
   text-align:left;
   background-image:url('Pics/frame.gif')
