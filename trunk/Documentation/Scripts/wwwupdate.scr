@@ -4,4 +4,5 @@ BANANEPATH="/home/groups/banane/htdocs/wwwcopy/Banane"
 echo Starting update of Banane www copy and database.
 date
 svn update $BANANEPATH | $BANANEPATH/Documentation/Perl/updatemain.pl
+$BANANEPATH/Documentation/Perl/updatetree.pl
 echo Update complete.
