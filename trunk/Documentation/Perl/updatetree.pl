@@ -70,7 +70,7 @@ die "Couldn't prepare query; aborting"
   unless defined $tree_inserthandle;
 
 
-my(@res)=get_leaf_dirs($bananepath,"Banane",$bananepath);
+my(@res)=get_leaf_dirs::get_leaf_dirs($bananepath,"Banane",$bananepath);
   
 my($i)=0;
 
