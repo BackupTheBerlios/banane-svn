@@ -100,7 +100,7 @@ $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
 include $bananepath."Documentation/PHP/dyntree.php";
 include $bananepath."Documentation/PHP/viewfunctions.php";
-include $bananepath."Documentation/PHP/fu_intro.php";
+include $bananepath."Documentation/PHP/introfunction.php";
 
 ## get info from config script.
 $confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
