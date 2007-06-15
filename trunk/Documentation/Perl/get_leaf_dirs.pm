@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+package get_leaf_dirs;
 
 ### this function reads the Banane directory structure and 
 ### returns information about the directory names and their 
