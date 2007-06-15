@@ -7,15 +7,17 @@ database are show, i.e. only matlab source files. viewdir.php generates
 a table with routine name and its short description. the name is made to 
 link to viewroutine.php, which displays the complete header. -->
 
-<HTML> 
+<!-- <HTML> 
 <head>
   <title>View contents of banane dierctory</title>
   <link rel="stylesheet" href="bananestyle.css">
 </head>
 
 <body>
-<DIV class='dynamic'>
+<DIV class='dynamic'> -->
 <?php
+
+function viewdir($dirname);
 
 ## needed to call configuration script that knows everything else:
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
@@ -39,7 +41,7 @@ $out=explode("\n",$allout);
 $webpath=$out[0];
 
 ## use the first argument to the script as the directory to display.
-$dirname=($argv[0]);
+#$dirname=($argv[0]);
 
 ## select all routines in respective directory and in its subdirs.
 ## % in database query is the wildcard character.
@@ -61,6 +63,6 @@ while($rrow = mysql_fetch_array($routines))
   }
 echo "</TABLE>";
 ?> 
-</DIV>
+<!-- </DIV>
 </BODY>
-</HTML> 
+</HTML> --> 
