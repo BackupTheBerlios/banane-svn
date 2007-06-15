@@ -32,7 +32,7 @@ div.headline {
  bottom: 550px;
  right: 0;
  padding: 10px;
- background:lightgray;
+<!-- background:lightgray; -->
  border:thin solid white;
   text-align:right;
 }
@@ -44,7 +44,7 @@ div.logo {
  bottom: 550px;
  right: 600px;
  padding: 10px;
- background:lightgray;
+<!-- background:lightgray; -->
  border:thin solid white;
   text-align:left;
   font-size:140%
@@ -57,7 +57,7 @@ div.navigation {
  bottom: 75px;
  right: 600px;
  padding: 10px;
- background:lightgray;
+<!-- background:lightgray;-->
  border:thin solid white;
   text-transform: lowercase;
  overflow: auto;
@@ -70,7 +70,7 @@ div.berlios {
  bottom: 0px;
  right: 600px;
  padding: 10px;
- background:lightgray;
+<!--  background:lightgray;-->
  border:thin solid white;
 }
 
