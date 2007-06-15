@@ -1,10 +1,8 @@
+#!/usr/bin/perl -w
+
 ### this script reads the Banane directory structure and 
 ### updates the database table that is used to display the 
 ### folders on the web page
-
-
-
-#!/usr/bin/perl -w
 
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 #$bananepath="/home/athiel/MATLAB/Sources/Banane/";

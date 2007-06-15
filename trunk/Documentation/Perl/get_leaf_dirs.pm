@@ -1,10 +1,8 @@
+#!/usr/bin/perl -w
+
 ### this function reads the Banane directory structure and 
 ### returns information about the directory names and their 
 ### parent folders. it is used by "updatetree.pl"
-
-
-
-#!/usr/bin/perl -w
 
 sub get_leaf_dirs {
   
