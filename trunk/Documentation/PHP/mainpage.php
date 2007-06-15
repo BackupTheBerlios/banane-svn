@@ -172,7 +172,7 @@ echo $mainout;
 ?>
 </div>
 <div class="berlios">
-hosted by
+hosted by<BR>
 <a target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=7706" width="124px" height="32px" border="0" alt="BerliOS Developer Logo"></a>
 </div>
 </div>
