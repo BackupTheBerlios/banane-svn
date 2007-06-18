@@ -18,6 +18,7 @@ body {
 div.content {
  position: relative;
  top:22px;
+ bottom:22px;
  width:880px;
  height:776px;
  margin:0 auto;
