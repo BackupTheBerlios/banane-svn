@@ -49,7 +49,6 @@ div.search {
  right: 74px;
  padding: 0px;
   text-align:right;
- vertical-align:middle;
 }
 
 .search input
@@ -59,7 +58,7 @@ background: #f9f9f9;
 border: 1px solid #5c5c5c;
 width:12%;
 height:0.5ex;
- vertical-align:middle;
+ top:0.25ex;
 }
 
 
