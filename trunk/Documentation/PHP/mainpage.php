@@ -38,7 +38,7 @@ div.headline {
  bottom: 622px;
  right: 74px;
  padding: 0px;
-  text-align:left;
+  text-align:justify;
 }
 
 div.search {
