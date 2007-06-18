@@ -8,8 +8,9 @@
 <style type="text/css" media="screen">
 
 body {
-   text-align:center;
-   background:#e6e7e9;
+   text-align: center;
+   background: #e6e7e9;
+   color: #737373;
  }
 	
 div.content {
@@ -18,7 +19,7 @@ div.content {
  height:817px;
  margin:0 auto;
   text-align:left;
-<!--  background-image:url('Pics/frame.gif')-->
+  background-image:url('Pics/frame_filledcropped.gif')-->
 }
 
 div.content h1 {
