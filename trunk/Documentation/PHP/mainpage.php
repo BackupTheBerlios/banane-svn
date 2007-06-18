@@ -13,15 +13,7 @@ body {
    color: #737373;
    font-family: helvetica, arial, sans-serif;
    font-size: 10pt;
-scrollbar-base-color: #663366;
-scrollbar-face-color: #99CCCC;
-scrollbar-track-color: #996699;
-scrollbar-arrow-color: #330033;
-scrollbar-highlight-color: #FFFFFF;
-scrollbar-3dlight-color: #CCCCCC;
-scrollbar-shadow-color: #663366;
-scrollbar-darkshadow-color: #000000;
- }
+}
 	
 div.content {
  position: relative;
@@ -121,8 +113,8 @@ div.main {
  top: 178px;
  left: 218px;
  bottom: 64px;
- right: 74px;
- padding: 0px;
+ right: 94px;
+ padding-right: 20px;
  overflow: auto;
 }
 
