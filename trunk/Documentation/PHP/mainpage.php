@@ -119,12 +119,13 @@ div.berlios {
 
 div.bottom {
  position: absolute;
- top: 790px;
+ top: 780px;
  left: 600px;
  bottom: 0px;
- right: 0px;
- padding: 0px;
+ right: 59px;
+ padding-right: 15px;
   text-align: right;
+  vertical-align:bottom;
   font-size: 75%;
  border:thin solid black;
 }
