@@ -30,7 +30,7 @@ div.content h1 {
 
 div.headline {
  position: absolute;
- top: 130px;
+ top: 132px;
  left: 217px;
  bottom: 200px;
  right: 41px;
@@ -79,10 +79,10 @@ div.berlios {
 
 div.main {
  position: absolute;
- top: 175px;
+ top: 176px;
  left: 217px;
- bottom: 41px;
- right: 41px;
+ bottom: 74px;
+ right: 74px;
  padding: 0;
  border:thin solid black;
  overflow: auto;
