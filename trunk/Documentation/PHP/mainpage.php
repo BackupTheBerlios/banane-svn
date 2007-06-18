@@ -126,7 +126,6 @@ div.bottom {
  padding: 0px;
   text-align: right;
   font-size: 85%;
- border:thin solid black;
 }
 
 div.main {
