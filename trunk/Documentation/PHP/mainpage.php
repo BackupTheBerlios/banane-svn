@@ -17,8 +17,8 @@ body {
 	
 div.content {
  position: relative;
- width:881px;
- height:777px;
+ width:880px;
+ height:776px;
  margin:0 auto;
   text-align:left;
   background-image:url('Pics/frame_filledcropped.gif')
@@ -83,7 +83,7 @@ div.main {
  left: 218px;
  bottom: 41px;
  right: 41px;
- padding: 0; <!--10px;-->
+ padding: 0;
  border:thin solid black;
  overflow: auto;
 }
