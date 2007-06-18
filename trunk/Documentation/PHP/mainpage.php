@@ -163,7 +163,7 @@ project <span style="color:gold">banane</span>
 </div>
 -->
 <div class="navigation">
-<p style="font-weight:bold;">directories</p>
+<span style="font-weight:bold;">directories</span><BR>
 <?php
 echo $treeout;
 ?>
