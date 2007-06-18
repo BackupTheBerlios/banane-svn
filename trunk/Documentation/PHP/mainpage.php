@@ -77,7 +77,7 @@ div.berlios {
 
 div.main {
  position: absolute;
- top: 177px;
+ top: 178px;
  left: 217px;
  bottom: 42px;
  right: 74px;
