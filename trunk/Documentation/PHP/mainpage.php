@@ -22,7 +22,7 @@ div.content {
  height:798px;
  margin:0 auto;
   text-align:left;
-  background-image:url('Pics/frame.gif')
+  background-image:url('Pics/frame.gif');
     background-repeat:no-repeat;
 }
 
