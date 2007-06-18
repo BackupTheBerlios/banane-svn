@@ -37,7 +37,6 @@ div.headline {
  bottom: 600px;
  right: 74px;
  padding: 0px;
- border:thin solid black;
   text-align:left;
 }
 
@@ -167,6 +166,7 @@ project <span style="color:gold">banane</span>
 -->
 <div class="navigation">
 <span style="font-weight:bold;">directories</span><BR>
+<span style="height:42px>x</span>
 <?php
 echo $treeout;
 ?>
