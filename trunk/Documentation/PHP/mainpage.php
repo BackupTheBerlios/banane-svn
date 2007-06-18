@@ -119,11 +119,12 @@ div.berlios {
 
 div.bottom {
  position: absolute;
- top: 525px;
- left: 0;
+ top: 790px;
+ left: 800px;
  bottom: 0px;
- right: 600px;
+ right: 0px;
  padding: 0px;
+  text-align: right;
  border:thin solid black;
 }
 
@@ -229,10 +230,12 @@ echo $treeout;
 echo $mainout;
 ?>
 </div>
+<!--
 <div class="berlios">
 hosted by<BR>
 <a target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=7706" width="124px" height="32px" border="0" alt="BerliOS Developer Logo"></a>
 </div>
+-->
 <div class="bottom">
 webpage by andreas thiel & malte ahlers 2007 . hosted by<BR>
 <a target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="./Pics/berlios.gif" border="0" alt="BerliOS Developer Logo"></a>
