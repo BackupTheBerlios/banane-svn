@@ -21,7 +21,7 @@ div.content {
  height:776px;
  margin:0 auto;
   text-align:left;
-  background-image:url('Pics/frame_filledcropped.gif')
+  background-image:url('Pics/frame.gif')
 }
 
 div.content h1 {
@@ -58,7 +58,7 @@ div.logo {
 
 div.navigation {
  position: absolute;
- top: 133px;
+ top: 134px;
  left: 69px;
  bottom: 42px;
  right: 600px;
