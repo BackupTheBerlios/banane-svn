@@ -94,7 +94,7 @@ div.navigation {
  padding: 0px;
   text-transform: lowercase;
  overflow: auto;
-  line-height: 110%;
+  line-height: 150%;
 }
 
 div.berlios {
