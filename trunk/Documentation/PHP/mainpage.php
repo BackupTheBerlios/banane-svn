@@ -57,9 +57,9 @@ color: black;
 background: #f9f9f9;
 border: 1px solid #5c5c5c;
 width:12%;
-height:1ex;
+height:2ex;
 padding: 0px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
 }
 
 
