@@ -16,7 +16,6 @@ body {
 }
 	
 a:link, a:visited, a:active {
-  font-weight: normal ;
   text-decoration: none ;
   color: #737373;
 }
