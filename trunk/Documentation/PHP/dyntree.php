@@ -63,8 +63,8 @@ function TreeNodes($ID,$table,$partable,$Folder0,$Page,$levels){
   $rez0="";
   //  $imgfolder0="<img src='./Pics/folder.gif' alt='' width='20' height='20'>&nbsp;<span style='height: 20px; font: 11px; '>";
   //  $imgfolder1="<img src='./Pics/folderopen.gif' alt='' width='20' height='20'>&nbsp;<span style='height: 20px; font: 11px; font-weight:bold;'>";
-  $imgfolder0="<img src='./Pics/folder.gif' alt='' width='20' height='20'>&nbsp;<span style='vertical-align:33%;'>";
-  $imgfolder1="<img src='./Pics/folderopen.gif' alt='' width='20' height='20'>&nbsp;<span style='font-weight:bold; vertical-align:33%;'>";
+  $imgfolder0="<img src='./Pics/folder.gif' alt='' width='20' height='20'>&nbsp;<span style='vertical-align:5px;'>";
+  $imgfolder1="<img src='./Pics/folderopen.gif' alt='' width='20' height='20'>&nbsp;<span style='font-weight:bold; vertical-align:5px;'>";
   if(isset($table[$ID])) {
     //    $imgwidth="<img src='./Pics/tr.gif' width='".(($levels[$ID])*10)."' height='1' alt=''>";
     $imgwidth="";
