@@ -51,6 +51,16 @@ div.search {
   text-align:right;
 }
 
+.search input
+{
+color: black;
+background: #f9f9f9;
+border: 1px solid #5c5c5c;
+width:12%;
+height:0.5ex;
+}
+
+
 div.logo {
  position: absolute;
  top: 0;
@@ -177,7 +187,7 @@ else
 <div class="search">
 <?php
 echo "<form name='input' style='display:inline;' action='".$phppath."mainpage.php' method='get'>";
-echo "<input style='width:12%;height:0.5ex;' name='search'>";
+echo "<input name='search'>";
 echo "</form>";
 ?>
 </div>
