@@ -67,7 +67,7 @@ function TreeNodes($ID,$table,$partable,$Folder0,$Page,$levels){
   $imgfolder1="<img src='./Pics/folderopen.gif' alt='' width='20' height='20'>&nbsp;<span style='font-weight:bold; vertical-align:5px;'>";
   if(isset($table[$ID])) {
     $imgwidth="<img src='./Pics/tr.gif' width='".(($levels[$ID])*10)."' height='1' alt=''>";
-    $imgwidth="";
+    //$imgwidth="";
     $lisd=$table[$ID];
     $ID0=$ID; $fiplevel=$levels[$ID];
     while(list($key,$val)=each($lisd)){
