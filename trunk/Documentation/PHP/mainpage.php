@@ -81,13 +81,11 @@ div.navigation_head {
  right: 670px;
  padding: 0px;
   text-transform: lowercase;
- overflow: auto;
- border:thin solid black;
 }
 
 div.navigation {
  position: absolute;
- top: 178px;
+ top: 176px;
  left: 64px;
  bottom: 64px;
  right: 670px;
@@ -95,7 +93,6 @@ div.navigation {
   text-transform: lowercase;
  overflow: auto;
   line-height: 150%;
-border:thin solid black;
 }
 
 div.berlios {
