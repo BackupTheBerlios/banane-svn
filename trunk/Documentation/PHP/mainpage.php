@@ -58,7 +58,7 @@ background: #f9f9f9;
 border: 1px solid #5c5c5c;
 width:12%;
 height:0.5ex;
- bottom:0ex;
+  vertical-aling: text-bottom;
 }
 
 
