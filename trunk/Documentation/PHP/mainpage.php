@@ -51,9 +51,21 @@ div.logo {
   font-size:140%
 }
 
-div.navigation {
+div.navigation_head {
  position: absolute;
  top: 136px;
+ left: 68px;
+ bottom: 600px;
+ right: 670px;
+ padding: 0px;
+  text-transform: lowercase;
+ overflow: auto;
+ border:thin solid black;
+}
+
+div.navigation {
+ position: absolute;
+ top: 178px;
  left: 68px;
  bottom: 42px;
  right: 670px;
@@ -164,9 +176,10 @@ echo "</form>";
 project <span style="color:gold">banane</span>
 </div>
 -->
+<div class="navigation_head">
+<span style="font-weight:bold;">directories</span>
+<\div>
 <div class="navigation">
-<span style="font-weight:bold;">directories</span><BR>
-<span style="height:50px;">x</span><BR>
 <?php
 echo $treeout;
 ?>
