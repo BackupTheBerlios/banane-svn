@@ -35,7 +35,7 @@ div.headline {
  top: 134px;
  left: 217px;
  bottom: 200px;
- right: 41px;
+ right: 74px;
  padding: 0px;
  border:thin solid black;
   text-align:left;
@@ -61,6 +61,7 @@ div.navigation {
  padding: 0px;
   text-transform: lowercase;
  overflow: auto;
+ border:thin solid black;
 }
 
 div.berlios {
