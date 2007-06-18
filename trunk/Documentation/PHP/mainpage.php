@@ -39,7 +39,6 @@ div.headline {
  right: 274px;
  padding: 0px;
   text-align:left;
- border: solid black 1px;
 }
 
 div.search {
@@ -50,7 +49,6 @@ div.search {
  right: 74px;
  padding: 0px;
   text-align:right;
- border: solid black 1px;
 }
 
 .search input
