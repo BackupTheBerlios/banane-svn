@@ -13,6 +13,14 @@ body {
    color: #737373;
    font-family: helvetica, arial, sans-serif;
    font-size: 10pt;
+scrollbar-base-color: #663366;
+scrollbar-face-color: #99CCCC;
+scrollbar-track-color: #996699;
+scrollbar-arrow-color: #330033;
+scrollbar-highlight-color: #FFFFFF;
+scrollbar-3dlight-color: #CCCCCC;
+scrollbar-shadow-color: #663366;
+scrollbar-darkshadow-color: #000000;
  }
 	
 div.content {
