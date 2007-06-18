@@ -11,6 +11,8 @@ body {
    text-align: center;
    background: #e6e7e9;
    color: #737373;
+   font-family: helvetica, arial, sans-serif;
+   font-size: 10pt;
  }
 	
 div.content {
@@ -77,11 +79,11 @@ div.berlios {
 
 div.main {
  position: absolute;
- top: 50px;
- left: 200px;
- bottom: 0;
- right: 0;
- padding: 10px;
+ top: 181px;
+ left: 218px;
+ bottom: 41px;
+ right: 41px;
+ padding: 0; <!--10px;-->
  border:thin solid black;
  overflow: auto;
 }
