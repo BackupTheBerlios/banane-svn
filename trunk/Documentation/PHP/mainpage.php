@@ -238,7 +238,7 @@ hosted by<BR>
 </div>
 -->
 <div class="bottom">
-webpage by andreas thiel & malte ahlers 2007 . hosted by
+webpage by <a>andreas thiel</a> & <a>malte ahlers</a> 2007 ★ hosted by
 <a style='vertical-align:middle;' target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="./Pics/berlios.gif" border="0" alt="BerliOS Developer Logo"></a>
 </div>
 </div>
