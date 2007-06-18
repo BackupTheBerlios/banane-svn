@@ -15,8 +15,8 @@ body {
 	
 div.content {
  position: relative;
- width:889px;
- height:817px;
+ width:881px;
+ height:777px;
  margin:0 auto;
   text-align:left;
   background-image:url('Pics/frame_filledcropped.gif')-->
