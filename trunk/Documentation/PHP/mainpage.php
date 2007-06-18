@@ -59,6 +59,7 @@ border: 1px solid #5c5c5c;
 width:12%;
 height:2ex;
 padding: 0px;
+ margin: 0px
   vertical-align: baseline;
 }
 
