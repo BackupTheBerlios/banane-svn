@@ -19,7 +19,7 @@ div.content {
  height:777px;
  margin:0 auto;
   text-align:left;
-  background-image:url('Pics/frame_filledcropped.gif')-->
+  background-image:url('Pics/frame_filledcropped.gif')
 }
 
 div.content h1 {
