@@ -238,8 +238,8 @@ hosted by<BR>
 </div>
 -->
 <div class="bottom">
-webpage by <a>andreas thiel</a> & <a>malte ahlers</a> 2007 &#9734; hosted by
-<a style='vertical-align:middle;' target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="./Pics/berlios.gif" border="0" alt="BerliOS Developer Logo"></a>
+webpage by <a target="_blank" href="http://www.staff.uni-oldenburg.de/andreas.thiel/">andreas thiel</a> & <a target="_blank" href="http://www.staff.uni-oldenburg.de/m.ahlers/">malte ahlers</a> 2007 &middot; hosted by
+<a style='vertical-align:baseline;' target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="./Pics/berlios.gif" border="0" alt="BerliOS Developer Logo"></a>
 </div>
 </div>
 </body>
