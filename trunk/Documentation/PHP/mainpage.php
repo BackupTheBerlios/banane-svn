@@ -59,12 +59,10 @@ div.logo {
 div.navigation {
  position: absolute;
  top: 134px;
- left: 69px;
+ left: 68px;
  bottom: 42px;
  right: 600px;
  padding: 0px;
-<!-- background:lightgray;
- border:thin solid white;-->
   text-transform: lowercase;
  overflow: auto;
 }
