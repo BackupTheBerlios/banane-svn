@@ -177,7 +177,7 @@ else
 <div class="search">
 <?php
 echo "<form name='input' style='display:inline;' action='".$phppath."mainpage.php' method='get'>";
-echo "<input style='width:12%;' name='search'>";
+echo "<input style='width:12%;height:0.5ex;' name='search'>";
 echo "</form>";
 ?>
 </div>
