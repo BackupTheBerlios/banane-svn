@@ -36,7 +36,7 @@ div.headline {
  top: 136px;
  left: 218px;
  bottom: 622px;
- right: 174px;
+ right: 374px;
  padding: 0px;
   text-align:left;
  border: solid black 1px;
@@ -45,7 +45,7 @@ div.headline {
 div.search {
  position: absolute;
  top: 134px;
- left: 318px;
+ left: 518px;
  bottom: 622px;
  right: 74px;
  padding: 0px;
