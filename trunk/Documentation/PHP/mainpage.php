@@ -27,8 +27,6 @@ div.content {
 div.content h1 {
   font-size:100%;  
   font-weight:bold;
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
 div.headline {
@@ -89,14 +87,12 @@ div.main {
  overflow: auto;
 }
 
-<!--
 div.main h1 {
   font-size:100%;
   font-weight:bold;
   margin-top: 0px;
   margin-bottom: 0px;
 }
--->
 
 
 </style>
