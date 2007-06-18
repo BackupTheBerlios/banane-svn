@@ -90,6 +90,9 @@ div.main {
 
 <!--div.main h1 {
   font-size:100%;
+  font-weight:bold;
+   margin-top: 0px;
+   margin-bottom: 3px;
 }-->
 
 
