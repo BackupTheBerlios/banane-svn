@@ -30,14 +30,14 @@ div.content h1 {
 
 div.headline {
  position: absolute;
- top: 0;
- left: 200px;
- bottom: 550px;
- right: 0;
- padding: 10px;
-<!-- background:lightgray; -->
- border:thin solid white;
-  text-align:right;
+ top: 139px;
+ left: 217px;
+ bottom: 200px;
+ right: 41px;
+ padding: 0px;
+<!-- background:lightgray;-->
+ border:thin solid black;
+  text-align:left;
 }
 
 div.logo {
@@ -79,8 +79,8 @@ div.berlios {
 
 div.main {
  position: absolute;
- top: 181px;
- left: 218px;
+ top: 180px;
+ left: 217px;
  bottom: 41px;
  right: 41px;
  padding: 0;
@@ -92,7 +92,7 @@ div.main {
   font-size:100%;
   font-weight:bold;
    margin-top: 0px;
-   margin-bottom: 3px;
+   margin-bottom: 0px;
 }-->
 
 
