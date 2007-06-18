@@ -125,7 +125,7 @@ div.bottom {
  right: 42px;
  padding: 0px;
   text-align: right;
-  font-size: 75%;
+  font-size: 85%;
  border:thin solid black;
 }
 
@@ -239,7 +239,7 @@ hosted by<BR>
 -->
 <div class="bottom">
 webpage by andreas thiel & malte ahlers 2007 . hosted by
-<a target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="./Pics/berlios.gif" border="0" alt="BerliOS Developer Logo"></a>
+<a style='vertical-align:middle;' target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="./Pics/berlios.gif" border="0" alt="BerliOS Developer Logo"></a>
 </div>
 </div>
 </body>
