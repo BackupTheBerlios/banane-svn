@@ -30,7 +30,7 @@ div.content h1 {
 
 div.headline {
  position: absolute;
- top: 133px;
+ top: 134px;
  left: 217px;
  bottom: 200px;
  right: 41px;
@@ -59,9 +59,9 @@ div.navigation {
  left: 69px;
  bottom: 42px;
  right: 600px;
- padding: 10px;
-<!-- background:lightgray;-->
- border:thin solid white;
+ padding: 0px;
+<!-- background:lightgray;
+ border:thin solid white;-->
   text-transform: lowercase;
  overflow: auto;
 }
