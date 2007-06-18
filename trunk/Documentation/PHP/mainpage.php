@@ -56,7 +56,7 @@ div.search {
 color: black;
 background: #f9f9f9;
 border: 1px solid #5c5c5c;
-width:12%;
+width:50px;
 height:2ex;
 padding: 0px;
  margin: 0px
