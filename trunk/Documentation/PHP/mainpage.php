@@ -122,7 +122,7 @@ div.bottom {
  top: 781px;
  left: 200px;
  bottom: 0px;
- right: 42px;
+ right: 38px;
  padding: 0px;
   text-align: right;
   font-size: 85%;
