@@ -30,7 +30,7 @@ div.content h1 {
 
 div.headline {
  position: absolute;
- top: 132px;
+ top: 133px;
  left: 217px;
  bottom: 200px;
  right: 41px;
@@ -55,9 +55,9 @@ div.logo {
 
 div.navigation {
  position: absolute;
- top: 50px;
- left: 0;
- bottom: 75px;
+ top: 133px;
+ left: 69px;
+ bottom: 42px;
  right: 600px;
  padding: 10px;
 <!-- background:lightgray;-->
@@ -79,9 +79,9 @@ div.berlios {
 
 div.main {
  position: absolute;
- top: 176px;
+ top: 177px;
  left: 217px;
- bottom: 74px;
+ bottom: 42px;
  right: 74px;
  padding: 0;
  border:thin solid black;
@@ -163,9 +163,11 @@ echo "<input style='width:12%;' name='search'>";
 echo "</form>";
 ?>
 </div>
+<!--
 <div class="logo">
 project <span style="color:gold">banane</span>
 </div>
+-->
 <div class="navigation">
 <h1>directories</h1>
 <?php
