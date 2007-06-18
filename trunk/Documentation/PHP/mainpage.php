@@ -15,6 +15,17 @@ body {
    font-size: 10pt;
 }
 	
+a:link, a:visited, a:active {
+  font-weight: normal ;
+  text-decoration: none ;
+  color: #737373;
+}
+a:hover {
+  font-weight: normal ;
+  text-decoration: underline; 
+  color: #737373;
+}
+
 div.content {
  position: relative;
  top:22px;
@@ -104,6 +115,16 @@ div.berlios {
  padding: 0px;
 <!--  background:lightgray;-->
  border:thin solid white;
+}
+
+div.bottom {
+ position: absolute;
+ top: 525px;
+ left: 0;
+ bottom: 0px;
+ right: 600px;
+ padding: 0px;
+ border:thin solid black;
 }
 
 div.main {
@@ -211,6 +232,10 @@ echo $mainout;
 <div class="berlios">
 hosted by<BR>
 <a target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="http://developer.berlios.de/bslogo.php?group_id=7706" width="124px" height="32px" border="0" alt="BerliOS Developer Logo"></a>
+</div>
+<div class="bottom">
+webpage by andreas thiel & malte ahlers 2007 . hosted by<BR>
+<a target="_blank" href="http://developer.berlios.de" title="BerliOS Developer"> <img src="./Pics/berlios.gif" border="0" alt="BerliOS Developer Logo"></a>
 </div>
 </div>
 </body>
