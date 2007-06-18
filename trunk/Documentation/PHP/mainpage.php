@@ -23,6 +23,7 @@ div.content {
  margin:0 auto;
   text-align:left;
   background-image:url('Pics/frame.gif')
+    background-repeat:no-repeat;
 }
 
 div.content h1 {
