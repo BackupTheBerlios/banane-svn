@@ -49,7 +49,7 @@ div.search {
  right: 74px;
  padding: 0px;
   text-align:right;
- align:center;
+ vertical-align:middle;
 }
 
 .search input
