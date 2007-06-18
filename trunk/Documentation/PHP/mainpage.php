@@ -36,7 +36,6 @@ div.headline {
  bottom: 200px;
  right: 41px;
  padding: 0px;
-<!-- background:lightgray;-->
  border:thin solid black;
   text-align:left;
 }
@@ -48,8 +47,6 @@ div.logo {
  bottom: 550px;
  right: 600px;
  padding: 10px;
-<!-- background:lightgray; -->
- border:thin solid white;
   text-align:left;
   font-size:140%
 }
@@ -71,7 +68,7 @@ div.berlios {
  left: 0;
  bottom: 0px;
  right: 600px;
- padding: 10px;
+ padding: 0px;
 <!--  background:lightgray;-->
  border:thin solid white;
 }
@@ -82,7 +79,7 @@ div.main {
  left: 217px;
  bottom: 42px;
  right: 74px;
- padding: 0;
+ padding: 0px;
  overflow: auto;
 }
 
@@ -165,7 +162,7 @@ project <span style="color:gold">banane</span>
 </div>
 -->
 <div class="navigation">
-<div style="font-weight:bold;">directories</div>
+<p style="font-weight:bold;">directories</p>
 <?php
 echo $treeout;
 ?>
