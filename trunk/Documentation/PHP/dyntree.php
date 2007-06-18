@@ -121,7 +121,8 @@ function TreeExpand($Parent,$table,$partable,$Folder0,$Page,$level,$levelexpand)
       { 
 	//	$result.="<img src='./Pics/tr.gif' width='".$width."' height='1'><img src='./Pics/folder.gif'><span style='height: 20px; font: 11px;'>&nbsp;<a href='?Page=".$Folder0[$key]["ID"]."&dir=".$Folder0[$key]["Name"]."'>".$Folder0[$key]["Name"]."</a></span><br>"; 
 	//	$result.="<img src='./Pics/tr.gif' width='".$width."' height='1'><img src='./Pics/folder.gif'><span style='height: 20px; font: 11px;'>&nbsp;<a href='?Page=".$Folder0[$key]["ID"]."&dir=".$Folder0[$key]["Description"]."'>".$Folder0[$key]["Name"]."</a></span><br>"; 
-	$result.="<img src='./Pics/tr.gif' width='".$width."' height='1'><img src='./Pics/folder.gif'>&nbsp;<a href='?Page=".$Folder0[$key]["ID"]."&dir=".$Folder0[$key]["Description"]."'>".$Folder0[$key]["Name"]."</a><br>"; 
+	//	$result.="<img src='./Pics/tr.gif' width='".$width."' height='1'><img src='./Pics/folder.gif'>&nbsp;<a href='?Page=".$Folder0[$key]["ID"]."&dir=".$Folder0[$key]["Description"]."'>".$Folder0[$key]["Name"]."</a><br>"; 
+	$result.="<img src='./Pics/folder.gif'>&nbsp;<a href='?Page=".$Folder0[$key]["ID"]."&dir=".$Folder0[$key]["Description"]."'>".$Folder0[$key]["Name"]."</a><br>"; 
       }
     if (isset($table[$key])){ $result.=TreeExpand($key,$table,$partable,$Folder0,$Page,$level+1,$levelexpand); }
   }
