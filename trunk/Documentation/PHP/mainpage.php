@@ -35,10 +35,20 @@ div.headline {
  position: absolute;
  top: 136px;
  left: 218px;
- bottom: 600px;
+ bottom: 622px;
  right: 74px;
  padding: 0px;
   text-align:left;
+}
+
+div.search {
+ position: absolute;
+ top: 136px;
+ left: 218px;
+ bottom: 622px;
+ right: 74px;
+ padding: 0px;
+  text-align:right;
 }
 
 div.logo {
@@ -56,7 +66,7 @@ div.navigation_head {
  position: absolute;
  top: 136px;
  left: 68px;
- bottom: 600px;
+ bottom: 622px;
  right: 670px;
  padding: 0px;
   text-transform: lowercase;
@@ -68,7 +78,7 @@ div.navigation {
  position: absolute;
  top: 178px;
  left: 68px;
- bottom: 42px;
+ bottom: 64px;
  right: 670px;
  padding: 0px;
   text-transform: lowercase;
@@ -91,7 +101,7 @@ div.main {
  position: absolute;
  top: 178px;
  left: 218px;
- bottom: 42px;
+ bottom: 64px;
  right: 74px;
  padding: 0px;
  overflow: auto;
@@ -162,15 +172,14 @@ else
 <? echo "<a href='".$phppath."mainpage.php'>about</a> "; ?>
 <a target='_blank' href='http://project-banane.blogspot.com'>weblog</a>
 <a target='_blank' href='http://developer.berlios.de/projects/banane/'>summary</a>
-<a>members</a>
-search</span>
-<!--
+<a>members</a></span>
+</div>
+<div class="search">
 <?php
 echo "<form name='input' style='display:inline;' action='".$phppath."mainpage.php' method='get'>";
 echo "<input style='width:12%;' name='search'>";
 echo "</form>";
 ?>
--->
 </div>
 <!--
 <div class="logo">
