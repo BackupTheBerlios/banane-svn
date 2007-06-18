@@ -83,13 +83,10 @@ div.main {
  bottom: 42px;
  right: 74px;
  padding: 0;
- border:thin solid black;
  overflow: auto;
 }
 
 div.main h1 {
-  font-size:100%;
-  font-weight:bold;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -168,7 +165,7 @@ project <span style="color:gold">banane</span>
 </div>
 -->
 <div class="navigation">
-<h1>directories</h1>
+<span style="font-weight:bold;">directories</span>
 <?php
 echo $treeout;
 ?>
