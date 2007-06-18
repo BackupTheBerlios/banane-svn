@@ -22,7 +22,7 @@ div.content {
  height:776px;
  margin:0 auto;
   text-align:left;
-  background-image:url('Pics/frame.gif')
+  background-image:url('Pics/frame_filledcropped.gif')
 }
 
 div.content h1 {
@@ -57,7 +57,7 @@ div.navigation {
  top: 134px;
  left: 68px;
  bottom: 42px;
- right: 630px;
+ right: 670px;
  padding: 0px;
   text-transform: lowercase;
  overflow: auto;
