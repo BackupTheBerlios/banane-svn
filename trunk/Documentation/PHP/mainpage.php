@@ -58,6 +58,7 @@ background: #f9f9f9;
 border: 1px solid #5c5c5c;
 width:12%;
 height:1ex;
+ margin: 0px;
   vertical-align: baseline;
 }
 
@@ -188,7 +189,7 @@ else
 <div class="search">
 <?php
 echo "<form name='input' style='display:inline;' action='".$phppath."mainpage.php' method='get'>";
-echo "search <input name='search'>";
+echo "search <input type='text' name='search'>";
 echo "</form>";
 ?>
 </div>
