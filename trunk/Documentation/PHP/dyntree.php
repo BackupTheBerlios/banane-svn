@@ -90,8 +90,8 @@ function TreeNodes($ID,$table,$partable,$Folder0,$Page,$levels){
     $fip=$partable[$ID];
     $fiplevel=$levels[$fip];
     $fiplist=$table[$fip];
-    //    $imgwidth="<img src='./Pics/tr.gif' width='".(($fiplevel)*10)."' height='1' alt=''>";
-    $imgwidth="";
+    $imgwidth="<img src='./Pics/tr.gif' width='".(($fiplevel)*10)."' height='1' alt=''>";
+    //$imgwidth="";
     $rez="";
     while(list($key,$val)=each($fiplist)){
       if($Page==$key){
