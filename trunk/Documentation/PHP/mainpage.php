@@ -120,7 +120,7 @@ div.berlios {
 div.bottom {
  position: absolute;
  top: 780px;
- left: 600px;
+ left: 200px;
  bottom: 0px;
  right: 59px;
  padding-right: 15px;
