@@ -57,7 +57,7 @@ div.navigation {
  top: 134px;
  left: 68px;
  bottom: 42px;
- right: 600px;
+ right: 630px;
  padding: 0px;
   text-transform: lowercase;
  overflow: auto;
@@ -152,11 +152,13 @@ else
 <a target='_blank' href='http://developer.berlios.de/projects/banane/'>summary</a>
 <a>members</a>
 search</span>
+<!--
 <?php
 echo "<form name='input' style='display:inline;' action='".$phppath."mainpage.php' method='get'>";
 echo "<input style='width:12%;' name='search'>";
 echo "</form>";
 ?>
+-->
 </div>
 <!--
 <div class="logo">
