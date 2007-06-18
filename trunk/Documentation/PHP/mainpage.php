@@ -30,7 +30,7 @@ div.content h1 {
 
 div.headline {
  position: absolute;
- top: 139px;
+ top: 130px;
  left: 217px;
  bottom: 200px;
  right: 41px;
@@ -79,7 +79,7 @@ div.berlios {
 
 div.main {
  position: absolute;
- top: 180px;
+ top: 175px;
  left: 217px;
  bottom: 41px;
  right: 41px;
