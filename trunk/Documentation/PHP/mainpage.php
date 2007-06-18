@@ -36,19 +36,21 @@ div.headline {
  top: 136px;
  left: 218px;
  bottom: 622px;
- right: 74px;
+ right: 174px;
  padding: 0px;
   text-align:left;
+ border: solid black 1px;
 }
 
 div.search {
  position: absolute;
  top: 134px;
- left: 218px;
+ left: 318px;
  bottom: 622px;
  right: 74px;
  padding: 0px;
   text-align:right;
+ border: solid black 1px;
 }
 
 .search input
