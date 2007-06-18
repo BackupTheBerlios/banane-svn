@@ -113,7 +113,7 @@ div.main {
  top: 178px;
  left: 218px;
  bottom: 64px;
- right: 94px;
+ right: 54px;
  padding-right: 20px;
  overflow: auto;
 }
