@@ -38,7 +38,7 @@ div.headline {
  bottom: 622px;
  right: 74px;
  padding: 0px;
-  text-align:justify;
+  text-align:left;
 }
 
 div.search {
@@ -58,7 +58,7 @@ background: #f9f9f9;
 border: 1px solid #5c5c5c;
 width:12%;
 height:0.5ex;
- top:0.25ex;
+ bottom:0ex;
 }
 
 
@@ -113,8 +113,8 @@ div.main {
  top: 178px;
  left: 218px;
  bottom: 64px;
- right: 54px;
- padding-right: 20px;
+ right: 59px;
+ padding-right: 15px;
  overflow: auto;
 }
 
