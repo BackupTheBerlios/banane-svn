@@ -188,7 +188,7 @@ else
 <div class="search">
 <?php
 echo "<form name='input' style='display:inline;' action='".$phppath."mainpage.php' method='get'>";
-echo "<input name='search'>";
+echo "search <input name='search'>";
 echo "</form>";
 ?>
 </div>
