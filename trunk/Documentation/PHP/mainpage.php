@@ -43,7 +43,7 @@ div.headline {
 
 div.search {
  position: absolute;
- top: 136px;
+ top: 134px;
  left: 218px;
  bottom: 622px;
  right: 74px;
@@ -56,10 +56,8 @@ div.search {
 color: black;
 background: #f9f9f9;
 border: 1px solid #5c5c5c;
-width:50px;
-height:2ex;
-padding: 0px;
- margin: 0px
+width:100px;
+padding: 2px;
   vertical-align: baseline;
 }
 
