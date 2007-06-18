@@ -88,13 +88,14 @@ div.navigation_head {
 div.navigation {
  position: absolute;
  top: 178px;
- left: 68px;
+ left: 66px;
  bottom: 64px;
  right: 670px;
  padding: 0px;
   text-transform: lowercase;
  overflow: auto;
   line-height: 150%;
+border:thin solid black;
 }
 
 div.berlios {
