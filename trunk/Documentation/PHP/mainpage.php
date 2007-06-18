@@ -32,9 +32,9 @@ div.content h1 {
 
 div.headline {
  position: absolute;
- top: 134px;
+ top: 135px;
  left: 217px;
- bottom: 200px;
+ bottom: 600px;
  right: 74px;
  padding: 0px;
  border:thin solid black;
@@ -54,7 +54,7 @@ div.logo {
 
 div.navigation {
  position: absolute;
- top: 134px;
+ top: 135px;
  left: 68px;
  bottom: 42px;
  right: 670px;
