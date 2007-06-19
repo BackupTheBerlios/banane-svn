@@ -24,6 +24,14 @@ a:hover {
   color: #737373;
 }
 
+a#linkhome {
+ top: 46px;
+ left: 55px;
+ height: 41px;
+ width: 165px;
+ border: thin black solid;
+}
+
 div.content {
  position: relative;
  top:22px;
@@ -211,8 +219,7 @@ else
 <div class="content">
 
 <map name='mymap'>
-<? echo "<area href='".$phppath."mainpage.php' title='banane mainpage' alt='banane' shape=rect coords='55,46,220,87'>"; ?>
-</map>
+<a id="linkhome" href='".$phppath."mainpage.php'</a>
 
 <div class="headline">
 <? echo "<a href='".$phppath."mainpage.php'>about</a> "; ?>
