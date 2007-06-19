@@ -144,6 +144,16 @@ div.main h1 {
   margin-bottom: 0px;
 }
 
+.main a:link, .main a:visited, .main a:active {
+  font-weight: normal ;
+  text-decoration: underline ;
+}
+
+.main a:hover {
+  font-weight: normal ;
+  text-decoration: underline; 
+  color: #0;
+}
 
 </style>
 
