@@ -12,7 +12,7 @@ body {
    background: #e6e7e9;
    color: #737373;
    font-family: helvetica, arial, sans-serif;
-   font-size: 10pt;
+   font-size: 9pt;
 }
 
 a:link, a:visited, a:active {
@@ -162,6 +162,15 @@ div.main h1 {
   text-decoration: underline; 
   color: #000000;
 }
+
+
+code {
+  font-family: courier,serif;
+  white-space: pre } /*make CODE environment respect whitespace to enable verbatim printing of code snippets in starred header lines*/
+
+
+/* style for header sections like NAME, AIM, SYNTAX and so on */
+.head sec { font-weight: bold }
 
 </style>
 
