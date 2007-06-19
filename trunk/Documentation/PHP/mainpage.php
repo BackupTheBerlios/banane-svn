@@ -152,7 +152,7 @@ div.main h1 {
 .main a:hover {
   font-weight: normal ;
   text-decoration: underline; 
-  color: #0;
+  color: #000000;
 }
 
 </style>
