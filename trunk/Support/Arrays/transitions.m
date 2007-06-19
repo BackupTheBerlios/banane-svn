@@ -70,13 +70,17 @@
 % OUTPUTS:
 %  result:: Onedimensional array containing a sequence of
 %           indices. <VAR>result(1)=result(end)</VAR>, ie the
-%           sequence always starts and ends with the same index. The
+%           sequence always starts and ends with the same
+%           index. If <VAR>array</VAR> is onedimensional,
+%           <VAR>result(1)=array(1)</VAR>, and the
 %           number of elements in <VAR>result</VAR> is 
 %           <VAR>n^2+1</VAR> with <VAR>n</VAR> being the number of entries
-%           in <VAR>array</VAR>, if <VAR>array</VAR> was onedimensional, and
+%           in <VAR>array</VAR>. If <VAR>array</VAR> is twodimensional,
+%           <VAR>result(1)</VAR> equals the first nonzero row index of
+%           <VAR>array</VAR>, and the number of entries is 
 %           <VAR>m+1</VAR>, 
 %           with <VAR>m</VAR> being the number of nonzero elements of
-%           <VAR>array</VAR>, if it was twodimensional.
+%           <VAR>array</VAR>.
 %
 % PROCEDURE:
 %  A kind of sorting a twodimensional array that contains the possible
@@ -90,29 +94,28 @@
 % them if it gets stuck.
 %
 % EXAMPLE:
-%* array=['a' 'b' 'c'];
-%* array(transitions(1:3),'verbose',true)
-%*>  Index input, all transitions allowed.
-%*>  ans =
-%*>  caabacbbcc
-%* array(transitions(1:3),'verbose',true)
-%*>  Index input, all transitions allowed.
-%*>  ans =
-%*>  baabcaccbb
-%* allow=ones(3)-eye(3);
-%* array(transitions(allow),'verbose',true)
-%*>  Transition matrix input.
-%*>  ans =
-%*>  cbabcac
-%* allow=ones(10)-eye(10);
-%* tr=transitions(allow,'verbose',true);
-%*>  Transition matrix input.
-%* trs=circshift(tr,[0,1]);
-%* trc=[tr;trs]';
-%* hist3(trc)
+%* >> array=['a' 'b' 'c'];
+%* >> array(transitions((1:3),'verbose',true))
+%* Index input, all transitions allowed.
+%* ans =
+%* abbaacbcca
+%* >> array(transitions((1:3),'verbose',true))
+%* Index input, all transitions allowed.
+%* ans =
+%* aabccacbba
+%* >> allow=ones(3)-eye(3);
+%* >> array(transitions(allow,'verbose',true))
+%* Transition matrix input.
+%* ans =
+%* babcacb
+%* >> allow=ones(10)-eye(10);
+%* >> tr=transitions(allow,'verbose',true);
+%* Transition matrix input.
+%* >> trs=circshift(tr,[0,1]);
+%* >> trc=[tr;trs]';
+%* >> hist3(trc)
 %
 %-
-
 
 
 function r=transitions(i, varargin)
@@ -135,6 +138,7 @@ function r=transitions(i, varargin)
      cnz = si(2)^2;
      ri=repmat(i,1,si(2));
      diff=[ri(:) repel(i,si(2)).'];
+     first=diff(1,1);
     case 2
      if (kw.verbose)
        disp('Transition matrix input.');
@@ -142,13 +146,22 @@ function r=transitions(i, varargin)
      cnz=nnz(i);
      [nzi,nzj]=find(i);
      diff=[nzi nzj];
+     first=diff(1,1);
     otherwise
      error('Pass either 1- or 2dim arrays.');
    
    end % switch
    
-   % Scramble the diff array to generate random solutions
+   % scramble the diff array to generate random solutions
    diff = diff(randperm(cnz),:);
+   
+   % to ensure that transitions always start with the first entry in i,
+   % find the first occurrence of the first entry in i and swap this with
+   % the first entry after scrambling
+   zeroidx=find(diff(:,1)==first,1);
+   add = diff(1,:);
+   diff(1,:)=diff(zeroidx,:);
+   diff(zeroidx,:)=add;
    
    % Init some state variables
    count = 2; % position inside the diff array that is processed
