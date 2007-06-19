@@ -112,7 +112,7 @@ function TreeExpand($Parent,$table,$partable,$Folder0,$Page,$level,$levelexpand)
   while(list($key,$val)=each($list)){
     if($level<$levelexpand)
       { 
-	$result.="<img style='border: thin solid black;' src='./Pics/folder.gif'><span style='vertical-align:5px;'>&nbsp;<a href='?Page=".$Folder0[$key]["ID"]."&dir=".$Folder0[$key]["Description"]."'>".$Folder0[$key]["Name"]."</a></span><br>"; 
+	$result.="<img src='./Pics/folder.gif'><span style='vertical-align:5px;'>&nbsp;<a href='?Page=".$Folder0[$key]["ID"]."&dir=".$Folder0[$key]["Description"]."'>".$Folder0[$key]["Name"]."</a></span><br>"; 
       }
 
     if (isset($table[$key]))
