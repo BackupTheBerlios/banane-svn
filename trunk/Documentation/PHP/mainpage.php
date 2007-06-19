@@ -209,6 +209,11 @@ else
 ?>
 
 <div class="content">
+
+<map name='mymap'>
+<? echo "<area href='".$phppath."mainpage.php' title='banane mainpage' alt='banane' shape=rect coords='55,46,220,87'>"; ?>
+</map>
+
 <div class="headline">
 <? echo "<a href='".$phppath."mainpage.php'>about</a> "; ?>
 <a target='_blank' href='http://project-banane.blogspot.com'>weblog</a>
