@@ -66,8 +66,8 @@ function TreeNodes($ID,$table,$partable,$Folder0,$Page,$levels){
   $imgfolder0="<img style='border: thin solid black;' src='./Pics/folder.gif'>&nbsp;<span style='vertical-align:5px;'>";
   $imgfolder1="<img style='border: thin solid black;' src='./Pics/folderopen.gif'>&nbsp;<span style='font-weight:bold; vertical-align:5px;'>";
   if(isset($table[$ID])) {
-    $imgwidth="<img src='./Pics/tr.gif' width='".(($levels[$ID])*10)."' height='1' alt=''>";
-    //$imgwidth="";
+    //$imgwidth="<img src='./Pics/tr.gif' width='".(($levels[$ID])*10)."' height='1' alt=''>";
+    $imgwidth="";
     $lisd=$table[$ID];
     $ID0=$ID; $fiplevel=$levels[$ID];
     while(list($key,$val)=each($lisd)){
@@ -90,8 +90,8 @@ function TreeNodes($ID,$table,$partable,$Folder0,$Page,$levels){
     $fip=$partable[$ID];
     $fiplevel=$levels[$fip];
     $fiplist=$table[$fip];
-    $imgwidth="<img src='./Pics/tr.gif' width='".(($fiplevel)*10)."' height='1' alt=''>";
-    //$imgwidth="";
+    //    $imgwidth="<img src='./Pics/tr.gif' width='".(($fiplevel)*10)."' height='1' alt=''>";
+    $imgwidth="";
     $rez="";
     while(list($key,$val)=each($fiplist)){
       if($Page==$key){
