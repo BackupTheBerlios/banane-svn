@@ -36,8 +36,10 @@ while($rrow = mysql_fetch_array($routines))
 ##    $anchor=$webpath."Documentation/PHP/viewroutine.php?routine=".$rname;
 ##    $anchor=$webpath."Documentation/PHP/new.php?Page=".$page."&routine=".$rname;
     $anchor="?Page=".$page."&routine=".$rname;
+    $output.="<TR>";
     $output.="<TD VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-    $output.="<TD VALIGN=TOP>".$rrow["aim"]."</TR>";
+    $output.="<TD VALIGN=TOP>".$rrow["aim"];
+    $output.="</TR>";
   }
 $output.="</TABLE>";
 
@@ -85,8 +87,10 @@ switch ($num_rows) {
      { $rname=$row["name"];
 ##       $anchor=$webpath."Documentation/PHP/new.php?routine=".$rname;
        $anchor="?routine=".$rname;
+       $output.="<TR>";
        $output.="<TD VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-       $output.="<TD VALIGN=TOP>".$row["aim"]."</TR>";
+       $output.="<TD VALIGN=TOP>".$row["aim"];
+       $output.="</TR>";
      }
    $output.="</TABLE>";
 }
