@@ -3,7 +3,7 @@
 %  insert()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -15,59 +15,56 @@
 %  Insert item into classic list data structure.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  Insert data into a given list object. At present, insertion can either
+%  be done at the beginning or the end of the list, arbitrary positions
+%  are not implemented yet. 
 %
 % CATEGORY:
-%  At present, there are the following possibilities:<BR>
-%   - DataStructures<BR>
-%   - Documentation<BR>
-%   - NEV Tools<BR>
-%   - Support routines<BR>
-%  Others may be invented, with corresponding subdirectories in the
-%  BANANE directory tree. For example:<BR>
-%   - Array<BR>
-%   - DataStorage<BR>
-%   - Demonstration<BR>
-%   - Graphic<BR>
-%   - Help<BR>
-%   - Statistics<BR>
-%   - Signals<BR>
-%   - Simulation<BR>
-%   - Strings<BR>
+%  Support routines<BR>
+%  Classes
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2,[, optarg1][, optarg2]); 
+%* l=insert(l,item,position); 
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
+%  l:: A list object created with the <A>list</A> command.
 %  function.
-%  arg2:: Second argument of the function call.
-%
-% OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument.
+%  item:: The data item to be inserted. Since the list object is based on
+%         a MATLAB cell array, <VAR>item</VAR> can be of any type.
+%  position:: At present, the <VAR>position</VAR> argument can only take 
+%             the values <VAR>'first'</VAR> and <VAR>'last'</VAR>.  
 %
 % OUTPUTS:
-%  result:: The result of the routine.
+%  l:: The new list object with <VAR>item</VAR> inserted at the
+%  respective position.
 %
 % RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  See above: position argument is not fully functional yet.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  Create a new cell array including the value appended.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. 
-%* data=example_function(23,5)
-%  
-%  Indicate matlab output with *>
-%*> ans =
-%*>   28
-%
+%* >> s = strvcat('Hello','Yes','No','Goodbye')
+%* s =
+%* Hello  
+%* Yes    
+%* No     
+%* Goodbye
+%*
+%* >> l=list(s)
+%*     'Hello'
+%*     'Yes'
+%*     'No'
+%*     'Goodbye'
+%* 
+%* >> l=insert(l,'foobar','first') 
+%*     'foobar'
+%*     'Hello'
+%*     'Yes'
+%*     'No'
+%*     'Goodbye'
+%* 
 % SEE ALSO:
 %  <A>list</A>, <A>retrieve</A>, <A>kill</A>.
 %
@@ -75,17 +72,16 @@
 
 function l=insert(l,item,position)
   
-  switch position
-   case 'last'
-    if (isempty(l.hook{1}))
-      l.hook={item};
-    else
-      new=[l.hook, {item}];
+  if (isempty(l.hook{1}))
+    l.hook={item};
+  else
+    switch position
+     case 'last'
+      l.hook(end+1)={item};
+     case 'first'
+      new=[{item}; l.hook];
       l.hook=new;
-    end % if
-   case 'first'
-    new=[{item}, l.hook];
-    l.hook=new
-   otherwise
-    error('Unknown position parameter.')
-  end % switch
+     otherwise
+      error('Unknown position parameter.')
+    end % switch
+  end % if
