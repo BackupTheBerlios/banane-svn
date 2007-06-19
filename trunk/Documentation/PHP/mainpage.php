@@ -20,7 +20,6 @@ a:link, a:visited, a:active {
   color: #737373;
 }
 a:hover {
-  font-weight: normal ;
   text-decoration: underline; 
   color: #737373;
 }
@@ -49,6 +48,8 @@ div.headline {
  right: 274px;
  padding: 0px;
   text-align:left;
+  word-spacing:1.2em; 
+  font-weight:bold;
 }
 
 div.search {
@@ -59,6 +60,7 @@ div.search {
  right: 74px;
  padding: 0px;
   text-align:right;
+  font-weight:bold;
 }
 
 .search input
@@ -198,11 +200,10 @@ else
 
 <div class="content">
 <div class="headline">
-<span style="word-spacing:1.2em;">
 <? echo "<a href='".$phppath."mainpage.php'>about</a> "; ?>
 <a target='_blank' href='http://project-banane.blogspot.com'>weblog</a>
 <a target='_blank' href='http://developer.berlios.de/projects/banane/'>summary</a>
-<a>members</a></span>
+<a>members</a>
 </div>
 <div class="search">
 <?php
