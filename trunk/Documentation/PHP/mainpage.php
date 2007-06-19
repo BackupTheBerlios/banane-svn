@@ -24,14 +24,6 @@ a:hover {
   color: #737373;
 }
 
-a#linkhome {
- top: 46px;
- left: 55px;
- height: 41px;
- width: 165px;
- border: thin black solid;
-}
-
 div.content {
  position: relative;
  top:22px;
@@ -41,6 +33,15 @@ div.content {
   text-align:left;
   background-image:url('Pics/frame.gif');
     background-repeat:no-repeat;
+}
+
+a#linkhome {
+ position: absolute;
+ top: 46px;
+ left: 55px;
+ height: 41px;
+ width: 165px;
+ border: thin black solid;
 }
 
 div.content h1 {
@@ -218,11 +219,10 @@ else
 
 <div class="content">
 
-<map name='mymap'>
-<a id="linkhome" href='".$phppath."mainpage.php'</a>
+<? echo "<a id='linkhome' href='".$phppath."mainpage.php'</a>"; ?>
 
 <div class="headline">
-<? echo "<a href='".$phppath."mainpage.php'>about</a> "; ?>
+<? echo "<a href='".$phppath."mainpage.php'>about</a>"; ?>
 <a target='_blank' href='http://project-banane.blogspot.com'>weblog</a>
 <a target='_blank' href='http://developer.berlios.de/projects/banane/'>summary</a>
 <a>members</a>
