@@ -15,7 +15,6 @@ body {
    font-size: 10pt;
 }
 
-<!--	
 a:link, a:visited, a:active {
   text-decoration: none ;
   color: #737373;
@@ -25,7 +24,6 @@ a:hover {
   text-decoration: underline; 
   color: #737373;
 }
--->
 
 div.content {
  position: relative;
@@ -104,7 +102,7 @@ div.navigation {
  padding: 0px;
   text-transform: lowercase;
  overflow: auto;
-  font-size:5pt;
+  line-height:150%;
 }
 
 div.berlios {
