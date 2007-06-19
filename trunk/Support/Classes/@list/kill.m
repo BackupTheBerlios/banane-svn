@@ -3,7 +3,7 @@
 %  kill()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -15,28 +15,12 @@
 %  Remove data item from a classic list data structure.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  The kill() function removes a data item at a specified position from a
+%  list data structure.
 %
 % CATEGORY:
-%  At present, there are the following possibilities:<BR>
-%   - DataStructures<BR>
-%   - Documentation<BR>
-%   - NEV Tools<BR>
-%   - Support routines<BR>
-%  Others may be invented, with corresponding subdirectories in the
-%  BANANE directory tree. For example:<BR>
-%   - Array<BR>
-%   - DataStorage<BR>
-%   - Demonstration<BR>
-%   - Graphic<BR>
-%   - Help<BR>
-%   - Statistics<BR>
-%   - Signals<BR>
-%   - Simulation<BR>
-%   - Strings<BR>
+%  Support routines<BR>
+%  Classes
 %
 % SYNTAX:
 %* result = example_function(arg1, arg2,[, optarg1][, optarg2]); 
