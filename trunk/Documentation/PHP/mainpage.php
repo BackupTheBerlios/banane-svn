@@ -41,7 +41,6 @@ a#linkhome {
  left: 55px;
  height: 41px;
  width: 165px;
- border: thin black solid;
 }
 
 div.content h1 {
