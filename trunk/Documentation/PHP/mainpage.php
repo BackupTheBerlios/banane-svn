@@ -51,7 +51,7 @@ div.content h1 {
 div.headline {
  position: absolute;
  top: 121px;
- left: 218px;
+ left: 204px;
  bottom: 622px;
  right: 274px;
  padding: 0px;
@@ -140,7 +140,7 @@ div.bottom {
 div.main {
  position: absolute;
  top: 178px;
- left: 218px;
+ left: 204px;
  bottom: 64px;
  right: 59px;
  padding-right: 15px;
