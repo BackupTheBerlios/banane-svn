@@ -26,7 +26,7 @@ a:hover {
 
 div.content {
  position: relative;
- top:22px;
+ top:15px;
  width:823px;
  height:704px;
  margin:0 auto;
