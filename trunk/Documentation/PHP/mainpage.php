@@ -106,17 +106,6 @@ div.navigation {
   line-height:160%;
 }
 
-div.berlios {
- position: absolute;
- top: 525px;
- left: 0;
- bottom: 0px;
- right: 600px;
- padding: 0px;
-<!--  background:lightgray;-->
- border:thin solid white;
-}
-
 div.bottom {
  position: absolute;
  top: 687px;
@@ -136,7 +125,6 @@ div.main {
  right: 52px;
  padding-right: 15px;
  overflow: auto;
- border: thin black solid;
 }
 
 div.main h1 {
