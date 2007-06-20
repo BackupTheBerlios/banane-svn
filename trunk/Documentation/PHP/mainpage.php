@@ -71,8 +71,6 @@ div.search {
  padding: 0px;
   text-align:right;
   font-weight:bold;
- border: thin black solid;
-
 }
 
 .search input
@@ -135,7 +133,7 @@ div.main {
  top: 153px;
  left: 204px;
  bottom: 64px;
- right: 69px;
+ right: 59px;
  padding-right: 15px;
  overflow: auto;
  border: thin black solid;
