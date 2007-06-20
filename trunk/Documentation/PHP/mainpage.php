@@ -230,7 +230,7 @@ else
 <? echo "<a id='linkhome' href='".$phppath."mainpage.php'</a>"; ?>
 
 <div class="headline">
-<? echo "<a href='".$phppath."mainpage.php'>about</a>"; ?>
+<? echo "<a href='".$phppath."mainpage.php'>about</a> "; ?>
 <a target='_blank' href='http://project-banane.blogspot.com'>weblog</a>
 <a target='_blank' href='http://developer.berlios.de/projects/banane/'>summary</a>
 <a>members</a>
