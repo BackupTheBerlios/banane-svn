@@ -105,7 +105,7 @@ div.navigation_head {
 
 div.navigation {
  position: absolute;
- top: 175px;
+ top: 155px;
  left: 64px;
  bottom: 64px;
  right: 670px;
@@ -139,7 +139,7 @@ div.bottom {
 
 div.main {
  position: absolute;
- top: 178px;
+ top: 155px;
  left: 204px;
  bottom: 64px;
  right: 59px;
