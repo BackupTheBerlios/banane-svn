@@ -50,7 +50,7 @@ div.content h1 {
 
 div.headline {
  position: absolute;
- top: 125px;
+ top: 121px;
  left: 218px;
  bottom: 622px;
  right: 274px;
@@ -62,7 +62,7 @@ div.headline {
 
 div.search {
  position: absolute;
- top: 123px;
+ top: 119px;
  left: 618px;
  bottom: 622px;
  right: 74px;
@@ -95,7 +95,7 @@ div.logo {
 
 div.navigation_head {
  position: absolute;
- top: 125px;
+ top: 121px;
  left: 68px;
  bottom: 622px;
  right: 670px;
