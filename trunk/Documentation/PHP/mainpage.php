@@ -98,12 +98,11 @@ div.navigation {
  position: absolute;
  top: 151px;
  left: 64px;
- bottom: 64px;
+ bottom: 69px;
  right: 625px;
  padding: 0px;
   text-transform: lowercase;
  overflow: auto; 
-  padding-bottom: 15px;
   line-height:160%;
 }
 
@@ -133,10 +132,9 @@ div.main {
  position: absolute;
  top: 153px;
  left: 204px;
- bottom: 64px;
+ bottom: 69px;
  right: 52px;
  padding-right: 15px;
- padding-bottom: 15px;
  overflow: auto;
  border: thin black solid;
 }
