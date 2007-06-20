@@ -27,8 +27,8 @@ a:hover {
 div.content {
  position: relative;
  top:22px;
- width:880px;
- height:798px;
+ width:823px;
+ height:704px;
  margin:0 auto;
   text-align:left;
   background-image:url('Pics/frame.gif');
