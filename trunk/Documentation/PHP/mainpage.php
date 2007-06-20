@@ -37,10 +37,10 @@ div.content {
 
 a#linkhome {
  position: absolute;
- top: 46px;
- left: 55px;
- height: 41px;
- width: 165px;
+ top: 36px;
+ left: 41px;
+ height: 44px;
+ width: 162px;
 }
 
 div.content h1 {
@@ -50,7 +50,7 @@ div.content h1 {
 
 div.headline {
  position: absolute;
- top: 136px;
+ top: 125px;
  left: 218px;
  bottom: 622px;
  right: 274px;
@@ -62,7 +62,7 @@ div.headline {
 
 div.search {
  position: absolute;
- top: 134px;
+ top: 123px;
  left: 618px;
  bottom: 622px;
  right: 74px;
@@ -95,7 +95,7 @@ div.logo {
 
 div.navigation_head {
  position: absolute;
- top: 136px;
+ top: 125px;
  left: 68px;
  bottom: 622px;
  right: 670px;
