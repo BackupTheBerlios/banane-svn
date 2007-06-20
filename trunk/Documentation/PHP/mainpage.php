@@ -55,7 +55,7 @@ div.headline {
  position: absolute;
  top: 121px;
  left: 204px;
- bottom: 570px;
+ bottom: 560px;
  right: 274px;
  padding: 0px;
   text-align:left;
@@ -69,7 +69,7 @@ div.search {
  position: absolute;
  top: 119px;
  left: 618px;
- bottom: 570px;
+ bottom: 560px;
  right: 74px;
  padding: 0px;
   text-align:right;
@@ -93,8 +93,8 @@ div.navigation_head {
  position: absolute;
  top: 121px;
  left: 68px;
- bottom: 570px;
- right: 620px;
+ bottom: 560px;
+ right: 625px;
  padding: 0px;
   text-transform: lowercase;
  border: thin black solid;
@@ -102,10 +102,10 @@ div.navigation_head {
 
 div.navigation {
  position: absolute;
- top: 155px;
+ top: 153px;
  left: 64px;
  bottom: 64px;
- right: 620px;
+ right: 625px;
  padding: 0px;
   text-transform: lowercase;
  overflow: auto;
@@ -129,7 +129,7 @@ div.bottom {
  top: 687px;
  left: 430px;
  bottom: 0px;
- right: 75px;
+ right: 37px;
  padding: 0px;
   text-align: right;
   font-size: 85%; 
@@ -139,7 +139,7 @@ border: thin black solid;
 
 div.main {
  position: absolute;
- top: 155px;
+ top: 153px;
  left: 204px;
  bottom: 64px;
  right: 59px;
