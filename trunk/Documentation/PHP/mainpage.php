@@ -64,7 +64,7 @@ div.headline {
 
 div.search {
  position: absolute;
- top: 119px;
+ top: 117px;
  left: 618px;
  bottom: 560px;
  right: 69px;
