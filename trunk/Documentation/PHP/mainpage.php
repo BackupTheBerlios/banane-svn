@@ -67,7 +67,7 @@ div.search {
  top: 119px;
  left: 618px;
  bottom: 560px;
- right: 74px;
+ right: 69px;
  padding: 0px;
   text-align:right;
   font-weight:bold;
@@ -129,8 +129,6 @@ div.bottom {
  padding: 0px;
   text-align: right;
   font-size: 85%; 
-border: thin black solid;
-
 }
 
 div.main {
@@ -138,7 +136,7 @@ div.main {
  top: 153px;
  left: 204px;
  bottom: 64px;
- right: 59px;
+ right: 69px;
  padding-right: 15px;
  overflow: auto;
  border: thin black solid;
