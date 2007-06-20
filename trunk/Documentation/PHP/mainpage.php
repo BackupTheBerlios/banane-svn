@@ -98,9 +98,10 @@ div.navigation_head {
  top: 121px;
  left: 68px;
  bottom: 622px;
- right: 670px;
+ right: 619px;
  padding: 0px;
   text-transform: lowercase;
+ border: thin black solid;
 }
 
 div.navigation {
@@ -108,11 +109,12 @@ div.navigation {
  top: 155px;
  left: 64px;
  bottom: 64px;
- right: 670px;
+ right: 619px;
  padding: 0px;
   text-transform: lowercase;
  overflow: auto;
   line-height:160%;
+ border: thin black solid;
 }
 
 div.berlios {
@@ -145,6 +147,7 @@ div.main {
  right: 59px;
  padding-right: 15px;
  overflow: auto;
+ border: thin black solid;
 }
 
 div.main h1 {
