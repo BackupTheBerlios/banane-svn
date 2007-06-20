@@ -106,7 +106,6 @@ div.navigation {
   text-transform: lowercase;
  overflow: auto;
   line-height:160%;
- border: thin black solid;
 }
 
 div.berlios {
