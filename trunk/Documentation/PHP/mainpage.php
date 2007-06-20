@@ -35,40 +35,47 @@ div.content {
     background-repeat:no-repeat;
 }
 
+div.content h1 {
+  font-size:100%;  
+  font-weight:bold;
+}
+
+
 a#linkhome {
  position: absolute;
  top: 36px;
  left: 41px;
  height: 44px;
  width: 162px;
+border: thin black solid;
 }
 
-div.content h1 {
-  font-size:100%;  
-  font-weight:bold;
-}
 
 div.headline {
  position: absolute;
  top: 121px;
  left: 204px;
- bottom: 622px;
+ bottom: 550px;
  right: 274px;
  padding: 0px;
   text-align:left;
   word-spacing:1.2em; 
-  font-weight:bold;
+  font-weight:bold; 
+border: thin black solid;
+
 }
 
 div.search {
  position: absolute;
  top: 119px;
  left: 618px;
- bottom: 622px;
+ bottom: 550px;
  right: 74px;
  padding: 0px;
   text-align:right;
   font-weight:bold;
+ border: thin black solid;
+
 }
 
 .search input
@@ -82,23 +89,12 @@ padding: 1px;
 }
 
 
-div.logo {
- position: absolute;
- top: 0;
- left: 0;
- bottom: 550px;
- right: 600px;
- padding: 10px;
-  text-align:left;
-  font-size:140%
-}
-
 div.navigation_head {
  position: absolute;
  top: 121px;
  left: 68px;
- bottom: 622px;
- right: 619px;
+ bottom: 550px;
+ right: 610px;
  padding: 0px;
   text-transform: lowercase;
  border: thin black solid;
@@ -109,7 +105,7 @@ div.navigation {
  top: 155px;
  left: 64px;
  bottom: 64px;
- right: 619px;
+ right: 610px;
  padding: 0px;
   text-transform: lowercase;
  overflow: auto;
@@ -136,7 +132,9 @@ div.bottom {
  right: 75px;
  padding: 0px;
   text-align: right;
-  font-size: 85%;
+  font-size: 85%; 
+border: thin black solid;
+
 }
 
 div.main {
