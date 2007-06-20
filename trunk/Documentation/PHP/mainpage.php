@@ -47,7 +47,6 @@ a#linkhome {
  left: 41px;
  height: 44px;
  width: 162px;
-border: thin black solid;
 }
 
 
@@ -61,8 +60,6 @@ div.headline {
   text-align:left;
   word-spacing:1.2em; 
   font-weight:bold; 
-border: thin black solid;
-
 }
 
 div.search {
@@ -97,7 +94,6 @@ div.navigation_head {
  right: 625px;
  padding: 0px;
   text-transform: lowercase;
- border: thin black solid;
 }
 
 div.navigation {
