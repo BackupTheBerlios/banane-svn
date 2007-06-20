@@ -133,7 +133,7 @@ div.main {
  top: 153px;
  left: 204px;
  bottom: 64px;
- right: 59px;
+ right: 54px;
  padding-right: 15px;
  overflow: auto;
  border: thin black solid;
