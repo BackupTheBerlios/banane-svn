@@ -128,10 +128,10 @@ div.berlios {
 
 div.bottom {
  position: absolute;
- top: 781px;
- left: 200px;
+ top: 687px;
+ left: 430px;
  bottom: 0px;
- right: 35px;
+ right: 75px;
  padding: 0px;
   text-align: right;
   font-size: 85%;
