@@ -168,6 +168,7 @@ div.main h1 {
 
 .main tdleft {
   padding-right: 2em;
+  border: thin black solid;
 }
 
 
