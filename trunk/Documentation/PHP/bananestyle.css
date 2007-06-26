@@ -167,6 +167,7 @@ div.main h1 {
 }
 
 .main td.left {
+  border-collapse: collapse;
   padding-right: 1em;
   border: thin black solid;
 }
