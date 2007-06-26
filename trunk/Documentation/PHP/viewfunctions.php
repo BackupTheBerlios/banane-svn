@@ -38,7 +38,7 @@ while($rrow = mysql_fetch_array($routines))
     $anchor="?Page=".$page."&routine=".$rname;
     $output.="<TR>";
     $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-    $output.="<TD class='right' VALIGN=TOP>".$rrow["aim"];
+    $output.="<TD VALIGN=TOP>".$rrow["aim"];
     $output.="</TR>";
   }
 $output.="</TABLE>";
@@ -89,7 +89,7 @@ switch ($num_rows) {
        $anchor="?routine=".$rname;
        $output.="<TR>";
        $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-       $output.="<TD class='right' VALIGN=TOP>".$row["aim"];
+       $output.="<TD VALIGN=TOP>".$row["aim"];
        $output.="</TR>";
      }
    $output.="</TABLE>";
@@ -152,23 +152,23 @@ $output="";
 
 $output.="<TABLE>"; 
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Name</SPAN>";
-$output.="<TD class='right' VALIGN=TOP>".$rrow["name"]."</TR>";
+$output.="<TD VALIGN=TOP>".$rrow["name"]."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Path</SPAN>";
-$output.="<TD class='right' VALIGN=TOP>\$BANANEPATH/".$rrow["relativepath"]."</TR>";
+$output.="<TD VALIGN=TOP>\$BANANEPATH/".$rrow["relativepath"]."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Version</SPAN>";
-$output.="<TD class='right' VALIGN=TOP>".$rrow["version"]."</TR>";
+$output.="<TD VALIGN=TOP>".$rrow["version"]."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Author</SPAN>";
-$output.="<TD class='right' VALIGN=TOP>".$rrow["author"]."</TR>";
+$output.="<TD VALIGN=TOP>".$rrow["author"]."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Date created</SPAN>";
-$output.="<TD class='right' VALIGN=TOP>".$rrow["date"]."</TR>";
+$output.="<TD VALIGN=TOP>".$rrow["date"]."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Aim</SPAN>";
-$output.="<TD class='right' VALIGN=TOP>".$rrow["aim"]."</TR>";
+$output.="<TD VALIGN=TOP>".$rrow["aim"]."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Description</SPAN>"; 
-$output.="<TD class='right' VALIGN=TOP>".anchorreplace($rrow["description"],$webpath)."</TR>";
+$output.="<TD VALIGN=TOP>".anchorreplace($rrow["description"],$webpath)."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Category</SPAN>"; 
-$output.="<TD class='right' VALIGN=TOP>".$rrow["category"]."</TR>";
+$output.="<TD VALIGN=TOP>".$rrow["category"]."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Syntax</SPAN>"; 
-$output.="<TD class='right' VALIGN=TOP>".$rrow["syntax"]."</TR>";
+$output.="<TD VALIGN=TOP>".$rrow["syntax"]."</TR>";
 
 # fetch first entry of optional section 'inputs'.
 # skip whole table entry if result is NULL.
@@ -221,19 +221,19 @@ $output.="</TR>";
 if($rrow["restrictions"]!="NULL") 
 { 
   $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Restrictions</SPAN>"; 
-  $output.="<TD class='right' VALIGN=TOP>".anchorreplace($rrow["restrictions"],$webpath)."</TR>";
+  $output.="<TD VALIGN=TOP>".anchorreplace($rrow["restrictions"],$webpath)."</TR>";
  }
 
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Procedure</SPAN>"; 
-$output.="<TD class='right' VALIGN=TOP>".anchorreplace($rrow["proc"],$webpath)."</TR>";
+$output.="<TD VALIGN=TOP>".anchorreplace($rrow["proc"],$webpath)."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Example</SPAN>"; 
-$output.="<TD class='right' VALIGN=TOP>".anchorreplace($rrow["example"],$webpath)."</TR>";
+$output.="<TD VALIGN=TOP>".anchorreplace($rrow["example"],$webpath)."</TR>";
 
 # skip optional section 'see also' if table entry is NULL
 if($rrow["also"]!="NULL") 
 { 
   $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>See also</SPAN>"; 
-  $output.="<TD class='right' VALIGN=TOP>".anchorreplace($rrow["also"],$webpath)."</TR>";
+  $output.="<TD VALIGN=TOP>".anchorreplace($rrow["also"],$webpath)."</TR>";
  }
 $output.="</TABLE>";
 

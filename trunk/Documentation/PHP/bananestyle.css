@@ -170,9 +170,7 @@ div.main h1 {
 }
 
 .main td.left {
-/*  padding: 0px;*/
-  padding-right: 1em;
-/*  margin: 0px;*/
+  padding-right: 0.5em;
 }
 
 
