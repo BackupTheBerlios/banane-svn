@@ -164,8 +164,8 @@ div.main h1 {
 }
 
 .main td {
-  margin: 0px;
-  /*padding: 0px;*/
+  /*margin: 0px;*/
+  padding: 0px;
   border: thin solid black;
 }
 
