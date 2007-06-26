@@ -38,7 +38,7 @@ while($rrow = mysql_fetch_array($routines))
     $anchor="?Page=".$page."&routine=".$rname;
     $output.="<TR>";
     $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-    $output.="<TD VALIGN=TOP>".$rrow["aim"];
+    $output.="<TD class='right' VALIGN=TOP>".$rrow["aim"];
     $output.="</TR>";
   }
 $output.="</TABLE>";
