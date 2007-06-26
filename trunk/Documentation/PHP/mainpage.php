@@ -144,6 +144,10 @@ div.main h1 {
   color: #000000;
 }
 
+.main table { 
+  font-size: 100%;
+}
+
 
 code {
   font-family: courier,serif;
