@@ -6,7 +6,7 @@ positioning of the various elements of the page*/
 body {
   text-align: center;
   background: #e6e7e9;
-  color: blue; /*#737373;*/
+  color: #737373;
   font-family: helvetica, arial, sans-serif;
   font-size: 9pt;
 }
