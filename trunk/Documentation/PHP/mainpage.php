@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html;charset=ISO-8859-1">
+
 <title>webpage of the banane project</title>
 
-<style type="text/css" media="screen">
+<link rel="stylesheet" href="bananestyle.css">
+
+<!-- 
+<style type="text/css" media="screen"> 
 
 body {
    text-align: center;
@@ -158,6 +162,7 @@ code {
 .head sec { font-weight: bold }
 
 </style>
+-->
 
 </head>
 
