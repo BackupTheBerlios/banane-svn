@@ -163,14 +163,12 @@ div.main h1 {
 }
 
 .main td.right {
-  border-collapse: collapse;
   padding-left: 0.5em;
   margin: 0px;
   border: thin black solid;
 }
 
 .main td.left {
-  border-collapse: collapse;
   padding-right: 0.5em;
   margin: 0px;
   border: thin black solid;
