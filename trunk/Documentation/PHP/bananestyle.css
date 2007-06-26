@@ -160,6 +160,7 @@ div.main h1 {
 
 .main table { 
   font-size: 100%;
+  border-collapse: collapse;
 }
 
 .main td {
