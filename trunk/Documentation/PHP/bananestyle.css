@@ -165,13 +165,8 @@ div.main h1 {
 
 .main td {
   padding: 0px;
+  padding-bottom: 0.5ex;
   border: 0px;
-}
-
-.main td.right {
-/*  padding: 0px; */
-  padding-left: 0em;
-/*  margin: 0px;*/
 }
 
 .main td.left {
