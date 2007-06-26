@@ -162,7 +162,10 @@ div.main h1 {
   font-size: 100%;
 }
 
-.main td {padding:4px;margin:2px;}
+.main td {
+  border-collapse: collapse;
+  padding-right:20px;
+}
 
 
 /* the code environment is used to typeset the header lines 
