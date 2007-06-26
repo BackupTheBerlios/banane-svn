@@ -164,7 +164,10 @@ div.main h1 {
 
 .main td {
   border-collapse: collapse;
-  padding-right:20px;
+}
+
+.main tdleft {
+  padding-left: 10em;
 }
 
 
