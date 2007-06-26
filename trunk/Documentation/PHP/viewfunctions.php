@@ -195,10 +195,10 @@ while($irow = mysql_fetch_array($inputs))
 # entry is already read by initial while loop.
 while($oirow = mysql_fetch_array($optinputs)) 
   { 
-    $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Optional inputs</SPAN><TD class='right' VALIGN=TOP>"; 
+    $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Optional inputs</SPAN><TD VALIGN=TOP>"; 
     $output.="<TABLE>";
     do { 
-      $output.="<TR><TD VALIGN=TOP><VAR>".$oirow["argument"].": </VAR>";
+      $output.="<TR><TD class='left' VALIGN=TOP><VAR>".$oirow["argument"].": </VAR>";
       $output.="<TD VALIGN=TOP>".anchorreplace($oirow["description"],$webpath);
       $output.="</TR>";
     } while($oirow = mysql_fetch_array($optinputs));   
@@ -206,11 +206,11 @@ while($oirow = mysql_fetch_array($optinputs))
     $output.="</TR>";
   }
  
-$output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Outputs</SPAN><TD class='right' VALIGN=TOP>"; 
+$output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Outputs</SPAN><TD VALIGN=TOP>"; 
 $output.="<TABLE>";
 while($orow = mysql_fetch_array($outputs)) 
 { 
-  $output.="<TR><TD VALIGN=TOP><VAR>".$orow["argument"].": </VAR>";
+  $output.="<TR><TD class='left' VALIGN=TOP><VAR>".$orow["argument"].": </VAR>";
   $output.="<TD VALIGN=TOP>".anchorreplace($orow["description"],$webpath);
   $output.="</TR>";
  }  
