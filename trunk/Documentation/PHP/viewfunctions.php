@@ -177,10 +177,10 @@ $output.="<TD class='right' VALIGN=TOP>".$rrow["syntax"]."</TR>";
 # entry is already read by initial while loop.
 while($irow = mysql_fetch_array($inputs)) 
   { 
-    $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Inputs</SPAN><TD class='right' VALIGN=TOP>";
+    $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Inputs</SPAN><TD VALIGN=TOP>";
     $output.="<TABLE>";
     do { 
-      $output.="<TR><TD VALIGN=TOP><VAR>".$irow["argument"].": </VAR>";
+      $output.="<TR><TD class='left' VALIGN=TOP><VAR>".$irow["argument"].": </VAR>";
       $output.="<TD VALIGN=TOP>".anchorreplace($irow["description"],$webpath);
       $output.="</TR>";
     } while($irow = mysql_fetch_array($inputs)); 
