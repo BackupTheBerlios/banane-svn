@@ -162,12 +162,14 @@ div.main h1 {
   font-size: 100%;
 }
 
+/*
 .main td {
   border-collapse: collapse;
 }
+*/
 
 .main td.left {
-  border-collapse: collapse;
+/*  border-collapse: collapse; */
   padding-right: 1em;
   border: thin black solid;
 }
