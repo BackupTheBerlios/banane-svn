@@ -164,14 +164,18 @@ div.main h1 {
 
 .main td {
   margin: 0px;
+  padding: 0px;
+  border: thin solid black;
 }
 
 .main td.right {
+  padding: 0px;
   padding-left: 0.5em;
   margin: 0px;
 }
 
 .main td.left {
+  padding: 0px;
   padding-right: 0.5em;
   margin: 0px;
 }
