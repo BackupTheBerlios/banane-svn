@@ -10,7 +10,7 @@
 <title>webpage of the banane project</title>
 
 <link rel="stylesheet" href="bananestyle.css">
-<link rel="SHORTCUT ICON" href="Pics/minibanane.ico">
+<link rel="SHORTCUT ICON" href="Pics/minibanane.gif">
 
 </head>
 
