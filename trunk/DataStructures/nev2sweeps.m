@@ -29,14 +29,19 @@
 %  DataStructures
 %
 % SYNTAX:
-%* sweepstruct=nev2sweeps(nevvariable,posfile,
+%* sweepstruct=nev2sweeps(nevvariable,trigspersweep,
 %*                          [,'minspikenumber',somevalue]
 %*                          [,'triggercheck',0/1] 
 %
 % INPUTS:
 %  nevvariable:: The matlab structure containing the experimental data,
-%  as returned by the <A>loadNEV</A> routine. 
-%  posfile:: An ASCII file containing the stimulus coordinates. The
+%  as returned by the <A>loadNEV</A> routine.
+%  trigspersweep:: The number of trigger signals contained in a single
+%                  stimulus repetition. This is used to determine which
+%                  neuronal signals belong to which repetition. 
+%  posfile:: This argument is deprecated momentarily but will reappear
+%  soon as a generalized method of determining the sweep duration.
+%  An ASCII file containing the stimulus coordinates. The
 %  format is
 %*  xcoord1 ycoord1
 %*  xcoord2 ycoord2
@@ -91,7 +96,7 @@
 
 
 
-function sweepstruct=nev2sweeps(nevvariable,posfile,varargin);
+function sweepstruct=nev2sweeps(nevvariable,trigspersweep,varargin);
   
   kw=kwextract(varargin,'minspikenumber',1000,'triggercheck',0);
       
@@ -105,14 +110,18 @@ function sweepstruct=nev2sweeps(nevvariable,posfile,varargin);
   %             'sharp_pos1.lcf'])
   %npos=posfile.bytes/12-1
   
-  posdata=load('-ascii', posfile); 
+%  stimdata=load('-ascii', stimfile); 
   
-  npos=size(posdata,1)-1;
+%  nstim=size(stimdata,1)-1
 
   % trigger signal is set after presentation of 500 coordinates
-  pospertrig=500;
+%  stimpertrig=500;
 
-  trigspersweep=npos/pospertrig;
+%  trigspersweep=nstim/stimpertrig
+
+  if (~exist('trigspersweep'))
+    error('Number of triggers per sweep is not set.');
+  end % if
   
   difftrigsamp=0.5*tres; % desired difference between triggers in samples 
   
