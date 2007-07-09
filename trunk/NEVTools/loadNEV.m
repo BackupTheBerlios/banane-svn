@@ -20,12 +20,17 @@
 %  be selected. In addition, waveforms and non-neural experiment
 %  information can be loaded in. A detailed documentation can be found in
 %  the file cyberkinetics_docu.pdf, which is located in the same
-%  directory.<BR>
+%  directory as the routine. Further information about the NEV file
+%  format is contained in the document NEVspec20.pdf, which can also be
+%  found in this directory.<BR>
 %  The routine was originally written by A. Branner, Copyright (c) 9/2002
 %  by Bionic Technologies, LLC. All Rights Reserved. The version included
 %  in the Banane repository is slightly modified from the original: we
 %  corrected a typo in a structure tag that otherwise caused the routine
-%  to stop. 
+%  to stop. Furthermore, we included a structure tag that contains the
+%  timestamps of the events occurring on the five different analog
+%  channels with
+%  separate arrays for easier extraction of different trigger channels.
 %
 % CATEGORY:
 %  NEV Tools
@@ -53,6 +58,7 @@
 %*            |---sampleResolution : time resolution of waveform samples
 %*     |---SpikeData : matrix with all channels/units selected
 %*            |---timestamps - timestamps on the particular channel/unit
+%*     |---ExpData.analog(i) : trigger timestamps on analog channel <VAR>i</VAR> 
 %  There are many more structure tags all described in detailed in
 %  cyberkinetics_docu.pdf
 %
@@ -68,7 +74,7 @@
 %* plot(data.SpikeData(15).waveforms(:,105))
 %
 % SEE ALSO:
-%  cyberkinetics_docu.pdf
+%  cyberkinetics_docu.pdf, NEVspc20.pdf.
 %-
 
 
@@ -429,6 +435,22 @@ function nevVariable = loadNEV(filename, varargin);
     ind1 = find(nevVariable.GeneralInfo.packetOrder == 0);
     nevVariable.ExpData.timestamps = nevVariable.GeneralInfo.timestamps(ind1)';
     nevVariable.ExpData.flags = nevVariable.GeneralInfo.unitOrder(ind1)';
+    
+    % sort the different analog channel events in separate arrays for
+    % easier extraction of different trigger channels.
+    for aidx=1:5
+      bitstr='00000000'
+      bitstr(8-aidx)='1'
+      deci=bin2dec(bitstr)
+      ach=find(bitand(nevVariable.ExpData.flags,deci));
+      if (~isempty(ach))
+        nevVariable.ExpData.analog(aidx).timestamps = ...
+            nevVariable.GeneralInfo.timestamps(ind1(ach))';
+      else
+        nevVariable.ExpData.analog(aidx).timestamps = [];
+      end % if
+    end % for
+    
     ind1 = nevVariable.GeneralInfo.packetNumbers(ind1);
     
     if exp == 1,
