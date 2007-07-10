@@ -29,36 +29,45 @@
 %  DataStructures
 %
 % SYNTAX:
-%* sweepstruct=nev2sweeps(nevvariable,trigspersweep,
-%*                          [,'minspikenumber',somevalue]
-%*                          [,'triggercheck',0/1] 
+%* sweepstruct=nev2sweeps(nevvariable,trigstamps
+%*                        (,'trigspersweep',value) | 
+%*                        (,'stimdata',value,'stimpertrig',value)
+%*                        [,'minspikenumber',value]
+%*                        [,'triggercheck',boolean] 
+%*                        [,'verbose',boolean] 
 %
 % INPUTS:
 %  nevvariable:: The matlab structure containing the experimental data,
-%  as returned by the <A>loadNEV</A> routine.
+%                as returned by the <A>loadNEV</A> routine.
+%  trigstamps:: The trigger timestamps in units of samples as returned by
+%               <A>triggers</A>.
 %  trigspersweep:: The number of trigger signals contained in a single
 %                  stimulus repetition. This is used to determine which
-%                  neuronal signals belong to which repetition. 
-%  posfile:: This argument is deprecated momentarily but will reappear
-%  soon as a generalized method of determining the sweep duration.
-%  An ASCII file containing the stimulus coordinates. The
-%  format is
-%*  xcoord1 ycoord1
-%*  xcoord2 ycoord2
-%*  xcoord3 ycoord3
-%*   ...
-%*  xcoordN ycoordN
-%  nev2sweeps uses the number of lines of <VAR>posfile</VAR> to determine
-%  the duration of the sweep. Thus, separation is also possible for
-%  sweeps applying different stimuli as long as their duration is identical.   
+%                  neuronal signals belong to which repetition. Supply
+%                  either this keyword or the combination of
+%                  <VAR>stimdata</VAR> and <VAR>stimpertrig</VAR>.
+%  stimdata:: nev2sweeps uses the number of rows in <VAR>stimdata</VAR>
+%             (i.e. size(stimdata,1)) to determine the duration of the
+%             sweep. Thus, separation is
+%             also possible for sweeps applying different stimuli as long
+%             as their duration is identical.
+%  stimpertrig:: For a complete definition of sweep duration, the routine
+%                needs to know the number of stimulus values that are
+%                presented until a trigger signal is generated. For
+%                instance, when mirrors are used for stimulation, 500
+%                stimulus values are presented during each trigger
+%                interval. 
 %
 % OPTIONAL INPUTS:
 %  minspikenumber:: Neurons that generated less that
 %  <VAR>minspikenumber</VAR> spikes during the complete experiment
 %  are ignored and their spiketrains are not included in the structure
-%  returned. Default value is 1000.
+%  returned. Default value is 0, i.e. all neurons are included.
 %  triggercheck:: Set this switch to obtain information about how many
-%  spikes have been lost after conversion due to trigger irregularities.
+%  spikes have been lost after conversion due to trigger
+%  irregularities. default: false.
+%  verbose:: Set this option to obtain some information about the results
+%  of nev2sweeps' computations. Default: true.
 %
 % OUTPUTS:
 %  sweepstruct:: Structure containing the spiketrain info after sorting
@@ -85,75 +94,73 @@
 %  comments as well. 
 %
 % EXAMPLE:
-%* posfile='/home/athiel/Experiments/ver051123/Stimuli/Movement/3-1.dat';
-%* sdata = loadNEV(['/home/athiel/Experiments/ver051123/Sorted/051123-13.nev']);
-%* s=nev2sweeps(sdata,posfile);
-%
+%* tr=triggers(nevdata,'070704-05');
+%* sweeps=nev2sweeps(nevdata,tr,'stimdata',move1,'stimpertrig',500);
 %
 % SEE ALSO:
-%  <A>loadNEV</A>
+%  <A>loadNEV</A>, <A>triggers</A>.
 %-
 
 
 
-function sweepstruct=nev2sweeps(nevvariable,trigspersweep,varargin);
+function sweepstruct=nev2sweeps(nevvariable,trigstamps,varargin);
   
-  kw=kwextract(varargin,'minspikenumber',1000,'triggercheck',0);
+  if (size(nevvariable.SpikeData,2) < 2)
+    error('NEV variable seems to be unsorted.')
+  end % if
+  
+  kw=kwextract(varargin ...
+               ,'minspikenumber',0 ...
+               ,'triggercheck',0 ...
+               ,'trigspersweep',0 ...
+               ,'stimdata',[] ...
+               ,'stimpertrig',0 ...
+               ,'verbose',true);
       
   % time resolution of time stamps
   tres=double(nevvariable.HeaderBasic.timeResolution);
   
-  % use the coordinate file from the stimulation to find out how many
-  % triggers are contained in one stimulus repetition, a sweep 
-  % oldstyle, using the DIR command. does not work for martins DAT files
-  %posfile=dir(['/home/athiel/Experiments/ver051123/Stimuli/Movement/' ...
-  %             'sharp_pos1.lcf'])
-  %npos=posfile.bytes/12-1
   
-%  stimdata=load('-ascii', stimfile); 
+  % check the syntax of the passed arguments
+  if (kw.trigspersweep==0)
+    if (isempty(kw.stimdata))
+      error('Number of triggers per sweep or stimulus data needed.');
+    else
+      if (kw.stimpertrig==0)
+        error('Number of stimuli per trigger needed.')
+      else
+        nstim=size(kw.stimdata,1)
+        kw.trigspersweep=nstim/kw.stimpertrig
+        if (kw.verbose)
+          display('Stimulus sequence evaluated.');
+        end % if (kw.verbose)
+      end % if (kw.stimpertrig==0)
+    end % if (isempty((kw.stimdata))
+  else
+    if (kw.verbose)
+          display('Triggers per sweep supplied by user.');
+    end % if (kw.verbose)
+  end % if (kw.trigspersweep==0)
   
-%  nstim=size(stimdata,1)-1
+  if (kw.verbose)
+    display(['Triggers per sweep: ' num2str(kw.trigspersweep)]); 
+  end % if (kw.verbose)
+  
 
-  % trigger signal is set after presentation of 500 coordinates
-%  stimpertrig=500;
-
-%  trigspersweep=nstim/stimpertrig
-
-  if (~exist('trigspersweep'))
-    error('Number of triggers per sweep is not set.');
-  end % if
   
   difftrigsamp=0.5*tres; % desired difference between triggers in samples 
-  
-  % nevvariable.ExpData.timestamps contains a mixture of both trigger
-  % channels and starts with an additional entry 0.0. Extract the "right"
-  % trigger channels, which is characterized by an interval
-  % between first and second trigger of nearly 500ms, instead of about
-  % 250ms.
-  bothtrig=double(nevvariable.ExpData.timestamps);
 
-  trig1=bothtrig(2:2:end);
-  trig2=bothtrig(3:2:end);
 
-  nsweeps1=length(trig1)/trigspersweep;
-  nsweeps2=length(trig2)/trigspersweep;
-  if nsweeps1 ~= nsweeps2 
-    error('Unequal number of trigger signals in both channels.')
-  end
 
-  dt1=trig1(2)-trig1(1);
-  dt2=trig2(2)-trig2(1);
-
-  [v,mi]=max([dt1,dt2]);
-  righttrig=mi;
-
-  trigstamps=bothtrig(1+righttrig:2:end);
-
-  nsweeps=length(trigstamps)/trigspersweep;
-  sweependidx=trigspersweep*(1:nsweeps);
+  nsweeps=length(trigstamps)/kw.trigspersweep;
+  if (kw.verbose)
+    display(['Number of sweeps: ' num2str(nsweeps)]); 
+  end % if (kw.verbose)
     
-  % for martins setup, active channels returns all 100 electrodes except
-  % for number 51 
+  sweependidx=kw.trigspersweep*(1:nsweeps);
+    
+  % for the 051123 experiment, active channels returns all 100 electrodes
+  % except for number 51 
   channels=nevvariable.GeneralInfo.ActiveChannels;
 
   nchannels=length(channels);
@@ -240,7 +247,7 @@ function sweepstruct=nev2sweeps(nevvariable,trigspersweep,varargin);
           [dummy,interval] = histc(allstamps,trigstamps);
           
           % trigger intervals between sweeps
-          inbetween=(1:nsweeps)*trigspersweep;
+          inbetween=(1:nsweeps)*kw.trigspersweep;
           
           % mark intervals between sweeps for later elimination
           interval(ismember(interval,inbetween))=0;
@@ -269,8 +276,8 @@ function sweepstruct=nev2sweeps(nevvariable,trigspersweep,varargin);
           
           % compute the interval index within a sweep and the sweep index
           % for each trigger interval
-          intervalwithinsweep=mod(interval(nottoolarge),trigspersweep);
-          swidx=ceil(interval(nottoolarge)/trigspersweep);
+          intervalwithinsweep=mod(interval(nottoolarge),kw.trigspersweep);
+          swidx=ceil(interval(nottoolarge)/kw.trigspersweep);
           
           % add regular trigger start times to the spike times relative
           % to the interval starting point
@@ -333,7 +340,7 @@ function sweepstruct=nev2sweeps(nevvariable,trigspersweep,varargin);
   
   for si=1:nsweeps
     sweepstruct(si).nproto = nproto;
-    sweepstruct(si).npos = npos;
+%    sweepstruct(si).npos = npos;
   end %% for
   
   if kw.triggercheck
