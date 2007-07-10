@@ -439,9 +439,9 @@ function nevVariable = loadNEV(filename, varargin);
     % sort the different analog channel events in separate arrays for
     % easier extraction of different trigger channels.
     for aidx=1:5
-      bitstr='00000000'
-      bitstr(8-aidx)='1'
-      deci=bin2dec(bitstr)
+      bitstr='00000000';
+      bitstr(8-aidx)='1';
+      deci=bin2dec(bitstr);
       ach=find(bitand(nevVariable.ExpData.flags,deci));
       if (~isempty(ach))
         nevVariable.ExpData.analog(aidx).timestamps = ...
