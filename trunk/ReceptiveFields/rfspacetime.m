@@ -106,6 +106,7 @@ function rfstruct=rfspacetime(positions,spikes,varargin)
   rfstruct.nproto=spikes(1).nproto;
   rfstruct.avtime=kw.avtime;
   
+  npos=length(positions)
   
   %% First, extract the positions of the mirrors that actually occurred
   %% during the RF scan
@@ -168,7 +169,7 @@ function rfstruct=rfspacetime(positions,spikes,varargin)
     
       if (swidx > 1)
         catspikes=[catspikes ...
-                   (swidx-1)*spikes(swidx).npos+ ...
+                   (swidx-1)*npos+ ...
                    ceil(spikes(swidx).pr(pidx).ts*1000.)];
       else
         catspikes=[ceil(spikes(swidx).pr(pidx).ts*1000.)];
