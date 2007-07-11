@@ -22,7 +22,7 @@
 %  routine uses the ASCII-file describing the stimulus coordinates to
 %  determine the duration of a sweep. Spiketrain data is returned within
 %  a structure array, with timestamps given in seconds. Timing of spikes
-%  is corrected relative to the nearest trigger event to avoid timing
+%  is corrected relative to the previous trigger event to avoid timing
 %  irregularities.
 %
 % CATEGORY:
@@ -233,7 +233,7 @@ function sweepstruct=nev2sweeps(nevvariable,trigstamps,varargin);
         for p=1:nowproto
           
           % The first 500 coordinates are read into the buffer (which
-          % happens in essentailly no time), afterwards
+          % happens in essentially no time), afterwards
           % the trigger is set for the first time. Thus, the second
           % trigger marks the time when the first 500 coordinates have
           % been presented.
@@ -265,13 +265,17 @@ function sweepstruct=nev2sweeps(nevvariable,trigstamps,varargin);
           % do not use those spikes that occur after the end of the
           % regular trigger interval, since they would otherwise occur at
           % the beginning of the next interval
-          nottoolarge=sub<difftrigsamp;
+          nottoolarge=(sub<difftrigsamp);
           
           withinregular=sub(nottoolarge);
           
           % count the number of eliminated spikes for possible analysis
           if kw.triggercheck
-            totaldiff=totaldiff+abs(length(sub)-length(withinregular));
+            newdiff=(length(sub)-length(withinregular));
+            if (newdiff<0)
+              error('Impossible!')
+            end
+            totaldiff=totaldiff+newdiff;
           end
           
           % compute the interval index within a sweep and the sweep index
