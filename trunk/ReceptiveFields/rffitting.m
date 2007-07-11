@@ -124,15 +124,6 @@ function rfstruct=rffitting(rfstruct,varargin)
   vmm(4)=rfstruct.xmmperpos*v(4);
   vmm(5)=rfstruct.ymmperpos*v(5);
 
-  % e=ellipse(v(2),v(1),2*v(4),2*v(5),25);
-  emm=ellipse(vmm(2),vmm(1),2*vmm(4),2*vmm(5),25);
-
-  
-  if (kw.graphic)
-  end
-
-  
-
   [ymaskidx,xmaskidx]=find(mask2sig);
   
   tmpav=zeros(rfstruct.avtime,length(xmaskidx));
@@ -142,9 +133,6 @@ function rfstruct=rffitting(rfstruct,varargin)
   end
   
   tcav=mean(tmpav,2);
-  
-  if (kw.graphic)
-  end
   
   rfstruct.pr(pidx).fit=[vmm fval];
   rfstruct.pr(pidx).avspace=rf2;
@@ -165,6 +153,10 @@ function rfstruct=rffitting(rfstruct,varargin)
     subplot(2,4,3), imagesc(rfstruct.mmxnz,rfstruct.mmynz,rf)
     axis xy;
     hold on
+
+    
+    emm=ellipse(vmm(2),vmm(1),2*vmm(4),2*vmm(5),25);
+
 
     plot(emm(1,:),emm(2,:),'w','LineWidth',2);
     plot(vmm(2),vmm(1),'wo','LineWidth',2);

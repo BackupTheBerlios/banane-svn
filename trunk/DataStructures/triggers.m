@@ -3,7 +3,7 @@
 %  triggers()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -70,7 +70,7 @@ function trigstamps=triggers(nev,experiment)
          nev.ExpData.analog(2).timestamps];
     trigstamps=sort(raw);
    
-   case {'070704-04','051123-02','051123-10','051123-14'}
+   case {'070704-04','051123-02','051123-10','051123-13','051123-14'}
     % Extract the "right"
     % trigger channel, which is characterized by an interval
     % between first and second trigger of nearly 500ms, instead of about
@@ -88,11 +88,10 @@ function trigstamps=triggers(nev,experiment)
     dt1=trig1(2)-trig1(1);
     dt2=trig2(2)-trig2(1);
 
-    [v,mi]=max([dt1,dt2]);
-    righttrig=mi;
+    [v,righttrig]=max([dt1,dt2]);
 
-    raw=sort([trig1 trig2]);
-    trigstamps=raw(1+righttrig:2:end);
+    raw=([trig1;trig2]);
+    trigstamps=raw(righttrig,:);
 
    otherwise
       error('Unknown experiment.')
