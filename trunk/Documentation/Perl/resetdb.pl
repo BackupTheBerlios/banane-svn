@@ -174,8 +174,8 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
     or warn "Disconnection failed: $DBI::errstr\n";
 
   print "Updating directory tree information.\n";
-  updatetree
-
+  system("updatetree") == 0
+	 or die "updatetree failed: $?"
 
   print "Reset finished.\n";
 
