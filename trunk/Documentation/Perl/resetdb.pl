@@ -175,7 +175,7 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 
   print "Updating directory tree information.\n";
   system("updatetree") == 0
-	 or die "updatetree failed: $?"
+	 or die "updatetree failed: $?";
 
   print "Reset finished.\n";
 
