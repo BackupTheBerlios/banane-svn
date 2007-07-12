@@ -173,6 +173,10 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
   $dbh->disconnect
     or warn "Disconnection failed: $DBI::errstr\n";
 
+  print "Updating directory tree information.\n";
+  updatetree
+
+
   print "Reset finished.\n";
 
 } ## end of "are you sure?"
