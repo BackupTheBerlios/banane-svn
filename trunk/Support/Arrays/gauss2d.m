@@ -3,7 +3,7 @@
 %  gauss2d()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -12,46 +12,53 @@
 %  5/2007
 %
 % AIM:
-%  Short description of the routine in a single line.
+%  Fill a two dimensional array with a Gaussian bell curve.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  gauss2d() generates a two dimensionl array filled with values
+%  representing a Gaussian bell curve. The position of the curve's peak
+%  and the standard deviations in both x- and y-directions may be
+%  modified.
 %
 % CATEGORY:
 %  Support Routines<BR>
 %  Arrays
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* result=gauss2d(width[,height[,xpeak[,ypeak,xsigma,ysigma]]]); 
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
+%  width:: The number of columns of the resulting array.
 %
 % OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
+%  height:: The number of rows of the resulting array. If
+%  <VAR>height</VAR> is not specified, a square array is returned.
+%  xpeak:: The position of the curve's maximum along the x-axis. Position
+%  is measured relative to the arrays origin, i.e. to 
+%  index (1,1). If <VAR>xpeak</VAR> is unspecified, the peak is
+%  positioned in the middle of the array.
+%  ypeak:: The position of the curve's maximum along the yaxis. Position
+%  is measured relative to the arrays origin, i.e. to 
+%  index (1,1). If <VAR>ypeak</VAR> is unspecified, the peak is
+%  positioned in the middle of the array.
+%  xsigma:: The width (standard deviation) of the curve along the
+%  x-axis. Default: <VAR>width/10</VAR>.
+%  ysigma:: The width (standard deviation) of the curve along the
+%  y-axis. Default: <VAR>ysigma=xsigma</VAR>.
 %
 % OUTPUTS:
-%  result:: The result of the routine.
+%  result:: Numerical array of dimension <VAR>width</VAR> x
+%  <VAR>height</VAR>. The maximum value is equal to 1.
 %
 % RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  The option to tilt the Gaussian is not yet implemented.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  Generate two grid arrays, one for the x-, the other for the
+%  y-direction, and compute gaussian function on the grid values.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%* >> imagesc(gauss2d(100,50,10,10))
 %
 % SEE ALSO:
 %  <A>rffitting</A>, <A>fitgauss2d</A>. 
@@ -59,6 +66,23 @@
 
 
 function result=gauss2d(width,height,xpeak,ypeak,xsigma,ysigma)
+
+  % generate default values
+  if (~exist('height'))
+    height=width;
+  end
+
+  if (~exist('xpeak'))
+    xpeak=width/2;
+  end
+
+  if (~exist('ypeak'))
+    ypeak=height/2;
+  end
+
+  if (~exist('xsigma'))
+    xsigma=width/10;
+  end
 
   if (~exist('ysigma'))
     ysigma=xsigma
@@ -68,6 +92,4 @@ function result=gauss2d(width,height,xpeak,ypeak,xsigma,ysigma)
   ygrid=repmat((1:height)'-ypeak,1,width);
 
   result=exp(-(xgrid.^2/(2.*xsigma^2)+ygrid.^2/(2.*ysigma^2)));
-  
-  end
   
