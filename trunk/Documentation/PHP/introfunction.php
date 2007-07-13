@@ -24,7 +24,7 @@ function introtext()
   
   $output.="<P>Presently, the collection of routines is incomplete and under construction, so be sure to check back frequently. For the latest information, visit the <A HREF='http://www.project-banane.blogspot.com/' TARGET='_blank'>banane weblog</A>.";
 
-  $output.="<P>At the moment this web page is not working properly with Microsoft's Internet Explorer. For this and other reasons we strongly recommend to use <A HREF='http://www.mozilla.com/en-US/firefox/' TARGET='_blank'>Mozilla Firefox</A>.";
+  $output.="<P>At the moment this web page is not working properly with Microsoft's Internet Explorer. For this and other reasons we strongly recommend to use <A HREF='http://www.mozilla.org/' TARGET='_blank'>Mozilla Firefox</A>.";
 
   return $output;
 
