@@ -3,7 +3,7 @@
 %  fitgauss2d()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -12,69 +12,80 @@
 %  5/2007
 %
 % AIM:
-%  Short description of the routine in a single line.
+%  Compute the deviation of a 2D Gaussian and an arbitrary array.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  Support routine which computes the difference between a two
+%  dimensional gaussian bell curve and an arbitray array. The bell curve
+%  must be specified by 5 parameters, namely the x- and y-coordinates of
+%  its peak, the maximum amplitude, and the standard deviations along the
+%  x- and y-axes. This function can be used as an argument of MATLAB's
+%  fminsearch routine.
 %
 % CATEGORY:
 %   Support Routines<BR>
 %   Fitting
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* err = fitgauss2d(p,rf); 
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
-%
-% OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
+%  p:: A five element vector representing the parameters of the Gaussian
+%  curve. In detail, these are [<VAR>xpeak ypeak amplitude xwidth
+%  ywidth</VAR>]. 
+%  array:: A two dimensional numerical array to which the Gaussian bell
+%  curve has to be fitted. 
 %
 % OUTPUTS:
-%  result:: The result of the routine.
-%
-% RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  err:: A scalar value representing the deviation between the array and
+%  the Gaussian curve. <VAR>err</VAR> is computed as the sum over the
+%  absolute differences between each element of <VAR>array</VAR> and the
+%  corresponding element of the array containing the Gaussian. The result
+%  is normailzed to the maximum value of <VAR>arra</VAR> to ensure that
+%  error values are comparable across different amplitudes. An error
+%  value of Inf is returned if the peak is positioned outside the array
+%  and if the x- and y-widths are too small, i.e. below 0.1.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  - Make sure that array is not empty.<BR>
+%  - Return Inf if Gauss is too small or outside the array.<BR>
+%  - Generate Gaussian array via <A>gauss2d</A>.<BR>
+%  - Compute the difference and normalize.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%* >> vstart=[ix iy max(rf(:)) 1.5 1.5];
+%* >> [v,fval] = fminsearch(@(v) fitgauss2d(v,rf),vstart);
 %
 % SEE ALSO:
 %  <A>rffitting</A>, <A>gauss2d</A>. 
 %-
 
-function err = fitgauss2d(p,rf)
+function err = fitgauss2d(p,array)
   
-  [m,n] = size(rf);
-
-  if ((p(1) < 1) | (p(1) > n) | (p(2) < 1) | (p(2) > m) | (p(4) <= .1) | ...
-      (p(5) <= .1) | (max(rf(:))==0))
+  if (nnz(array)==0)
     
+    warning('All elements equal to zero. Fitting does not make sense.')
     err=inf;
     
   else
   
-    fin=p(3)*gauss2d(m,n,p(2),p(1),p(4),p(5));
-       
-    diff=rf-fin;
+    [n,m] = size(array);
 
-    err=sum(abs(diff(:)))/max(rf(:));
-       
-  end % if
+    if ((p(1) < 1) | (p(1) > m) ...
+        | (p(2) < 1) | (p(2) > n) ...
+        | (p(4) <= .1) | (p(5) <= .1))
+    
+      err=inf;
+    
+    else
   
-  end
+      fin=p(3)*gauss2d(m,n,p(1),p(2),p(4),p(5));
+       
+      diff=abs(array-fin);
+
+      err=sum(diff(:))/max(array(:));
+       
+    end % if
+  
+  end % if
   
