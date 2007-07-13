@@ -15,9 +15,9 @@
 %  Fill a two dimensional array with a Gaussian bell curve.
 %
 % DESCRIPTION:
-%  gauss2d() generates a two dimensionl array filled with values
+%  gauss2d() generates a two dimensional array filled with values
 %  representing a Gaussian bell curve. The position of the curve's peak
-%  and the standard deviations in both x- and y-directions may be
+%  and the standard deviations in both x- and y-directions can be
 %  modified.
 %
 % CATEGORY:
@@ -25,7 +25,7 @@
 %  Arrays
 %
 % SYNTAX:
-%* result=gauss2d(width[,height[,xpeak[,ypeak,xsigma,ysigma]]]); 
+%* result=gauss2d(width[,height[,xpeak[,ypeak[,xsigma[,ysigma]]]]]); 
 %
 % INPUTS:
 %  width:: The number of columns of the resulting array.
@@ -37,7 +37,7 @@
 %  is measured relative to the arrays origin, i.e. to 
 %  index (1,1). If <VAR>xpeak</VAR> is unspecified, the peak is
 %  positioned in the middle of the array.
-%  ypeak:: The position of the curve's maximum along the yaxis. Position
+%  ypeak:: The position of the curve's maximum along the y-axis. Position
 %  is measured relative to the arrays origin, i.e. to 
 %  index (1,1). If <VAR>ypeak</VAR> is unspecified, the peak is
 %  positioned in the middle of the array.
@@ -47,8 +47,8 @@
 %  y-axis. Default: <VAR>ysigma=xsigma</VAR>.
 %
 % OUTPUTS:
-%  result:: Numerical array of dimension <VAR>width</VAR> x
-%  <VAR>height</VAR>. The maximum value is equal to 1.
+%  result:: Numerical array of dimension (<VAR>width</VAR> x
+%  <VAR>height</VAR>). The maximum value is equal to 1.
 %
 % RESTRICTIONS:
 %  The option to tilt the Gaussian is not yet implemented.
