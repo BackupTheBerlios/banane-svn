@@ -12,53 +12,63 @@
 %  5/2007
 %
 % AIM:
-%  Short description of the routine in a single line.
+%  Compute and return coordinates for plotting an ellipse.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  ellipse() generates an array containing coordinates that can be used
+%  to plot an ellipse. 
 %
 % CATEGORY:
 %  Support Routines<BR>
 %  Graphic
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* coords=ellipse(n,xcenter,ycenter,xradius,yradius); 
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
+%  n:: The number of coordinates to compute. The larger the number, the
+%  smoother the resulting curve will be.
+%  xcenter:: The center coodinate of the ellipse along the x-axis.
+%  ycenter:: The center coodinate of the ellipse along the y-axis.
+%  xradius:: The radius in x-direction.
 %
 % OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
+%  yradius:: The radius in x-direction. If <VAR>yradius</VAR> is not
+%  supplied, <VAR>yradius</VAR>=<VAR>xradius</VAR>, i.e. the coordinates
+%  returned describe a circle. 
 %
 % OUTPUTS:
-%  result:: The result of the routine.
-%
-% RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  coords:: A 2x(<VAR>n</VAR>+1) double array containing the x- and y
+%  coordinates.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  Sin and Cos.
 %
 % EXAMPLE:
 %  Indicate example lines with * as the first character. These lines
 %  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%* >> circ=ellipse(10,2,4,1);
+%* >> plot(circ(1,:),circ(2,:));
+%* >> hold on
+%* 
+%* >> circ=ellipse(100,2,4,1);
+%* >> plot(circ(1,:),circ(2,:),'k');
+%* 
+%* >> ell=ellipse(100,2,4,1,0.5);
+%* >> plot(ell(1,:),ell(2,:),'r');
+%*
+%* >> ell=ellipse(100,2,4,0.25,0.5);
+%* >> plot(ell(1,:),ell(2,:),'g');
+%* >> hold off
 %
-% SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
 %-
 
 
-function coords=ellipse(xcenter,ycenter,xradius,yradius,n)
+function coords=ellipse(n,xcenter,ycenter,xradius,yradius)
+
+  if (~exist('yradius'))
+    yradius=xradius;
+  end
   
   arc = 2*pi*(0:n)/n;
 
