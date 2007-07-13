@@ -30,8 +30,9 @@
 %
 % OPTIONAL INPUTS:
 %  avspacerange:: Range of averaging in space.
-%  graphic:: Creates a window and shows the results of the
-%  computation. After each prototype, the program waits for a keypress.
+%  graphic:: Creates a window and displaying the results of the
+%  computation for a single prototype. The routine waits for a keypress
+%  before continuing to display results for the next prototype.
 %
 % OUTPUTS:
 %  rfstruct:: The original structure variable with spatial receptive
@@ -75,18 +76,18 @@ function rfstruct=rffitting(rfstruct,varargin)
       end
     end
     
-    if (kw.graphic)
-    end
     
   mav=squeeze(max(rfstruct.pr(pidx).spacetime,[],1));
   sumav=squeeze(sum(rfstruct.pr(pidx).spacetime,1));
   
-  if (kw.graphic)
-  end
-  
+
   [xmax,ix]=max(max(mav,[],1));
   [ymax,iy]=max(max(mav,[],2));
     
+  ix
+  
+  iy
+  
   tc=(rfstruct.pr(pidx).spacetime(:,iy,ix));
   
   meantc=mean(tc);
@@ -111,16 +112,21 @@ function rfstruct=rffitting(rfstruct,varargin)
   rf=max(rf2-mean(rf2(:)),zeros(rfstruct.xyextent));
   
   
-  vstart=[iy ix max(rf(:)) 1.5 1.5];
+  if (nnz(rf)~=0)
 
-  [v,fval] = fminsearch(@(v) fitgauss2d(v,rf),vstart);
+    vstart=[ix iy max(rf(:)) 1.5 1.5];
+    [v,fval] = fminsearch(@(v) fitgauss2d(v,rf),vstart,optimset('Display','off'));
+  else
+    v = [ones(1,5)];
+    fval=Inf;
+  end
   
-  gs=v(3)*gauss2d(rfstruct.xyextent(1),rfstruct.xyextent(2),v(2),v(1),v(4),v(5));
+  gs=v(3)*gauss2d(rfstruct.xyextent(1),rfstruct.xyextent(2),v(1),v(2),v(4),v(5));
   mask2sig=(gs>=v(3)*exp(-0.5*kw.avspacerange.^2));
   
   vmm=v;
-  vmm(1)=rfstruct.ymmperpos*(v(1)-rfstruct.xyextent(2)/2);%mmynz(round(v(1)));
-  vmm(2)=rfstruct.xmmperpos*(v(2)-rfstruct.xyextent(1)/2);%mmxnz(round(v(2)));
+  vmm(1)=rfstruct.xmmperpos*(v(1)-rfstruct.xyextent(1)/2);%mmynz(round(v(1)));
+  vmm(2)=rfstruct.ymmperpos*(v(2)-rfstruct.xyextent(2)/2);%mmxnz(round(v(2)));
   vmm(4)=rfstruct.xmmperpos*v(4);
   vmm(5)=rfstruct.ymmperpos*v(5);
 
@@ -139,43 +145,65 @@ function rfstruct=rffitting(rfstruct,varargin)
   rfstruct.pr(pidx).avtime=tcav;
 
   if (kw.graphic)
-      disp(['index: ' num2str(pidx)]);
-      disp(['electrode: ' num2str(rfstruct.pr(pidx).eln)]);
-      disp(['prototype: ' num2str(rfstruct.pr(pidx).prn)]);
+  
+    disp(['index: ' num2str(pidx)]);
+    disp(['electrode: ' num2str(rfstruct.pr(pidx).eln)]);
+    disp(['prototype: ' num2str(rfstruct.pr(pidx).prn)]);
+    disp(' ');
+    
     subplot(2,4,1), imagesc(rfstruct.mmxnz,rfstruct.mmynz,sumav);
     axis xy;
+    xlabel('x / mm');
+    ylabel(' y / mm');
+    title('Sum of complete time interval');
+    
     subplot(2,4,2), plot(tc);
     axis tight;
+    xlabel('t / ms');
+    ylabel('???');
+    title('Time course at maximum position');
     hold on
     subplot(2,4,2), plot(xlim,[meantc meantc]);
     subplot(2,4,2), plot(xlim,[meantc+stdtc meantc+stdtc]);
     hold off
+
     subplot(2,4,3), imagesc(rfstruct.mmxnz,rfstruct.mmynz,rf)
     axis xy;
+    xlabel('x / mm');
+    ylabel(' y / mm');
+    title('Sum of peak time interval');
     hold on
-
-    
-    emm=ellipse(vmm(2),vmm(1),2*vmm(4),2*vmm(5),25);
-
-
+    emm=ellipse(25,vmm(1),vmm(2),2*vmm(4),2*vmm(5));
     plot(emm(1,:),emm(2,:),'w','LineWidth',2);
-    plot(vmm(2),vmm(1),'wo','LineWidth',2);
-    hold off
-  
-    subplot(2,4,4),plot(rf(round(v(1)),:)) % , imagesc(gs);
-    hold on
-    subplot(2,4,4),plot(gs(round(v(1)),:),'r')
+    plot(vmm(1),vmm(2),'wo','LineWidth',2);
     hold off
 
-    subplot(2,4,5),plot(rf(:,round(v(2)))) % , imagesc(gs);
+    subplot(2,4,4),plot(rfstruct.mmxnz,rf(round(v(2)),:))
+    axis tight;
+    xlabel('x / mm');
+    ylabel('???');
+    title('X Slice at maximum position');
     hold on
-    subplot(2,4,5),plot(gs(:,round(v(2))),'r')
+    subplot(2,4,4),plot(rfstruct.mmxnz,gs(round(v(2)),:),'r')
+    hold off
+
+    subplot(2,4,5),plot(rfstruct.mmynz,rf(:,round(v(1)))) % , imagesc(gs);
+    axis tight;
+    xlabel('y / mm');
+    ylabel('???');
+    title('Y Slice at maximum position');
+    hold on
+    subplot(2,4,5),plot(rfstruct.mmynz,gs(:,round(v(1))),'r')
     hold off
   
     subplot(2,4,6), imagesc(rfstruct.mmxnz,rfstruct.mmynz,mask2sig.*rf);
     axis xy;
+    xlabel('x / mm');
+    ylabel(' y / mm');
+
     subplot(2,4,7), plot(tcav);
     axis tight;
+    xlabel('t / ms');
     pause
   end
   
