@@ -33,12 +33,13 @@ div.content {
   text-align:left;
 /*  background-image:url('Pics/frame.gif');
   background-repeat:no-repeat; */
-  background:url("Pics/frame.gif") bottom left no-repeat;
+  background:url('Pics/frame.gif') bottom left no-repeat;
 }
 
 div.content h1 {
   font-size:100%;  
   font-weight:bold;
+  background:url('Pics/frame.gif') top left no-repeat;
 }
 
 /* link behind the banane logo */
