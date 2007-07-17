@@ -48,6 +48,10 @@
 %               channel with the larger first trigger interval is
 %               chosen. This method is suitable for triggers provided by the
 %               mirror control system.
+%               '070716-15'<BR>
+%               Returns only triggers for the first 6 sweeps of this
+%               particular experiment, since afterwards the acquisition
+%               computer crashed.
 %
 % OUTPUTS:
 %  tr:: Double precision numerical vector of trigger timestamps in units
@@ -67,6 +71,13 @@
 function trigstamps=triggers(nev,experiment) 
   
   switch experiment
+   case {'070716-15'}
+    %% return only triggers of the first 6 sweeps, since afterwards the
+    %% acquistion computer crashed.
+    raw=[nev.ExpData.analog(1).timestamps ...
+         nev.ExpData.analog(2).timestamps];
+    trigstamps=sort(raw);
+    trigstamps=trigstamps(1:4572);
    
    case {'lsg','070704-02','070704-05'}
     raw=[nev.ExpData.analog(1).timestamps ...
