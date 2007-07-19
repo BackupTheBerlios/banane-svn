@@ -84,26 +84,21 @@ function rfstruct=rffitting(rfstruct,varargin)
   [xmax,ix]=max(max(mav,[],1));
   [ymax,iy]=max(max(mav,[],2));
     
-  ix
-  
-  iy
-  
   tc=(rfstruct.pr(pidx).spacetime(:,iy,ix));
   
   meantc=mean(tc);
   stdtc=std(tc);
 
-  if (kw.graphic)
-  end
-  
   [mtc,itc]=max(tc);
   
+  
+  % find the start and stop of the first peak
   tczero=find((tc-(meantc+stdtc))<=0);
   
   startidx=find((tczero-itc) < 0,1,'last');
   starttime=tczero(startidx)+1;
   if (startidx==length(tczero))
-    stoptime=stalength;
+    stoptime=rfstruct.avtime;
   else
     stoptime=tczero(startidx+1)-1;
   end
@@ -113,7 +108,6 @@ function rfstruct=rffitting(rfstruct,varargin)
   
   
   if (nnz(rf)~=0)
-
     vstart=[ix iy max(rf(:)) 1.5 1.5];
     [v,fval] = fminsearch(@(v) fitgauss2d(v,rf),vstart,optimset('Display','off'));
   else
