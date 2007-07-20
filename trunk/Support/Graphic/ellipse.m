@@ -3,7 +3,7 @@
 %  ellipse()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -33,7 +33,7 @@
 %  xradius:: The radius in x-direction.
 %
 % OPTIONAL INPUTS:
-%  yradius:: The radius in x-direction. If <VAR>yradius</VAR> is not
+%  yradius:: The radius in y-direction. If <VAR>yradius</VAR> is not
 %  supplied, <VAR>yradius</VAR>=<VAR>xradius</VAR>, i.e. the coordinates
 %  returned describe a circle. 
 %
