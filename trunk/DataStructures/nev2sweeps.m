@@ -316,10 +316,7 @@ function sweepstruct=nev2sweeps(nevvariable,trigstamps,varargin);
 
           for si=1:nsweeps
 
-            % HeaderExtended contains only ActiveChannels, therefore indexed
-            % by {i} instead of channels{i}
-            sweepstruct(si).pr(nproto+p).eln= ...
-              nevvariable.HeaderExtended{i}.electrode;
+            sweepstruct(si).pr(nproto+p).eln=channels(i);
             
             sweepstruct(si).pr(nproto+p).prn=pidx(p)-1;
             

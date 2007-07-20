@@ -207,7 +207,10 @@ function rfstruct=rfspacetime(positions,spikes,varargin)
     end %% for
     
     rfstruct.pr(pidx).eln=spikes(1).pr(pidx).eln;
-    rfstruct.pr(pidx).prn=spikes(1).pr(pidx).prn;
+    rfstruct.pr(pidx).prn=spikes(1).pr(pidx).prn;    
+
+%    disp(['spikes' num2str(spikes(1).pr(pidx).eln)])
+%    disp(['rf' num2str(rfstruct.pr(pidx).eln)])
     
     if (nspikes == 0)
       rfstruct.pr(pidx).spacetime=av;
