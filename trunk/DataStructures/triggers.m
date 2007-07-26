@@ -51,7 +51,9 @@
 %               '070716-15'<BR>
 %               Returns only triggers for the first 6 sweeps of this
 %               particular experiment, since afterwards the acquisition
-%               computer crashed.
+%               computer crashed.<BR>
+%               See also comments in the source code for more
+%               possibilities.
 %
 % OUTPUTS:
 %  tr:: Double precision numerical vector of trigger timestamps in units
@@ -67,50 +69,83 @@
 %  <A>loadNEV</A>, <A>nev2sweeps</A>. 
 %-
 
-
 function trigstamps=triggers(nev,experiment) 
   
   switch experiment
+   %% return only triggers of the first 6 sweeps, since afterwards the
+   %% acquistion computer crashed.
    case {'070716-15'}
-    %% return only triggers of the first 6 sweeps, since afterwards the
-    %% acquistion computer crashed.
     raw=[nev.ExpData.analog(1).timestamps ...
          nev.ExpData.analog(2).timestamps];
     trigstamps=sort(raw);
     trigstamps=trigstamps(1:4572);
    
+   %% just append the missing trigger
+   case {'070716-16'}
+    raw=[nev.ExpData.analog(1).timestamps ...
+         nev.ExpData.analog(2).timestamps];
+    trigstamps=sort(raw);
+    trigstamps(end+1)=trigstamps(end)+15000;
+   
+   %% light stimulus generator
    case {'lsg','070704-02','070704-05'}
     raw=[nev.ExpData.analog(1).timestamps ...
          nev.ExpData.analog(2).timestamps];
     trigstamps=sort(raw);
    
-   case {'mirror','070704-04','051123-02','051123-10','051123-13','051123-14'}
-    % Extract the "right"
-    % trigger channel, which is characterized by an interval
-    % between first and second trigger of nearly 500ms, instead of about
-    % 250ms.
-    trig1=nev.ExpData.analog(3).timestamps;
-    trig2=nev.ExpData.analog(4).timestamps;
+   %% use mirror triggers but remove the last one of each sweep (the
+   %% 763rd in this case), since this just marks the end of the
+   %% stimulation.
+   case {'070716-05'}
 
-    nsweeps1=length(trig1);
-    nsweeps2=length(trig2);
+    trigstamps=chooseright(nev);
     
-    if nsweeps1 ~= nsweeps2 
-      error('Unequal number of trigger signals in both channels.')
-    end
+    removeidx=(1:10)*763;
+    remainidx=setdiff((1:length(trigstamps)),removeidx);
+    
+    trigstamps=trigstamps(remainidx);
 
-    dt1=trig1(2)-trig1(1);
-    dt2=trig2(2)-trig2(1);
+   %% use mirror triggers but keep all triggers, suitable for example for
+   %% RF cine stimulation
+   case {'mirror','070704-04','051123-02','051123-10','051123-13','051123-14'}
 
-    [v,righttrig]=max([dt1,dt2]);
-
-    raw=([trig1;trig2]);
-    trigstamps=raw(righttrig,:);
+    trigstamps=chooseright(nev);
 
    otherwise
-      error('Unknown experiment.')
+      error('Unknown experiment or condition.')
+  
   end % switch
       
   trigstamps=double(trigstamps);
       
-end
+end % triggers
+
+
+
+% support function that can be used in all cases that extract mirror
+% triggers from the two analog channels 3 and 4. 
+% Extract the "right"
+% trigger channel, which is characterized by an interval
+% between first and second trigger of nearly 500ms (15000 samples),
+% instead of about 250ms.
+
+function ts=chooseright(nev)
+
+  combtrig=[nev.ExpData.analog(3).timestamps; ...
+            nev.ExpData.analog(4).timestamps];
+
+  dt=combtrig(:,2)-combtrig(:,1);
+    
+  righttrig=find((dt>14900)&(dt<15100));
+    
+  if (isempty(righttrig))
+    error(['None of the trigger channels has a correct first ' ...
+           'interval.'])
+  end % if
+    
+  ts=combtrig(righttrig,:);
+
+end % chooseright
+
+  
+
