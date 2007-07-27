@@ -74,6 +74,7 @@
 %  the signals into the different sweeps.
 %*  sweepstruct(n)
 %*       |---nproto     : number of prototypes
+%*       |---duration   : duration of single sweep in units of seconds
 %*       |---pr(p)      : prototype substructure
 %*            |---eln   : electrode number
 %*            |---prn   : prototype number at this electrode 
@@ -341,6 +342,7 @@ function sweepstruct=nev2sweeps(nevvariable,trigstamps,varargin);
   
   for si=1:nsweeps
     sweepstruct(si).nproto = nproto;
+    sweepstruct(si).duration = kw.trigspersweep*difftrigsamp/tres;
 %    sweepstruct(si).npos = npos;
   end %% for
   
