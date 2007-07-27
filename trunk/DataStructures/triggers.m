@@ -72,13 +72,19 @@
 function trigstamps=triggers(nev,experiment) 
   
   switch experiment
+
    %% return only triggers of the first 6 sweeps, since afterwards the
    %% acquistion computer crashed.
    case {'070716-15'}
-    raw=[nev.ExpData.analog(1).timestamps ...
-         nev.ExpData.analog(2).timestamps];
-    trigstamps=sort(raw);
-    trigstamps=trigstamps(1:4572);
+    trigstamps=chooseright(nev);
+    
+    trigstamps=trigstamps(1:4578);    
+
+    removeidx=(1:6)*763;
+    remainidx=setdiff((1:length(trigstamps)),removeidx);
+
+    trigstamps=trigstamps(remainidx);
+    
    
    %% just append the missing trigger
    case {'070716-16'}
@@ -87,11 +93,13 @@ function trigstamps=triggers(nev,experiment)
     trigstamps=sort(raw);
     trigstamps(end+1)=trigstamps(end)+15000;
    
+   
    %% light stimulus generator
    case {'lsg','070704-02','070704-05'}
     raw=[nev.ExpData.analog(1).timestamps ...
          nev.ExpData.analog(2).timestamps];
     trigstamps=sort(raw);
+   
    
    %% use mirror triggers but remove the last one of each sweep (the
    %% 763rd in this case), since this just marks the end of the
@@ -105,7 +113,8 @@ function trigstamps=triggers(nev,experiment)
     
     trigstamps=trigstamps(remainidx);
 
-   %% use mirror triggers but keep all triggers, suitable for example for
+   
+   %% use mirror triggers but keep all triggers, suitable for
    %% RF cine stimulation
    case {'mirror','070704-04','051123-02','051123-10','051123-13','051123-14'}
 
