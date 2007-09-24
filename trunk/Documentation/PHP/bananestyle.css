@@ -141,6 +141,8 @@ div.main {
   right: 52px;
   padding-right: 15px;
   overflow: auto;
+  line-height : 2.5ex;
+  text-align:justify;
 }
 
 div.main h1 {
