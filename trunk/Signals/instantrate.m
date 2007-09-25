@@ -42,9 +42,14 @@
 % INPUTS:
 %  sweepstruc:: The sweep structure containing the single neuron firing
 %               timestamps as returned by <A>nev2sweeps</A>.
-%  windowsize:: The size of the spike count window.
-%  filter:: A one-dimensional array containinmg the filter kernel that is
-%           used for convolving the spike trains. Either <VAR>windowsize</VAR>
+%  windowsize:: The size of the spike count window in units of seconds.
+%  filter:: A one-dimensional array containing the filter kernel that is
+%           used for convolving the spike trains. The kernel must be
+%           normalized, i.e. the sum of the filter
+%           entries must equal 1. Thus, for an arbitray array
+%           <VAR>f1</VAR>, compute the normalized filter <VAR>fn</VAR>via
+%*          fn=f1/sum(f1)
+%           Either <VAR>windowsize</VAR>
 %           or <VAR>filter</VAR> must be set for the routine to work.
 %
 % OPTIONAL INPUTS:
@@ -117,23 +122,36 @@
 %  - Generate output structure.
 %
 % EXAMPLE:
-%  Generate a sample sweep structure with two neurons. 
+%  Generate a sample sweep structure with two sweeps, 50 neurons and
+%  random spikes, with firing probability increasing during the second
+%  half of the experiment. 
 %
-%*>> testspikes.nproto=2;
-%*>> testspikes.duration=1
-%*>> testspikes.pr(1).eln=1
-%*>> testspikes.pr(1).prn=1
-%*>> testspikes.pr(1).ts=0.1*(1:10)
-%*>> testspikes.pr(2).eln=2
-%*>> testspikes.pr(2).prn=1
-%*>> testspikes.pr(2).ts=0.1*(1:9)+0.005
-%
-%*>> ir=instantrate(testspikes,'windowsize',0.01 ...
-%*>>                 ,'vartype','uint8')
-%
-%*>> ir=instantrate(testspikes,'windowsize',0.01 ...
-%*>>                 ,'memmap',['/home/athiel/MATLAB/Sources/' ...
-%*>>                     'Self/Turtle/ratefilesimple.mmf'],'vartype','uint8')
+%*>> rspikes1=rand(1000,100)<0.01;
+%*>> rspikes2=rand(1000,100)<0.08;
+%*>> rspikes=[rspikes1;rspikes2];
+%*
+%*>> rsp.nproto=50
+%*>> rsp.duration=2
+%*>> rsp(2).nproto=50
+%*>> rsp(2).duration=2
+%*
+%*>> for pidx=1:50
+%*>>   rsp(1).pr(pidx).eln=pidx;
+%*>>   rsp(1).pr(pidx).prn=1;
+%*>>   rsp(1).pr(pidx).ts=0.001*find(rspikes(:,pidx));
+%*>> end
+%*>> for pidx=1:50
+%*>>   rsp(2).pr(pidx).eln=pidx;
+%*>>   rsp(2).pr(pidx).prn=1;
+%*>>   rsp(2).pr(pidx).ts=0.001*find(rspikes(:,pidx+50));
+%*>> end
+%*
+%*>> ir=instantrate(rsp,'windowsize',0.1,'vartype','uint8')
+%*
+%*>> plot(ir(1).single(:,1)*ir(1).factor)
+%*>> hold on
+%*>> plot(ir(2).single(:,1)*ir(1).factor,'k')
+%*>> plot(ir(2).population,'r')
 %
 % SEE ALSO:
 %  <A>nev2sweeps</A>, MATALAB filter routine, MATALAB memory map files. 
