@@ -3,7 +3,7 @@
 %  instantrate()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -18,14 +18,14 @@
 %  instantrate() computes the instantaneous firing rates of a population
 %  of neurons for multiple repetitions of an experiment (sweeps). As
 %  input, it uses the spike train information contained in 
-%  a sweep structure, which is returned by the <a>nev2sweeps</A> routine.
+%  a sweep structure, which is returned by the <A>nev2sweeps</A> routine.
 %  The output may either be a structure containing single cell and population
 %  firing rates or a structure containing information about a MATLAB memory map
 %  file. The memory map file option is needed if the amount of data
 %  is so large that keeping all neurons' firing rates in memory is
 %  impossible. Temporal integration during firing rate computation can
 %  either be accomplished by simply 
-%  counting the number of spikes within a moving time window, or by
+%  counting the number of spikes within a sliding time window, or by
 %  supplying a filter kernel to the routine with which the single cell
 %  spike trains are convolved.   
 %
@@ -34,7 +34,7 @@
 %
 % SYNTAX:
 %* irstruc=instantrate(sweepstruc
-%*                      (,'windowsize',value | ,'filter',array)
+%*                      ((,'windowsize',value) | (,'filter',array))
 %*                      [,'memmapfile',string]
 %*                      [,'vartype',string]
 %*                      [,'dt',value]); 
@@ -47,7 +47,7 @@
 %           used for convolving the spike trains. The kernel must be
 %           normalized, i.e. the sum of the filter
 %           entries must equal 1. Thus, for an arbitray array
-%           <VAR>f1</VAR>, compute the normalized filter <VAR>fn</VAR>via
+%           <VAR>f1</VAR>, compute the normalized filter <VAR>fn</VAR> via
 %*          fn=f1/sum(f1)
 %           Either <VAR>windowsize</VAR>
 %           or <VAR>filter</VAR> must be set for the routine to work.
@@ -57,17 +57,19 @@
 %               map file that is used to store the firing rate
 %               information on hard disk. Default: []. 
 %  vartype:: The variable type used to store the single cell firing
-%            rates. This intended to reduce memory consumption for large
+%            rates. This option is intended to reduce memory consumption
+%            for large 
 %            data sets. For simple counting of spike numbers, an unsigned
 %            integer type like 'uint8' or 'uint16' might
 %            suffice, while convolution with filters requires at least
-%            type 'single'. The routine prints an error message if a
-%            possible overflow occurred. Population firing rates are
+%            type 'single'. The routine prints an error message at the
+%            possibility of an
+%            overflow. Population firing rates are
 %            always stored in arrays 
 %            with double precision floating point values. Default:
-%            'uint8' if <VAR>windowsize</VAR> is set and 'single' if
+%            'uint8' if <VAR>windowsize</VAR> is set, and 'single' if
 %            <VAR>filter</VAR> is set.
-%  dt:: The size of a sample time bin in uints of seconds. Default:
+%  dt:: The size of a sample time bin in units of seconds. Default:
 %       0.001, i.e. samples are 1ms long. 
 %
 % OUTPUTS:
@@ -79,8 +81,11 @@
 %            and a single entry <VAR>irstruc(s)</VAR> for sweep
 %            <VAR>s</VAR> has the following fields:
 %*             irstruc(s)
-%*                |---single: Matrix of type <VAR>vartype<VAR> and size
-%*                            (number of samples x number of neurons).
+%*                |---single: Matrix of type <VAR>vartype</VAR> and size
+%*                            (number of samples x number of
+%*                             neurons). Contains the instantaneous
+%*                             firing rate of all neurons as a
+%*                             function of time.
 %*                |---population: Vector of length (number of samples)
 %*                                describing the average firing rate of
 %*                                all neurons during sweep <VAR>s</VAR>
