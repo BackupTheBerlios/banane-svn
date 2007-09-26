@@ -80,6 +80,7 @@
 %  Recover the data of sweep number 2:
 %*>> sp=recoversweepmmf(ir,2);
 %*
+%  Plot firing rates of neurons 1 and 2 and the population average:
 %*>> plot(sp.single(:,1)*ir.factor)
 %*>> hold on
 %*>> plot(sp.single(:,2)*ir.factor,'k')
