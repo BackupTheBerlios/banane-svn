@@ -151,11 +151,14 @@
 %*>>   rsp(2).pr(pidx).ts=0.001*find(rspikes(:,pidx+50));
 %*>> end
 %*
+%  Compute the firing rates within a 100ms window:
 %*>> ir=instantrate(rsp,'windowsize',0.1,'vartype','uint8')
 %*
+%  Plot firing rates of neuron 1 from sweeps 1 and 2 the population
+%  average of sweep 2:
 %*>> plot(ir(1).single(:,1)*ir(1).factor)
 %*>> hold on
-%*>> plot(ir(2).single(:,1)*ir(1).factor,'k')
+%*>> plot(ir(2).single(:,1)*ir(2).factor,'k')
 %*>> plot(ir(2).population,'r')
 %
 % SEE ALSO:

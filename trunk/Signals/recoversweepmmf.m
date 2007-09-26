@@ -3,7 +3,7 @@
 %  recoversweepmmf()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -51,11 +51,39 @@
 %  memorymapfile function with the respective arguments.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%  Generate a sample sweep structure with two sweeps, 50 neurons and
+%  random spikes, with firing probability increasing during the second
+%  half of the experiment. 
+%
+%*>> rspikes1=rand(1000,100)<0.01;
+%*>> rspikes2=rand(1000,100)<0.08;
+%*>> rspikes=[rspikes1;rspikes2];
+%*
+%*>> rsp.nproto=50
+%*>> rsp.duration=2
+%*>> rsp(2).nproto=50
+%*>> rsp(2).duration=2
+%*
+%*>> for pidx=1:50
+%*>>   rsp(1).pr(pidx).eln=pidx;
+%*>>   rsp(1).pr(pidx).prn=1;
+%*>>   rsp(1).pr(pidx).ts=0.001*find(rspikes(:,pidx));
+%*>> end
+%*>> for pidx=1:50
+%*>>   rsp(2).pr(pidx).eln=pidx;
+%*>>   rsp(2).pr(pidx).prn=1;
+%*>>   rsp(2).pr(pidx).ts=0.001*find(rspikes(:,pidx+50));
+%*>> end
+%  Compute the firing rates within a 100ms window and save the result as
+%  a memory map file:
+%*>> ir=instantrate(rsp,'windowsize',0.1,'memmapfile','rates.mmf','vartype','uint8');
+%  Recover the data of sweep number 2:
+%*>> sp=recoversweepmmf(ir,2);
+%*
+%*>> plot(sp.single(:,1)*ir.factor)
+%*>> hold on
+%*>> plot(sp.single(:,2)*ir.factor,'k')
+%*>> plot(sp.population,'r')
 %
 % SEE ALSO:
 %  <A>instantrate</A>, MATLAB memory map files. 
