@@ -85,7 +85,7 @@ function result=gauss2d(width,height,xpeak,ypeak,xsigma,ysigma)
   end
 
   if (~exist('ysigma'))
-    ysigma=xsigma
+    ysigma=xsigma;
   end
   
   xgrid=repmat((1:width)-xpeak,height,1);
