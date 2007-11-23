@@ -130,8 +130,8 @@ function sweepstruct=nev2sweeps(nevvariable,trigstamps,varargin);
       if (kw.stimpertrig==0)
         error('Number of stimuli per trigger needed.')
       else
-        nstim=size(kw.stimdata,1)
-        kw.trigspersweep=nstim/kw.stimpertrig
+        nstim=size(kw.stimdata,1);
+        kw.trigspersweep=nstim/kw.stimpertrig;
         if (kw.verbose)
           display('Stimulus sequence evaluated.');
         end % if (kw.verbose)
