@@ -3,7 +3,7 @@
 %  histmd()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -156,31 +156,27 @@ function [result,binvalues,revidx]=histmd(s,varargin)
   rebmax = repmat(kw.max, sdur, 1);
   
   % bin sizes for each dimension
-  sbinsize = (kw.max-kw.min)./kw.nbins;
+  sbinsize = (kw.max-kw.min)./(kw.nbins-1);
 
   % general idea:
   % for multidimensional stimuli, compute linear bin indices for each row
   % in the stimulus. 
-  % the max values, which would be in the nbins+1 bin are restricted by
-  % "min(binidx,ceiling)" so they are counted in the last bin.
 
   % blow up min and nbin arrays for later elementwise computations 
   rmin=repmat(kw.min,sdur,1);
   rbinsize=repmat(sbinsize,sdur,1);
-  binidx=uint32(fix((s-rmin)./rbinsize));
-  ceiling=repmat(uint32(kw.nbins-1),sdur,1);
-  restricted=min(binidx,ceiling);
-  factor=uint32(cumprod(repmat([1 kw.nbins(1:end-1)],sdur,1),2));
+  binidx=fix((s-rmin)./rbinsize);
+  factor=cumprod([1 kw.nbins(1:end-1)]);
 
   % +1 since MATLAB counts indices starting at one, while the rest of the
-  % algorith assumes indices starting at 0
-  idxmat=sum(restricted.*factor,2)+1;
-  
+  % algorithm assumes indices starting at 0
+  idxmat=1+binidx*factor.';
+
   % Construct an array of out-of-range (0) and in-range (1) values.
   in_range = logical(ones(sdur,1));
   if (minTruncation) % set lt min to zero
     if (sdim==1)
-      in_range = (s>=rebmin)
+      in_range = (s>=rebmin);
     else
       in_range = sum((s>=rebmin), 2)==sdim;
     end % if
@@ -188,7 +184,7 @@ function [result,binvalues,revidx]=histmd(s,varargin)
   
   if (maxTruncation) % set gt max to zero
     if sdim==1
-      in_range = in_range & (s<=rebmax)
+      in_range = in_range & (s<=rebmax);
     else
       in_range = in_range & (sum((s<=rebmax), 2)==sdim);
     end % if
@@ -209,7 +205,7 @@ function [result,binvalues,revidx]=histmd(s,varargin)
   for idx=1:sdim
     binvalues(2:kw.nbins(idx)+1, idx) = ...
         kw.min(idx)+(0:kw.nbins(idx)-1) ...
-        *sbinsize(idx)+0.5*sbinsize(idx)*kw.binmid;
+        *sbinsize(idx)-0.5*sbinsize(idx)*not(kw.binmid);
   end % for
     
   % array for reverse indices
