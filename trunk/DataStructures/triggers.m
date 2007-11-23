@@ -27,7 +27,7 @@
 %  DataStructures
 %
 % SYNTAX:
-%* tr = triggers(nev, experiment); 
+%* tr = triggers(nev, experiment,['forcechannel',value]); 
 %
 % INPUTS:
 %  nev:: The matlab structure containing the experimental data,
@@ -44,10 +44,12 @@
 %               |'051123-14'|'mirror'<BR>
 %               Compute
 %               triggers by choosing either the 
-%               timestamps recorded on the analog channel 3 or 4. The
+%               timestamps recorded on the analog channel 3 or 4.This
+%               method is suitable for triggers provided by the 
+%               mirror control system. The
 %               channel with the larger first trigger interval is
-%               chosen. This method is suitable for triggers provided by the
-%               mirror control system.
+%               chosen. This choice can be altered manually by setting the
+%               <VAR>forcechannel</VAR> paramter to either 3 or 4.<BR>
 %               '070716-15'<BR>
 %               Returns only triggers for the first 6 sweeps of this
 %               particular experiment, since afterwards the acquisition
@@ -69,7 +71,9 @@
 %  <A>loadNEV</A>, <A>nev2sweeps</A>. 
 %-
 
-function trigstamps=triggers(nev,experiment) 
+function trigstamps=triggers(nev,experiment,varargin) 
+  
+  kw=kwextract(varargin,'forcechannel',[]);
   
   switch experiment
 
@@ -118,7 +122,7 @@ function trigstamps=triggers(nev,experiment)
    %% RF cine stimulation
    case {'mirror','070704-04','051123-02','051123-10','051123-13','051123-14'}
 
-    trigstamps=chooseright(nev);
+    trigstamps=chooseright(nev,kw.forcechannel);
 
    otherwise
       error('Unknown experiment or condition.')
@@ -138,20 +142,28 @@ end % triggers
 % between first and second trigger of nearly 500ms (15000 samples),
 % instead of about 250ms.
 
-function ts=chooseright(nev)
+function ts=chooseright(nev,force)
 
   combtrig=[nev.ExpData.analog(3).timestamps; ...
             nev.ExpData.analog(4).timestamps];
 
-  dt=combtrig(:,2)-combtrig(:,1);
+  dt=combtrig(:,2)-combtrig(:,1)
     
   righttrig=find((dt>14900)&(dt<15100));
     
   if (isempty(righttrig))
-    error(['None of the trigger channels has a correct first ' ...
+    warning(['None of the trigger channels has a correct first ' ...
            'interval.'])
   end % if
-    
+  
+  if ~(isempty(force))
+    righttrig=force-2;
+    warning(['Using trigger channel ' num2str(force) ' by force.']);
+  elseif (isempty(righttrig))
+    error(['None of the trigger channels has a correct first ' ...
+           'interval.']);
+  end % if
+  
   ts=combtrig(righttrig,:);
 
 end % chooseright
