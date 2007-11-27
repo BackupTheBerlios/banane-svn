@@ -3,7 +3,7 @@
 %  ind2subvec()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -12,7 +12,7 @@
 %  10/2007
 %
 % AIM:
-%  Short description of the routine in a single line.
+%  Convert linear array index to multi dimensional matrix subscripts.
 %
 % DESCRIPTION:
 %  ind2subvec() is used to determine the equivalent subscript values
@@ -31,7 +31,7 @@
 %
 % INPUTS:
 %  siz:: The dimension information about the
-%  matrix. <VAR>sizeinfo</VAR> is an n-element vector that specifies the
+%  matrix. <VAR>siz</VAR> is an n-element vector that specifies the
 %  size of each array dimension, as returned by MATLAB's size() function.
 %  ndx:: The linear index into the matrix.
 %
