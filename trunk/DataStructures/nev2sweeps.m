@@ -133,6 +133,8 @@ function sweepstruct=nev2sweeps(nevvariable,trigstamps,varargin);
         nstim=size(kw.stimdata,1);
         kw.trigspersweep=nstim/kw.stimpertrig;
         if (kw.verbose)
+          display(' ');
+          display('NEV2Sweeps');
           display('Stimulus sequence evaluated.');
         end % if (kw.verbose)
       end % if (kw.stimpertrig==0)

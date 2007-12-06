@@ -147,13 +147,14 @@ function ts=chooseright(nev,force)
   combtrig=[nev.ExpData.analog(3).timestamps; ...
             nev.ExpData.analog(4).timestamps];
 
-  dt=combtrig(:,2)-combtrig(:,1)
+  dt=combtrig(:,2)-combtrig(:,1);
     
   righttrig=find((dt>14900)&(dt<15100));
     
   if (isempty(righttrig))
+    display(' ');
     warning(['None of the trigger channels has a correct first ' ...
-           'interval.'])
+           'interval.']);
   end % if
   
   if ~(isempty(force))

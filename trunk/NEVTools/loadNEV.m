@@ -115,7 +115,7 @@ function nevVariable = loadNEV(filename, varargin);
     clear varargin;
 
     disp(' ');
-    disp('Please wait....');
+    disp('Loading NEV data.');
 
     fid = fopen(filename, 'r+', 'ieee-le');
     if fid == -1, 
@@ -259,7 +259,7 @@ function nevVariable = loadNEV(filename, varargin);
     nevVariable.GeneralInfo.unitOrder = uint8(fread(fid, nevVariable.FileInfo.packetCount, 'uint8', ...
                                                     nevVariable.HeaderBasic.packetLength - 1));
     
-    disp('...............');
+    disp('.................');
 
     % Get rid of noise, unclassified units and unselected channels
     if nounclass == 2, 
@@ -319,7 +319,7 @@ function nevVariable = loadNEV(filename, varargin);
           end
         end
       end
-      disp('...............');
+      disp('.................');
     
       nevVariable.GeneralInfo.ActiveChannels = find(nevVariable.GeneralInfo.NumberSpikes);
       len = nevVariable.HeaderBasic.packetLength - 8;
@@ -415,7 +415,8 @@ function nevVariable = loadNEV(filename, varargin);
       % Determine active channels and number of spikes on each
       nevVariable.GeneralInfo.NumberSpikes = zeros(1, 255);
       
-      disp('...............');
+      disp('.................');
+
       for i = 1:double(max(nevVariable.GeneralInfo.packetOrder))
         ind1 = find(nevVariable.GeneralInfo.packetOrder == i);
         nevVariable.GeneralInfo.NumberSpikes(i) = length(ind1);
@@ -469,7 +470,7 @@ function nevVariable = loadNEV(filename, varargin);
     
     fclose(fid);
 
-    disp('...........done');
+    disp('.............done');
 
     % Set file information global
     disp(' ');
