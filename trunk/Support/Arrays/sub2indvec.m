@@ -3,7 +3,7 @@
 %  sub2indvec()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -15,38 +15,39 @@
 %  Convert multi dimensional matrix subscripts to linear index.
 %
 % DESCRIPTION:
-%  This routine converts a row vector of multi dimensional matrix
-%  subscripts to a single linear index depending on the size of the
+%  This routine converts a set of multi dimensional matrix
+%  subscripts to linear indices depending on the size of the
 %  matrix. It is an addition to MATLAB's own sub2ind routine, with the
 %  difference that the subscripts are passed to the routine as a vector
+%  or matrix 
 %  instead of separate arguments. This enables a more flexible handling
 %  of matrixes 
 %  with dimensions that are unknown at the time of programming.
 %
 % CATEGORY:
 %  Support Routines<BR>
-%   Arrays
+%  Arrays
 %
 % SYNTAX:
-%* i=sub2indvec(sizeinfo,subvec); 
+%* i=sub2indvec(sizeinfo,subs); 
 %
 % INPUTS:
 %  sizeinfo:: The dimension information about the
 %  matrix. <VAR>sizeinfo</VAR> is an n-element vector that specifies the
 %  size of each array dimension, as returned by MATLAB's size() function.
-%  subvec:: A row vector consisting of multidimensional subscripts.
+%  subs:: A matrix or row vector consisting of the multidimensional
+%  subscripts. If multiple subscript sets have to be converted into
+%  multiple linear indices, the single rows of <VAR>subs</VAR> represent
+%  the subscript sets belonging together, and the output has as many rows
+%  as the <VAR>subs</VAR> matrix.
 %
 % OUTPUTS:
-%  i:: The linear index equivalent to the set of subscripts <VAR>subvec</VAR>
+%  i:: The linear index or indices equivalent to the set of subscripts
+%  <VAR>subs</VAR> 
 %  for an array of size <VAR>sizeinfo</VAR>.
 %
-% RESTRICTIONS:
-%  Only row vectors are allowed as input, corresponding to the conversion
-%  of a single set of subscripts. A future version should be able to
-%  convert multiple sets with a single function call. 
-%
 % PROCEDURE:
-%  See source code of MATLAB's sub2ind routine.
+%  Just matrix multiplication.
 %
 % EXAMPLE:
 %* >> m=rand(4,3);
@@ -60,26 +61,24 @@
 %* >> m(2,3)
 %* ans =
 %*     0.3529
+%* >> i=sub2indvec(sm,[2,3; 1,2])
+%* i =
+%*     10
+%*      5
 %
 % SEE ALSO:
 %  <A>ind2subvec</A>, MATLAB's sub2ind and ind2sub. 
 %-
 
 
-function i=sub2indvec(sizeinfo,subvec)
+function i=sub2indvec(sizeinfo,subs)
   
-  svec=size(subvec);
+  [subrows,subcols]=size(subs);
   
-  if (length(svec)>2)||(svec(1)>1)
-    error('In this version, only row vectors are allowed as input.')
-  end
-  
-  if (numel(sizeinfo)~=numel(subvec))
+  if (numel(sizeinfo)~=subcols)
     error('Number of dimensions in sizeinfo and subscript vector must agree.')
   end
   
-  k=[1 cumprod(sizeinfo(1:end-1))].';
+  reduce=[zeros(subrows,1),ones(subrows,subcols-1)];
   
-  subvec(2:end)=subvec(2:end)-1;
-  
-  i=subvec*k;
+  i=(subs-reduce)*[1 cumprod(sizeinfo(1:end-1))].';
