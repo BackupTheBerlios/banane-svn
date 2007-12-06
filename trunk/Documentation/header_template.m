@@ -32,13 +32,13 @@
 %   - Strings<BR>
 %   - Receptive Fields<BR>
 %   - Signals<BR>
+%   - Statistics<BR>
 %  Others may be invented, with corresponding subdirectories in the
 %  BANANE directory tree. For example:<BR>
 %   - DataStorage<BR>
 %   - Demonstration<BR>
 %   - Graphic<BR>
 %   - Help<BR>
-%   - Statistics<BR>
 %   - Simulation<BR>
 %
 % SYNTAX:
