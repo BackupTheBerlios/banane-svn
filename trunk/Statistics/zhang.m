@@ -3,7 +3,7 @@
 %  zhang()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -51,11 +51,7 @@
 %  MATLAB version of Zhang's algorithm.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%  See <A>zhangexample</A>.
 %
 % SEE ALSO:
 %  <A>instantrate</A>, <A>likelihood</A>, <A>tuning</A>. 

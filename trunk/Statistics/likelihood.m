@@ -3,7 +3,7 @@
 %  likelihood()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -87,8 +87,8 @@ function [llh,edges]=likelihood(resp,bv,ri,varargin)
   
     % find max and min response across all sweeps
     for swidx=1:nsweeps
-      rmin=double(min(resp(swidx).single(:)))
-      rmax=double(max(resp(swidx).single(:)))
+      rmin=double(min(resp(swidx).single(:)));
+      rmax=double(max(resp(swidx).single(:)));
       minall=min([minall,rmin]);
       maxall=max([maxall,rmax]);
     end % for

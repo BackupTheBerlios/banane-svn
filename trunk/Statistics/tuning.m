@@ -3,7 +3,7 @@
 %  tuning()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -45,7 +45,7 @@
 %  distribution. 
 %
 % EXAMPLE:
-%  See example elsewhere.
+%  See <A>zhangexample</A>.
 %
 % SEE ALSO:
 %  <A>likelihood</A>, <A>zhang</A>. 
