@@ -60,7 +60,7 @@
 %  - Reshape the histogram.
 %
 % EXAMPLE:
-%  See elsewhere.
+%  See <A>zhangexample</A>.
 %
 % SEE ALSO:
 %  <A>instantrate</A>, <A>tuning</A>, <A>zhang</A>. 
