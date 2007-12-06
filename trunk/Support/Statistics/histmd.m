@@ -194,7 +194,9 @@ function [result,binvalues,revidx]=histmd(s,varargin)
   % bin idx 1, the out of range values are not counted.
   idxmat=idxmat.*in_range;
 
-  shist = histc(idxmat, (1:prod(kw.nbins)));
+  % since indices are integer anyway, one may use the faster sliwhist
+  % routine
+  shist = sliwhist(idxmat, 'range',[1,prod(kw.nbins)]);
 
   % generate an array that contains the bin values.
   % nbins may differ for the different dimensions, thus the array is
