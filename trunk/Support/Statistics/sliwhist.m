@@ -15,43 +15,53 @@
 %  Fast histogram computation for positive integer values.
 %
 % DESCRIPTION:
-%  Based on an idea by Lukasz Sliwczynski.
+%  This routine computes one or more histograms of positive integer
+%  values including zero. It is nearly twice as fast as MATLAB's
+%  histc() function. The algorithm is based on an idea by Lukasz
+%  Sliwczynski and extended to enable the computation of multiple column
+%  histograms with a single call.
 %
 % CATEGORY:
-%   Support Routines<BR>
-%   Statistics
+%  Support Routines<BR>
+%  Statistics
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* result=sliwhist(s[,'range',vector]); 
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
+%  s:: A column vector or two-dimensional matrix of positive integers. If
+%  <VAR>s</VAR> is a matrix, histograms are computed along the columns.
 %
 % OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
+%  range:: A two-element vector specifying the minimum and maxim values
+%  to be considered in the histogram computation.
 %
 % OUTPUTS:
-%  result:: The result of the routine.
+%  result:: Either a column vector or a two-dimensional matrix containing
+%  the histogram.
 %
 % RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  Presently, uint32 is used as the data type to save the results. This
+%  might be too small.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  The idea is to sort the data sequence and then only to calculate the
+%  distance between steps in this sorted sequence. The rest of the
+%  algorithm deals with enabling columnwise histogram computation without
+%  using loops.
 %
 % EXAMPLE:
 %  Indicate example lines with * as the first character. These lines
 %  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%* >> s=fix(10*randn(1000,10))+50;
+%* >> sh=sliwhist(s,'range',[40 60]);
+%* >> shm=histc(s,(40:60));
+%* >> bar(sh(:,2));
+%* >> hold on
+%* >> plot(shm(:,2),'r');
 %
 % SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
+%  <A>histMD</A>, MATLAB's histc(). 
 %-
 
 
@@ -59,7 +69,7 @@
 function result=sliwhist(s,varargin)
   
   if (ndims(s)>2)
-    error('error!');
+    error('Input array has too many dimensions.');
   end
 
   mas=max(s(:));
@@ -70,8 +80,8 @@ function result=sliwhist(s,varargin)
     kw.range=[min(s(:)) mas];
   end %if  
       
-  if (kw.range(1)>kw.range(2))
-    error('error!');
+  if (kw.range(1)>=kw.range(2))
+    error('First range value must not be larger or equal to second range value.');
   end
 
   nbins=uint32(mas+1);
