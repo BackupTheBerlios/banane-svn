@@ -3,7 +3,7 @@
 %  sliwhist()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -34,15 +34,13 @@
 %
 % OPTIONAL INPUTS:
 %  range:: A two-element vector specifying the minimum and maxim values
-%  to be considered in the histogram computation.
+%  to be considered in the histogram computation. If <VAR>range</VAR> is
+%  not set, the histogram is computed to contain all values from the
+%  minimum to the maximum. 
 %
 % OUTPUTS:
 %  result:: Either a column vector or a two-dimensional matrix containing
 %  the histogram.
-%
-% RESTRICTIONS:
-%  Presently, uint32 is used as the data type to save the results. This
-%  might be too small.
 %
 % PROCEDURE:
 %  The idea is to sort the data sequence and then only to calculate the
@@ -72,19 +70,19 @@ function result=sliwhist(s,varargin)
     error('Input array has too many dimensions.');
   end
 
-  mas=max(s(:));
+  mas=double(max(s(:)));
   
   kw=kwextract(varargin,'range',[]);
   
   if (isempty(kw.range))
-    kw.range=[min(s(:)) mas];
+    kw.range=[double(min(s(:))) mas];
   end %if  
       
   if (kw.range(1)>=kw.range(2))
     error('First range value must not be larger or equal to second range value.');
   end
 
-  nbins=uint32(mas+1);
+  nbins=mas+1;
   
   [nrows,nrep]=size(s);
     
@@ -96,10 +94,10 @@ function result=sliwhist(s,varargin)
   
   linidx=find(gsd);
   
-  v=uint32(gs(linidx)+1);
+  v=double(gs(linidx)+1);
   
   rows=rem(linidx,nrows);
-  cols=uint32(ceil(linidx/nrows)-1);
+  cols=(ceil(linidx/nrows)-1);
   
   dc=diff([0; rows]);
   
