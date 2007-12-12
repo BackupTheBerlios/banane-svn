@@ -31,8 +31,8 @@
 %
 % INPUTS:
 %  p:: A five element vector representing the parameters of the Gaussian
-%  curve. In detail, these are [<VAR>xpeak ypeak amplitude xwidth
-%  ywidth</VAR>]. 
+%  curve. In detail, these are [<VAR>ypeak xpeak amplitude ywidth
+%  xwidth</VAR>]. 
 %  array:: A two dimensional numerical array to which the Gaussian bell
 %  curve has to be fitted. 
 %
@@ -41,7 +41,7 @@
 %  the Gaussian curve. <VAR>err</VAR> is computed as the sum over the
 %  absolute differences between each element of <VAR>array</VAR> and the
 %  corresponding element of the array containing the Gaussian. The result
-%  is normailzed to the maximum value of <VAR>arra</VAR> to ensure that
+%  is normailzed to the maximum value of <VAR>array</VAR> to ensure that
 %  error values are comparable across different amplitudes. An error
 %  value of Inf is returned if the peak is positioned outside the array
 %  and if the x- and y-widths are too small, i.e. below 0.1.
@@ -69,7 +69,7 @@ function err = fitgauss2d(p,array)
     
   else
   
-    [n,m] = size(array);
+    [m,n] = size(array);
 
     if ((p(1) < 1) | (p(1) > m) ...
         | (p(2) < 1) | (p(2) > n) ...

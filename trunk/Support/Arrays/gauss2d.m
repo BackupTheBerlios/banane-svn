@@ -25,30 +25,30 @@
 %  Arrays
 %
 % SYNTAX:
-%* result=gauss2d(width[,height[,xpeak[,ypeak[,xsigma[,ysigma]]]]]); 
+%* result=gauss2d(height[,width[,ypeak[,xpeak[,ysigma[,xsigma]]]]]); 
 %
 % INPUTS:
-%  width:: The number of columns of the resulting array.
+%  height:: The number of rows of the resulting array.
 %
 % OPTIONAL INPUTS:
-%  height:: The number of rows of the resulting array. If
-%  <VAR>height</VAR> is not specified, a square array is returned.
-%  xpeak:: The position of the curve's maximum along the x-axis. Position
-%  is measured relative to the arrays origin, i.e. to 
-%  index (1,1). If <VAR>xpeak</VAR> is unspecified, the peak is
-%  positioned in the middle of the array.
+%  width:: The number of columns of the resulting array. If
+%  <VAR>width</VAR> is not specified, a square array is returned.
 %  ypeak:: The position of the curve's maximum along the y-axis. Position
 %  is measured relative to the arrays origin, i.e. to 
 %  index (1,1). If <VAR>ypeak</VAR> is unspecified, the peak is
 %  positioned in the middle of the array.
-%  xsigma:: The width (standard deviation) of the curve along the
-%  x-axis. Default: <VAR>width/10</VAR>.
+%  xpeak:: The position of the curve's maximum along the x-axis. Position
+%  is measured relative to the arrays origin, i.e. to 
+%  index (1,1). If <VAR>xpeak</VAR> is unspecified, the peak is
+%  positioned in the middle of the array.
 %  ysigma:: The width (standard deviation) of the curve along the
-%  y-axis. Default: <VAR>ysigma=xsigma</VAR>.
+%  y-axis. Default: <VAR>ysigma=height/10</VAR>.
+%  xsigma:: The width (standard deviation) of the curve along the
+%  x-axis. Default: <VAR>xsigma=ysigma</VAR>.
 %
 % OUTPUTS:
-%  result:: Numerical array of dimension (<VAR>width</VAR> x
-%  <VAR>height</VAR>). The maximum value is equal to 1.
+%  result:: Numerical array of dimension (<VAR>height</VAR> x
+%  <VAR>width</VAR>). The maximum value is equal to 1.
 %
 % RESTRICTIONS:
 %  The option to tilt the Gaussian is not yet implemented.
@@ -65,11 +65,11 @@
 %-
 
 
-function result=gauss2d(width,height,xpeak,ypeak,xsigma,ysigma)
+function result=gauss2d(height,width,ypeak,xpeak,ysigma,xsigma)
 
   % generate default values
-  if (~exist('height'))
-    height=width;
+  if (~exist('width'))
+    width=height;
   end
 
   if (~exist('xpeak'))
@@ -80,12 +80,12 @@ function result=gauss2d(width,height,xpeak,ypeak,xsigma,ysigma)
     ypeak=height/2;
   end
 
-  if (~exist('xsigma'))
-    xsigma=width/10;
+  if (~exist('ysigma'))
+    ysigma=height/10;
   end
 
-  if (~exist('ysigma'))
-    ysigma=xsigma;
+  if (~exist('xsigma'))
+    xsigma=ysigma;
   end
   
   xgrid=repmat((1:width)-xpeak,height,1);
