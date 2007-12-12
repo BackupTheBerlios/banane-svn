@@ -154,6 +154,8 @@ function rfstruct=rfspacetime(positions,spikes,varargin)
   indarr=(1:spic(1)*spic(2))-1;
 
 
+  disp(' ');
+  disp('RFSpaceTime');
   disp('Processing prototypes.');
 
   for pidx=1:spikes(1).nproto

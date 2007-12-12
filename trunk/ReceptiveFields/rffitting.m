@@ -3,7 +3,7 @@
 %  rffitting()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -64,6 +64,8 @@ function rfstruct=rffitting(rfstruct,varargin)
   kw=kwextract(varargin,'avspacerange',2,'graphic',false);
   rfstruct.avspacerange=kw.avspacerange;
 
+  disp(' ');
+  disp('RFFitting');
   disp('Processing prototypes.');
 
   for pidx=1:rfstruct.nproto
