@@ -80,7 +80,7 @@
 %          indices are counted linearly.
 %
 % RESTRICTIONS:
-%  The routine has only been tested thorougly for two-dimensional data.
+%  -The routine has only been tested thorougly for two-dimensional data.
 %
 % PROCEDURE:
 %  Convert the multidimensional data into a onedimensional one and do a
@@ -156,6 +156,9 @@ function [result,binvalues,revidx]=histmd(s,varargin)
   rebmax = repmat(kw.max, sdur, 1);
   
   % bin sizes for each dimension
+  % this leads to division by zero if only one bin is desired.
+  % the resulting inf binsize does not corrupt the algorithm but has to
+  % be corrected below when bin values are returned
   sbinsize = (kw.max-kw.min)./(kw.nbins-1);
 
   % general idea:
@@ -165,7 +168,10 @@ function [result,binvalues,revidx]=histmd(s,varargin)
   % blow up min and nbin arrays for later elementwise computations 
   rmin=repmat(kw.min,sdur,1);
   rbinsize=repmat(sbinsize,sdur,1);
-  binidx=fix((s-rmin)./rbinsize);
+  nonzeroidx=find(rbinsize);
+  nonzeroidx=setdiff(nonzeroidx, find(isnan(rbinsize)));
+  binidx=s-rmin;
+  binidx(nonzeroidx)=fix(binidx(nonzeroidx)./rbinsize(nonzeroidx));
   factor=cumprod([1 kw.nbins(1:end-1)]);
 
   % +1 since MATLAB counts indices starting at one, while the rest of the
@@ -205,9 +211,15 @@ function [result,binvalues,revidx]=histmd(s,varargin)
   binvalues = NaN(max(kw.nbins)+1, sdim);
   binvalues(1, :) = kw.nbins;
   for idx=1:sdim
-    binvalues(2:kw.nbins(idx)+1, idx) = ...
-        kw.min(idx)+(0:kw.nbins(idx)-1) ...
-        *sbinsize(idx)-0.5*sbinsize(idx)*not(kw.binmid);
+    if isinf(sbinsize(idx)) % only one bin was desired
+      binvalues(2, idx) = ...
+          0.5*(kw.min(idx)+kw.max(idx))+ ...
+          0.5*(kw.min(idx)-kw.max(idx))*not(kw.binmid);
+    else
+      binvalues(2:kw.nbins(idx)+1, idx) = ...
+          kw.min(idx)+(0:kw.nbins(idx)-1) ...
+          *sbinsize(idx)-0.5*sbinsize(idx)*not(kw.binmid);
+    end % if
   end % for
     
   % array for reverse indices
