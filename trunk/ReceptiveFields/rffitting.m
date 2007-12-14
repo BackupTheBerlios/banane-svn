@@ -110,19 +110,19 @@ function rfstruct=rffitting(rfstruct,varargin)
   
   
   if (nnz(rf)~=0)
-    vstart=[ix iy max(rf(:)) 1.5 1.5];
+    vstart=[iy ix max(rf(:)) 1.5 1.5];
     [v,fval] = fminsearch(@(v) fitgauss2d(v,rf),vstart,optimset('Display','off'));
   else
     v = [ones(1,5)];
     fval=Inf;
   end
   
-  gs=v(3)*gauss2d(rfstruct.xyextent(1),rfstruct.xyextent(2),v(1),v(2),v(4),v(5));
+  gs=v(3)*gauss2d(rfstruct.xyextent(2),rfstruct.xyextent(1),v(1),v(2),v(4),v(5));
   mask2sig=(gs>=v(3)*exp(-0.5*kw.avspacerange.^2));
   
   vmm=v;
-  vmm(1)=rfstruct.xmmperpos*(v(1)-rfstruct.xyextent(1)/2);%mmynz(round(v(1)));
-  vmm(2)=rfstruct.ymmperpos*(v(2)-rfstruct.xyextent(2)/2);%mmxnz(round(v(2)));
+  vmm(1)=rfstruct.xmmperpos*(v(1)-rfstruct.xyextent(2)/2);%mmynz(round(v(1)));
+  vmm(2)=rfstruct.ymmperpos*(v(2)-rfstruct.xyextent(1)/2);%mmxnz(round(v(2)));
   vmm(4)=rfstruct.xmmperpos*v(4);
   vmm(5)=rfstruct.ymmperpos*v(5);
 
@@ -169,27 +169,27 @@ function rfstruct=rffitting(rfstruct,varargin)
     ylabel(' y / mm');
     title('Sum of peak time interval');
     hold on
-    emm=ellipse(25,vmm(1),vmm(2),2*vmm(4),2*vmm(5));
+    emm=ellipse(25,vmm(2),vmm(1),2*vmm(5),2*vmm(4));
     plot(emm(1,:),emm(2,:),'w','LineWidth',2);
-    plot(vmm(1),vmm(2),'wo','LineWidth',2);
+    plot(vmm(2),vmm(1),'wo','LineWidth',2);
     hold off
 
-    subplot(2,4,4),plot(rfstruct.mmxnz,rf(round(v(2)),:))
+    subplot(2,4,4),plot(rfstruct.mmxnz,rf(round(v(1)),:))
     axis tight;
     xlabel('x / mm');
     ylabel('???');
     title('X Slice at maximum position');
     hold on
-    subplot(2,4,4),plot(rfstruct.mmxnz,gs(round(v(2)),:),'r')
+    subplot(2,4,4),plot(rfstruct.mmxnz,gs(round(v(1)),:),'r')
     hold off
 
-    subplot(2,4,5),plot(rfstruct.mmynz,rf(:,round(v(1)))) % , imagesc(gs);
+    subplot(2,4,5),plot(rfstruct.mmynz,rf(:,round(v(2)))) % , imagesc(gs);
     axis tight;
     xlabel('y / mm');
     ylabel('???');
     title('Y Slice at maximum position');
     hold on
-    subplot(2,4,5),plot(rfstruct.mmynz,gs(:,round(v(1))),'r')
+    subplot(2,4,5),plot(rfstruct.mmynz,gs(:,round(v(2))),'r')
     hold off
   
     subplot(2,4,6), imagesc(rfstruct.mmxnz,rfstruct.mmynz,mask2sig.*rf);
