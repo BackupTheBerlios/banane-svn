@@ -1,14 +1,22 @@
 #!/usr/bin/perl -w
 
+# updatemain.pl
+# $Id$
+#
+# this is the primary Perl script for updating the database
+# of the banane web documentation.
+# input is passed via stdin, as the sequence of lines that describe the 
+# actions and filenames that is produced by the "svn update" command.
+# the script first parses these lines, to determine which action has been
+# performed on which file. later, it parses the header information of those
+# files that have been changed and updates the database accordingly.
+
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
-#$bananepath="/home/athiel/MATLAB/Sources/Banane/";
 
 # path in lib must be known at compile time, therefore, no 
 # concatenation with $bananepath ist possible and it is 
 # given here explicitely
 use lib "/home/groups/banane/htdocs/wwwcopy/Banane/Documentation/Perl/";
-#use lib "/home/athiel/MATLAB/Sources/Banane/Documentation/Perl/";
-# use strict;
 use DBI;
 use parseupdate;
 use parseheader;
@@ -42,7 +50,7 @@ if ($file->[0]) {
   my $dbh = DBI->connect($dsn, $dbuser, $dbpasswd)
     or die "Couldn't connect to database: " . DBI->errstr;
 
-  # prepare databse querys
+  # prepare database querys
   my $routines_replacehandle = $dbh->prepare_cached("REPLACE INTO routines (name,fullpath,relativepath,version,author,date,aim,description,category,syntax,restrictions,proc,example,also) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
@@ -75,7 +83,6 @@ if ($file->[0]) {
   foreach (@{$file}) {
 
     $now=$_->[1];
-    # print "Now: $now\n";
     
     @parts = split(/_/, $now);
 
@@ -119,7 +126,6 @@ if ($file->[0]) {
       foreach (@{$head{inputs}->[0]}) {
 	my($arg)=$_->[0];
 	my($desc)=$_->[1];
-	#print "$arg :: $desc\n";
 	my $success = 1;
 	$success &&= $inputs_replacehandle->execute($head{name},$count,$arg,$desc);
 	$count++;
@@ -129,7 +135,6 @@ if ($file->[0]) {
       foreach (@{$head{optinputs}->[0]}) {
 	my($arg)=$_->[0];
 	my($desc)=$_->[1];
-	#      print "$arg :: $desc\n";
 	my $success = 1;
 	$success &&= $optinputs_replacehandle->execute($head{name},$count,$arg,$desc);
 	$count++;
@@ -139,7 +144,6 @@ if ($file->[0]) {
       foreach (@{$head{outputs}->[0]}) {
 	my($arg)=$_->[0];
 	my($desc)=$_->[1];
-	#print "$arg :: $desc\n";
 	my $success = 1;
 	$success &&= $outputs_replacehandle->execute($head{name},$count,$arg,$desc);
 	$count++;
