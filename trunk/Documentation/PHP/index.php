@@ -1,8 +1,12 @@
 <?php
+
+## index.php
+## $Id$
+
 ## index.php calls the mainpage script that actually 
 ## displays the banane homepage. copy index.php to the 
 ## initial directory where the browser looks for it.
-## be shure to correctly modify the $bananepath.
+## be sure to correctly modify the $bananepath.
 
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
@@ -15,7 +19,6 @@ $out=explode("\n",$allout);
 $webpath=$out[0];
 
 $anchor=$webpath."Documentation/PHP/mainpage.php";
-# include $anchor;
 
 header( "HTTP/1.1 301 Moved Permanently" );
 header( "Status: 301 Moved Permanently" );
