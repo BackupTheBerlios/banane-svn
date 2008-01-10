@@ -1,6 +1,13 @@
+# parseheader.pm
+# $Id$
+#
+# Perl module containing the grammar to parse the file
+# header. It uses Damian Conway's Recursive Descent parser package and 
+# returns the sections of the header as a hash that can be used
+# as input to the mySQL database.
+
 package parseheader;
 
-#use lib '/etc/perl/CPAN/';
 use Parse::RecDescent;
 
 
@@ -219,7 +226,7 @@ if (!(defined $restr)) {$restr="NULL";}
 if (!(defined $al)) {$al="NULL";}
 
 
-## generate hash as return structrue, since its easier 
+## generate hash as return structure, since its easier 
 ## to access single tags by name
 return ("name"=>$$result[0],
         "version"=>$$result[1],
@@ -234,7 +241,7 @@ return ("name"=>$$result[0],
         "outputs"=>$$result[10],
         "restrictions"=>$restr,
         "proc"=>$$result[12],
-        "example"=>$$result[13], #$exa,
+        "example"=>$$result[13],
         "also"=>$al);
 }
 
