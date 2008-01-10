@@ -1,6 +1,14 @@
+# parseupdate.pm
+# $Id$
+#
+# Perl module that contains the grammar and a function
+# to parse the output of SVN update, i.e. to determine paths and 
+# filenames of routines that have been comitted since the last 
+# update. It uses Damian Conway'sRecursive Descent parser package.
+
 package parseupdate;
 
-use lib '/etc/perl/CPAN/';
+# use lib '/etc/perl/CPAN/';
 use Parse::RecDescent;
 
 sub parse {
@@ -34,8 +42,6 @@ $grammar =
 $parse = new Parse::RecDescent ($grammar);
 
 $result=$parse->update($_[0]);
-
-#print "$result->[2]->[1]\n";
 
 return $result;
 
