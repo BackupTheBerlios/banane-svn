@@ -1,6 +1,6 @@
 <?php
 
-#####
+##### displays table with routines in given directory
 function viewdir($myqsl,$page,$dirname)
 {
 
@@ -49,7 +49,9 @@ return $output;
 
 
 
-#####
+##### displays search results, either a list of matches
+##### with the same style as viewdir.php or a single
+##### routine by diretcly calling viewroutine.php
 function viewsearch($myqsl,$rname)
 {
 $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
@@ -121,7 +123,7 @@ function anchorreplace($original,$path)
 
 
 
-#####
+##### displays header info for given routine as a table
 function viewroutine($myqsl,$rname)
 {
 

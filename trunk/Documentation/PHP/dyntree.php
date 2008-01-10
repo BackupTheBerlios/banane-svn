@@ -51,7 +51,7 @@ function MakeTree(&$Page,&$Name,$Myqsl){
 
 
 
-function  TreeLevels($Parent,$table,$level){
+function TreeLevels($Parent,$table,$level){
   
   $_SESSION["levels"][$Parent]=$level;
   while(list($key,$val)=each($table[$Parent]))
