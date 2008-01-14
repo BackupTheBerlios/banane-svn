@@ -116,7 +116,8 @@ function anchorreplace($original,$path)
   foreach ($matches as $val) {
     $search="/(<(A|a)[^>]*>)".$val[3]."/";
 ##    $replace="<A href='".$path."Documentation/PHP/new.php?routine=".$val[3]."'>".$val[3];
-    $replace="<A href='?routine=".$val[3]."'>".$val[3];
+#    $replace="<A href='?routine=".$val[3]."'>".$val[3];
+    $replace="<A href='?search=".$val[3]."'>".$val[3];
     $original = preg_replace($search, $replace, $original); 
   }
   return $original;
