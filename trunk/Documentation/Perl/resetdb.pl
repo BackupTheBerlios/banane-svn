@@ -54,7 +54,7 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 
   my $hdl_init_routines = $dbh->prepare_cached("CREATE TABLE routines (
    name VARCHAR(128), 
-   fullpath VARCHAR(128), 
+   fullpath VARCHAR(256), 
    relativepath VARCHAR(128), 
    version VARCHAR(128), 
    author VARCHAR(128), 
@@ -66,19 +66,19 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
    restrictions VARCHAR(512), 
    proc VARCHAR(512), 
    example VARCHAR(1024), 
-   also VARCHAR(128), PRIMARY KEY(name))");
+   also VARCHAR(128), PRIMARY KEY(fullpath))");
   die "Couldn't prepare query; aborting"
     unless defined $hdl_init_routines;
 
-  my $hdl_init_in = $dbh->prepare_cached("CREATE TABLE inputs (name VARCHAR(128), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
+  my $hdl_init_in = $dbh->prepare_cached("CREATE TABLE inputs (fullpath VARCHAR(256), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
   die "Couldn't prepare query; aborting"
     unless defined $hdl_init_in;
 
-  my $hdl_init_optin = $dbh->prepare_cached("CREATE TABLE optinputs (name VARCHAR(128), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
+  my $hdl_init_optin = $dbh->prepare_cached("CREATE TABLE optinputs (fullpath VARCHAR(256), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
   die "Couldn't prepare query; aborting"
     unless defined $hdl_init_optin;
 
-  my $hdl_init_out = $dbh->prepare_cached("CREATE TABLE outputs (name VARCHAR(128), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
+  my $hdl_init_out = $dbh->prepare_cached("CREATE TABLE outputs (fullpath VARCHAR(256), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
   die "Couldn't prepare query; aborting"
     unless defined $hdl_init_out;
 
@@ -97,15 +97,15 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
-  $inputs_replacehandle = $dbh->prepare_cached("INSERT INTO inputs (name,count,argument,description) VALUES (?,?,?,?)");
+  $inputs_replacehandle = $dbh->prepare_cached("INSERT INTO inputs (fullpath,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_replacehandle;
 
-  $optinputs_replacehandle = $dbh->prepare_cached("INSERT INTO optinputs (name,count,argument,description) VALUES (?,?,?,?)");
+  $optinputs_replacehandle = $dbh->prepare_cached("INSERT INTO optinputs (fullpath,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $optinputs_replacehandle;
 
-  $outputs_replacehandle = $dbh->prepare_cached("INSERT INTO outputs (name,count,argument,description) VALUES (?,?,?,?)");
+  $outputs_replacehandle = $dbh->prepare_cached("INSERT INTO outputs (fullpath,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $outputs_replacehandle;
 
@@ -142,7 +142,7 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 	     my($arg)=$_->[0];
 	     my($desc)=$_->[1];
 	     my $success = 1;
-	     $success &&= $inputs_replacehandle->execute($head{name},$count,$arg,$desc);
+	     $success &&= $inputs_replacehandle->execute($filename,$count,$arg,$desc);
 	     $count++;
 	   }
 
@@ -151,7 +151,7 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 	     my($arg)=$_->[0];
 	     my($desc)=$_->[1];
 	     my $success = 1;
-	     $success &&= $optinputs_replacehandle->execute($head{name},$count,$arg,$desc);
+	     $success &&= $optinputs_replacehandle->execute($filename,$count,$arg,$desc);
 	     $count++;
 	   }
 
@@ -160,7 +160,7 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 	     my($arg)=$_->[0];
 	     my($desc)=$_->[1];
 	     my $success = 1;
-	     $success &&= $outputs_replacehandle->execute($head{name},$count,$arg,$desc);
+	     $success &&= $outputs_replacehandle->execute($filename,$count,$arg,$desc);
 	     $count++;
 	   }
 	 }
