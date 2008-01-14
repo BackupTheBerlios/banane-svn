@@ -54,7 +54,7 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 
   my $hdl_init_routines = $dbh->prepare_cached("CREATE TABLE routines (
    name VARCHAR(128), 
-   fullpath VARCHAR(256), 
+   fullpath VARCHAR(255), 
    relativepath VARCHAR(128), 
    version VARCHAR(128), 
    author VARCHAR(128), 
@@ -70,15 +70,15 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
   die "Couldn't prepare query; aborting"
     unless defined $hdl_init_routines;
 
-  my $hdl_init_in = $dbh->prepare_cached("CREATE TABLE inputs (fullpath VARCHAR(256), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
+  my $hdl_init_in = $dbh->prepare_cached("CREATE TABLE inputs (fullpath VARCHAR(255), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
   die "Couldn't prepare query; aborting"
     unless defined $hdl_init_in;
 
-  my $hdl_init_optin = $dbh->prepare_cached("CREATE TABLE optinputs (fullpath VARCHAR(256), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
+  my $hdl_init_optin = $dbh->prepare_cached("CREATE TABLE optinputs (fullpath VARCHAR(255), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
   die "Couldn't prepare query; aborting"
     unless defined $hdl_init_optin;
 
-  my $hdl_init_out = $dbh->prepare_cached("CREATE TABLE outputs (fullpath VARCHAR(256), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
+  my $hdl_init_out = $dbh->prepare_cached("CREATE TABLE outputs (fullpath VARCHAR(255), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024))");
   die "Couldn't prepare query; aborting"
     unless defined $hdl_init_out;
 
