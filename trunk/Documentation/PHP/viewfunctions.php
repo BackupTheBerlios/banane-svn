@@ -1,4 +1,12 @@
 <?php
+# viewfunctions.php
+# $Id$
+#
+# a collection of multiple PHP functions that return strings
+# which are used by the mainpage to display the
+# website contents.
+
+
 
 ##### displays table with routines in given directory
 function viewdir($myqsl,$page,$dirname)
@@ -34,8 +42,6 @@ $output.="<TABLE>";
 while($rrow = mysql_fetch_array($routines))
   { $rname=$rrow["name"];
     $fullname=$rrow["fullpath"];
-##    $anchor=$webpath."Documentation/PHP/viewroutine.php?routine=".$rname;
-##    $anchor=$webpath."Documentation/PHP/new.php?Page=".$page."&routine=".$rname;
     $anchor="?Page=".$page."&routine=".$fullname;
     $output.="<TR>";
     $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
@@ -89,7 +95,6 @@ switch ($num_rows) {
    while($row = mysql_fetch_array($routines))
      { $rname=$row["name"];
        $fullpath=$row["fullpath"];
-##       $anchor=$webpath."Documentation/PHP/new.php?routine=".$rname;
        $anchor="?routine=".$fullpath;
        $output.="<TR>";
        $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
@@ -109,14 +114,16 @@ switch ($num_rows) {
 #####
 ## support function to search simplified anchors <A>routine</A> 
 ## and replace them with with proper hyperrefs
+## to resolve ambiguous filenames, the routine uses the same 
+## mechanism that also displays the results of a search for
+## a routine name, ie display a list of matches or in case of a single
+## match (which sould happen most of the time) diplay the header directly
 function anchorreplace($original,$path)
 {
   $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/U";
   preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
   foreach ($matches as $val) {
     $search="/(<(A|a)[^>]*>)".$val[3]."/";
-##    $replace="<A href='".$path."Documentation/PHP/new.php?routine=".$val[3]."'>".$val[3];
-#    $replace="<A href='?routine=".$val[3]."'>".$val[3];
     $replace="<A href='?search=".$val[3]."'>".$val[3];
     $original = preg_replace($search, $replace, $original); 
   }
