@@ -88,8 +88,9 @@ switch ($num_rows) {
    $output.="<TABLE>";
    while($row = mysql_fetch_array($routines))
      { $rname=$row["name"];
+       $fullpath=$row["fullpath"];
 ##       $anchor=$webpath."Documentation/PHP/new.php?routine=".$rname;
-       $anchor="?routine=".$rname;
+       $anchor="?routine=".$fullpath;
        $output.="<TR>";
        $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
        $output.="<TD VALIGN=TOP>".$row["aim"];
