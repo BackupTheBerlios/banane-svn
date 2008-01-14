@@ -217,7 +217,7 @@ Maybe use the FOR server?
 
 
 HEADER ID 
-The $Id:$ tag in the can be activated when a routine is first comitted
+The Id: tag in the header can be activated before a routine is first comitted
 by the command:
   svn propset svn:keywords "Id" kwextract.m 
 
