@@ -141,13 +141,13 @@ $allout=`$webscr`;
 $out=explode("\n",$allout);
 $webpath=$out[0];
 
-$querystring= "SELECT * FROM routines WHERE name='".$rname."'";
+$querystring= "SELECT * FROM routines WHERE fullpath='".$rname."'";
 $routine = mysql_query($querystring,$db); 
-$querystring= "SELECT * FROM inputs WHERE name='".$rname."' ORDER BY count";
+$querystring= "SELECT * FROM inputs WHERE fullpath='".$rname."' ORDER BY count";
 $inputs = mysql_query($querystring,$db); 
-$querystring= "SELECT * FROM optinputs WHERE name='".$rname."' ORDER BY count";
+$querystring= "SELECT * FROM optinputs WHERE fullpath='".$rname."' ORDER BY count";
 $optinputs = mysql_query($querystring,$db); 
-$querystring= "SELECT * FROM outputs WHERE name='".$rname."' ORDER BY count";
+$querystring= "SELECT * FROM outputs WHERE fullpath='".$rname."' ORDER BY count";
 $outputs = mysql_query($querystring,$db); 
 $rrow = mysql_fetch_array($routine);
 
