@@ -18,6 +18,7 @@ $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 # given here explicitely
 use lib "/home/groups/banane/htdocs/wwwcopy/Banane/Documentation/Perl/";
 use DBI;
+use Switch;
 use parseupdate;
 use parseheader;
 
@@ -55,27 +56,27 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
-  my $inputs_deletehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE name = ?");
+  my $inputs_deletehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE fullpath = ?");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_deletehandle;
 
-  my $optinputs_deletehandle = $dbh->prepare_cached("DELETE FROM optinputs WHERE name = ?");
+  my $optinputs_deletehandle = $dbh->prepare_cached("DELETE FROM optinputs WHERE fullpath = ?");
   die "Couldn't prepare query; aborting"
     unless defined $optinputs_deletehandle;
 
-  my $outputs_deletehandle = $dbh->prepare_cached("DELETE FROM outputs WHERE name = ?");
+  my $outputs_deletehandle = $dbh->prepare_cached("DELETE FROM outputs WHERE fullpath = ?");
   die "Couldn't prepare query; aborting"
     unless defined $outputs_deletehandle;
 
-  my $inputs_replacehandle = $dbh->prepare_cached("INSERT INTO inputs (name,count,argument,description) VALUES (?,?,?,?)");
+  my $inputs_replacehandle = $dbh->prepare_cached("INSERT INTO inputs (fullpath,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_replacehandle;
 
-  my $optinputs_replacehandle = $dbh->prepare_cached("INSERT INTO optinputs (name,count,argument,description) VALUES (?,?,?,?)");
+  my $optinputs_replacehandle = $dbh->prepare_cached("INSERT INTO optinputs (fullpath,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $optinputs_replacehandle;
 
-  my $outputs_replacehandle = $dbh->prepare_cached("INSERT INTO outputs (name,count,argument,description) VALUES (?,?,?,?)");
+  my $outputs_replacehandle = $dbh->prepare_cached("INSERT INTO outputs (fullpath,count,argument,description) VALUES (?,?,?,?)");
   die "Couldn't prepare query; aborting"
     unless defined $outputs_replacehandle;
 
@@ -88,69 +89,85 @@ if ($file->[0]) {
 
     (my $action)=$parts[0];
     (my $filename)=$parts[1];
+    
+    switch ($action) 
+      {
+	case ["A"|"U"]  
+	  {
+	   print "Updating or adding: $filename\n";
 
-    if ($action ne "I") {
+	   $relpath=$filename;
+	   $relpath=~s/$bananepath//;
 
-      print "Processing: $filename\n";
+	   # read complete file
+	   open(DAT, $filename) || die("Could not open file!");
+	   $rawdata=join'',<DAT>;
+	   close(DAT);
 
-      $relpath=$filename;
-      $relpath=~s/$bananepath//;
+	   # parse file text
+	   %head=parseheader::parse($rawdata);
 
-      # read complete file
-      open(DAT, $filename) || die("Could not open file!");
-      $rawdata=join'',<DAT>;
-      close(DAT);
-
-      # parse file text
-      %head=parseheader::parse($rawdata);
-
-      # insert header information into the database tables "routines", 
-      # "inputs", "optinputs" and "outputs" 
-      my $success = 1;
-      $success &&= $routines_replacehandle->execute($head{name},$filename,$relpath,$head{version},$head{author},$head{date},$head{aim},$head{description},$head{category},$head{syntax},$head{restrictions},$head{proc},$head{example},$head{also});
+	   # insert header information into the database tables "routines", 
+	   # "inputs", "optinputs" and "outputs" 
+	   my $success = 1;
+	   $success &&= $routines_replacehandle->execute($head{name},$filename,$relpath,$head{version},$head{author},$head{date},$head{aim},$head{description},$head{category},$head{syntax},$head{restrictions},$head{proc},$head{example},$head{also});
       
-      ## before insertion, remove all argument entries in supporting 
-      ## tables for the given routine, since otherwise arguments are 
-      ## kept in the table even if they are removed from the header 
-      my $delsuccess1 = 1;
-      $delsuccess1 &&= $inputs_deletehandle->execute($head{name});
-      my $delsuccess2 = 1;
-      $delsuccess2 &&= $optinputs_deletehandle->execute($head{name});
-      my $delsuccess3 = 1;
-      $delsuccess3 &&= $outputs_deletehandle->execute($head{name});
-
-      ## There may be multiple inputs, thus use loop here
-      ## count is needed to ensure correct order when arguments are 
-      ## displayed later
-      $count = 1;
-      foreach (@{$head{inputs}->[0]}) {
-	my($arg)=$_->[0];
-	my($desc)=$_->[1];
-	my $success = 1;
-	$success &&= $inputs_replacehandle->execute($head{name},$count,$arg,$desc);
-	$count++;
-      }
+	   ## before insertion, remove all argument entries in supporting 
+	   ## tables for the given routine, since otherwise arguments are 
+	   ## kept in the table even if they are removed from the header 
+	   my $delsuccess1 = 1;
+	   $delsuccess1 &&= $inputs_deletehandle->execute($filename);
+	   my $delsuccess2 = 1;
+	   $delsuccess2 &&= $optinputs_deletehandle->execute($filename);
+	   my $delsuccess3 = 1;
+	   $delsuccess3 &&= $outputs_deletehandle->execute($filename);
+	   
+	   ## There may be multiple inputs, thus use loop here
+	   ## count is needed to ensure correct order when arguments are 
+	   ## displayed later
+	   $count = 1;
+	   foreach (@{$head{inputs}->[0]}) {
+	     my($arg)=$_->[0];
+	     my($desc)=$_->[1];
+	     my $success = 1;
+	     $success &&= $inputs_replacehandle->execute($filename,$count,$arg,$desc);
+	     $count++;
+	   }
       
-      $count = 1;
-      foreach (@{$head{optinputs}->[0]}) {
-	my($arg)=$_->[0];
-	my($desc)=$_->[1];
-	my $success = 1;
-	$success &&= $optinputs_replacehandle->execute($head{name},$count,$arg,$desc);
-	$count++;
-      }
+	   $count = 1;
+	   foreach (@{$head{optinputs}->[0]}) {
+	     my($arg)=$_->[0];
+	     my($desc)=$_->[1];
+	     my $success = 1;
+	     $success &&= $optinputs_replacehandle->execute($filename,$count,$arg,$desc);
+	     $count++;
+	   }
       
-      $count = 1;
-      foreach (@{$head{outputs}->[0]}) {
-	my($arg)=$_->[0];
-	my($desc)=$_->[1];
-	my $success = 1;
-	$success &&= $outputs_replacehandle->execute($head{name},$count,$arg,$desc);
-	$count++;
-      }
+	   $count = 1;
+	   foreach (@{$head{outputs}->[0]}) {
+	     my($arg)=$_->[0];
+	     my($desc)=$_->[1];
+	     my $success = 1;
+	     $success &&= $outputs_replacehandle->execute($filename,$count,$arg,$desc);
+	     $count++;
+	   }
 
-    }
-  }
+	  } # case ["A"|"U"]
+
+	  
+	case "D"  
+	  { 
+	   print "Deleting: $filename\n";
+	  } # case "D"
+
+	else 
+	  {
+	   print "Ignoring: $filename\n"
+	  } # else case
+
+      }
+    
+
 
   #### Now, disconnect from the database
   $dbh->disconnect
