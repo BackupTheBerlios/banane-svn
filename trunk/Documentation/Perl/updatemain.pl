@@ -56,6 +56,10 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
+  my $routines_deletehandle = $dbh->prepare_cached("DELETE FROM routines WHERE fullpath = ?");
+  die "Couldn't prepare query; aborting"
+    unless defined $routines_deletehandle;
+
   my $inputs_deletehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE fullpath = ?");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_deletehandle;
@@ -158,6 +162,14 @@ if ($file->[0]) {
 	case "D"  
 	  { 
 	   print "Deleting: $filename\n";
+	   my $delsuccess1 = 1;
+	   $delsuccess1 &&= $inputs_deletehandle->execute($filename);
+	   my $delsuccess2 = 1;
+	   $delsuccess2 &&= $optinputs_deletehandle->execute($filename);
+	   my $delsuccess3 = 1;
+	   $delsuccess3 &&= $outputs_deletehandle->execute($filename);
+	   my $delsuccess3 = 1;
+	   $delsuccess3 &&= $routines_deletehandle->execute($filename);
 	  } # case "D"
 
 	else 
