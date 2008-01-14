@@ -80,7 +80,7 @@ switch ($num_rows) {
    break;
  case 1:
    $row = mysql_fetch_array($routines);
-   $exactname = $row["name"];
+   $exactname = $row["fullpath"];
    $output.=viewroutine($myqsl,$exactname);
    break;
  default:
