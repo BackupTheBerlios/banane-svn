@@ -21,8 +21,8 @@ $webpath=$out[0];
 ## select all routines in respective directory and in its subdirs.
 ## % in database query is the wildcard character.
 if (isset($dirname)) {
-  $querystring= "SELECT name,aim FROM routines WHERE relativepath LIKE '".$dirname."%'";
- } else {$querystring= "SELECT name,aim FROM routines";}
+  $querystring= "SELECT name,fullpath,aim FROM routines WHERE relativepath LIKE '".$dirname."%'";
+ } else {$querystring= "SELECT name,fullpath,aim FROM routines";}
 
 $routines = mysql_query($querystring,$db); 
 
