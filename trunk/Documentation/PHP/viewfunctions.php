@@ -32,7 +32,8 @@ $output="";
 $output.="<H1>contents of <I>\$BANANEPATH/".$dirname."</I></H1>";
 $output.="<TABLE>";
 while($rrow = mysql_fetch_array($routines))
-  { $rname=$rrow["name"];
+#  { $rname=$rrow["name"];
+  { $rname=$rrow["fullpath"];
 ##    $anchor=$webpath."Documentation/PHP/viewroutine.php?routine=".$rname;
 ##    $anchor=$webpath."Documentation/PHP/new.php?Page=".$page."&routine=".$rname;
     $anchor="?Page=".$page."&routine=".$rname;
