@@ -31,7 +31,7 @@ $grammar =
           ...!dir
               /.+/ {$return="I_$item{__PATTERN1__}"}
 
-    action : ("U"|"A"|"D")
+    action : ("U"|"UU"|"A"|"D")
 
     name : /[^\.\n]+/
 

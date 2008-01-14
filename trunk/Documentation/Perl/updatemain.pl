@@ -96,7 +96,7 @@ if ($file->[0]) {
     
     switch ($action) 
       {
-	case ["A"|"U"]  
+	case ["A"|"U"|"UU"]  
 	  {
 	   print "Updating or adding: $filename\n";
 
@@ -162,19 +162,24 @@ if ($file->[0]) {
 	case "D"  
 	  { 
 	   print "Deleting: $filename\n";
-	   my $delsuccess1 = 1;
-	   $delsuccess1 &&= $inputs_deletehandle->execute($filename);
-	   my $delsuccess2 = 1;
-	   $delsuccess2 &&= $optinputs_deletehandle->execute($filename);
-	   my $delsuccess3 = 1;
-	   $delsuccess3 &&= $outputs_deletehandle->execute($filename);
-	   my $delsuccess3 = 1;
-	   $delsuccess3 &&= $routines_deletehandle->execute($filename);
+	   my $delsuccess = 1;
+	   $delsuccess &&= $inputs_deletehandle->execute($filename);
+	   $delsuccess = 1;
+	   $delsuccess &&= $optinputs_deletehandle->execute($filename);
+	   $delsuccess = 1;
+	   $delsuccess &&= $outputs_deletehandle->execute($filename);
+	   $delsuccess = 1;
+	   $delsuccess &&= $routines_deletehandle->execute($filename);
 	  } # case "D"
+
+	case "I" 
+	  {
+	   print "Ignoring: $filename\n"
+	  } # else case
 
 	else 
 	  {
-	   print "Ignoring: $filename\n"
+	   print "Unrecognized action $action on file $filename\n"
 	  } # else case
 
       } # switch
