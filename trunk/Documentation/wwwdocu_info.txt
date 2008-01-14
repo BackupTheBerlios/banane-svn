@@ -1,6 +1,6 @@
 The Banane WWW Documentation
 
-$Id: $
+$Id$
 
 
 
@@ -128,29 +128,19 @@ database manually from the berlios shell server with
 mysql -h db.berlios.de -u banane -p banane
 Enter password: TIpKEPc26U
 
-The database presnetly contains five tables:
+The database presently contains five tables:
 routines, inputs, optinputs, outputs, and dirtreetable.
-Tables may also be removed and re-initialized by the resetdb.pl
-script, in case the database has become de-synchronized with the the
-actual repository.
-
-
-Primary table "routines" initialized with command
-CREATE TABLE routines (name VARCHAR(128), aim VARCHAR(128),
-description VARCHAR(1024), category VARCHAR(512), PRIMARY KEY(name));
-
-Added other colums later:
-ALTER TABLE routines ADD fullpath VARCHAR(128) AFTER name;
-ALTER TABLE routines ADD version VARCHAR(128) AFTER fullpath;
-ALTER TABLE routines ADD proc VARCHAR(512) AFTER restrictions;
-etc...
+Tables may be removed and re-initialized by the resetdb.pl
+script, in case the database has become de-synchronized with the
+actual repository. See the resetdb.pl script for the initialization
+syntax of the database tables. 
 
 mysql> describe routines;
 +--------------+--------------+------+-----+---------+-------+
 | Field        | Type         | Null | Key | Default | Extra |
 +--------------+--------------+------+-----+---------+-------+
-| name         | varchar(128) |      | PRI |         |       |
-| fullpath     | varchar(128) | YES  |     | NULL    |       |
+| name         | varchar(128) | YES  |     | NULL    |       |
+| fullpath     | varchar(255) |      | PRI |         |       |
 | relativepath | varchar(128) | YES  |     | NULL    |       |
 | version      | varchar(128) | YES  |     | NULL    |       |
 | author       | varchar(128) | YES  |     | NULL    |       |
@@ -161,19 +151,31 @@ mysql> describe routines;
 | syntax       | text         | YES  |     | NULL    |       |
 | restrictions | text         | YES  |     | NULL    |       |
 | proc         | text         | YES  |     | NULL    |       |
-| also         | text         | YES  |     | NULL    |       |
 | example      | text         | YES  |     | NULL    |       |
+| also         | varchar(128) | YES  |     | NULL    |       |
 +--------------+--------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
 
-Secondary table "inputs" initialized with
-CREATE TABLE inputs (name VARCHAR(128), count TINYINT UNSIGNED, argument VARCHAR(128),description VARCHAR(1024));
-Create tables optinputs and outputs analoguously.
+mysql> describe inputs;
++-------------+---------------------+------+-----+---------+-------+
+| Field       | Type                | Null | Key | Default | Extra |
++-------------+---------------------+------+-----+---------+-------+
+| fullpath    | varchar(255)        | YES  |     | NULL    |       |
+| count       | tinyint(3) unsigned | YES  |     | NULL    |       |
+| argument    | varchar(128)        | YES  |     | NULL    |       |
+| description | text                | YES  |     | NULL    |       |
++-------------+---------------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
 
-Tables are connected via "name" that uniquely
-identifies the routines (see below: that a problem, since classes may
-contain routines with the same name). 
-Multiple inputs to the same routine can be
-inserted in the inputs table repeating the name of the routine.
+Tables "optinputs" and "outputs" are organized analogously to "inputs".
+
+Tables "routines", "inputs", "optinpus", and "outputs" are connected via
+the primary key "fullpath" that uniquely 
+identifies the routines, since there cannot be two routines with
+identical name within the same directory. Multiple input or output
+arguments to the same 
+routine can be inserted in these tables repeating the fullpath name of the
+routine. 
 
 "dirtreetable" contains the information about the banane directory
 structure that is needed by dyntree.php to display the folders. this
@@ -236,9 +238,4 @@ updatemain.
 - Are success variables in perl script suitable? what exactly do they do? avoid
 warnings in resetdb
 - possibly enable searching aims, or even the whole db?
-- what happens in the database if two routines have the same name, 
-  eg "display" routines for different classes? only first routine with
-  that name appears on website. Perhaps introduce unique number in
-  addition to routine name.
-
 
