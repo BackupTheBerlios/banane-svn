@@ -165,8 +165,9 @@ if ($file->[0]) {
 	   print "Ignoring: $filename\n"
 	  } # else case
 
-      }
+      } # switch
     
+  } # foreach
 
 
   #### Now, disconnect from the database
