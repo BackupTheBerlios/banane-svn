@@ -225,10 +225,6 @@ by the command:
 
 
 TO DO
-- SVN action "D" for deletion may work on whole directories with files
-contained in them not mentioned explicitely! In this case, the
-deletion of teh routines from the database may fail. Not yet tested,
-though. 
 - automatically mail commits to the blog? maybe too much info.
 - header section "side effects" needed???
 - make category section to choose from a set of possibilities
@@ -238,6 +234,3 @@ updatemain.
 - Are success variables in perl script suitable? what exactly do they do? avoid
 warnings in resetdb
 - possibly enable searching aims, or even the whole db?
-- anchorreplace still uses the old viewroutine syntax which uses the
-routine name as input. maybe pass the anchor to viewsearch? anchor with only filename does not work for routines with identical names
-
