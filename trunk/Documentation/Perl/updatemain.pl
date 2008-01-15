@@ -56,19 +56,19 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
-  my $routines_deletehandle = $dbh->prepare_cached("DELETE FROM routines WHERE fullpath LIKE '?%'");
+  my $routines_deletehandle = $dbh->prepare_cached("DELETE FROM routines WHERE fullpath LIKE ?");
   die "Couldn't prepare query; aborting"
     unless defined $routines_deletehandle;
 
-  my $inputs_deletehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE fullpath LIKE '?%'");
+  my $inputs_deletehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE fullpath LIKE ?");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_deletehandle;
 
-  my $optinputs_deletehandle = $dbh->prepare_cached("DELETE FROM optinputs WHERE fullpath LIKE '?%'");
+  my $optinputs_deletehandle = $dbh->prepare_cached("DELETE FROM optinputs WHERE fullpath LIKE ?");
   die "Couldn't prepare query; aborting"
     unless defined $optinputs_deletehandle;
 
-  my $outputs_deletehandle = $dbh->prepare_cached("DELETE FROM outputs WHERE fullpath LIKE '?%'");
+  my $outputs_deletehandle = $dbh->prepare_cached("DELETE FROM outputs WHERE fullpath LIKE ?");
   die "Couldn't prepare query; aborting"
     unless defined $outputs_deletehandle;
 
@@ -162,14 +162,15 @@ if ($file->[0]) {
 	case "D"  
 	  { 
 	   print "Deleting: $filename\n";
+	   my $delstr=$filename."%";
 	   my $delsuccess = 1;
-	   $delsuccess &&= $inputs_deletehandle->execute($filename);
+	   $delsuccess &&= $inputs_deletehandle->execute($delstr);
 	   $delsuccess = 1;
-	   $delsuccess &&= $optinputs_deletehandle->execute($filename);
+	   $delsuccess &&= $optinputs_deletehandle->execute($delstr);
 	   $delsuccess = 1;
-	   $delsuccess &&= $outputs_deletehandle->execute($filename);
+	   $delsuccess &&= $outputs_deletehandle->execute($delstr);
 	   $delsuccess = 1;
-	   $delsuccess &&= $routines_deletehandle->execute($filename);
+	   $delsuccess &&= $routines_deletehandle->execute($delstr);
 	  } # case "D"
 
 	case "I" 
