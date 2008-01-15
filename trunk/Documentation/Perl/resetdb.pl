@@ -48,7 +48,6 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
   my $success = 1;
   $success &&= $hdl_drop_support->execute();
   
-  my $success = 1;
   $success &&= $hdl_drop_routines->execute();
 
 
@@ -84,13 +83,9 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 
   print "Initializing tables.\n";
 
-  my $success = 1;
   $success &&= $hdl_init_routines->execute();
-  my $success = 1;
   $success &&= $hdl_init_in->execute();
-  my $success = 1;
   $success &&= $hdl_init_optin->execute();
-  my $success = 1;
   $success &&= $hdl_init_out->execute();
 
   $routines_replacehandle = $dbh->prepare_cached("REPLACE INTO routines (name,fullpath,relativepath,version,author,date,aim,description,category,syntax,restrictions,proc,example,also) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -131,7 +126,6 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 	   
 	   # insert header information into the database tables "routines", 
 	   # "inputs", "optinputs" and "outputs" 
-	   my $success = 1;
 	   $success &&= $routines_replacehandle->execute($head{name},$filename,$relpath,$head{version},$head{author},$head{date},$head{aim},$head{description},$head{category},$head{syntax},$head{restrictions},$head{proc},$head{example},$head{also});
 	   
 	   ## There may be multiple inputs, thus use loop here
@@ -141,7 +135,6 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 	   foreach (@{$head{inputs}->[0]}) {
 	     my($arg)=$_->[0];
 	     my($desc)=$_->[1];
-	     my $success = 1;
 	     $success &&= $inputs_replacehandle->execute($filename,$count,$arg,$desc);
 	     $count++;
 	   }
@@ -150,7 +143,6 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 	   foreach (@{$head{optinputs}->[0]}) {
 	     my($arg)=$_->[0];
 	     my($desc)=$_->[1];
-	     my $success = 1;
 	     $success &&= $optinputs_replacehandle->execute($filename,$count,$arg,$desc);
 	     $count++;
 	   }
@@ -159,7 +151,6 @@ if ($answer =~ /(Y|y)es/ || $answer =~ /(Y|y)/ ) {
 	   foreach (@{$head{outputs}->[0]}) {
 	     my($arg)=$_->[0];
 	     my($desc)=$_->[1];
-	     my $success = 1;
 	     $success &&= $outputs_replacehandle->execute($filename,$count,$arg,$desc);
 	     $count++;
 	   }
