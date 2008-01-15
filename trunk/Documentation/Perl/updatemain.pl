@@ -96,7 +96,7 @@ if ($file->[0]) {
     
     switch ($action) 
       {
-	case ["A"|"U"|"UU"]  
+	case ["A","U","UU"]  
 	  {
 	   print "Updating or adding: $filename\n";
 
