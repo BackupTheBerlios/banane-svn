@@ -56,19 +56,19 @@ if ($file->[0]) {
   die "Couldn't prepare query; aborting"
     unless defined $routines_replacehandle;
 
-  my $routines_deletehandle = $dbh->prepare_cached("DELETE FROM routines WHERE fullpath = ?");
+  my $routines_deletehandle = $dbh->prepare_cached("DELETE FROM routines WHERE fullpath LIKE ?%");
   die "Couldn't prepare query; aborting"
     unless defined $routines_deletehandle;
 
-  my $inputs_deletehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE fullpath = ?");
+  my $inputs_deletehandle = $dbh->prepare_cached("DELETE FROM inputs WHERE fullpath LIKE ?%");
   die "Couldn't prepare query; aborting"
     unless defined $inputs_deletehandle;
 
-  my $optinputs_deletehandle = $dbh->prepare_cached("DELETE FROM optinputs WHERE fullpath = ?");
+  my $optinputs_deletehandle = $dbh->prepare_cached("DELETE FROM optinputs WHERE fullpath LIKE ?%");
   die "Couldn't prepare query; aborting"
     unless defined $optinputs_deletehandle;
 
-  my $outputs_deletehandle = $dbh->prepare_cached("DELETE FROM outputs WHERE fullpath = ?");
+  my $outputs_deletehandle = $dbh->prepare_cached("DELETE FROM outputs WHERE fullpath LIKE ?%");
   die "Couldn't prepare query; aborting"
     unless defined $outputs_deletehandle;
 

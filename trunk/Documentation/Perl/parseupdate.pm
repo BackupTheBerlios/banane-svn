@@ -4,7 +4,7 @@
 # Perl module that contains the grammar and a function
 # to parse the output of SVN update, i.e. to determine paths and 
 # filenames of routines that have been comitted since the last 
-# update. It uses Damian Conway'sRecursive Descent parser package.
+# update. It uses Damian Conway's Recursive Descent parser package.
 
 package parseupdate;
 
@@ -21,14 +21,18 @@ $grammar =
 
     line : (file|dir|rev)
 
-    dir : action /\ +/ name nl {$return="I_$item{name}"}
-    file : ...!dir
+    deldir : "D" /\ +/ name nl {$return="D_$item{name}"}
+    dir : ...!deldir
+               action /\ +/ name nl {$return="I_$item{name}"}
+    file : ...!deldir
+           ...!dir
                action /\ +/ name "." ext nl
                { my($comb)=$item{action}."_".$item{name}.".".$item{ext};
                  # print "file: $comb\n";
                  $return = $comb}
     rev : ...!file
           ...!dir
+          ...!deldir
               /.+/ {$return="I_$item{__PATTERN1__}"}
 
     action : ("U"|"UU"|"A"|"D")
