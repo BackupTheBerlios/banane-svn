@@ -12,7 +12,7 @@
 %  9/2002
 %
 % AIM:
-%  Bla Short description of the routine in a single line.
+%  Blubb Short description of the routine in a single line.
 %
 % DESCRIPTION:
 %  Detailed description of the routine. The text may contain small HTML
