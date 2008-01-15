@@ -19,7 +19,7 @@ $grammar =
 
   q{update : (line{\@item})(s)
 
-    line : (file|dir|rev)
+    line : (file|dir|deldir|rev)
 
     deldir : "D" /\ +/ name nl {$return="D_$item{name}"}
     dir : ...!deldir
