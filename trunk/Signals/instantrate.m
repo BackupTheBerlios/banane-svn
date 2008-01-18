@@ -37,7 +37,8 @@
 %*                      ((,'windowsize',value) | (,'filter',array))
 %*                      [,'memmapfile',string]
 %*                      [,'vartype',string]
-%*                      [,'dt',value]); 
+%*                      [,'dt',value]
+%*                      [,'timeshift',value]); 
 %
 % INPUTS:
 %  sweepstruc:: The sweep structure containing the single neuron firing
@@ -71,6 +72,13 @@
 %            <VAR>filter</VAR> is set.
 %  dt:: The size of a sample time bin in units of seconds. Default:
 %       0.001, i.e. samples are 1ms long. 
+%  timeshift:: Setting this argument can be used to align a response to
+%  the stimulus, e.g. to counteract the latency of the neuronal
+%  response. <VAR>timeshift</VAR> is given in units of seconds, with
+%  negative sign indicating a shift to earlier times. Default: 0, i.e. no
+%  shift. The routine applies MATLAB's circular shifting, thus responses at one
+%  end of the array occur at the other end after the shift. For long
+%  datasets, this should only have marginal effects.
 %
 % OUTPUTS:
 %  irstruc:: The exact form of the output structure depends on whether
@@ -84,7 +92,7 @@
 %*                |---single: Matrix of type <VAR>vartype</VAR> and size
 %*                            (number of samples x number of
 %*                             neurons). Contains the instantaneous
-%*                             firing rate of all neurons as a
+%*                             spike counts of all neurons as a
 %*                             function of time.
 %*                |---population: Vector of length (number of samples)
 %*                                describing the average firing rate of
@@ -98,6 +106,8 @@
 %*                             all sweeps. This field is repeated in
 %*                             each entry of structure arrays containing
 %*                             multiple sweeps.
+%*                |---minmax: Two element vector containing the minimum
+%*                            and maximum spike counts across all sweeps.
 %            If <VAR>memmapfile</VAR> is set, the structure returned
 %            has a single entry which contains information needed to
 %            recover the memory map 
@@ -109,26 +119,29 @@
 %*                |---mmfformat: Cell array describing the format of the
 %*                               memory map file.
 %*                |---factor: Factor to convert spike counts into firing
-%*                            rates. To obtain firing rates in units of
-%*                            Hz for single neurons, multiply 
-%*                            <VAR>irstruc(s).single</VAR> with this factor.
+%*                            rates.
 %*                |---nbytes: Number of bytes of the data within a single
 %*                            sweep. This is needed to compute the offset
 %*                            within the memory map to access the data of
 %*                            a certain sweep. 
 %*                |---nsweeps: The number of sweeps.
+%*                |---minmax: Two element vector containing the minimum
+%*                            and maximum spike counts across all sweeps.
+%           Response duration can be obtained via 
+%           <VAR>irstruc.mmfformat{1,2}(1)</VAR>, prototype number from
+%           <VAR>irstruc.mmfformat{1,2}(2)</VAR>.
 %
 % PROCEDURE:
 %  - Syntax check and default settings.<BR>
 %  - Prepare memory map file if needed.<BR>
 %  - Loop through sweeps and protoytpes.<BR>
 %  - Compute moving average via cumulative sum or by convolution using
-%  MATALAB's filter routine.<BR>
+%  MATLAB's filter routine.<BR>
 %  - Generate output structure.
 %
 % EXAMPLE:
 %  Generate a sample sweep structure with two sweeps, 50 neurons and
-%  random spikes, with firing probability increasing during the second
+%  random spikes, with higher firing probability during the second
 %  half of the experiment. 
 %
 %*>> rspikes1=rand(1000,100)<0.01;
@@ -174,9 +187,17 @@ function irstruc=instantrate(sweepstruc, varargin)
                'memmapfile', '', ...
                'vartype', 'uint8', ...
                'dt', 0.001, ...
-               'filter', []);
+               'filter', [], ...
+               'timeshift', 0);
   
 
+  shiftsamples=kw.timeshift/kw.dt;
+  
+  if (mod(shiftsamples,1)~=0)
+    warning('Non-integer number of samples for time shift. Rounding.');
+    shiftsamples=round(shiftsamples);  
+  end % if
+    
   if isempty(kw.filter)
     if ~isempty(kw.windowsize)
       sws=round(kw.windowsize/kw.dt); % windowsize in samples
@@ -203,7 +224,9 @@ function irstruc=instantrate(sweepstruc, varargin)
 
   av=zeros(dur,1); % for average across all sweeps
 
-
+  minall=0;
+  maxall=0;
+  
   % prepare the memmapfile
   % different sweeps are accessed via the offset
   if ~(strcmp(kw.memmapfile,'')) 
@@ -239,7 +262,7 @@ function irstruc=instantrate(sweepstruc, varargin)
 
   % loop through the sweeps
   for swidx=1:nsweeps
-
+    
     % compute offset pointing at beginning of respective sweep 
     if ~(strcmp(kw.memmapfile,''))
       m.offset=nbytestotal*(swidx-1);
@@ -256,7 +279,7 @@ function irstruc=instantrate(sweepstruc, varargin)
       % cumsum does not work
       spikes=zeros(dur,1);
       spikes(round(sweepstruc(swidx).pr(ipr).ts/kw.dt))=1;
-        
+      
       if isempty(kw.filter)
         % moving average for window of size sws
         cumul=[zeros(sws,1); cumsum(spikes)];
@@ -269,13 +292,24 @@ function irstruc=instantrate(sweepstruc, varargin)
     end % for ipr
  
 
-   % possible overflow?
+    % possible overflow?
     if (isinteger(kw.vartype)) && (max(r(:))==intmax(kw.vartype))
       error(['Possible overflow, please use larger vartype or reduce the ' ...
              'windowsize.'])
     end % if
-    
+   
     pop=double(sum(r,2))/(sweepstruc(swidx).nproto*kw.windowsize);
+
+    % find max and min response across all sweeps
+    rmin=double(min(r(:)));
+    rmax=double(max(r(:)));
+    minall=min([minall,rmin]);
+    maxall=max([maxall,rmax]);
+    
+    if (shiftsamples~=0)
+      r=circshift(r,[shiftsamples,0]);
+      pop=circshift(pop,[shiftsamples,0]);
+    end % if (shiftsamples~=0)
     
     if strcmp(kw.memmapfile,'')
       irstruc(swidx).single=r;
@@ -287,7 +321,7 @@ function irstruc=instantrate(sweepstruc, varargin)
     end % if
     
     av=av+pop;
-  
+    
   end % for swidx
 
   
@@ -299,6 +333,7 @@ function irstruc=instantrate(sweepstruc, varargin)
     for swidx=1:nsweeps
       irstruc(swidx).average=av;
       irstruc(swidx).factor=factor;
+      irstruc(swidx).minmax=[minall maxall];
     end % for
   
   else
@@ -308,6 +343,7 @@ function irstruc=instantrate(sweepstruc, varargin)
     irstruc.factor=factor;
     irstruc.nbytes=nbytestotal;
     irstruc.nsweeps=nsweeps;
+    irstruc.minmax=[minall maxall];
     % duration can be recovered from irstruc.mmfformat{1,2}(1)
     % nproto can be recovered from irstruc.mmfformat{1,2}(2)
   end % if

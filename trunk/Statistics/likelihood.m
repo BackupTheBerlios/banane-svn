@@ -27,8 +27,10 @@
 %
 % INPUTS:
 %  resp:: The responses of the neurons as a function of time. Presently,
-%  the routine works for spike numbers as returned by the
-%  <A>instantrate</A> routine.
+%  the routine works with output structures as returned by the
+%  <A>instantrate</A> routine, no matter whether spike numbers are contained
+%  in the structure directly or whether they have been saved using the
+%  memmapfile option of <A>instantrate</A>.
 %  binval:: The values corresponding to the bins of the stimulus
 %  distribution.
 %  ri:: Reverse indices to reconstruct the time bins when each stimulus
@@ -39,7 +41,7 @@
 %  histograms. As the default behaviour, min and max are chosen to
 %  contain all response values. Set this optional input if min and max
 %  values are desired to be identical across multiple repetitions of the
-%  likelihood() routine.
+%  likelihood() routineor if the response range has to be restricted.
 %
 % OUTPUTS:
 %  llh:: The likelihood distributions of each neuron. This is a
@@ -70,29 +72,47 @@
 function [llh,edges]=likelihood(resp,bv,ri,varargin)
   
   kw=kwextract(varargin ...
-               ,'rminmax',[]);
+               ,'rminmax',[] ...
+               ,'trainsweeps',[]);
   
-  nsweeps=length(resp);
+  mmff=(isfield(resp,'memmapfile')); % memmapfile flag
   
+  if mmff
+
+    % duration can be recovered from irstruc.mmfformat{1,2}(1)
+    dur=resp.mmfformat{1,2}(1);   
+    
+    % nproto can be recovered from irstruc.mmfformat{1,2}(2)
+    nproto=resp.mmfformat{1,2}(2);
+ 
+    if (isempty(kw.trainsweeps))
+      nsweeps=resp.nsweeps;
+      kw.trainsweeps=(1:nsweeps);
+    else
+      nsweeps=length(kw.trainsweeps);
+    end % if
+  
+  else
+
+    [dur,nproto]=size(resp(1).single);
+
+    if (isempty(kw.trainsweeps))
+      nsweeps=length(resp);
+      kw.trainsweeps=(1:nsweeps);
+    else
+      nsweeps=length(kw.trainsweeps);
+    end % if
+  
+  end % isfield(resp,'memmapfile')
+  
+
   stimsize=bv(1,:);
   nbins=prod(stimsize);
   
-  [dur,nproto]=size(resp(1).single);
-
   % if response range is not supplied, determine it across all
   % given sweeps 
   if (isempty(kw.rminmax))
-    minall=0;
-    maxall=0;
-  
-    % find max and min response across all sweeps
-    for swidx=1:nsweeps
-      rmin=double(min(resp(swidx).single(:)));
-      rmax=double(max(resp(swidx).single(:)));
-      minall=min([minall,rmin]);
-      maxall=max([maxall,rmax]);
-    end % for
-    edges=(minall:maxall);
+    edges=(resp.minmax(1):resp.minmax(2));
   else
     edges=(kw.rminmax(1):kw.rminmax(2));
   end % if
@@ -122,12 +142,26 @@ function [llh,edges]=likelihood(resp,bv,ri,varargin)
       % find time indices at which the stimulus occurred
       idxset=ri(ri(bidx):ri(bidx+1)-1);
 
-      histnow=sliwhist(resp(1).single(idxset,:),'range',edges([1 end]));
+      if mmff
+        respnow=recoversweepmmf(resp,kw.trainsweeps(1));
+      else
+        respnow=resp(kw.trainsweeps(1));
+      end % if mmff
+      
+      histnow=sliwhist(respnow.single(idxset,:),'range',edges([1 end]));
 
       % loop through sweeps and sum histograms of all responses to the same
       % stimulus  
       for swidx=2:nsweeps
-        histnow=histnow+sliwhist(resp(swidx).single(idxset,:),'range',edges([1 end]));
+
+        if mmff
+          respnow=recoversweepmmf(resp,kw.trainsweeps(swidx));
+        else
+          respnow=resp(kw.trainsweeps(swidx));
+        end % if mmff
+        
+        histnow=histnow+sliwhist(respnow.single(idxset,:),'range',edges([1 end]));
+        
       end % for
       
       % linear index of prototype and stimulus bin within the
