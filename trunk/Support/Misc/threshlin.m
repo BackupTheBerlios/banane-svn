@@ -3,7 +3,7 @@
 %  threshlin()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -48,8 +48,6 @@
 %  Setting the default values and computation.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
 %* >> x=linspace(-1,1);
 %* >> y=threshlin(x,{0.1,0.05});
 %* >> plot(x,y)
