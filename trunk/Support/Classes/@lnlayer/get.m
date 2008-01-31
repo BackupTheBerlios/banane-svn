@@ -21,9 +21,9 @@
 %  also allowed, eg <A>kwextract</A>.
 %
 % CATEGORY:
-%   Support Routines<BR>
-%   Classes<BR>
-%   Simulation
+%  Support Routines<BR>
+%  Classes<BR>
+%  Simulation
 %
 % SYNTAX:
 %* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
