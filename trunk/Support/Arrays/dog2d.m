@@ -3,7 +3,7 @@
 %  dog2d()
 %
 % VERSION:
-%  $Id: $
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -25,7 +25,7 @@
 %  Arrays
 %
 % SYNTAX:
-%* result=dog2d2d(height[,width[,ypeak[,xpeak[,sigma[,ratio]]]]]); 
+%* result=dog2d(height[,width[,ypeak[,xpeak[,sigma[,ratio]]]]]); 
 %
 % INPUTS:
 %  height:: The number of rows of the resulting array.
