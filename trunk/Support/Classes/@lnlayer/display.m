@@ -6,7 +6,7 @@
 %  $Id:$
 %
 % AUTHOR:
-%  A., Thiel
+%  A. Thiel
 %
 % DATE CREATED:
 %  1/2008
@@ -30,7 +30,7 @@
 %  layer:: An instance of the <A>lnlayer</A> class.
 %
 % OUTPUTS:
-%  text output:: Displays the present activation of each neuron.
+%  screen:: Displays the present activation of each neuron.
 %
 % PROCEDURE:
 %  Compute the activation state and show it.
