@@ -15,10 +15,20 @@
 %  Compute the new state of a layer of linear-nonlinear model neurons.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  This routine computes the new activation state of a population of
+%  linear-nonlinear model neurons initialized with <A>lnlayer</A>,
+%  depending on the present input to each of the neurons. The activation
+%  state of linear-nonlinear model neurons is 
+%  interpreted as the probability of generating action potentials. This
+%  activation state is computed by convolving the previous inputs of an
+%  individual neuron with a temporal filter kernel and passing this
+%  'generator potential' to a nonlinear function. When using the
+%  <A>lnlayer</A> 
+%  class, any spacial processing has to be implemented prior to feeding
+%  the individual inputs into the members of the neuron layer. The
+%  lnlayer itself takes care of saving the past inputs, convolution with
+%  the temporal kernel, and applying the nonlienar function to the
+%  result.
 %
 % CATEGORY:
 %  Support Routines<BR>
@@ -29,8 +39,7 @@
 %* [layer,now] = lntimestep(layer, input); 
 %
 % INPUTS:
-%  layer:: First argument of the function call. Indicate variable type and
-%  function.
+%  layer:: Instance of the <A>lnlayer</A> class.
 %  input:: Matrix of numerical values describing the present input
 %  to each of the neurons within the layer. The dimensions of
 %  <VAR>input</VAR> must match those of the neuron layer.
@@ -38,7 +47,9 @@
 % OUTPUTS:
 %  layer:: The updated layer object.
 %  now:: A matrix representing the activity of each neuron. This may be
-%  interpreted as each neuron's firing probability. 
+%  interpreted as each neuron's firing probability. Poisson spiking may
+%  be simulated by a comparison of the resulting activation with an array
+%  of randomly generated numbers. See example.
 %
 % PROCEDURE:
 %  Save the new input as the first entry of the sequence of past
@@ -46,11 +57,16 @@
 %  the results to the nonlinear function. 
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%* >> l=lnlayer(2,3,[1 -1 0],@threshlin);
+%* >> [l,state]=lntimestep(l,rand(2,3));
+%* >> state
+%* state =
+%*     0.0539    0.2699    0.0386
+%*     0.5530    0.9483    0.8522
+%* >> spikes=rand(2,3)<state
+%* spikes =
+%*      0     0     0
+%*      0     1     1
 %
 % SEE ALSO:
 %  <A>lnlayer</A>, <A>threshlin</A>, <A>sigmoid</A>. 
