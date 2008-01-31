@@ -3,7 +3,7 @@
 %  cog()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  M. T. Ahlers
@@ -30,7 +30,7 @@
 %
 % OUTPUTS:
 %  row:: The vertical coordinate of the center of gravity.
-%  col:: The horzontal coordinate of the center of gravity.
+%  col:: The horizontal coordinate of the center of gravity.
 %
 % PROCEDURE:
 %  Sums and vector multiplications.
