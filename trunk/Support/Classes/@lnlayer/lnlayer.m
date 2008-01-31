@@ -15,10 +15,20 @@
 %  Constructor method for a layer of linear-nonlinear model neurons.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  This routine initializes a population of linear-nonlinear model
+%  neurons with identical properties. The neurons are positioned on a
+%  rectangular grid with regular spacing, and this arrangement is called
+%  a 'layer'. The activation state of linear-nonlinear model neurons is
+%  interpreted as the probability of generating action potentials. This
+%  activation state is computed by convolving the previous inputs of an
+%  individual neuron with a temporal filter kernel and passing this
+%  'generator potential' to a nonlinear function. When using the lnlayer
+%  class, any spacial processing has to be implemented prior to feeding
+%  the individual inputs into the members of the neuron layer. The
+%  lnlayer itself takes care of saving the past inputs, convolution with
+%  the temporal kernel, and applying the nonlienar function to the
+%  result. Poisson spiking may be simulated by comparing the resulting
+%  activation with randomly generated numbers.
 %
 % CATEGORY:
 %  Support Routines<BR>
@@ -52,7 +62,7 @@
 %  zero.
 %
 % PROCEDURE:
-%  Mainly syntax check.
+%  Mainly syntax check and creation of a structure
 %
 % EXAMPLE:
 %* >> onlay=lnlayer(2,3,[1 -1 0],@threshlin,0.,0.3);
