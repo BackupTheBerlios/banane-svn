@@ -15,10 +15,8 @@
 %  The get method for the <A>lnlayer</A> class.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  This routine may be used to obtain information about the properties of
+%  a <A>lnlayer</A> object.
 %
 % CATEGORY:
 %  Support Routines<BR>
@@ -26,36 +24,34 @@
 %  Simulation
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* result = get(layer, propertyname); 
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
-%
-% OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
+%  layer:: An instance of the <A>lnlayer</A> class.
+%  propertyname:: A string describing which property should be
+%  returned. Presently, only the dimensions of the neuron layer may be
+%  returned via the 'Size' property.
 %
 % OUTPUTS:
-%  result:: The result of the routine.
+%  result:: The desired information concerning the property given by
+%  <VAR>propertyname</VAR>. For <VAR>propertyname='Size'</VAR>, the
+%  result will be a two-element vector specifying the number of rows and
+%  columns of the neuron layer.
 %
 % RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  Only a single property is implemented yet.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  Simple switch/case.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
+%* >> onlay=lnlayer(2,3,[1 -1 0],@threshlin,0.,0.3);
+%* >> get(onlay,'Size')
 %* ans =
-%*   28
+%*      2     3
 %
 % SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
+%  <A>lnlayer</A>. 
 %-
 
 
@@ -66,5 +62,5 @@ function val = get(a, propName)
    case 'Size'
     val = a.size;
    otherwise
-    error([propName,' Is not a valid lnlayer property'])
+    error([propName,' is not a valid lnlayer property.'])
   end
