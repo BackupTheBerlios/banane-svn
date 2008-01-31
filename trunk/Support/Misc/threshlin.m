@@ -15,10 +15,10 @@
 %  Support function for linear-nonlinear model neurons.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  This routine can be used as a nonlinear transfer function for
+%  linear-nonlinear model neurons initialized by <A>lnlayer</A>. It
+%  clips values below a given threshold to zero and multiplies values
+%  above the threshold by a given factor.
 %
 % CATEGORY:
 %  Support Routines<BR>
@@ -27,36 +27,35 @@
 %  Simulation
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* result=threshlin(act[{,theta[,factor]}]); 
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
+%  act:: The activation that has to be transformed. This can be any
+%  matrix of numerical values.
 %
 % OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
+%  theta:: The threshold argument. Values in <VAR>act</VAR> below the
+%  threshold are clipped to zero. Default: 0. Note that the argument must
+%  be the first element of a MATLAB cell array.
+%  factor:: The factor with which the remaining nonzero values in
+%  <VAR>act</VAR> are multiplied. Default: 1. Note that the argument must
+%  be the second element of a MATLAB cell array.
 %
 % OUTPUTS:
-%  result:: The result of the routine.
-%
-% RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  result:: The converted values.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  Setting the default values and computation.
 %
 % EXAMPLE:
 %  Indicate example lines with * as the first character. These lines
 %  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%* >> x=linspace(-1,1);
+%* >> y=threshlin(x,{0.1,0.05});
+%* >> plot(x,y)
 %
 % SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
+%  <A>lnlayer</A>, <A>sigmoid</A>. 
 %-
 
 function result=threshlin(act,argin)
@@ -75,6 +74,6 @@ function result=threshlin(act,argin)
     error('Wrong number of arguments.')
   end % switch
   
-  result=factor*act;
+  result=factor*(act-theta);
   
-  result(act<theta)=0;
+  result(result<=0)=0;
