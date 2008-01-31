@@ -3,7 +3,7 @@
 %  lnlayer()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -27,8 +27,8 @@
 %  the individual inputs into the members of the neuron layer. The
 %  lnlayer itself takes care of saving the past inputs, convolution with
 %  the temporal kernel, and applying the nonlienar function to the
-%  result. Poisson spiking may be simulated by comparing the resulting
-%  activation with randomly generated numbers.
+%  result. Poisson spiking may be simulated by a comparison of the resulting
+%  activation with an array of randomly generated numbers.
 %
 % CATEGORY:
 %  Support Routines<BR>
