@@ -12,49 +12,39 @@
 %  1/2008
 %
 % AIM:
-%  Compute center of gravity for two-dimensional array.
+%  Compute center of gravity of two-dimensional array.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  This routine computes the center of gravity (COG) of a two-dimensional
+%  array, with the array values interpreted as the masses.
 %
 % CATEGORY:
 %  Support Routines<BR>
 %  Arrays
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* [row,col] = cog(image); 
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
-%
-% OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
+%  image:: Two-dimensional numerical array.
 %
 % OUTPUTS:
-%  result:: The result of the routine.
-%
-% RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  row:: The vertical coordinate of the center of gravity.
+%  col:: The horzontal coordinate of the center of gravity.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  Sums and vector multiplications.
 %
 % EXAMPLE:
 %  Indicate example lines with * as the first character. These lines
 %  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%* >> hill=gauss2d(25,25,5,7);
+%* >> [y,x]=cog(hill)
+%* y =
+%*     5.2014
+%* x =
+%*     7.0328
 %
-% SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
 %-
 
 function [row,col] = cog(im)
