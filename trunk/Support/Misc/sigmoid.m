@@ -15,10 +15,10 @@
 %  Support function for linear-nonlinear model neurons.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  This routine can be used as a nonlinear transfer function for
+%  linear-nonlinear model neurons initialized by <A>lnlayer</A>. It
+%  transforms its input values according to the sigmoid function
+%*  f(x)=factor / (1+exp((-x+xshift)*tau))
 %
 % CATEGORY:
 %  Support Routines<BR>
@@ -27,33 +27,33 @@
 %  Simulation
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* result=sigmoid(act[{,xshift[,factor[,factor]]}]); 
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
+%  act:: The activation that has to be transformed. This can be any
+%  matrix of numerical values.
 %
 % OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
+%  xshift:: This argument specifies the value in <VAR>act</VAR> that is
+%  converted to half the maximum of the resulting array. Default: 0. Note
+%  that the argument must
+%  be the first element of a MATLAB cell array.
+%  factor:: The asymptotic amplitude of the result. Default: 1. Note that
+%  the argument must 
+%  be the second element of a MATLAB cell array.
+%  tau:: The steepness of the curve. The larger <VAR>tau</VAR>, the
+%  steeper the curve. Default: 10.
 %
 % OUTPUTS:
-%  result:: The result of the routine.
-%
-% RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
+%  result:: The converted values.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  Setting the default values and computation.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%* >> x=linspace(-1,1);
+%* >> y=sigmoid(x,{0.1,0.05,5.});
+%* >> plot(x,y)
 %
 % SEE ALSO:
 %  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
@@ -65,15 +65,15 @@ function result=sigmoid(act,argin)
    case 0
     xshift=0;
     factor=1;
-    tau=1;
+    tau=10;
    case 1
     xshift=argin{1};
     factor=1;
-    tau=1;
+    tau=10;
    case 2
     xshift=argin{1};
     factor=argin{2};
-    tau=1;
+    tau=10;
    case 3
     xshift=argin{1};
     factor=argin{2};
@@ -82,5 +82,5 @@ function result=sigmoid(act,argin)
     error('Wrong number of arguments.')
   end % switch
   
-  result=factor./(1+exp((-act+xshift)./tau));
+  result=factor./(1+exp((-act+xshift).*tau));
   
