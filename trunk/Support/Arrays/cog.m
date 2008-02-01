@@ -49,13 +49,9 @@
 %  function.
 %  arg2:: Second argument of the function call.
 %
-% OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
-%
 % OUTPUTS:
-%  result:: The result of the routine.
+%  row:: The vertical coordinate of the center of gravity.
+%  col:: The horizontal coordinate of the center of gravity.
 %
 % PROCEDURE:
 %  Sums and vector multiplications.
