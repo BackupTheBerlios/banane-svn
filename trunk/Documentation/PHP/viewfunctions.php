@@ -8,6 +8,29 @@
 
 
 
+#####
+## support function to search simplified anchors <A>routine</A> 
+## and replace them with with proper hyperrefs
+## to resolve ambiguous filenames, the routine uses the same 
+## mechanism that also displays the results of a search for
+## a routine name, ie display a list of matches or in case of a single
+## match (which sould happen most of the time) display the header directly
+function anchorreplace($original,$path)
+{
+  $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/U";
+  preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
+  foreach ($matches as $val) {
+    $search="/(<(A|a)[^>]*>)".$val[3]."/";
+    $replace="<A href='?search=".$val[3]."'>".$val[3];
+    $original = preg_replace($search, $replace, $original); 
+  }
+  return $original;
+}
+##### 
+
+
+
+
 ##### displays table with routines in given directory
 function viewdir($myqsl,$page,$dirname)
 {
@@ -45,7 +68,7 @@ while($rrow = mysql_fetch_array($routines))
     $anchor="?Page=".$page."&routine=".$fullname;
     $output.="<TR>";
     $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-    $output.="<TD VALIGN=TOP>".$rrow["aim"];
+    $output.="<TD VALIGN=TOP>".anchorreplace($rrow["aim"],$webpath);
     $output.="</TR>";
   }
 $output.="</TABLE>";
@@ -53,29 +76,6 @@ $output.="</TABLE>";
 return $output;
 }
 #####
-
-
-
-#####
-## support function to search simplified anchors <A>routine</A> 
-## and replace them with with proper hyperrefs
-## to resolve ambiguous filenames, the routine uses the same 
-## mechanism that also displays the results of a search for
-## a routine name, ie display a list of matches or in case of a single
-## match (which sould happen most of the time) display the header directly
-function anchorreplace($original,$path)
-{
-  $pattern="/(<(A|a)[^>]*>)(.*)(<\/\\2>)/U";
-  preg_match_all($pattern, $original, $matches, PREG_SET_ORDER);
-  foreach ($matches as $val) {
-    $search="/(<(A|a)[^>]*>)".$val[3]."/";
-    $replace="<A href='?search=".$val[3]."'>".$val[3];
-    $original = preg_replace($search, $replace, $original); 
-  }
-  return $original;
-}
-##### 
-
 
 
 
