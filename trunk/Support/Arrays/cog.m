@@ -15,39 +15,18 @@
 %  Compute center of gravity of two-dimensional array.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  This routine computes the center of gravity of a two-dimensional
+%  array, with the array values interpreted as the masses.
 %
 % CATEGORY:
-%  At present, there are the following possibilities:<BR>
-%   - DataStructures<BR>
-%   - Documentation<BR>
-%   - NEV Tools<BR>
-%   - Support Routines<BR>
-%   - Arrays<BR>
-%   - Classes<BR>
-%   - Misc<BR>
-%   - Strings<BR>
-%   - Receptive Fields<BR>
-%   - Signals<BR>
-%   - Statistics<BR>
-%  Others may be invented, with corresponding subdirectories in the
-%  BANANE directory tree. For example:<BR>
-%   - DataStorage<BR>
-%   - Demonstration<BR>
-%   - Graphic<BR>
-%   - Help<BR>
-%   - Simulation<BR>
+%  Support Routines<BR>
+%  Arrays
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* [row,col] = cog(image); 
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
+%  image:: Two-dimensional numerical array.
 %
 % OUTPUTS:
 %  row:: The vertical coordinate of the center of gravity.
