@@ -15,7 +15,7 @@
 %  Compute center of gravity of two-dimensional array.
 %
 % DESCRIPTION:
-%  This routine computes the center of gravity (COG) of a two-dimensional
+%  This routine computes the center of gravity of a two-dimensional
 %  array, with the array values interpreted as the masses.
 %
 % CATEGORY:
@@ -36,8 +36,6 @@
 %  Sums and vector multiplications.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
 %* >> hill=gauss2d(25,25,5,7);
 %* >> [y,x]=cog(hill)
 %* y =
