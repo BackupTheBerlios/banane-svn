@@ -1,6 +1,6 @@
 %+
 % NAME:
-%  example_function()
+%  cog()
 %
 % VERSION:
 %  $Id:$
@@ -73,57 +73,6 @@
 % SEE ALSO:
 %  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
 %-
-
-
-
-
-% NAME:
-%  cog()
-%
-% VERSION:
-%  $Id$
-%
-% AUTHOR:
-%  M. T. Ahlers
-%
-% DATE CREATED:
-%  1/2008
-%
-% AIM:
-%  Compute center of gravity of two-dimensional array.
-%
-% DESCRIPTION:
-%  This routine computes the center of gravity of a two-dimensional
-%  array, with the array values interpreted as the masses.
-%
-% CATEGORY:
-%  Support Routines<BR>
-%  Arrays
-%
-% SYNTAX:
-%* [row,col] = cog(image); 
-%
-% INPUTS:
-%  image:: Two-dimensional numerical array.
-%
-% OUTPUTS:
-%  row:: The vertical coordinate of the center of gravity.
-%  col:: The horizontal coordinate of the center of gravity.
-%
-% PROCEDURE:
-%  Sums and vector multiplications.
-%
-% EXAMPLE:
-%* >> hill=gauss2d(25,25,5,7);
-%* >> [y,x]=cog(hill)
-%* y =
-%*     5.2014
-%* x =
-%*     7.0328
-%
-% SEE ALSO:
-%  <A>gauss2d</A>. 
-
 
 function [row,col] = cog(im)
   [m,n]=size(im);
