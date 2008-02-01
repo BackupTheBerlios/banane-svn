@@ -43,6 +43,8 @@
 %* x =
 %*     7.0328
 %
+% SEE ALSO:
+%  <A>gauss2d</A>. 
 %-
 
 function [row,col] = cog(im)
