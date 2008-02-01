@@ -3,16 +3,16 @@
 %  cog()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
-%  J. R. Hacker
+%  M. T. Ahlers
 %
 % DATE CREATED:
-%  9/2002
+%  1/2008
 %
 % AIM:
-%  Short description of the routine in a single line.
+%  Compute center of gravity of two-dimensional array.
 %
 % DESCRIPTION:
 %  Detailed description of the routine. The text may contain small HTML
@@ -57,9 +57,6 @@
 % OUTPUTS:
 %  result:: The result of the routine.
 %
-% RESTRICTIONS:
-%  Optional section: Is there anything known that could cause problems?
-%
 % PROCEDURE:
 %  Short description of the algorithm.
 %
@@ -69,9 +66,6 @@
 %* >> data=example_function(23,5)
 %* ans =
 %*   28
-%
-% SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
 %-
 
 function [row,col] = cog(im)
