@@ -58,14 +58,15 @@
 %  result:: The result of the routine.
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  Sums and vector multiplications.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%* >> hill=gauss2d(25,25,5,7);
+%* >> [y,x]=cog(hill)
+%* y =
+%*     5.2014
+%* x =
+%*     7.0328
 %-
 
 function [row,col] = cog(im)
