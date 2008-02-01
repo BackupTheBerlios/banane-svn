@@ -3,7 +3,7 @@
 %  sigmoid()
 %
 % VERSION:
-%  $Id:$
+%  $Id$
 %
 % AUTHOR:
 %  A. Thiel
@@ -56,7 +56,7 @@
 %* >> plot(x,y)
 %
 % SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
+%  <A>lnlayer</A>, <A>threshlin</A>. 
 %-
 
 function result=sigmoid(act,argin)
