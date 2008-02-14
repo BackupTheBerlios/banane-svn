@@ -58,7 +58,7 @@ a#linkhome {
   top: 32px;
   left: 3px;
   height: 35px;
-  width: 164px;
+  width: 165px;
   border: 1px solid #5c0000;
 }
 
@@ -69,8 +69,10 @@ div.headline {
   position: absolute;
   top: 103px;
   left: 166px;
-  bottom: 560px;
-  right: 274px;
+  height: 15px;
+  width: 240px;
+/*  bottom: 560px;
+  right: 274px; */
   padding: 0px;
   text-align:left;
   word-spacing:1.2em; 
@@ -109,8 +111,10 @@ div.navigation_head {
   position: absolute;
   top: 103px; /*121px;*/
   left: 30px; /*68px;*/
-  bottom: 560px;
-  right: 625px;
+  height: 15px;
+  width: 115px;
+/*  bottom: 560px;
+  right: 625px; */
   padding: 0px;
   border: 1px solid #5c0000;
   text-transform: lowercase;
