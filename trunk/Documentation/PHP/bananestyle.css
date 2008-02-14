@@ -1,15 +1,19 @@
-/* bananestyle.css is the file containing the style sheet info
+/* 
+bananestyle.css is the file containing the style sheet info
 for the banane online documentation. it is also responsible for the 
-positioning of the various elements of the page*/
+positioning of the various elements of the page
+$Id:$
+*/
 
 /* general settings */
-body {
+html,body {
   text-align: center;
   background: #e6e7e9;
   color: #737373;
   font-family: helvetica, arial, sans-serif;
   font-size: 9pt;
   line-height : 2.5ex;
+  height: 100%;
 }
 
 a:link, a:visited, a:active {
@@ -26,14 +30,21 @@ a:hover {
 
 /* the centered region which contains everything else */
 div.content {
-  position: relative;
-  top:15px;
+  /*position: relative;
+  top:15px;*/
   width:823px;
   height:704px;
-  margin:0 auto;
+  /*margin:0 auto;*/
   text-align:left;
   background-image:url('Pics/frame.gif');
   background-repeat:no-repeat;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -412px; 
+  /* Half the width of the DIV tag which is 50 pixels */
+  margin-top: -352px; 
+  /* Half the height of the DIV tag which is also 50 pixels */
 }
 
 div.content h1 {
