@@ -70,7 +70,7 @@ div.headline {
   top: 103px;
   left: 166px;
   height: 15px;
-  width: 240px;
+  width: 300px;
 /*  bottom: 560px;
   right: 274px; */
   padding: 0px;
@@ -85,11 +85,11 @@ div.headline {
 /* search input form, in the same line as headline, but right-aligned */
 div.search {
   position: absolute;
-  top: 103px;
+  top: 100px;
   left: 580px;
 /*  bottom: 560px;
   right: 69px; */
-  height: 15px;
+  height: 18px;
   width: 138px;
   padding: 0px;
   text-align:right;
@@ -125,8 +125,8 @@ div.navigation_head {
 /* the main part of the directory navigation region */
 div.navigation {
   position: absolute;
-  top: 151px;
-  left: 64px;
+  top: 137px;
+  left: 166px;
   bottom: 69px;
   right: 625px;
   padding: 0px;
