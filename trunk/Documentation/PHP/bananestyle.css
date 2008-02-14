@@ -85,7 +85,7 @@ div.headline {
 /* search input form, in the same line as headline, but right-aligned */
 div.search {
   position: absolute;
-  top: 100px;
+  top: 99px;
   left: 580px;
 /*  bottom: 560px;
   right: 69px; */
@@ -116,8 +116,8 @@ div.navigation_head {
   height: 15px;
   width: 115px;
   padding: 0px;
-  border: 1px solid #5c0000;
   text-transform: lowercase;
+  /*border: 1px solid #5c0000;*/
 }
 
 
@@ -156,7 +156,7 @@ div.bottom {
 /* the main part of the webpage which dynamically changes its contents */
 div.main {
   position: absolute;
-  top: 137px;
+  top: 136px;
   left: 166px;
   height: 520px;
   width: 552px;
