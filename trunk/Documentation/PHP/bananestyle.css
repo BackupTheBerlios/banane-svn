@@ -42,9 +42,9 @@ div.content {
   left: 50%;
   top: 50%;
   margin-left: -376px; 
-  /* Half the width of the DIV tag which is 50 pixels */
+  /* Half the width of the DIV.CONTENT */
   margin-top: -373px; 
-  /* Half the height of the DIV tag which is also 50 pixels */
+  /* Half the height of the DIV.CONTENT */
 }
 
 div.content h1 {
@@ -71,13 +71,11 @@ div.headline {
   left: 166px;
   height: 15px;
   width: 300px;
-/*  bottom: 560px;
-  right: 274px; */
   padding: 0px;
   text-align:left;
   word-spacing:1.2em; 
   font-weight:bold; 
-  border: 1px solid #5c0000;
+  /* border: 1px solid #5c0000;*/
 }
 
 
@@ -85,7 +83,7 @@ div.headline {
 /* search input form, in the same line as headline, but right-aligned */
 div.search {
   position: absolute;
-  top: 99px;
+  top: 98px;
   left: 580px;
 /*  bottom: 560px;
   right: 69px; */
@@ -125,7 +123,7 @@ div.navigation_head {
 /* the main part of the directory navigation region */
 div.navigation {
   position: absolute;
-  top: 132px;
+  top: 131px;
   left: 27px;
   width: 120px;
   bottom: 69px;
