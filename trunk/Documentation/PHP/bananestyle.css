@@ -56,7 +56,7 @@ div.content h1 {
 a#linkhome {
   position: absolute;
   top: 32px;
-  left: 4px;
+  left: 3px;
   height: 35px;
   width: 164px;
   border: 1px solid #5c0000;
@@ -68,7 +68,7 @@ a#linkhome {
 div.headline {
   position: absolute;
   top: 103px;
-  left: 167px;
+  left: 166px;
   bottom: 560px;
   right: 274px;
   padding: 0px;
@@ -108,7 +108,7 @@ div.search {
 div.navigation_head {
   position: absolute;
   top: 103px; /*121px;*/
-  left: 31px; /*68px;*/
+  left: 30px; /*68px;*/
   bottom: 560px;
   right: 625px;
   padding: 0px;
