@@ -124,7 +124,7 @@ div.navigation {
   top: 131px;
   left: 27px;
   width: 130px;
-  height: 510px;
+  height: 512px;
   padding: 0px;
   text-transform: lowercase;
   overflow: auto; 
@@ -138,9 +138,9 @@ div.navigation {
 div.bottom {
   position: absolute;
   top: 670px;
-  left: 380px;
+  left: 360px;
   bottom: 0px;
-  right: 37px;
+  right: 33px;
   padding: 0px;
   text-align: right;
   font-size: 85%; 
@@ -154,7 +154,7 @@ div.main {
   position: absolute;
   top: 135px;
   left: 166px;
-  height: 506px;
+  height: 508px;
   width: 552px;
   /*bottom: 69px;
   right: 52px;*/
