@@ -85,14 +85,12 @@ div.search {
   position: absolute;
   top: 98px;
   left: 580px;
-/*  bottom: 560px;
-  right: 69px; */
   height: 18px;
   width: 138px;
   padding: 0px;
   text-align:right;
   font-weight:bold;
-  border: 1px solid #5c0000;
+  /* border: 1px solid #5c0000; */
 }
 
 .search input {
@@ -139,8 +137,8 @@ div.navigation {
 /* the bottom region containing some links */
 div.bottom {
   position: absolute;
-  top: 687px;
-  left: 430px;
+  top: 676px;
+  left: 393px;
   bottom: 0px;
   right: 37px;
   padding: 0px;
