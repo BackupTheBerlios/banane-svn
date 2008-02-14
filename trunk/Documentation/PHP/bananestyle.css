@@ -55,10 +55,10 @@ div.content h1 {
 /* link behind the banane logo */
 a#linkhome {
   position: absolute;
-  top: 28px;
+  top: 32px;
   left: 4px;
-  height: 66px;
-  width: 168px;
+  height: 35px;
+  width: 164px;
   border: 1px solid #5c0000;
 }
 
@@ -67,8 +67,8 @@ a#linkhome {
 /* headline contains links to about, blog, members */
 div.headline {
   position: absolute;
-  top: 121px;
-  left: 204px;
+  top: 103px;
+  left: 167px;
   bottom: 560px;
   right: 274px;
   padding: 0px;
@@ -107,7 +107,7 @@ div.search {
 /* the title line of the directory navigation region */ 
 div.navigation_head {
   position: absolute;
-  top: 104px; /*121px;*/
+  top: 103px; /*121px;*/
   left: 31px; /*68px;*/
   bottom: 560px;
   right: 625px;
