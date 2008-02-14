@@ -59,7 +59,7 @@ a#linkhome {
   left: 3px;
   height: 35px;
   width: 165px;
-  border: 1px solid #5c0000;
+  /* border: 1px solid #5c0000; */
 }
 
 
@@ -109,7 +109,7 @@ div.search {
 /* the title line of the directory navigation region */ 
 div.navigation_head {
   position: absolute;
-  top: 103px; /*121px;*/
+  top: 102px; /*121px;*/
   left: 30px; /*68px;*/
   height: 15px;
   width: 115px;
