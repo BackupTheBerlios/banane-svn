@@ -2,7 +2,7 @@
 bananestyle.css is the file containing the style sheet info
 for the banane online documentation. it is also responsible for the 
 positioning of the various elements of the page
-$Id:$
+$Id$
 */
 
 /* general settings */
@@ -32,8 +32,8 @@ a:hover {
 div.content {
   /*position: relative;
   top:15px;*/
-  width:823px;
-  height:704px;
+  width:751px;
+  height:745px;
   /*margin:0 auto;*/
   text-align:left;
   background-image:url('Pics/frame.gif');
@@ -41,9 +41,9 @@ div.content {
   position: absolute;
   left: 50%;
   top: 50%;
-  margin-left: -412px; 
+  margin-left: -376px; 
   /* Half the width of the DIV tag which is 50 pixels */
-  margin-top: -352px; 
+  margin-top: -373px; 
   /* Half the height of the DIV tag which is also 50 pixels */
 }
 
