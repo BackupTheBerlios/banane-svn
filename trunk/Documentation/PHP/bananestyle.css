@@ -125,10 +125,10 @@ div.navigation_head {
 /* the main part of the directory navigation region */
 div.navigation {
   position: absolute;
-  top: 134px;
-  left: 28px;
+  top: 132px;
+  left: 27px;
+  width: 120px;
   bottom: 69px;
-  right: 625px;
   padding: 0px;
   text-transform: lowercase;
   overflow: auto; 
