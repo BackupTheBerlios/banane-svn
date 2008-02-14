@@ -204,7 +204,7 @@ MAILTO=administrator's email adress if needed for checking
 
 BACKUP OF THE REPOSITORY
 Presently, a svn dump of the repository is generated automatically by
-the berliso server at
+the berlios server at
 http://svn.berlios.de/svndumps/banane-repos.gz
 Do a local backup with a script like this:
 cd ~/Backup/BerliOS
