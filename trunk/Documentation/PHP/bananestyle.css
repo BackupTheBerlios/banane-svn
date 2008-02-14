@@ -8,7 +8,7 @@ $Id$
 /* general settings */
 html,body {
   text-align: center;
-  background: #e6e7e9;
+  background: #ffffff;
   color: #737373;
   font-family: helvetica, arial, sans-serif;
   font-size: 9pt;
@@ -55,10 +55,10 @@ div.content h1 {
 /* link behind the banane logo */
 a#linkhome {
   position: absolute;
-  top: 36px;
-  left: 41px;
-  height: 44px;
-  width: 162px;
+  top: 28px;
+  left: 4px;
+  height: 66px;
+  width: 168px;
 }
 
 
@@ -104,8 +104,8 @@ div.search {
 /* the title line of the directory navigation region */ 
 div.navigation_head {
   position: absolute;
-  top: 121px;
-  left: 68px;
+  top: 105px; /*121px;*/
+  left: 32px; /*68px;*/
   bottom: 560px;
   right: 625px;
   padding: 0px;
