@@ -11,7 +11,7 @@ html,body {
   background: #ffffff;
   color: #737373;
   font-family: helvetica, arial, sans-serif;
-  font-size: 9pt;
+  font-size: 8pt;
   line-height : 2.5ex;
   height: 100%;
 }
@@ -104,8 +104,8 @@ div.search {
 /* the title line of the directory navigation region */ 
 div.navigation_head {
   position: absolute;
-  top: 105px; /*121px;*/
-  left: 32px; /*68px;*/
+  top: 103px; /*121px;*/
+  left: 31px; /*68px;*/
   bottom: 560px;
   right: 625px;
   padding: 0px;
