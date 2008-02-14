@@ -59,6 +59,7 @@ a#linkhome {
   left: 4px;
   height: 66px;
   width: 168px;
+  border: 1px solid #5c0000;
 }
 
 
@@ -74,6 +75,7 @@ div.headline {
   text-align:left;
   word-spacing:1.2em; 
   font-weight:bold; 
+  border: 1px solid #5c0000;
 }
 
 
@@ -88,6 +90,7 @@ div.search {
   padding: 0px;
   text-align:right;
   font-weight:bold;
+  border: 1px solid #5c0000;
 }
 
 .search input {
@@ -104,11 +107,12 @@ div.search {
 /* the title line of the directory navigation region */ 
 div.navigation_head {
   position: absolute;
-  top: 103px; /*121px;*/
+  top: 104px; /*121px;*/
   left: 31px; /*68px;*/
   bottom: 560px;
   right: 625px;
   padding: 0px;
+  border: 1px solid #5c0000;
   text-transform: lowercase;
 }
 
@@ -125,6 +129,7 @@ div.navigation {
   text-transform: lowercase;
   overflow: auto; 
   line-height:160%;
+  border: 1px solid #5c0000;
 }
 
 
@@ -139,6 +144,7 @@ div.bottom {
   padding: 0px;
   text-align: right;
   font-size: 85%; 
+  border: 1px solid #5c0000;
 }
 
 
@@ -154,6 +160,7 @@ div.main {
   overflow: auto;
   line-height : 2.5ex;
   text-align:justify;
+  border: 1px solid #5c0000;
 }
 
 div.main h1 {
