@@ -125,8 +125,8 @@ div.navigation_head {
 /* the main part of the directory navigation region */
 div.navigation {
   position: absolute;
-  top: 137px;
-  left: 30px;
+  top: 134px;
+  left: 28px;
   bottom: 69px;
   right: 625px;
   padding: 0px;
@@ -156,7 +156,7 @@ div.bottom {
 /* the main part of the webpage which dynamically changes its contents */
 div.main {
   position: absolute;
-  top: 136px;
+  top: 135px;
   left: 166px;
   height: 520px;
   width: 552px;
