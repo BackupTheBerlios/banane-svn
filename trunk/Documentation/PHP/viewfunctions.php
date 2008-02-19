@@ -31,6 +31,28 @@ function anchorreplace($original,$path)
 
 
 
+#####
+## support function 
+function nameaimtable($routines)
+{
+  $outstr="<TABLE>";
+  while($row = mysql_fetch_array($routines))
+    { $rname=$row["name"];
+      $fullname=$row["fullpath"];
+      $anchor="?Page=".$page."&routine=".$fullname;
+      $outstr.="<TR>";
+      $outstr.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
+      $outstr.="<TD VALIGN=TOP>".anchorreplace($row["aim"],$webpath);
+      $outstr.="</TR>";
+    }
+  $outstr.="</TABLE>";
+
+  return $outstring;
+}
+
+
+
+
 ##### displays table with routines in given directory
 function viewdir($myqsl,$page,$dirname)
 {
@@ -114,17 +136,18 @@ switch ($num_rows) {
    break;
  default:
    $output.="<H1>search results</H1>";
-   $output.="<TABLE>";
-   while($row = mysql_fetch_array($routines))
-     { $rname=$row["name"];
-       $fullpath=$row["fullpath"];
-       $anchor="?routine=".$fullpath;
-       $output.="<TR>";
-       $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-       $output.="<TD VALIGN=TOP>".anchorreplace($row["aim"],$webpath);
-       $output.="</TR>";
-     }
-   $output.="</TABLE>";
+   $output.=nameaimtable($routines);
+// "<TABLE>";
+//    while($row = mysql_fetch_array($routines))
+//      { $rname=$row["name"];
+//        $fullpath=$row["fullpath"];
+//        $anchor="?routine=".$fullpath;
+//        $output.="<TR>";
+//        $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
+//        $output.="<TD VALIGN=TOP>".anchorreplace($row["aim"],$webpath);
+//        $output.="</TR>";
+//      }
+//    $output.="</TABLE>";
 }
 
  return $output;
