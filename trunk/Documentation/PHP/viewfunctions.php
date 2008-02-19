@@ -47,7 +47,7 @@ function nameaimtable($routines)
     }
   $outstr.="</TABLE>";
 
-  return $outstring;
+  return $outstr;
 }
 
 
