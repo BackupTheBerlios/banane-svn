@@ -46,7 +46,6 @@ function nameaimtable($routines)
       $outstr.="</TR>";
     }
   $outstr.="</TABLE>";
-
   return $outstr;
 }
 
@@ -57,45 +56,35 @@ function nameaimtable($routines)
 function viewdir($myqsl,$page,$dirname)
 {
 
-## needed to call configuration script that knows everything else:
-$bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
+  ## needed to call configuration script that knows everything else:
+  $bananepath="/home/groups/banane/htdocs/wwwcopy/Banane/";
 
-## get info from config script.
-$confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
+  ## get info from config script.
+  $confscr=$bananepath."Documentation/Scripts/wwwdocu_conf.scr";
 
-$db = mysql_connect($myqsl["Server"], $myqsl["User"], $myqsl["Pass"]); 
-mysql_select_db($myqsl["DB"],$db);
+  $db = mysql_connect($myqsl["Server"], $myqsl["User"], $myqsl["Pass"]); 
+  mysql_select_db($myqsl["DB"],$db);
 
-$webscr=$confscr." web";
-$allout=`$webscr`;
-$out=explode("\n",$allout);
-$webpath=$out[0];
+  $webscr=$confscr." web";
+  $allout=`$webscr`;
+  $out=explode("\n",$allout);
+  $webpath=$out[0];
 
-## select all routines in respective directory and in its subdirs.
-## % in database query is the wildcard character.
-if (isset($dirname)) {
-  $querystring= "SELECT name,fullpath,aim FROM routines WHERE relativepath LIKE '".$dirname."%'";
- } else {$querystring= "SELECT name,fullpath,aim FROM routines";}
+  ## select all routines in respective directory and in its subdirs.
+  ## % in database query is the wildcard character.
+  if (isset($dirname)) {
+    $querystring= "SELECT name,fullpath,aim FROM routines WHERE relativepath LIKE '".$dirname."%'";
+  } else {$querystring= "SELECT name,fullpath,aim FROM routines";}
 
-$routines = mysql_query($querystring,$db); 
+  $routines = mysql_query($querystring,$db); 
 
-## display table with name and aim column. make the name a link to the
-## viewroutine script with the routine name as the argument
-$output="";
-$output.="<H1>contents of <I>\$BANANEPATH/".$dirname."</I></H1>";
-$output.="<TABLE>";
-while($rrow = mysql_fetch_array($routines))
-  { $rname=$rrow["name"];
-    $fullname=$rrow["fullpath"];
-    $anchor="?Page=".$page."&routine=".$fullname;
-    $output.="<TR>";
-    $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-    $output.="<TD VALIGN=TOP>".anchorreplace($rrow["aim"],$webpath);
-    $output.="</TR>";
-  }
-$output.="</TABLE>";
+  ## display table with name and aim column. make the name a link to the
+  ## viewroutine script with the routine name as the argument
+  $output="";
+  $output.="<H1>contents of <I>\$BANANEPATH/".$dirname."</I></H1>";
+  $output.=nameaimtable($routines);
 
-return $output;
+  return $output;
 }
 #####
 
