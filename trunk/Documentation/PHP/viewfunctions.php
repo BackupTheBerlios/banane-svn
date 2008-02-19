@@ -121,7 +121,7 @@ switch ($num_rows) {
        $anchor="?routine=".$fullpath;
        $output.="<TR>";
        $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-       $output.="<TD VALIGN=TOP>".anchorreplace($rrow["aim"],$webpath);
+       $output.="<TD VALIGN=TOP>".anchorreplace($row["aim"],$webpath);
        $output.="</TR>";
      }
    $output.="</TABLE>";
