@@ -62,10 +62,10 @@
 %
 % EXAMPLE:
 %  Reassign packets 1 to 10 to unit 1:
-%  * A = putPackets(nev, [1:10], 'unit', 1);
+%  * putPackets(nev, [1:10], 'unit', 1);
 %  Change waveforms of the 3rd and 7th packet to a linear line and a
 %  random waveform respectively:
-%  * A = putPackets(nev, [3 7], ‘waveform’,[1:60; 40*rand(1,60)])
+%  * putPackets(nev, [3 7], ‘waveform’,[1:60; 40*rand(1,60)])
 %
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
