@@ -18,7 +18,20 @@
 %  Detailed description of the routine. The text may contain small HTML
 %  tags like for example <BR> linebreaks or <VAR>variable name
 %  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.
+%  also allowed, eg <A>kwextract</A>.<BR>
+%  Please put this header in front of every banane routine and modify it
+%  according to the routine you want to commit. Since the header is
+%  parsed later to transfer the information to the banane web docu, it is
+%  important to keep the syntax identical to this example, i.e. the
+%  sections must be marked with capital letters and their order
+%  must not be changed. All sections have to appear unless they are
+%  marked here by "optional section". The header must start with the
+%  characters "%+" at the beginning of a single line and end with the
+%  characters "%-", 
+%  again at the beginning of a single line. 
+%  If the syntax is not correct, it cannot be
+%  parsed and the header information will not appear in the online
+%  documentation. 
 %
 % CATEGORY:
 %  At present, there are the following possibilities:<BR>
