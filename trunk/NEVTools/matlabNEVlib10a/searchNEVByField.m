@@ -29,9 +29,8 @@
 %* [retVal, indices] = searchNEVByField(nevObject, criteria, [startIndex = 1], [stopIndex = inf])
 %
 % INPUTS:
-%  arg1:: First argument of the function call. Indicate variable type and
-%  function.
-%  arg2:: Second argument of the function call.
+%  nevObject:: object created by call to openNEV
+%  criteria:: a string which evaluates to a logical expression (see examples following).
 %
 % OPTIONAL INPUTS:
 %  optarg1:: An optional input argument.
