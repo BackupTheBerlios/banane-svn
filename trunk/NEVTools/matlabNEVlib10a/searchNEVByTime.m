@@ -51,7 +51,6 @@
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
 %  <A>searchNEV</A>, Specification for the NEV file formats NEVspc20.pdf
-%
 %-
 
 function index = searchNEVByTime(nevObject, time)
