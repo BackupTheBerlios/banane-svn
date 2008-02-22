@@ -33,9 +33,8 @@
 %  criteria:: a string which evaluates to a logical expression (see examples following).
 %
 % OPTIONAL INPUTS:
-%  optarg1:: An optional input argument.
-%  optarg2:: Another optional input argument. Of course, the whole
-%  section is optional, too.
+%  	startIndex:: specify a starting index for the search
+%	stopIndex:: specify a stopping index for search.
 %
 % OUTPUTS:
 %  result:: The result of the routine.
