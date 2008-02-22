@@ -16,7 +16,16 @@ obtain their information from this mySQL database. Thus, the routines
 in the Documentation directory are either Perl scripts that accomplish
 the parsing and transfer of the header information into the database,
 or PHP scripts that extract the information from the database and
-display it on a webpage.
+display it on a webpage. The Perl scripts can also be executed
+directly (especially the resetdb.pl routine if the database is no
+longer in sync with the repository, see below). To do this, one must
+log in on the berlios shell server via 
+"ssh bananeadmin@shell.berlios.de" 
+with bananeadmin set to the appropriate user name.
+Then change to the directory
+"cd /home/groups/banane/htdocs/wwwcopy/Banane/Documentation/Perl/"
+and call
+"./resetdb.pl".
 
 The documentation routines are themselves part of the banane
 repository. Thus, their changes and updates are also controlled by
