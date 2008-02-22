@@ -35,7 +35,7 @@ function anchorreplace($original,$path)
 ## support function 
 function nameaimtable($routines)
 {
-  $outstr="<TABLE>";
+  $outstr="<TABLE cellpadding='20%'>";
   while($row = mysql_fetch_array($routines))
     { $rname=$row["name"];
       $fullname=$row["fullpath"];
@@ -184,7 +184,7 @@ $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Version</SPAN>
 $output.="<TD VALIGN=TOP>".$rrow["version"]."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Author</SPAN>";
 $output.="<TD VALIGN=TOP>".$rrow["author"]."</TR>";
-$output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Date created</SPAN>";
+$output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Date&nbsp;created</SPAN>";
 $output.="<TD VALIGN=TOP>".$rrow["date"]."</TR>";
 $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Aim</SPAN>";
 $output.="<TD VALIGN=TOP>".anchorreplace($rrow["aim"],$webpath)."</TR>";
@@ -220,7 +220,7 @@ while($irow = mysql_fetch_array($inputs))
 # entry is already read by initial while loop.
 while($oirow = mysql_fetch_array($optinputs)) 
   { 
-    $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Optional inputs</SPAN><TD VALIGN=TOP>"; 
+    $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>Optional&nbsp;inputs</SPAN><TD VALIGN=TOP>"; 
     $output.="<TABLE>";
     do { 
       $output.="<TR><TD class='left' VALIGN=TOP><VAR>".$oirow["argument"].": </VAR>";
@@ -257,7 +257,7 @@ $output.="<TD VALIGN=TOP>".anchorreplace($rrow["example"],$webpath)."</TR>";
 # skip optional section 'see also' if table entry is NULL
 if($rrow["also"]!="NULL") 
 { 
-  $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>See also</SPAN>"; 
+  $output.="<TR><TD class='left' VALIGN=TOP><SPAN class='head'><SEC>See&nbsp;also</SPAN>"; 
   $output.="<TD VALIGN=TOP>".anchorreplace($rrow["also"],$webpath)."</TR>";
  }
 $output.="</TABLE>";
