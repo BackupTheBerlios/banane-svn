@@ -86,50 +86,9 @@
 % SEE ALSO:
 %  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
 %-
-function [retVal, indices] = searchNEVByField(nevObject, criteria, startIndex, stopIndex)
 
-if nargin < 3, startIndex = 1; stopIndex = nevObject.FileInfo.packetCount; end;
-if nargin < 4, 
-	if length(startIndex) > 1,
-		stopIndex = max(startIndex);
-		startIndex = min(startIndex);
-	else,
-		stopIndex = nevObject.FileInfo.packetCount;
-	end
-end
 
-fid = nevObject.FileInfo.fid;
-% Find variables in the criteria string
-d = symvar(criteria);
-% Find any 'waveform' comparisons
-y = findstr(criteria, 'waveform');
-if ~isempty(y),
-	t = findstr(criteria(y(1):end), ' ');
-	u = criteria(y(1):y(1)+t(1)-2);
-	d = cat(1, d, {u});
-end
 
-indices = (startIndex : stopIndex)';
-retVal = zeros(size(indices));
-
-H = waitbar(0, 'Searching NEV file...');
-for i = startIndex : stopIndex,
-% Update user interface
-	if mod(i, 1000) == 0, waitbar(i / length(indices)); end;
-% Get the packet
-	packet = getPackets(nevObject, i);
-	P = criteria;
-% Process the criteria for the packets
-	try,
-		for j = 1 : length(d),
-			if ~isempty(findstr(d{j}, 'waveform')),
-				eval(['s = packet.' d{j} ';']);
-			else,
-				s = getfield(packet, d{j});
-			end
-			P = strrep(P, d{j}, num2str(s));
-		end
-		retVal(i-startIndex+1) = eval(P);
-	end
-end
-close(H);
+function result = funcname(arg1,arg2);
+  
+  result = arg1+arg2;
