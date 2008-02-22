@@ -1,37 +1,25 @@
 %+
 % NAME:
-%  example_function()
+%  searchNEVbyField()
 %
 % VERSION:
 %  $Id:$
 %
 % AUTHOR:
-%  J. R. Hacker
+%  E. Maynard
 %
 % DATE CREATED:
-%  9/2002
+%  08/09/00
 %
 % AIM:
 %  Short description of the routine in a single line.
 %
 % DESCRIPTION:
-%  Detailed description of the routine. The text may contain small HTML
-%  tags like for example <BR> linebreaks or <VAR>variable name
-%  typesetting</VAR>. Simple anchors to other banane routines are
-%  also allowed, eg <A>kwextract</A>.<BR>
-%  Please put this header in front of every banane routine and modify it
-%  according to the routine you want to commit. Since the header is
-%  parsed later to transfer the information to the banane web docu, it is
-%  important to keep the syntax identical to this example, i.e. the
-%  sections must be marked with capital letters and their order
-%  must not be changed. All sections have to appear unless they are
-%  marked here by "optional section". The header must start with the
-%  characters "%+" at the beginning of a single line and end with the
-%  characters "%-", 
-%  again at the beginning of a single line. 
-%  If the syntax is not correct, it cannot be
-%  parsed and the header information will not appear in the online
-%  documentation. 
+%  Uses a linear search of the NEV file for packets satisfying a set of
+%  criteria. NOTES: Times cannot be specified in seconds but must be
+%  specified in terms of timeStamps. Valid field names are: timeStamp,
+%  electrode, unit, waveform(sample Number), dio, bitFlag, analog1,
+%  analog2, analog3, analog4, analog5.  
 %
 % CATEGORY:
 %  At present, there are the following possibilities:<BR>
@@ -91,48 +79,49 @@
 
 function [retVal, indices] = searchNEVByField(nevObject, criteria, startIndex, stopIndex)
 
-if nargin < 3, startIndex = 1; stopIndex = nevObject.FileInfo.packetCount; end;
-if nargin < 4, 
-	if length(startIndex) > 1,
-		stopIndex = max(startIndex);
-		startIndex = min(startIndex);
-	else,
-		stopIndex = nevObject.FileInfo.packetCount;
-	end
-end
+  if nargin < 3, startIndex = 1; stopIndex = nevObject.FileInfo.packetCount; end;
+  if nargin < 4, 
 
-fid = nevObject.FileInfo.fid;
-% Find variables in the criteria string
-d = symvar(criteria);
-% Find any 'waveform' comparisons
-y = findstr(criteria, 'waveform');
-if ~isempty(y),
-	t = findstr(criteria(y(1):end), ' ');
-	u = criteria(y(1):y(1)+t(1)-2);
-	d = cat(1, d, {u});
-end
+    if length(startIndex) > 1,
+      stopIndex = max(startIndex);
+      startIndex = min(startIndex);
+    else,
+      stopIndex = nevObject.FileInfo.packetCount;
+    end
+  end
 
-indices = (startIndex : stopIndex)';
-retVal = zeros(size(indices));
+  fid = nevObject.FileInfo.fid;
+  % Find variables in the criteria string
+  d = symvar(criteria);
+  % Find any 'waveform' comparisons
+  y = findstr(criteria, 'waveform');
+  if ~isempty(y),
+    t = findstr(criteria(y(1):end), ' ');
+    u = criteria(y(1):y(1)+t(1)-2);
+    d = cat(1, d, {u});
+  end
 
-H = waitbar(0, 'Searching NEV file...');
-for i = startIndex : stopIndex,
-% Update user interface
-	if mod(i, 1000) == 0, waitbar(i / length(indices)); end;
-% Get the packet
-	packet = getPackets(nevObject, i);
-	P = criteria;
-% Process the criteria for the packets
-	try,
-		for j = 1 : length(d),
-			if ~isempty(findstr(d{j}, 'waveform')),
-				eval(['s = packet.' d{j} ';']);
-			else,
-				s = getfield(packet, d{j});
-			end
-			P = strrep(P, d{j}, num2str(s));
-		end
-		retVal(i-startIndex+1) = eval(P);
-	end
-end
-close(H);
+  indices = (startIndex : stopIndex)';
+  retVal = zeros(size(indices));
+
+  H = waitbar(0, 'Searching NEV file...');
+  for i = startIndex : stopIndex,
+    % Update user interface
+    if mod(i, 1000) == 0, waitbar(i / length(indices)); end;
+    % Get the packet
+    packet = getPackets(nevObject, i);
+    P = criteria;
+    % Process the criteria for the packets
+    try,
+      for j = 1 : length(d),
+        if ~isempty(findstr(d{j}, 'waveform')),
+          eval(['s = packet.' d{j} ';']);
+        else,
+          s = getfield(packet, d{j});
+        end
+        P = strrep(P, d{j}, num2str(s));
+      end
+      retVal(i-startIndex+1) = eval(P);
+    end
+  end
+  close(H);
