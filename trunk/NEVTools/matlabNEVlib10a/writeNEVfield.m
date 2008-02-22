@@ -39,9 +39,6 @@
 %		starting at that point.
 %	N:: number of packets to read (default = all)
 %
-% OPTIONAL INPUTS:
-%  --
-%
 % OUTPUTS:
 %  count:: selected field
 %
