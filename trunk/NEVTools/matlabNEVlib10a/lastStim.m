@@ -16,7 +16,7 @@
 %  of the NEV object.
 %
 % DESCRIPTION:
-%% This function returns the number of packets in the .StimulusData field of the NEV object. Use this
+% This function returns the number of packets in the .StimulusData field of the NEV object. Use this
 % function in place of the 'end' operator when indexing to the last stimulus packet.
 %
 % CATEGORY:
@@ -50,6 +50,7 @@
 %  Specification for the NEV file formats NEVspc20.pdf
 %  <A>lastSpike</A>
 %
+%-
 function result = lastStim(nevObject);
 
 try,

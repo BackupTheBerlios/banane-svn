@@ -43,13 +43,13 @@
 %
 % EXAMPLE:
 %  Close the exisiting NEV object 'Neu':
-%  * closeNEV(Neu)
+%* closeNEV(Neu)
 %
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
 %  <A>openNEV</A>, Specification for the NEV file formats NEVspc20.pdf
 %
-%
+%-
 
 function A = closeNEV(A);
 

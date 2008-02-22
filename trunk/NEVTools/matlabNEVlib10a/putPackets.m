@@ -3,7 +3,7 @@
 %  putpackets()
 %
 % VERSION:
-%  $Id: putPackets.m 2008-01-22 13:47:22Z furche $
+%  $Id: putPackets.m 2008-01-22 Version 2 furche $
 %
 % AUTHOR:
 %  E. Maynard 
@@ -19,8 +19,8 @@
 %  packets, which can either be a change of the classified
 %  units, the recording electrode or in difference to the originally 
 %  written routine also the timestamps or the whole waveforms.
-%  The original function is part of the matlabNEVlib10a which is available 
-%  on the web, and cannot be run without writeNEVfield.m.
+%  The original function is part of the matlabNEVlib10a and cannot be run 
+%  without writeNEVfield.m.
 %
 % CATEGORY:
 %  NEV Tools
@@ -62,15 +62,16 @@
 %
 % EXAMPLE:
 %  Reassign packets 1 to 10 to unit 1:
-%  * putPackets(nev, [1:10], 'unit', 1);
+%* putPackets(nev, [1:10], 'unit', 1);
 %  Change waveforms of the 3rd and 7th packet to a linear line and a
 %  random waveform respectively:
-%  * putPackets(nev, [3 7], ‘waveform’,[1:60; 40*rand(1,60)])
+%* putPackets(nev, [3 7], ‘waveform’,[1:60; 40*rand(1,60)])
 %
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
 %  getPackets.m, <A>writeNEVfield</A>
 %
+%-
 
 function [fieldData, index] = putPackets(nevObject, index, field, data);
 

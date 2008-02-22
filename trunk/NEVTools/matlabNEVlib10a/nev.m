@@ -16,7 +16,7 @@
 % MATLAB support function.
 %
 % DESCRIPTION:
-%This is the constructor for the nev class based on the nev specification 2.0. This is a 
+% This is the constructor for the nev class based on the nev specification 2.0. This is a 
 % MATLAB support function.
 %
 % CATEGORY:
@@ -50,6 +50,8 @@
 %  Specification for the NEV file formats NEVspc20.pdf
 %  <A>openNEV</A>
 %
+%-
+
 function A = nev(B);
 
 if nargin == 0,

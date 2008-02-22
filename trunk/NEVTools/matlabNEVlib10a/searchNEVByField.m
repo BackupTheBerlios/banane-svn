@@ -27,8 +27,8 @@
 %
 % SYNTAX:
 %* [retVal, indices] = searchNEVByField(nevObject, criteria, startIndex,
-%stopIndex)
-% * [retVal, indices] = searchNEVByField(nevObject, criteria, [startIndex =
+% stopIndex)
+%* [retVal, indices] = searchNEVByField(nevObject, criteria, [startIndex =
 % 1], [stopIndex = inf])
 % 
 %
@@ -61,8 +61,9 @@
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
 %  <A>getPackets</A>, Specification for the NEV file formats NEVspc20.pdf
-% <A>scanNEV</A>, <A>toStamp</A>,
-%
+% 
+%-
+
 function [retVal, indices] = searchNEVByField(nevObject, criteria, startIndex, stopIndex)
 
 if nargin < 3, startIndex = 1; stopIndex = nevObject.FileInfo.packetCount; end;

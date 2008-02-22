@@ -50,6 +50,7 @@
 %  Specification for the NEV file formats NEVspc20.pdf
 %  <A>lastStim</A>
 %
+%-
 function result = lastSpike(nevObject);
 
 try,

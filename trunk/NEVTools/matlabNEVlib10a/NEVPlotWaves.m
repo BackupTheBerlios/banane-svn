@@ -15,7 +15,7 @@
 %  Used to plot the waveforms present in a NEV file.
 %
 % DESCRIPTION:
-%Used to plot the waveforms present in a NEV file. Each subplot is a different
+% Used to plot the waveforms present in a NEV file. Each subplot is a different
 % electrode.
 %
 % CATEGORY:
@@ -23,7 +23,7 @@
 %
 % SYNTAX:
 %* result = NEVPlotWaves(filename, Nwaves, varargin);
-% * result = NEVPlotWaves(filename, numberWavforms[100], [BW], [display
+%* result = NEVPlotWaves(filename, numberWavforms[100], [BW], [display
 % format]);
 % 
 %
@@ -56,7 +56,7 @@
 %  matlabNEVlib10a, Readme.doc
 %  Specification for the NEV file formats NEVspc20.pdf
 %  
-%
+%-
 function result = NEVPlotWaves(filename, Nwaves, varargin);
 
 

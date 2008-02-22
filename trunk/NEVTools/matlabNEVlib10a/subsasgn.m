@@ -47,7 +47,7 @@
 %  matlabNEVlib10a, Readme.doc
 %  <A>searchNEV</A>, Specification for the NEV file formats NEVspc20.pdf
 %
-%
+%-
 function A = subsasgn(A, S, B);
 
 CRLF = strcat(char(13), '-->');

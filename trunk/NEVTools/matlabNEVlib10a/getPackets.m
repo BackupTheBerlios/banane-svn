@@ -57,7 +57,7 @@
 %  matlabNEVlib10a, Readme.doc
 %  Specification for the NEV file formats NEVspc20.pdf
 %  <A>putpackets</A>
-%
+%-
 function [packets, index] = getPackets(nevObject, index, field);
 
 if ~exist('field', 'var'), field = []; end;

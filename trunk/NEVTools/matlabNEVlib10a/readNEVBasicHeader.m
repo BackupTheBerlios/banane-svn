@@ -29,7 +29,7 @@
 % 
 %
 % INPUTS:
-%--
+% --
 %
 % OPTIONAL INPUTS:
 %  --
@@ -48,7 +48,7 @@
 %  matlabNEVlib10a, Readme.doc
 %  <A>openNEV</A>, Specification for the NEV file formats NEVspc20.pdf
 %
-%
+%-
 function A = readNEVBasicHeader(fid);
 
 fseek(fid, 0, 'bof');

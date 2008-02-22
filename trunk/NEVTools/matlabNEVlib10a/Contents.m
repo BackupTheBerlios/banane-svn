@@ -43,7 +43,7 @@
 % 
 %
 % INPUTS:
-%--
+% --
 %
 % OPTIONAL INPUTS:
 %  --
@@ -64,5 +64,5 @@
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
 %  Specification for the NEV file formats NEVspc20.pdf
-%
+%-
 

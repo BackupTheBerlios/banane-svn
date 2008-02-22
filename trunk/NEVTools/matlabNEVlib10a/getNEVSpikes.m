@@ -47,14 +47,14 @@
 %
 % EXAMPLE:
 % Get Spike Data for the NEV-object 'Neu': 
-%  * getNEVSpikes(Neu);
+%* getNEVSpikes(Neu);
 % Information can be read by using:
-% * Neu.SpikeData
+%* Neu.SpikeData
 %
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
 %  Specification for the NEV file formats NEVspc20.pdf
-%
+%-
 
 
 function spikes = getNEVSpikes(nevObject, maxPackets, packetStart);

@@ -46,14 +46,15 @@
 %
 % EXAMPLE:
 % Get Stimulus Data for the NEV-object 'Neu': 
-%  * getNEVStimulus(Neu);
+%* getNEVStimulus(Neu);
 % Information can be read by using:
-% * Neu.StimulusData
+%* Neu.StimulusData
 %
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
 %  Specification for the NEV file formats NEVspc20.pdf
 %
+%-
 
 function stimulus = getNEVStimulus(nevObject, maxPackets, packetStart);
 

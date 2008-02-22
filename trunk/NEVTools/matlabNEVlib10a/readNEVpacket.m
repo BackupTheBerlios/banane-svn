@@ -26,11 +26,11 @@
 %
 % SYNTAX:
 %* packet = readNEVpacket(fid, byteOffsets, packetLength, bytesPerSample,
-%[field]);
+% [field]);
 % 
 %
 % INPUTS:
-%--
+% --
 %
 % OPTIONAL INPUTS:
 %  --
@@ -49,7 +49,8 @@
 %  matlabNEVlib10a, Readme.doc
 %  <A>readNEVfield</A>, Specification for the NEV file formats NEVspc20.pdf
 %
-%
+%-
+
 function packet = readNEVpacket(fid, byteOffsets, packetLength, bytesPerSample, field);
 
 

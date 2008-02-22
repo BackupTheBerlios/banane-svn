@@ -45,7 +45,8 @@
 %  matlabNEVlib10a, Readme.doc
 %  <A>subsarg</A>, Specification for the NEV file formats NEVspc20.pdf
 %
-%
+%-
+
 function Z = subsref(A, S);
 
 try,

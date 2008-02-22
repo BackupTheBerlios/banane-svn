@@ -3,7 +3,7 @@
 %  writeNEVfield()
 %
 % VERSION:
-%  $Id: writeNEVfield.m 2008-01-22 13:47:22Z version 2 furche $
+%  $Id: writeNEVfield.m 2008-01-22 version 2 furche $
 %
 % AUTHOR:
 %  E. Maynard 
@@ -57,16 +57,13 @@
 %
 % EXAMPLE:
 %  Only to use while executing putPackets:
-%  * writeNEVfield(nevObject, index, field, data);
+%* writeNEVfield(nevObject, index, field, data);
 %
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
 %  <A>putpackets</A>, Specification for the NEV file formats
 %
-
-
-
-
+%-
 
 
 function count = writeNEVfield(nevObject, indices, field, data);

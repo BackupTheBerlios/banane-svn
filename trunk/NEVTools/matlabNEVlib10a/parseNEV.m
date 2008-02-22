@@ -1,16 +1,56 @@
-function result = parseNEV(filename, breakPoints);
-%function result = parseNEV(filename, [fraction = 0.5] OR [time]);
+%+
+% NAME:
+%  parseNEV()
 %
+% VERSION:
+%  $Id: parseNEV.m 10/03/00  version 1.2 E. Maynard $
+%
+% AUTHOR:
+%  E. Maynard 
+%
+% DATE CREATED:
+%  10/03/00
+%
+% AIM:
+%  Used to parse a large NEV file into smaller files that can be later
+% remerged.
+%
+% DESCRIPTION:
 % Used to parse a large NEV file into smaller files that can be later
 % remerged.
-% Inputs:
-%	filename - string filename for the NEV file to use
-%	fraction = breakpoints expressed as a percentage (0.0 - 1.0) of the packets
-%	time  = breakpoints expressed in seconds (must be > 1.0 seconds)
 %
-% Written by: E. Maynard
-% Version : 1.2 Date: 10/3/00
-% Copyright: 2000 Bionic Technologies, Inc.
+% CATEGORY:
+%  NEV Tools
+%
+% SYNTAX:
+%* result = parseNEV(filename, breakPoints);
+% 
+%
+% INPUTS:
+%  filename:: string filename for the NEV file to use
+%  fraction:: breakpoints expressed as a percentage (0.0 - 1.0) of the packets
+%  time:: breakpoints expressed in seconds (must be > 1.0 seconds)
+%
+% OPTIONAL INPUTS:
+%  --
+%
+% OUTPUTS:
+% --
+%
+%
+%
+% PROCEDURE:
+%  Since this is an adopted routine, its working is not exactly known.
+%
+% EXAMPLE:
+% --
+%
+% SEE ALSO:
+%  matlabNEVlib10a, Readme.doc
+%  <A>openNEV</A>, Specification for the NEV file formats NEVspc20.pdf
+%
+%-
+function result = parseNEV(filename, breakPoints);
 
 if ~exist('breakPoints'), breakPoints = 0.5; end;
 breakPoints = [0 breakPoints(:)' inf];

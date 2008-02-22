@@ -40,7 +40,7 @@
 %  nevVariable:: Matlab NEV object for subsequent operations
 %   A structure array with various tags that contain the
 %  information within the NEV file. Most notably:
-%*|-.FileInfo -> additional information about the NEV file
+% |-.FileInfo -> additional information about the NEV file
 %	|-.source -> file path and name for the open NEV file
 % 	|-.packetCount -> number of packets in the NEV file
 % 	|-.fid -> Matlab file pointer to the open NEV file
@@ -59,14 +59,15 @@
 %
 % EXAMPLE:
 % Open the NEV file 'experiment01':
-%  * Neu = openNEV('experiment01.nev');
+%* Neu = openNEV('experiment01.nev');
 % Get information about the number of packets in the file:
-% * Neu.FileInfo.packetCount
+%* Neu.FileInfo.packetCount
 %
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
 %  <A>getNEVSpikes</A>, Specification for the NEV file formats NEVspc20.pdf
 %
+%-
 
 function nevVariable = openNEV(filename);
 
