@@ -57,13 +57,15 @@
 % Generate synthetic waveforms based on channel 54 unit 2 and channel 34
 % unit 1 from the plx-file 'experiment1'. 4000 and 580 waves shall be constructed
 % respectively:
-% * [mu,Waveforms,kurven]=synthwaveforms('experiment1.plx',[54,34],[2,1],[4000,580])
+%* [mu,Waveforms,kurven]=synthwaveforms('experiment1.plx',[54,34],[2,1],[4000,580])
 %
 % SEE ALSO:
 %  ReadingPLXandDDTfilesinmatlab toolbox 
 %  (http://www.plexoninc.com/support/softwaredevkit.html), 
 %  <A>synthwaveforms<A/>
 %
+%-
+
 function [mu,Waveforms,kurven]=synthwaveformsplx(plxdatei,channel,unita,number)
 
 if length(channel)~=length(unita) | length(channel)~=length(number)

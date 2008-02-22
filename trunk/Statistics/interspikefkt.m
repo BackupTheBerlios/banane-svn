@@ -66,6 +66,7 @@
 %  matlabNEVlib10a toolbox, 
 %  <A>interspikefktplx<A/>
 %
+%-
 
 
 function [abstaende,timestamps,index]=interspikefkt(Neu,channel,unita,laenge)

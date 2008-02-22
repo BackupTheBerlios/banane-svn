@@ -58,12 +58,13 @@
 % Generate synthetic waveforms based on channel 54 unit 2 and channel 34
 % unit 1 from the Nev-Object 'Neu'. 4000 and 580 waves shall be constructed
 % respectively:
-% * [mu,Waveforms,kurven,index]=synthwaveforms(Neu,[54,34],[2,1],[4000,580])
+%* [mu,Waveforms,kurven,index]=synthwaveforms(Neu,[54,34],[2,1],[4000,580])
 %
 % SEE ALSO:
 %  matlabNEVlib10a toolbox, 
 %  <A>synthwaveformsplx<A/>
 %
+%-
 
 
 function [mu,Waveforms,kurven,index]=synthwaveforms(Nevdatei,channel,unita,number)

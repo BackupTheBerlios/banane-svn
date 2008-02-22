@@ -69,6 +69,7 @@
 %  (http://www.plexoninc.com/support/softwaredevkit.html), 
 %  <A>interspikefkt<A/>
 %
+%-
 
 function [abstaende,timestamps]=interspikefktplx(Neu,ch,u,laenge)
 
