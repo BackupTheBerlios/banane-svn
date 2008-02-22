@@ -30,7 +30,6 @@
 %
 % SYNTAX:
 %* count = writeNEVfield(nevObject, indices, field, data); 
-% (but not designed to be called alone)
 %
 % INPUTS:
 %	fid:: file pointer to the open NEV file
