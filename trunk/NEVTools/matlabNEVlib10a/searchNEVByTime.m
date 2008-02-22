@@ -3,7 +3,7 @@
 %  searchNEVbyTime()
 %
 % VERSION:
-%  $Id: SearchNEVbyTime.m 2000-09-08 version 1.0 E. Maynard Copyright: 2000 Bionic Technologies, Inc.$
+%  $Id: $
 %
 % AUTHOR:
 %  E. Maynard 
@@ -30,19 +30,15 @@
 % 
 %
 % INPUTS:
-% nevObject: nev object created by openNEV
-%	time: time in seconds
-%
-% OPTIONAL INPUTS:
-%  	--
-% 
+%  nevObject:: nev object created by openNEV
+%  time:: time in seconds
 %
 % OUTPUTS:
-%  if the returned value is a:
-%		fractional value (e.g. 10.5): then the time falls between two packets
-%		single integer: then the packet at index matches the time
-%		list of values: then there are multiple packets that occured at that time
-%		+inf: then time is greater than the maximum packet time
+%  index:: if the returned value is a:<BR>
+%		fractional value (e.g. 10.5): then the time falls between two packets<BR>
+%		single integer: then the packet at index matches the time<BR>
+%		list of values: then there are multiple packets that occured at that time<BR>
+%		+inf: then time is greater than the maximum packet time<BR>
 %		-inf: then time is less than the minimum packet time
 %
 %
@@ -50,7 +46,7 @@
 %  Since this is an adopted routine, its working is not exactly known.
 %
 % EXAMPLE:
-%  --
+%  none
 %
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
