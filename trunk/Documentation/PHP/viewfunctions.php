@@ -38,12 +38,14 @@ function nameaimtable($routines)
   $outstr="<TABLE>";
   while($row = mysql_fetch_array($routines))
     { $rname=$row["name"];
-      $fullname=$row["fullpath"];
-      $anchor="?Page=".$page."&routine=".$fullname;
-      $outstr.="<TR>";
-      $outstr.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-      $outstr.="<TD VALIGN=TOP>".anchorreplace($row["aim"],$webpath);
-      $outstr.="</TR>";
+      if !(empty($rname)) {
+	$fullname=$row["fullpath"];
+	$anchor="?Page=".$page."&routine=".$fullname;
+	$outstr.="<TR>";
+	$outstr.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
+	$outstr.="<TD VALIGN=TOP>".anchorreplace($row["aim"],$webpath);
+	$outstr.="</TR>";
+      }
     }
   $outstr.="</TABLE>";
   return $outstr;
