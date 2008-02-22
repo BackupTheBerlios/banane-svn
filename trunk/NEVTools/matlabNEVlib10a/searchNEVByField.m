@@ -3,7 +3,7 @@
 %  searchNEVbyField()
 %
 % VERSION:
-%  $Id: SearchNEVbyField.m 2000-09-08 version 1.0 E. Maynard Copyright: 2000 Bionic Technologies, Inc.$
+%  $Id: $
 %
 % AUTHOR:
 %  E. Maynard 
@@ -18,18 +18,18 @@
 %
 % DESCRIPTION:
 % Uses a linear search of the NEV file for packets satisfying a set of
-% criteria. NOTES: Times cannot be specified in seconds but must be specified in terms of timeStamps. Valid names
-%	Valid field names are: timeStamp, electrode, unit, waveform(sample Number), dio, bitFlag, analog1, analog2, analog3, analog4, analog5
+% criteria. NOTES: Times cannot be specified in seconds but must be
+% specified in terms of timeStamps. Valid field names are: timeStamp,
+% electrode, unit, waveform(sample Number), dio, bitFlag, analog1,
+% analog2, analog3, analog4, analog5 
 %
 %
 % CATEGORY:
 %  NEV Tools
 %
 % SYNTAX:
-%* [retVal, indices] = searchNEVByField(nevObject, criteria, startIndex,
-% stopIndex)
-%* [retVal, indices] = searchNEVByField(nevObject, criteria, [startIndex =
-% 1], [stopIndex = inf])
+%* [retVal, indices] = searchNEVByField(nevObject, criteria, startIndex, stopIndex)
+%* [retVal, indices] = searchNEVByField(nevObject, criteria, [startIndex = 1], [stopIndex = inf])
 % 
 %
 % INPUTS:
@@ -51,11 +51,16 @@
 %  Since this is an adopted routine, its working is not exactly known.
 %
 % EXAMPLE:
-%  all spikes on electrode 5: A = searchNev(Neu, 'electrode == 5');
-%	all spikes on electrode 5 that are unit 0: A = searchNev(Neu, 'electrode == 5 & unit == 0');
-%	find all spikes on electrode 5 before 1 second: A = searchNev(Neu, 'electrode == 5 & timeStamp < 30000');
-%	find all spikes on electrodes 1 and 5: A = searchNev(Neu, 'ismember(electrode, [1 5])');
-%	all stimulus packets with a dio value of 129: A = searchNev(Neu, 'dio == 129');
+%  all spikes on electrode 5: 
+%*  A = searchNev(Neu, 'electrode == 5');
+%  all spikes on electrode 5 that are unit 0: 
+%*  A = searchNev(Neu, 'electrode == 5 & unit == 0');
+%  find all spikes on electrode 5 before 1 second: 
+%*  A = searchNev(Neu, 'electrode == 5 & timeStamp < 30000');
+%  find all spikes on electrodes 1 and 5: 
+%*  A = searchNev(Neu, 'ismember(electrode, [1 5])');
+%  all stimulus packets with a dio value of 129: 
+%*  A = searchNev(Neu, 'dio == 129');
 %
 %
 % SEE ALSO:
