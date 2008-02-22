@@ -1,18 +1,19 @@
 %+
 % NAME:
-%  example_function()
+%  searchNEVbyTime()
 %
 % VERSION:
-%  $Id:$
+%  $Id: $
 %
 % AUTHOR:
-%  J. R. Hacker
+%  E. Maynard 
 %
 % DATE CREATED:
-%  9/2002
+%  08/09/00
 %
 % AIM:
-%  Short description of the routine in a single line.
+%  This function can be used to quickly find the index in the NEV file corresponding to a
+% particular time in seconds.
 %
 % DESCRIPTION:
 %  Detailed description of the routine. The text may contain small HTML
@@ -89,21 +90,6 @@
 
 
 %
-% NAME:
-%  searchNEVbyTime()
-%
-% VERSION:
-%  $Id: $
-%
-% AUTHOR:
-%  E. Maynard 
-%
-% DATE CREATED:
-%  08/09/00
-%
-% AIM:
-%  This function can be used to quickly find the index in the NEV file corresponding to a
-% particular time in seconds.
 %
 %
 % DESCRIPTION:
