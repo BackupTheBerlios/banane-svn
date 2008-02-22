@@ -12,7 +12,7 @@
 %  08/09/00
 %
 % AIM:
-%  Short description of the routine in a single line.
+%  Uses a linear search of the NEV file for packets satisfying a set of criteria.
 %
 % DESCRIPTION:
 %  Uses a linear search of the NEV file for packets satisfying a set of
