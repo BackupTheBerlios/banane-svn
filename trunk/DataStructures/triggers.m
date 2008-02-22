@@ -39,7 +39,7 @@
 %               Compute triggers by combining
 %               the timestamps recorded on the analog channels 1 and
 %               2. This method is suitable for triggers provided by the
-%               standalone light stimulus generator. <BR>
+%               standalone light stimulus generator (lsg). <BR>
 %               '070704-04'|'051123-02'|'051123-10'|'051123-13'
 %               |'051123-14'|'mirror'<BR>
 %               Compute
@@ -49,13 +49,18 @@
 %               mirror control system. The
 %               channel with the larger first trigger interval is
 %               chosen. This choice can be altered manually by setting the
-%               <VAR>forcechannel</VAR> paramter to either 3 or 4.<BR>
+%               <VAR>forcechannel</VAR> parameter to either 3 or 4.<BR>
 %               '070716-15'<BR>
 %               Returns only triggers for the first 6 sweeps of this
 %               particular experiment, since afterwards the acquisition
 %               computer crashed.<BR>
 %               See also comments in the source code for more
 %               possibilities.
+%
+% OPTIONAL INPUTS:
+%  forcechannel:: For the experiments using mirror triggers, this keyword
+%  provides the possibility to manually select either the trigger signals
+%  on channel 3 or 4, in case the routine's automatic choice is wrong. 
 %
 % OUTPUTS:
 %  tr:: Double precision numerical vector of trigger timestamps in units
