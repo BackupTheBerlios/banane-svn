@@ -35,7 +35,7 @@ function anchorreplace($original,$path)
 ## support function 
 function nameaimtable($routines)
 {
-  $outstr="<TABLE cellpadding='40%'>";
+  $outstr="<TABLE cellpadding='40'>";
   while($row = mysql_fetch_array($routines))
     { $rname=$row["name"];
       $fullname=$row["fullpath"];
@@ -126,17 +126,6 @@ switch ($num_rows) {
  default:
    $output.="<H1>search results</H1>";
    $output.=nameaimtable($routines);
-// "<TABLE>";
-//    while($row = mysql_fetch_array($routines))
-//      { $rname=$row["name"];
-//        $fullpath=$row["fullpath"];
-//        $anchor="?routine=".$fullpath;
-//        $output.="<TR>";
-//        $output.="<TD class='left' VALIGN=TOP><A HREF='".$anchor."'>".$rname."</A>";
-//        $output.="<TD VALIGN=TOP>".anchorreplace($row["aim"],$webpath);
-//        $output.="</TR>";
-//      }
-//    $output.="</TABLE>";
 }
 
  return $output;
