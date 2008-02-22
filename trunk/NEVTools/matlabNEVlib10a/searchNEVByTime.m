@@ -17,9 +17,9 @@
 % DESCRIPTION:
 % This function can be used to quickly find the index in the NEV file
 % corresponding to a particular time in seconds. This function should be
-% used instead of the MUCH slower <A>searchNEV</A> for time-based
+% used instead of the MUCH slower searchNEV for time-based
 % inquiries. The results of this search can be used to shorten the search
-% time of <A>searchNEV</A> if the desired packets lay in a time region. 
+% time of searchNEV if the desired packets lay in a time region. 
 %
 % CATEGORY:
 %  NEV Tools
