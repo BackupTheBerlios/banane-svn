@@ -35,7 +35,7 @@ function anchorreplace($original,$path)
 ## support function 
 function nameaimtable($routines)
 {
-  $outstr="<TABLE cellpadding='40'>";
+  $outstr="<TABLE cellspacing='40'>";
   while($row = mysql_fetch_array($routines))
     { $rname=$row["name"];
       $fullname=$row["fullpath"];
