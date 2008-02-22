@@ -12,8 +12,7 @@
 %  8/15/00
 %
 % AIM:
-%  Writes Data to a specified field of the NEV-file. Designed to be
-%  called by putpackets.m
+%  Writes Data to a specified field of the NEV-file. Designed to be called by putpackets.m
 %
 % DESCRIPTION:
 % Reads the entire NEV file and returns the selected field. This function
