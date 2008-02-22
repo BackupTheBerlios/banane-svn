@@ -3,7 +3,7 @@
 %  writeNEVfield()
 %
 % VERSION:
-%  $Id: writeNEVfield.m 2008-01-22 version 2 furche $
+%  $Id: $
 %
 % AUTHOR:
 %  E. Maynard 
@@ -12,7 +12,7 @@
 %  8/15/00
 %
 % AIM:
-%  Writes Data to a specified field of the NEV-file. Designed to be called by putpackets.m
+%  Writes Data to a specified field of the NEV-file.
 %
 % DESCRIPTION:
 % Reads the entire NEV file and returns the selected field. This function
@@ -22,7 +22,7 @@
 % In difference to the original version now also the fields 'waveforms' and
 % 'timestamps' can be changed.
 % The original function is part of the matlabNEVlib10a, and cannot be run 
-% without putPackets.m.
+% without <A>putPackets</A>.
 %
 %
 % CATEGORY:
@@ -32,11 +32,11 @@
 %* count = writeNEVfield(nevObject, indices, field, data); 
 %
 % INPUTS:
-%	fid:: file pointer to the open NEV file
-%	field:: string containing the field to return
-%	offsets:: starting positions of the packets to be read. If a single value then all packets read
-%		starting at that point.
-%	N:: number of packets to read (default = all)
+%  fid:: file pointer to the open NEV file
+%  field:: string containing the field to return
+%  offsets:: starting positions of the packets to be read. If a single value then all packets read
+%  starting at that point.
+%  N:: number of packets to read (default = all)
 %
 % OUTPUTS:
 %  count:: selected field
@@ -51,12 +51,12 @@
 %  Nev-files see specifications for the NEV file format.
 %
 % EXAMPLE:
-%  Only to use while executing putPackets:
+%  Only to use while executing <A>putPackets</A>:
 %* writeNEVfield(nevObject, index, field, data);
 %
 % SEE ALSO:
 %  matlabNEVlib10a, Readme.doc
-%  <A>putpackets</A>, Specification for the NEV file formats
+%  <A>putPackets</A>, Specification for the NEV file formats
 %
 %-
 
