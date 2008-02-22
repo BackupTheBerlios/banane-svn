@@ -12,9 +12,7 @@
 %  08/09/00
 %
 % AIM:
-%  Uses a linear search of the NEV file for packets satisfying a set of
-%  criteria.
-%
+%  Uses a linear search of the NEV file for packets satisfying a set of criteria.
 %
 % DESCRIPTION:
 % Uses a linear search of the NEV file for packets satisfying a set of
