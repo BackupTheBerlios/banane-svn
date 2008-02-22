@@ -12,8 +12,7 @@
 %  08/09/00
 %
 % AIM:
-%  This function can be used to quickly find the index in the NEV file corresponding to a
-% particular time in seconds.
+%  This function can be used to quickly find the index in the NEV file corresponding to a particular time in seconds.
 %
 % DESCRIPTION:
 %  Detailed description of the routine. The text may contain small HTML
