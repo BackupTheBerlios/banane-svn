@@ -59,7 +59,8 @@
 %*  A = searchNev(Neu, 'dio == 129');
 %
 % SEE ALSO:
-%  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
+%  matlabNEVlib10a, Readme.doc
+%  <A>getPackets</A>, Specification for the NEV file formats NEVspc20.pdf
 %-
 
 
