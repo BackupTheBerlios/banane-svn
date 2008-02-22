@@ -15,10 +15,11 @@
 %  Find index in NEV file corresponding to a particular time in seconds.
 %
 % DESCRIPTION:
-% This function can be used to quickly find the index in the NEV file corresponding to a
-% particular time in seconds. This function should be used instead of the MUCH slower searchNEV
-% for time-based inquiries. The results of this search can be used to shorten the search time
-% of searchNEV if the desired packets lay in a time region.
+% This function can be used to quickly find the index in the NEV file
+% corresponding to a particular time in seconds. This function should be
+% used instead of the MUCH slower <A>searchNEV</A> for time-based
+% inquiries. The results of this search can be used to shorten the search
+% time of <A>searchNEV</A> if the desired packets lay in a time region. 
 %
 % CATEGORY:
 %  NEV Tools
@@ -53,33 +54,33 @@
 
 function index = searchNEVByTime(nevObject, time)
 
-timeIndex = fix(time .* nevObject.HeaderBasic.timeResolution);
-if timeIndex > getPackets(nevObject, nevObject.FileInfo.packetCount, 'timeStamp'), index = inf; return; end;
-if timeIndex == getPackets(nevObject, nevObject.FileInfo.packetCount, 'timeStamp'), index = nevObject.FileInfo.packetCount; return; end;
-if timeIndex < getPackets(nevObject, 1, 'timeStamp'), index = -inf; return; end;
-if timeIndex == getPackets(nevObject, 1, 'timeStamp'), index = 1; return; end;
+  timeIndex = fix(time .* nevObject.HeaderBasic.timeResolution);
+  if timeIndex > getPackets(nevObject, nevObject.FileInfo.packetCount, 'timeStamp'), index = inf; return; end;
+  if timeIndex == getPackets(nevObject, nevObject.FileInfo.packetCount, 'timeStamp'), index = nevObject.FileInfo.packetCount; return; end;
+  if timeIndex < getPackets(nevObject, 1, 'timeStamp'), index = -inf; return; end;
+  if timeIndex == getPackets(nevObject, 1, 'timeStamp'), index = 1; return; end;
 
-left = 1;
-right = nevObject.FileInfo.packetCount;
-while 1,
-	if (right - left) <= 1,
-		index = (left + right) / 2;
-		return;
-	else,
-		mid = floor((left + right) / 2);
-		t = getPackets(nevObject, mid, 'timeStamp');
-%		disp([left right mid t]);
-		if t == timeIndex,
-			I = max([1 mid-100]):min([mid+100 nevObject.FileInfo.packetCount]);
-			t = getPackets(nevObject, I, 'timeStamp');
-			index = I(t == timeIndex);
-			return;
-		else
-			if t < timeIndex,
-				left = mid;
-			else
-				right = mid;
-			end
-		end
-	end
-end
+  left = 1;
+  right = nevObject.FileInfo.packetCount;
+  while 1,
+    if (right - left) <= 1,
+      index = (left + right) / 2;
+      return;
+    else,
+      mid = floor((left + right) / 2);
+      t = getPackets(nevObject, mid, 'timeStamp');
+      %		disp([left right mid t]);
+      if t == timeIndex,
+        I = max([1 mid-100]):min([mid+100 nevObject.FileInfo.packetCount]);
+        t = getPackets(nevObject, I, 'timeStamp');
+        index = I(t == timeIndex);
+        return;
+      else
+        if t < timeIndex,
+          left = mid;
+        else
+          right = mid;
+        end
+      end
+    end
+  end
