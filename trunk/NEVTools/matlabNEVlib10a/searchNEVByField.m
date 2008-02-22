@@ -33,24 +33,30 @@
 %  criteria:: a string which evaluates to a logical expression (see examples following).
 %
 % OPTIONAL INPUTS:
-%  	startIndex:: specify a starting index for the search
-%	stopIndex:: specify a stopping index for search.
+%  startIndex:: specify a starting index for the search
+%  stopIndex:: specify a stopping index for search.
 %
 % OUTPUTS:
-%  result:: The result of the routine.
+%  retVal:: 1 or 0 indicating whether the searched packet satisfield the criteria
+%  indices:: indices of packets searched
 %
 % RESTRICTIONS:
 %  Optional section: Is there anything known that could cause problems?
 %
 % PROCEDURE:
-%  Short description of the algorithm.
+%  Since this is an adopted routine, its working is not exactly known.
 %
 % EXAMPLE:
-%  Indicate example lines with * as the first character. These lines
-%  will be typeset in a fixed width font. Indicate user input with >>. 
-%* >> data=example_function(23,5)
-%* ans =
-%*   28
+%  all spikes on electrode 5: 
+%*  A = searchNev(Neu, 'electrode == 5');
+%  all spikes on electrode 5 that are unit 0: 
+%*  A = searchNev(Neu, 'electrode == 5 & unit == 0');
+%  find all spikes on electrode 5 before 1 second: 
+%*  A = searchNev(Neu, 'electrode == 5 & timeStamp < 30000');
+%  find all spikes on electrodes 1 and 5: 
+%*  A = searchNev(Neu, 'ismember(electrode, [1 5])');
+%  all stimulus packets with a dio value of 129: 
+%*  A = searchNev(Neu, 'dio == 129');
 %
 % SEE ALSO:
 %  Optional section: Mention related or required files here. Banane routines may be refenced as anchors <A>loadNEV</A>. 
