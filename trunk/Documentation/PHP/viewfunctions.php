@@ -38,7 +38,7 @@ function nameaimtable($routines)
   $outstr="<TABLE>";
   while($row = mysql_fetch_array($routines))
     { $rname=$row["name"];
-      if !(empty($rname)) {
+      if (!empty($rname)) {
 	$fullname=$row["fullpath"];
 	$anchor="?Page=".$page."&routine=".$fullname;
 	$outstr.="<TR>";
