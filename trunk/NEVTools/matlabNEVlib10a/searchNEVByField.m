@@ -22,28 +22,11 @@
 %  analog2, analog3, analog4, analog5.  
 %
 % CATEGORY:
-%  At present, there are the following possibilities:<BR>
-%   - DataStructures<BR>
-%   - Documentation<BR>
-%   - NEV Tools<BR>
-%   - Support Routines<BR>
-%   - Arrays<BR>
-%   - Classes<BR>
-%   - Misc<BR>
-%   - Strings<BR>
-%   - Receptive Fields<BR>
-%   - Signals<BR>
-%   - Statistics<BR>
-%  Others may be invented, with corresponding subdirectories in the
-%  BANANE directory tree. For example:<BR>
-%   - DataStorage<BR>
-%   - Demonstration<BR>
-%   - Graphic<BR>
-%   - Help<BR>
-%   - Simulation<BR>
+%  NEV Tools
 %
 % SYNTAX:
-%* result = example_function(arg1, arg2 [,'optarg1',value][,'optarg2',value]); 
+%* [retVal, indices] = searchNEVByField(nevObject, criteria, startIndex, stopIndex)
+%* [retVal, indices] = searchNEVByField(nevObject, criteria, [startIndex = 1], [stopIndex = inf])
 %
 % INPUTS:
 %  arg1:: First argument of the function call. Indicate variable type and
